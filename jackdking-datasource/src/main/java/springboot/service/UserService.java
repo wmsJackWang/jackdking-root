@@ -27,7 +27,7 @@ public class UserService implements SelfBeanProxyAware{
     public void select1() {
         User user = userMapper.selectByPrimaryKey(10);
         System.out.println("MASTER:"+user.getId() + "--" + user.getName() + "==" + user.getGender());
-        select2();
+        this.select2();
     } 
 
     @DBType(DataSourceType.SLAVE)

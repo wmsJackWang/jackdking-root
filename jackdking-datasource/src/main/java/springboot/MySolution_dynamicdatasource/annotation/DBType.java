@@ -11,4 +11,5 @@ import springboot.MySolution_RWseparation.mybatis.dynamicdatasource.DataSourceTy
 @Target(ElementType.METHOD)
 public @interface DBType {
     DataSourceType value() default DataSourceType.MASTER;
+    boolean resetDatasourceType() default false;
 }

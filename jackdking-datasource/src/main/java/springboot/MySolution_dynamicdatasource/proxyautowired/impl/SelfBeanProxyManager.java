@@ -25,6 +25,7 @@ public class SelfBeanProxyManager implements ApplicationContextAware, ProxyAutow
 	@Override
 	public void onPrepare() {
 		// TODO Auto-generated method stub
+		// 从 bean容器中 获取对象，如果对象存在代理对象，则容器返回的是代理对象
 		Map<String, SelfBeanProxyAware> proxyAwares = applicationContext.getBeansOfType(SelfBeanProxyAware.class);
         for (SelfBeanProxyAware proxyAware : proxyAwares.values()) {
             proxyAware.setSelBeanfProxy(proxyAware);
