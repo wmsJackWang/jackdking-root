@@ -1,17 +1,38 @@
 -------------------------------------------------------------------------------
 Test set: springboot.DynamicDatasourceMethodApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.149 s <<< FAILURE! - in springboot.DynamicDatasourceMethodApplicationTests
-testInsert(springboot.DynamicDatasourceMethodApplicationTests)  Time elapsed: 0.107 s  <<< ERROR!
-org.springframework.dao.DuplicateKeyException: 
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in springboot.DynamicDatasourceMethodApplicationTests
+testInsert(springboot.DynamicDatasourceMethodApplicationTests)  Time elapsed: 0 s  <<< ERROR!
+org.mybatis.spring.MyBatisSystemException: 
+nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.lang.NullPointerException
+### Cause: java.lang.NullPointerException
+	at springboot.DynamicDatasourceMethodApplicationTests.testInsert(DynamicDatasourceMethodApplicationTests.java:37)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
 
-### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '11' for key 'PRIMARY'
-### The error may involve springboot.dao.UserMapper.insert-Inline
-### The error occurred while setting parameters
-### SQL: insert into user (id, name, gender       )     values (?, ?, ?       )
-### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '11' for key 'PRIMARY'
-; Duplicate entry '11' for key 'PRIMARY'; nested exception is java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '11' for key 'PRIMARY'
+### Error updating database.  Cause: java.lang.NullPointerException
+### Cause: java.lang.NullPointerException
 	at springboot.DynamicDatasourceMethodApplicationTests.testInsert(DynamicDatasourceMethodApplicationTests.java:37)
-Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '11' for key 'PRIMARY'
+Caused by: java.lang.NullPointerException
 	at springboot.DynamicDatasourceMethodApplicationTests.testInsert(DynamicDatasourceMethodApplicationTests.java:37)
+
+testSelect(springboot.DynamicDatasourceMethodApplicationTests)  Time elapsed: 0 s  <<< ERROR!
+org.mybatis.spring.MyBatisSystemException: 
+nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: java.lang.NullPointerException
+### The error may exist in file [C:\Users\10421\Documents\GitHub\jackdking-root\jackdking-datasource\target\classes\mapper\UserMapper.xml]
+### The error may involve springboot.dao.UserMapper.selectByPrimaryKey
+### The error occurred while executing a query
+### Cause: java.lang.NullPointerException
+	at springboot.DynamicDatasourceMethodApplicationTests.testSelect(DynamicDatasourceMethodApplicationTests.java:27)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+
+### Error querying database.  Cause: java.lang.NullPointerException
+### The error may exist in file [C:\Users\10421\Documents\GitHub\jackdking-root\jackdking-datasource\target\classes\mapper\UserMapper.xml]
+### The error may involve springboot.dao.UserMapper.selectByPrimaryKey
+### The error occurred while executing a query
+### Cause: java.lang.NullPointerException
+	at springboot.DynamicDatasourceMethodApplicationTests.testSelect(DynamicDatasourceMethodApplicationTests.java:27)
+Caused by: java.lang.NullPointerException
+	at springboot.DynamicDatasourceMethodApplicationTests.testSelect(DynamicDatasourceMethodApplicationTests.java:27)
 

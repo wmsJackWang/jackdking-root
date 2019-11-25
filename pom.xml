@@ -16,6 +16,8 @@
     <module>jackdking-datasource</module> 
     <module>jackdking-bigfileupload</module>
     <module>jackdking-activemq</module>
+    <module>jackdking-redissioncluster</module>
+    <module>jackdking-common</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
