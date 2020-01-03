@@ -1,13 +1,13 @@
 package springboot.service;
 
+import org.jackdking.core.bean.User;
+import org.jackdking.core.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import springboot.MySolution_RWseparation.mybatis.dynamicdatasource.DataSourceType;
 import springboot.MySolution_dynamicdatasource.annotation.DBType;
 import springboot.MySolution_dynamicdatasource.proxyautowired.SelfBeanProxyAware;
-import springboot.bean.User;
-import springboot.dao.UserMapper;
 
 @Service
 public class UserService2 implements SelfBeanProxyAware{

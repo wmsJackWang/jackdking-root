@@ -1,12 +1,13 @@
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_RWseparation\mybatis\dynamicdatasource\RwSeparateDataSourceAspect.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_RWseparation\mybatis\config\MyBatisConfig.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\proxyautowired\ProxyAutowiredPlugin.java
-D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\proxyautowired\SelfBeanProxyListener.java
-D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\bean\User.java
-D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\dao\UserMapper.java
-D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\proxyautowired\SelfBeanProxyManager.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\threadlocalsample\Sample.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\service\UserService.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\threadlocalsample\Printor.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\threadlocalsample\ThreadLocalSample.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_RWseparation\mybatis\dynamicdatasource\JDKingDynamicDataSource.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\proxyautowired\impl\SelfBeanProxyListener.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\proxyautowired\impl\SelfBeanProxyManager.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_RWseparation\mybatis\dynamicdatasource\DynamicDataSourceHolder.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_RWseparation\mybatis\config\DynamicDataSourceConfig.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\annotation\DBType.java
@@ -14,3 +15,4 @@ D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\spri
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\aspect\JDKingDynamicDataSourceAspect.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\JackDKingDataSource.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\MySolution_dynamicdatasource\proxyautowired\SelfBeanProxyAware.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-datasource\src\main\java\springboot\service\UserService2.java

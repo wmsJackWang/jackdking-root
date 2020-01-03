@@ -1,0 +1,3 @@
+org\jackdking\core\bean\User.class
+org\jackdking\core\dao\UserMapper.class
+org\jackdking\core\common\JdkApplicationContext.class
