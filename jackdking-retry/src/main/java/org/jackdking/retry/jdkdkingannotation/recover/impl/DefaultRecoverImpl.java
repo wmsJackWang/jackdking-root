@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-@Service("DefaultRecoverImpl")
+@Service(value="DefaultRecoverImpl")
 public class DefaultRecoverImpl implements Recover{
 	
 	private static final Logger log = LoggerFactory.getLogger(DefaultRecoverImpl.class);
