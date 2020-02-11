@@ -12,13 +12,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<artifactId>spring-boot-starter-parent</artifactId>
 	<version>2.1.0.RELEASE</version>
 	<relativePath/> 
-  </parent>
+  </parent> 
   <modules>
     <module>jackdking-datasource</module> 
     <module>jackdking-bigfileupload</module>
     <module>jackdking-activemq</module>
     <module>jackdking-redissioncluster</module>
     <module>jackdking-common</module>
+    <module>jackdking-retry</module>
+    <module>jackdking-core</module>
+    <module>jackdking-redistemplate</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
@@ -52,13 +55,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter-web</artifactId>
 	    </dependency>
-
-
+ 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<scope>provide</scope>
 		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-data-redis</artifactId> -->
+<!-- 		</dependency> -->
 	</dependencies>
 	
 	<!-- 子模块选择继承或者不继承 -->
@@ -81,54 +88,36 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	            <artifactId>aspectjweaver</artifactId>
 	            <version>1.8.7</version>
         	</dependency>
-        </dependencies>
+        	
+        	<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.37</version>
+			</dependency> 
+        </dependencies> 
+	
 	</dependencyManagement>
 	
-<!-- 	<build> -->
-<!-- 	    <plugins> -->
-<!-- 	        <plugin> -->
-<!-- 	            <groupId>org.apache.maven.plugins</groupId> -->
-<!-- 	            <artifactId>maven-compiler-plugin</artifactId> -->
-<!-- 	            <version>3.1</version> -->
-<!-- 	            <configuration> -->
-<!-- 	                <source>1.8</source> -->
-<!-- 	                <target>1.8</target> -->
-<!-- 	            </configuration> -->
-<!-- 	        </plugin> -->
-<!-- 	    </plugins> -->
-<!-- 	</build> -->
-
-
-
-
-	
-	<!-- SpringBoot应用的打包插件 -->
 	<build>
-	    <plugins>
-	        <plugin>
-	            <groupId>org.springframework.boot</groupId>
-	            <artifactId>spring-boot-maven-plugin</artifactId>
-	        </plugin>
-	    </plugins>
-	</build> 
-
-<!-- 打包成jar包 -->
-<!--  	<build> -->
-<!--         <plugins> -->
-<!--             <plugin> -->
-<!--                 <groupId>org.springframework.boot</groupId> -->
-<!--                 <artifactId>spring-boot-maven-plugin</artifactId> -->
-<!--                 <executions> -->
-<!--                     <execution> -->
-<!--                         <goals> -->
-<!-- repackage：创建一个自动可执行的jar或war文件。它可以替换常规的artifact，或者用一个单独的classifier附属在maven构建的生命周期中。 -->
-<!--                             <goal>repackage</goal> -->
-<!--                         </goals> -->
-<!--                     </execution> -->
-<!--                 </executions> -->
-<!--             </plugin> -->
-<!--         </plugins> -->
-<!-- 	</build> -->
-
-
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+<!--            在parent标签后面就跟了java版本信息         <java.version>1.8</java.version> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>    <!--默认关掉单元测试 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -29,12 +29,12 @@ public class NormalMessageListener implements MessageListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			TimeUnit.MILLISECONDS.sleep(300);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			TimeUnit.MILLISECONDS.sleep(300);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		log.info("== receive message :" + msgText); 
 	}
 

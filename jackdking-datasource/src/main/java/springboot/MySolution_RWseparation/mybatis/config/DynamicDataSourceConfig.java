@@ -1,11 +1,9 @@
 package springboot.MySolution_RWseparation.mybatis.config;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;

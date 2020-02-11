@@ -13,4 +13,25 @@ public class LoginController {
     public String login() {
         return "demo";
     }
+    
+    @RequestMapping(value = "/b" , method = RequestMethod.GET)
+    public String bootstrap() {
+        return "demoq";
+    }
+    @RequestMapping(value = "/tab_first" , method = RequestMethod.GET)
+    public String first() {
+        return "tab_first";
+    }
+    @RequestMapping(value = "/tab_second" , method = RequestMethod.GET)
+    public String second() {
+        return "tab_second";
+    }
+    @RequestMapping(value = "/tab_third" , method = RequestMethod.GET)
+    public String third() {
+        return "tab_third";
+    }
+    @RequestMapping(value = "/tab_content" , method = RequestMethod.GET)
+    public String content() {
+        return "tab_content";
+    }
 }
