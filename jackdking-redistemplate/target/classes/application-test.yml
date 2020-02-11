@@ -1,0 +1,61 @@
+spring:
+    master:
+        datasource: 
+            driverClassName: oracle.jdbc.driver.OracleDriver
+            url: jdbc:oracle:thin:@10.16.40.152:1521:sohupay
+            username: WALLET
+            password: JdbcDZNauX5Z
+            #连接池的配置信息
+            initialSize: 3
+            minIdle: 30
+            maxActive: 30
+            maxWait: 60000
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: SELECT 1 FROM DUAL
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxPoolPreparedStatementPerConnectionSize: 20
+    redis: 
+        database: 0 
+        #host: 192.168.64.224 
+        #host: 192.168.0.101 
+        #password: a*#sIYn$iP#Rvx&*rEdIs$%^%z 
+        host: mpt.zw.redis.sohucs.com
+        password: fda86f1d38a542f6b05cb68bd00c9606 
+        port: 22060 
+        #port: 6479 
+        #port: 6379 
+        pool: 
+            max-idle: 100 
+            min-idle: 100 
+            max-active: 100     
+renewal: 
+        status: start
+        keys: redpacket_renewal_key
+        time: 30
+        step: 5
+redpacket: 
+        batch: 100
+        waitTime: 5000
+        testTime: 5000
+        testWaitTime: 5000
+block: 
+     queue: 
+        corepoolsize: 30
+        maxpoolsize: 30
+        allow: true 
+        keepalivetime: 60
+        queuecapacity: 60
+#javamelody
+#    init-parameters: 
+#        log: true 
+#        authorized-users: wallet:abc123456 
+#        storage-directory: ${log.path.prefix}/javamelody 
+#        monitoring-path: /see 
+stats: 
+    projectName: wallet-redservice.test
+    ip: 10.11.152.59
+    port: 8125

@@ -20,5 +20,14 @@
 	      <version>3.8.1</version>
 	      <scope>test</scope>
 	    </dependency>
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-redis</artifactId>
+		</dependency>
+ 
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		</dependency>
 	  </dependencies>
 </project>

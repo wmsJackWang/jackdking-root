@@ -1,3 +1,5 @@
 org\jackdking\core\bean\User.class
+org\jackdking\core\config\RedisConfig.class
+org\jackdking\core\serializer\DefaultStrSerializer.class
 org\jackdking\core\dao\UserMapper.class
 org\jackdking\core\common\JdkApplicationContext.class

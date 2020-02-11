@@ -1,3 +1,5 @@
 D:\tool\eclipse\workspace\jackdking-root\jackdking-core\src\main\java\org\jackdking\core\bean\User.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-core\src\main\java\org\jackdking\core\common\JdkApplicationContext.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-core\src\main\java\org\jackdking\core\serializer\DefaultStrSerializer.java
+D:\tool\eclipse\workspace\jackdking-root\jackdking-core\src\main\java\org\jackdking\core\config\RedisConfig.java
 D:\tool\eclipse\workspace\jackdking-root\jackdking-core\src\main\java\org\jackdking\core\dao\UserMapper.java
