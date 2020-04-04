@@ -73,7 +73,7 @@ public class RedisTest {
     @Test
     public void testObjectSerializerRedisTemplate() {
     	
-    	System.out.println("======获取hash的所有值==============================");
+    	System.out.println("======获取hash的所有值================================================");
     	//hash数据结构 redis 的API
         Map<String, Object> properties = new HashMap<>();
         properties.put("123", "hello");
@@ -156,7 +156,7 @@ public class RedisTest {
         System.out.println("删除后: " + deleteAfter);
         
         
-        System.out.println("======对redis的list结构进行操作======");
+        System.out.println("======对redis的list结构进行操作================================================");
         System.out.println("是否存在list队列: "+objectSerializerRedisTemplate.hasKey(object_pre+"list"));
         if(objectSerializerRedisTemplate.hasKey(object_pre+"list"))
         {

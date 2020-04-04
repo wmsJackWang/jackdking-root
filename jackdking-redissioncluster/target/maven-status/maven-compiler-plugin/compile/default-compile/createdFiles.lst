@@ -1,0 +1,8 @@
+org\jackdking\redissioncluster\conf\RedisProperties.class
+org\jackdking\redissioncluster\conf\RedisClusterProperties.class
+org\jackdking\redissioncluster\conf\RedisSingleProperties.class
+org\jackdking\redissioncluster\conf\CacheConfiguration.class
+org\jackdking\redissioncluster\conf\CacheConfiguration$RedissonSingleClientConfiguration.class
+org\jackdking\redissioncluster\conf\RedisSentinelProperties.class
+org\jackdking\redissioncluster\RedissionCluster.class
+org\jackdking\redissioncluster\conf\RedisPoolProperties.class

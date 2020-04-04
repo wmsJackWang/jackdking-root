@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "datasource.master",
+      "type": "javax.sql.DataSource",
+      "sourceType": "springboot.MySolution_RWseparation.mybatis.config.DynamicDataSourceConfig",
+      "sourceMethod": "masterDataSource()"
+    },
+    {
+      "name": "datasource.slave",
+      "type": "javax.sql.DataSource",
+      "sourceType": "springboot.MySolution_RWseparation.mybatis.config.DynamicDataSourceConfig",
+      "sourceMethod": "slaveDataSource()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
