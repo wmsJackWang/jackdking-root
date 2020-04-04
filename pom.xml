@@ -22,7 +22,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <module>jackdking-retry</module>
     <module>jackdking-core</module>
     <module>jackdking-redistemplate</module>
-  </modules>
+  <module>jackdking-swagger</module>
+</modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
 <!-- 	<dependencyManagement> -->
