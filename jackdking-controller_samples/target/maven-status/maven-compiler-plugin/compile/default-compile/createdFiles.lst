@@ -1,2 +1,3 @@
 org\jackdking\controller_samples\ControllerSample.class
+org\jackdking\controller_samples\controller\RedirectTestController.class
 org\jackdking\controller_samples\controller\SampleOneController.class
