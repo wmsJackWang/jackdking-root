@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.jackdking.controller_samples.AppTest" time="0.002" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="org.jackdking.controller_samples.AppTest" time="0.007" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\software_envronment\java\jdk1.8.0_91\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\10421\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf596829170868605958.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\10421\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8725663975126684289.tmp"/>
     <property name="sun.jnu.encoding" value="GBK"/>
     <property name="rcsCfg_dir" value="D:/tool/eclipse/workspace/wallet-junior/src/main/resources/rcsCfg-test.properties"/>
     <property name="java.library.path" value="C:\software_envronment\java\jdk1.8.0_91\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin/server;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/bin;C:/software_envronment/java/jdk1.8.0_91/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\software_envronment\java\jdk1.8.0_91\bin;C:\software_envronment\java\jdk1.8.0_91\jre\bin;C:\software_envronment\mysql\mysql-8.0.11-winx64\bin;C:\WINDOWS\System32\OpenSSH\;D:\apache-jmeter-5.1.1\bin;C:\software_envronment\Redis-x64-3.0.504;D:\redis\;C:\software_envronment\python\Scripts\;C:\software_envronment\python\;C:\Users\10421\AppData\Local\Microsoft\WindowsApps;;D:\电脑软件\ssh;C:\Users\10421\eclipse\java-oxygen\eclipse;;."/>
@@ -63,5 +63,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testApp" classname="org.jackdking.controller_samples.AppTest" time="0.002"/>
+  <testcase name="testApp" classname="org.jackdking.controller_samples.AppTest" time="0.007"/>
 </testsuite>
