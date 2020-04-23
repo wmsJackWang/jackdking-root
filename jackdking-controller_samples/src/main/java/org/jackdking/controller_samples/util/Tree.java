@@ -9,7 +9,14 @@ public class Tree {
 		preOrderTraverse1(tree);
 		System.out.println();
 		preOrderTraverse2(tree);
-	}
+		
+		System.out.println();
+		
+		jdkMiddleOrderTraverse(tree);
+
+		System.out.println();
+		jdkBackOrderTraverse(tree);
+			}
 	
 	
 	static TreeNode initTree() {
@@ -60,6 +67,60 @@ public class Tree {
                 }  
             }  
     }  
+    
+    //二叉树中序
+    public static void jdkMiddleOrderTraverse(TreeNode root) {
+    	
+    	LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+    	TreeNode p = root;
+    	while(p!=null||!stack.isEmpty()) {
+    		
+    		if(p!=null)
+    		{
+    			stack.push(p);
+    			p = p.left;
+    		}
+    		else{
+    			
+    			TreeNode te = stack.pop();
+    			System.out.print(te.val+"  ");
+    			p = te.right;
+    			
+    		}
+    	}
+    	
+    }
+    
+    public static void jdkBackOrderTraverse(TreeNode root) {
+
+    	LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+    	TreeNode p = root;
+    	while (p!=null||!stack.isEmpty())
+    	{
+    		if(p!=null)
+    		{
+    			stack.push(p);
+    			p=p.left;
+    			System.out.println("a");
+    		}
+    		else
+    		{
+    			System.out.println("b");
+    			TreeNode te = stack.pop();
+    			TreeNode right = te.right;
+    			if(right==null) {
+    				System.out.print(te.val+"  ");
+    				
+    			}
+    			else {
+    				stack.push(te);
+    				p=right;
+    			}
+    			
+    		}
+    	}
+    	
+    }
 }
 
 class TreeNode {
