@@ -23,6 +23,7 @@
     <module>jackdking-redistemplate</module>
   <module>jackdking-swagger</module>
     <module>jackdking-controller_samples</module>
+    <module>jackdking-shardjdbcyaml</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
