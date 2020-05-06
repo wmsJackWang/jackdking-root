@@ -1,0 +1,13 @@
+guru\springframework\repositories\ProductRepository.class
+guru\springframework\config\SwaggerConfig.class
+guru\springframework\SpringBootWebApplication.class
+guru\springframework\controllers\ProductController.class
+guru\springframework\config\WebConfig.class
+guru\springframework\controllers\IndexController.class
+guru\springframework\config\SpringSecConfig.class
+guru\springframework\services\ProductService.class
+guru\springframework\domain\Product.class
+guru\springframework\bootstrap\SpringJpaBootstrap.class
+guru\springframework\controllers\JackController.class
+guru\springframework\services\CRUDService.class
+guru\springframework\services\ProductServiceImpl.class

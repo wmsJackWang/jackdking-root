@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingspringboot.springboot.myProject.com.mapper.TransInfoMapper">
+    <insert id="save" parameterType="TransInfo">
+        INSERT INTO TransInfo(userid,orderid)
+        VALUES
+        (
+        #{userid},#{orderid}
+        )
+    </insert>
+    
+    <select id="get" parameterType="string" resultType="TransInfo">
+    	select * from TransInfo where id = #{id}
+    </select>
+</mapper>
