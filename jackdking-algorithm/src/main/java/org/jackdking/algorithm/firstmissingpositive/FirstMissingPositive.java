@@ -10,7 +10,7 @@ public class FirstMissingPositive {
 
 	public static void main(String[] args) {
 
-        int[] nums = new int[]{3,4,-1,1,2,2,3,4,5,7,9};
+        int[] nums = new int[]{3,4,-1,1,2,2,3,4,5,7,9,6};
         int num = firstMissingPositive(nums);
         System.out.println(num);
 		
