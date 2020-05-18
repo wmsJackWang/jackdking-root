@@ -8,7 +8,7 @@ public class FirstMissingPositiveVersion3 {
 	
 	public static void main(String[] args) {
 		
-		int[] nums = new int[]{7,-1,1,3,4,2,5,9,6,7,8,10,-1,11,13};
+		int[] nums = new int[]{7,-1,1,3,4,2,9,6,7,8,10,-1,12,11,13,-14};
         int num = firstMissingPositive(nums);
         System.out.println(num==-1?"没有缺失的正整数":"缺失的正整数:"+num);
 //		  byte x=1;
@@ -51,6 +51,11 @@ public class FirstMissingPositiveVersion3 {
 		return result;
 	}
 
+	
+	//判断byte数组  的第几位 是1
+	//主要考核的是
+	//             1. 将位数 n转换为 byte数组第几个元素
+	//             2. 判断该元素的位数(循环移动算法+字节“与”判断)
 	private static boolean isZero(byte[] a, int index) {
 		// TODO Auto-generated method stub
 		int x = index/9,y= index%8;

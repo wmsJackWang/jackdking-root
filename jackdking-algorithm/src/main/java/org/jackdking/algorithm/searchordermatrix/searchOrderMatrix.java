@@ -2,16 +2,18 @@ package org.jackdking.algorithm.searchordermatrix;
 
 public class searchOrderMatrix {
 	//设置初始化的矩阵
-	static int[][]matrix = new int[][] {{1,2,3,4},
-										{3,5,6,7},
-										{8,9,11,12}
+	static int[][]matrix = new int[][] {{1,2,3,4,12},
+										{3,5,6,7,13},
+										{8,9,11,12,33},
+										{10,12,16,17,45}
 							};
 
 							
 	//查找矩阵中是否有8
 	public static void main(String[] args) {
 		
-		System.out.println("矩阵中是否存在这个数字:"+(isExist(matrix,12)?"存在":"不存在"));
+		int x =55;
+		System.out.println("矩阵中是否存在数字"+x+":"+(isExist(matrix,x)?"存在":"不存在"));
 		
 	}
 	
