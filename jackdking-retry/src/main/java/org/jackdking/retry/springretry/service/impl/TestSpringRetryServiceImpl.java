@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class TestSpringRetryServiceImpl implements TestSpringRetryService {
 
 	@Override
-	@Retryable(value = Exception.class,maxAttempts = 3  ,backoff = @Backoff(delay = 2000,multiplier = 1.5))
+	@Retryable(value = Exception.class,maxAttempts = 3  , backoff = @Backoff(delay = 2000,multiplier = 1.5))
 	public int retryServiceOne(int code) throws Exception {
 		// TODO Auto-generated method stub 
 		System.out.println("retryServiceOne被调用,时间："+LocalTime.now());

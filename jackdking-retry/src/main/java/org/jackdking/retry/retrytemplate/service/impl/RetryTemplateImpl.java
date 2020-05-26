@@ -14,7 +14,7 @@ public class RetryTemplateImpl extends RetryTemplate{
 	}
 
 	@Override
-	protected Object doBiz() throws Exception {
+	public Object doBiz() throws Exception {
 		// TODO Auto-generated method stub
 		int code = 0;
 		System.out.println("RetryTemplateImpl被调用,时间："+LocalTime.now());
