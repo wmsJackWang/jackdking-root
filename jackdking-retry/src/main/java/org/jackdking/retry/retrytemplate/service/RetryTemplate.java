@@ -67,7 +67,7 @@ public abstract class RetryTemplate {
      *
      * @return
      */
-    protected abstract Object doBiz() throws Exception; //预留一个doBiz方法由业务方来实现，在其中书写需要重试的业务代码，然后执行即可
+    public abstract Object doBiz() throws Exception; //预留一个doBiz方法由业务方来实现，在其中书写需要重试的业务代码，然后执行即可
 
     public Object execute() throws InterruptedException {
         for (int i = 0; i < retryTime; i++) {
