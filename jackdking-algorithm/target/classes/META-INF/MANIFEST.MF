@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: jackdking-algorithm
-Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: mingshengwang
-Implementation-Vendor-Id: com.jackdking.root
-Build-Jdk: 1.8.0_121
-Implementation-URL: http://maven.apache.org
-Created-By: Maven Integration for Eclipse
-

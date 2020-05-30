@@ -1,0 +1,9 @@
+server:
+#  address: 0.0.0.0
+  port: 8080
+spring:
+  profiles:
+    # 外置jdbc和log配置文件，加载properties配置文件
+    active: mail
+ # spring.profiles.active=xxx 指定加载不同环境的配置,这个是项目的启动参数
+
