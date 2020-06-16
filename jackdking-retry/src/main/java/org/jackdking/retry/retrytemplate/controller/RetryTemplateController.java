@@ -1,6 +1,7 @@
 package org.jackdking.retry.retrytemplate.controller;
 
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import javax.annotation.Resource;
 
@@ -9,7 +10,6 @@ import org.jackdking.retry.retrytemplate.service.RetryTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,7 +34,7 @@ public class RetryTemplateController {
 		//提交逻辑是个异步提交，异步线程池  执行重试逻辑和业务逻辑。
 		//和注解重试还不一样。
 		//那这个和spring-retry 是一样的方式吗，可以通过spring-try模块的日志看出。
-		// 结论：spring-try 没有使用异步的方式。
+		// 结论：spring-try 没有使用异步的方式。 
 		
 		try {
 			log.info("开始执行业务");
