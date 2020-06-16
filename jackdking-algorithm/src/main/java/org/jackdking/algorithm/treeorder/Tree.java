@@ -2,6 +2,9 @@ package org.jackdking.algorithm.treeorder;
 
 import java.util.LinkedList;
 
+/*
+ * 二叉树系列算法问题
+ */
 public class Tree {
 	public static void main(String[] args) {
 		TreeNode tree = initTree();

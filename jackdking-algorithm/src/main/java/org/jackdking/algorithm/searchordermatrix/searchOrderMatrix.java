@@ -1,5 +1,8 @@
 package org.jackdking.algorithm.searchordermatrix;
 
+/*
+ * 查找有序列的矩阵，范围排除法。
+ */
 public class searchOrderMatrix {
 	//设置初始化的矩阵
 	static int[][]matrix = new int[][] {{1,2,3,4,12},

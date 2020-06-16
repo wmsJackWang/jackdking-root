@@ -1,6 +1,8 @@
 package org.jackdking.algorithm.basesort;
 
-public class QuickSort {
+public class QuickSort extends Sort{
+
+
 	
 	public static void  quickSort(int[] array , int index1 , int index2) {
 		
@@ -35,11 +37,6 @@ public class QuickSort {
 		
 	}
 	
-	public static void printArray(int []array){
-		for(int i:array)
-			System.out.print(i+" ");
-	}
-
 	
 	public static void main(String[] args) {
 		
