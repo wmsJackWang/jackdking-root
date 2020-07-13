@@ -33,8 +33,8 @@ spring:
 #        username: root
 #        password: jackdking@1234
         url: jdbc:mysql://192.168.3.9:3306/myutilproject0?characterEncoding=GBK&useSSL=false
-        username: jackdking
-        password: ncl@1234
+        username: xxx
+        password: xxx
         driver-class-name: com.mysql.jdbc.Driver
       ds1:
         type: com.alibaba.druid.pool.DruidDataSource
@@ -42,8 +42,8 @@ spring:
 #        username: root
 #        password: jackdking@1234
         url: jdbc:mysql://192.168.3.9:3306/myutilproject1?characterEncoding=GBK&useSSL=false
-        username: jackdking
-        password: ncl@1234
+        username: xxx
+        password: xxx
         driver-class-name: com.mysql.jdbc.Driver
     sharding:
       tables:
