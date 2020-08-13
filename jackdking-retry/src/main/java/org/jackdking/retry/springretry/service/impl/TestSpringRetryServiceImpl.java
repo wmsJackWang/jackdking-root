@@ -18,6 +18,7 @@ public class TestSpringRetryServiceImpl implements TestSpringRetryService {
 		System.out.println("retryServiceOne被调用,时间："+LocalTime.now());
 		System.out.println("执行当前业务逻辑的线程名："+Thread.currentThread().getName());
 		if (code==0){
+			System.out.println("执行失败，抛出异常！");
 		    throw new Exception("业务执行失败情况！");
 		}
 		System.out.println("retryServiceOne执行成功！");

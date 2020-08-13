@@ -35,8 +35,7 @@ public class RwSeparateDataSourceAspect {
     // second * any class name of the dao package
     // third * any method name of the class
     // (..) any number of parameters
-     @Pointcut("within(com.example.dynamic_datasource_method.db.dao..*)")
-//    @Pointcut("execution(* springboot.dao.*.*(..))")
+//    @Pointcut("execution(* org.jackdking.core.dao.*.*(..))")
     public void declareJoinPoint(){
     }
 

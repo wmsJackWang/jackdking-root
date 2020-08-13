@@ -3,6 +3,7 @@ org\jackdking\retry\jdkdkingannotation\recover\impl\DefaultRecoverImpl.class
 org\jackdking\retry\RetryApplication.class
 org\jackdking\retry\retrytemplate\service\RetryTemplate.class
 org\jackdking\retry\retrytemplate\controller\RetryTemplateController.class
+org\jackdking\retry\retrytemplate\JdkExcutor.class
 org\jackdking\retry\springretry\service\TestSpringRetryService.class
 org\jackdking\retry\retrytemplate\service\impl\RetryTemplateImpl.class
 org\jackdking\retry\springretry\controller\SpringRetryController.class

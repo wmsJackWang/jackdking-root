@@ -17,28 +17,27 @@ public class UserService implements SelfBeanProxyAware{
     
     private UserService userServiceProxy;
 
-    @DBType(DataSourceType.SLAVE)
     public void select(){
-        User user = userMapper.selectByPrimaryKey(2);
+        User user = userMapper.selectByPrimaryKey(11);
         System.out.println(user.getId() + "--" + user.getName() + "==" + user.getGender());
     }
 
-    @DBType(DataSourceType.MASTER)
-    public void select1() {
-        User user = userMapper.selectByPrimaryKey(10);
-        System.out.println("MASTER:"+user.getId() + "--" + user.getName() + "==" + user.getGender());
-        this.select2();
-    } 
-
     @DBType(DataSourceType.SLAVE)
     public void select2() {
-    	User user = userMapper.selectByPrimaryKey(10);
+    	User user = userMapper.selectByPrimaryKey(11);
         System.out.println("SLAVE:"+user.getId() + "--" + user.getName() + "==" + user.getGender());
     }
     
+
+    @DBType(DataSourceType.MASTER)
+    public void select1() {
+        User user = userMapper.selectByPrimaryKey(11);
+        System.out.println("MASTER:"+user.getId() + "--" + user.getName() + "==" + user.getGender());
+        this.select2();
+    } 
     @DBType(DataSourceType.MASTER)
     public void select3() {
-        User user = userMapper.selectByPrimaryKey(10);
+        User user = userMapper.selectByPrimaryKey(11);
         System.out.println("MASTER:"+user.getId() + "--" + user.getName() + "==" + user.getGender());
         userServiceProxy.select2();
     } 
@@ -46,9 +45,15 @@ public class UserService implements SelfBeanProxyAware{
     
 
     @DBType(DataSourceType.MASTER)
-    public void insert(User user){
+    public void insert2Master(User user){
         userMapper.insertSelective(user);
     }
+    
+    @DBType(DataSourceType.SLAVE)
+    public void insert2Slave(User user){
+        userMapper.insertSelective(user);
+    }
+  
 
 	@Override
 	public void setSelBeanfProxy(Object proxyObj) {
