@@ -1,5 +1,6 @@
  
  ![alt](http://bittechblog.com/upload/2020/09/09lcf8rcngi7qogr80af33gcvs.gif)
+#我们会一直持续输出架构技术方案的全体系方案，关注我们，为你的能力池 持续充电吧
 
 # jackdking-root
  
