@@ -1,5 +1,7 @@
-# jackdking-root
+ ![alt](http://bittechblog.com/upload/2020/09/09lcf8rcngi7qogr80af33gcvs.gif)
 
+# jackdking-root
+ 
 ## Java架构师集锦（Github完整项目代码）——多数据源，读写分离，分布式事务，三种重试机制 及其原理和应用，幂等性，状态机机制替换大量的if/else代码等等
 
 <a href="http://bittechblog.com/article/multiple-datasource" target="_blank">Java架构师方案—多数据源开发详解及原理(二)(附完整项目代码)</a>
