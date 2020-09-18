@@ -28,6 +28,7 @@
     <module>jackdking-javamail</module>
     <module>jackdking-JTA-Atomikos</module>
     <module>jackdking-support-utils</module>
+    <module>jackdking-muti-datasource</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

@@ -14,7 +14,6 @@ public class SpringRetryController {
 	    @GetMapping("/springRetry")
 	    public String testRetry() throws Exception {
 	        int code=0;
-
 			System.out.println("执行业务发起逻辑的线程名："+Thread.currentThread().getName());
 	        int result = testSpringRetryServiceImpl.retryServiceOne(code);
 	        return "result："+result;
