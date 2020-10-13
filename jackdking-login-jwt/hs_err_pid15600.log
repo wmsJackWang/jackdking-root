@@ -1,0 +1,169 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=15600, tid=0x0000000000002488
+#
+# JRE version:  (8.0_121-b13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.121-b13 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000003387800):  JavaThread "Unknown thread" [_thread_in_vm, id=9352, stack(0x0000000003280000,0x0000000003380000)]
+
+Stack: [0x0000000003280000,0x0000000003380000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000003387800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=9352, stack(0x0000000003280000,0x0000000003380000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 74752K, used 1290K [0x000000076cd00000, 0x0000000772000000, 0x00000007c0000000)
+  eden space 64512K, 2% used [0x000000076cd00000,0x000000076ce42900,0x0000000770c00000)
+  from space 10240K, 0% used [0x0000000771600000,0x0000000771600000,0x0000000772000000)
+  to   space 10240K, 0% used [0x0000000770c00000,0x0000000770c00000,0x0000000771600000)
+ ParOldGen       total 171008K, used 0K [0x00000006c6600000, 0x00000006d0d00000, 0x000000076cd00000)
+  object space 171008K, 0% used [0x00000006c6600000,0x00000006c6600000,0x00000006d0d00000)
+ Metaspace       used 770K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 75K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000012840000,0x0000000013010000] byte_map_base: 0x000000000f20d000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000067aab6d0
+ Begin Bits: [0x0000000013d50000, 0x0000000017bb8000)
+ End Bits:   [0x0000000017bb8000, 0x000000001ba20000)
+
+Polling page: 0x0000000003020000
+
+CodeCache: size=245760Kb used=328Kb max_used=328Kb free=245431Kb
+ bounds [0x0000000003480000, 0x00000000036f0000, 0x0000000012480000]
+ total_blobs=58 nmethods=0 adapters=38
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.118 loading class java/lang/Short
+Event: 0.118 loading class java/lang/Short done
+Event: 0.118 loading class java/lang/Integer
+Event: 0.118 loading class java/lang/Integer done
+Event: 0.118 loading class java/lang/Long
+Event: 0.118 loading class java/lang/Long done
+Event: 0.119 loading class java/lang/NullPointerException
+Event: 0.119 loading class java/lang/NullPointerException done
+Event: 0.119 loading class java/lang/ArithmeticException
+Event: 0.119 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x00007ff7e0460000 - 0x00007ff7e0497000 	C:\softwareEnviroment\jdk\jdk1.8.0_121\bin\javaw.exe
+0x00007ff919840000 - 0x00007ff919a30000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007ff9178f0000 - 0x00007ff9179a2000 	C:\windows\System32\KERNEL32.DLL
+0x00007ff9175f0000 - 0x00007ff917894000 	C:\windows\System32\KERNELBASE.dll
+0x00007ff90ec60000 - 0x00007ff90ecef000 	C:\windows\SYSTEM32\apphelp.dll
+0x00007ff8d0a90000 - 0x00007ff8d0f22000 	C:\windows\SYSTEM32\AcLayers.DLL
+0x00007ff918380000 - 0x00007ff91841e000 	C:\windows\System32\msvcrt.dll
+0x00007ff918fa0000 - 0x00007ff919134000 	C:\windows\System32\USER32.dll
+0x00007ff916ce0000 - 0x00007ff916d01000 	C:\windows\System32\win32u.dll
+0x00007ff917c00000 - 0x00007ff917c26000 	C:\windows\System32\GDI32.dll
+0x00007ff916a40000 - 0x00007ff916bd6000 	C:\windows\System32\gdi32full.dll
+0x00007ff9174d0000 - 0x00007ff91756e000 	C:\windows\System32\msvcp_win.dll
+0x00007ff916be0000 - 0x00007ff916cda000 	C:\windows\System32\ucrtbase.dll
+0x00007ff917f20000 - 0x00007ff917f72000 	C:\windows\System32\SHLWAPI.dll
+0x00007ff918560000 - 0x00007ff918895000 	C:\windows\System32\combase.dll
+0x00007ff917ae0000 - 0x00007ff917c00000 	C:\windows\System32\RPCRT4.dll
+0x00007ff9169c0000 - 0x00007ff916a40000 	C:\windows\System32\bcryptPrimitives.dll
+0x00007ff9179b0000 - 0x00007ff917a53000 	C:\windows\System32\ADVAPI32.dll
+0x00007ff919760000 - 0x00007ff9197f7000 	C:\windows\System32\sechost.dll
+0x00000000005f0000 - 0x00000000005f3000 	C:\windows\SYSTEM32\sfc.dll
+0x00007ff8f5470000 - 0x00007ff8f54f9000 	C:\windows\SYSTEM32\WINSPOOL.DRV
+0x00007ff916750000 - 0x00007ff916761000 	C:\windows\System32\kernel.appcore.dll
+0x00007ff9174a0000 - 0x00007ff9174c6000 	C:\windows\System32\bcrypt.dll
+0x00007ff914960000 - 0x00007ff914a50000 	C:\windows\SYSTEM32\PROPSYS.dll
+0x00007ff918490000 - 0x00007ff918555000 	C:\windows\System32\OLEAUT32.dll
+0x00007ff919140000 - 0x00007ff9191e9000 	C:\windows\System32\shcore.dll
+0x00007ff915c70000 - 0x00007ff915caa000 	C:\windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ff902f30000 - 0x00007ff902f41000 	C:\windows\SYSTEM32\sfc_os.DLL
+0x00007ff902ee0000 - 0x00007ff902ef1000 	C:\windows\SYSTEM32\SortWindows61.dll
+0x00007ff9191f0000 - 0x00007ff91921e000 	C:\windows\System32\IMM32.DLL
+0x00007ff9091a0000 - 0x00007ff909424000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.959_none_e6c7bbbf130c62bb\COMCTL32.dll
+0x00007ff909460000 - 0x00007ff90950c000 	C:\windows\system32\tmumh\20019\AddOn\7.0.0.1169\TmUmEvt64.dll
+0x00007ff918f90000 - 0x00007ff918f98000 	C:\windows\System32\PSAPI.DLL
+0x000000006a0d0000 - 0x000000006a1ea000 	C:\windows\system32\tmumh\20019\TmMon\2.5.0.2096\tmmon64.dll
+0x00000000683c0000 - 0x0000000068492000 	C:\softwareEnviroment\jdk\jdk1.8.0_121\jre\bin\msvcr100.dll
+0x0000000067290000 - 0x0000000067b2b000 	C:\softwareEnviroment\jdk\jdk1.8.0_121\jre\bin\server\jvm.dll
+0x00007ff8f5560000 - 0x00007ff8f5569000 	C:\windows\SYSTEM32\WSOCK32.dll
+0x00007ff918420000 - 0x00007ff91848f000 	C:\windows\System32\WS2_32.dll
+0x00007ff90efd0000 - 0x00007ff90eff4000 	C:\windows\SYSTEM32\WINMM.dll
+0x00007ff90a4b0000 - 0x00007ff90a4ba000 	C:\windows\SYSTEM32\VERSION.dll
+0x00007ff90efa0000 - 0x00007ff90efcd000 	C:\windows\SYSTEM32\WINMMBASE.dll
+0x00007ff9178a0000 - 0x00007ff9178ea000 	C:\windows\System32\cfgmgr32.dll
+0x0000000069390000 - 0x000000006939f000 	C:\softwareEnviroment\jdk\jdk1.8.0_121\jre\bin\verify.dll
+0x0000000069360000 - 0x0000000069389000 	C:\softwareEnviroment\jdk\jdk1.8.0_121\jre\bin\java.dll
+0x0000000069310000 - 0x0000000069326000 	C:\softwareEnviroment\jdk\jdk1.8.0_121\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dlog.path.prefix=D:\data -DrcsCfg_dir=D:\\bridge\walletwork\wallet-junior_3.2.15\src\main\resources\rcsCfg-test.properties -XX:-UseGCOverheadLimit -Dfile.encoding=UTF-8 
+java_command: org.jackdking.login.jwt.JwtLoginApplication
+java_class_path (initial): D:\workspace\jackdking-root\jackdking-login-jwt\target\classes;C:\Users\mingshengwang\.m2\repository\cn\hutool\hutool-all\4.1.15\hutool-all-4.1.15.jar;C:\Users\mingshengwang\.m2\repository\org\thymeleaf\extras\thymeleaf-extras-java8time\2.1.0.RELEASE\thymeleaf-extras-java8time-2.1.0.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\org\thymeleaf\thymeleaf\3.0.0.RELEASE\thymeleaf-3.0.0.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\ognl\ognl\3.1.3\ognl-3.1.3.jar;C:\Users\mingshengwang\.m2\repository\org\javassist\javassist\3.21.0-GA\javassist-3.21.0-GA.jar;C:\Users\mingshengwang\.m2\repository\org\attoparser\attoparser\2.0.0.RELEASE\attoparser-2.0.0.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\org\unbescape\unbescape\1.1.3.RELEASE\unbescape-1.1.3.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\org\slf4j\slf4j-api\1.7.22\slf4j-api-1.7.22.jar;C:\Users\mingshengwang\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\1.5.1.RELEASE\spring-boot-starter-thymeleaf-1.5.1.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\org\springframework\boot\spring-boot-starter\1.5.1.RELEASE\spring-boot-starter-1.5.1.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\org\springframework\boot\spring-boot\1.5.1.RELEASE\spring-boot-1.5.1.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\1.5.1.RELEASE\spring-boot-autoconfigure-1.5.1.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\org\springframework\boot\spring-boot-starter-logging\1.5.1.RELEASE\spring-boot-starter-logging-1.5.1.RELEASE.jar;C:\Users\mingshengwang\.m2\repository\ch\qos\logback\logback-classic\1.1.9\logback-classic-1.1.9.jar;C:\Users\mingshengwang\.m2\repository\ch\qos\logback\logback-core\1.1.9\logback-core-1.1.9.jar;C:\Users\mingshengwang\.m2\repository\org\slf4j\jul-to-slf4j\1.7.22\jul-to-slf4j-1.7.22.jar;C:\Users\mingshengwang\.m2\repository\org\slf4j\log4j-over-slf4j\1.7.22\log4j-over-slf4j-1.7.22.jar;C:\Users\mings
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\softwareEnviroment\jdk\jdk1.8.0_121
+PATH=C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin/server;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/bin;C:/softwareEnviroment/jdk/jdk1.8.0_121/bin/../jre/lib/amd64;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\softwareEnviroment\jdk\jdk1.8.0_121\bin;C:\softwareEnviroment\apache-maven-3.6.3\bin;D:\worksoftware\svn\bin;D:\worksoftware\Git\cmd;D:\worksoftware\redis-2.6;D:\worksoftware\nodejs;C:\Users\mingshengwang\AppData\Local\Microsoft\WindowsApps;;D:\worksoftware\eclipse;
+USERNAME=mingshengwang
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 126 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.959)
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 126 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16357888k(6711996k free), swap 34452776k(5136k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.121-b13) for windows-amd64 JRE (1.8.0_121-b13), built on Dec 12 2016 18:21:36 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sat Oct 10 15:30:37 2020
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
