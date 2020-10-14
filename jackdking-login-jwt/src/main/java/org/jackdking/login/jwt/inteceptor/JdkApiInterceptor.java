@@ -33,7 +33,7 @@ public class JdkApiInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-        String userToken = CookieUtil.getCookie("userToken");//获取用户cookies
+        //获取用户cookies
         String userName = CookieUtil.getCookie("userName");
         
         //放开登入接口
@@ -43,9 +43,9 @@ public class JdkApiInterceptor implements HandlerInterceptor {
 //        if(uri.equals("loginCheck"))
 //        	return true;
 //        
-        logger.info("拦截UserToken：" + userToken + " ======= 拦截UserId：" + userName);
+        logger.info(" ======= 拦截UserId：" + userName);
         //用户id和token都不为空
-        if (!StringUtils.isEmpty(userName) && !StringUtils.isEmpty(userToken)) {
+        if (!StringUtils.isEmpty(userName)) {
         	
         	//根据userid生成唯一key从redis中查出唯一token
             String uniqueToken = redis.get(USER_REDIS_SESSION + ":" + userName);

@@ -22,7 +22,7 @@ import cn.hutool.json.JSONObject;
 public class UserLoginController {
 	
     /**
-     * redis token超时时间（ms）
+     * redis token超时时间（ms）30分钟
      */
     public static final int REDIS_TIMEOUT = 1000 * 60 * 30;
 	
@@ -66,9 +66,8 @@ public class UserLoginController {
           operator.set(username, username+":"+password+":"+token);
 
           //用户浏览器会存放两种cookie: userToken,userId。
-          CookieUtil.addCookie("userToken", token);
           CookieUtil.addCookie("userName", username);
 
-          return RestResponseBo.ok();
+          return RestResponseBo.ok();//
 		}
 }
