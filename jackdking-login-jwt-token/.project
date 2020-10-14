@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>jackdking-login-redis-token</name>
+	<name>jackdking-login-redis-jwt-token</name>
 	<comment></comment>
 	<projects>
 	</projects>

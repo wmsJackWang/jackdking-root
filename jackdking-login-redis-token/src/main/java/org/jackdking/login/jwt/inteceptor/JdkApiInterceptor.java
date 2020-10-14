@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.jackdking.login.jwt.utils.CookieUtil;
-import org.jackdking.login.jwt.utils.JwtTokenProvider;
 import org.jackdking.login.jwt.utils.RedisOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +24,7 @@ public class JdkApiInterceptor implements HandlerInterceptor {
     public static final String USER_REDIS_SESSION = "user_redis_session";
 
     @Autowired
-    private JwtTokenProvider jwtTokenProvider;
+    public RedisOperator redis;
 
     /**
      * 拦截请求，在controller调用之前
@@ -34,23 +33,26 @@ public class JdkApiInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-        String jwtToken = jwtTokenProvider.resolveTokenFromCookie();//获取用户cookies 中的jwttoken
-        logger.info("解析得到的token值：{}",jwtToken);
+        //获取用户cookies
+        String userName = CookieUtil.getCookie("userName");
+        
         //放开登入接口
 //        String uri = request.getRequestURI();
 //        logger.info("请求uri:" + uri);
 //        
 //        if(uri.equals("loginCheck"))
 //        	return true;
-//         
+//        
+        logger.info(" ======= 拦截UserId：" + userName);
         //用户id和token都不为空
-        if (!StringUtils.isEmpty(jwtToken)) {
+        if (!StringUtils.isEmpty(userName)) {
         	
         	//根据userid生成唯一key从redis中查出唯一token
-        	
+            String uniqueToken = redis.get(USER_REDIS_SESSION + ":" + userName);
+            logger.info("拦截uniqueToken：" + uniqueToken);
             
             //如果唯一token为空 ，则拦截url重定向到登入页面
-            if (!jwtTokenProvider.validateToken(jwtToken)) {
+            if (StringUtils.isEmpty(uniqueToken)) {
                 response.sendRedirect("/login");
                 returnErrorResponse(response, "请登录...");
 

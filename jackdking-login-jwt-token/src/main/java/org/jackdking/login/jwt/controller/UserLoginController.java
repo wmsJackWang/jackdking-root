@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.jackdking.login.jwt.inteceptor.JdkApiInterceptor;
 import org.jackdking.login.jwt.utils.CookieUtil;
+import org.jackdking.login.jwt.utils.JwtTokenProvider;
 import org.jackdking.login.jwt.utils.RedisOperator;
 import org.jackdking.login.jwt.utils.RestResponseBo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +17,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONObject;
 
 @Controller
 public class UserLoginController {
 	
     /**
-     * redis token超时时间（ms）30分钟
+     * redis token超时时间（ms）
      */
     public static final int REDIS_TIMEOUT = 1000 * 60 * 30;
 	
 	@Autowired
-	RedisOperator operator;
+	private JwtTokenProvider jwtTokenProvider;
 	
     @GetMapping(value = {"/login","/"})
     public String login() {
@@ -39,6 +39,7 @@ public class UserLoginController {
     public String index() {
         return "index";
     }
+    
     
     
     @PostMapping(value = "loginCheck")
@@ -57,17 +58,27 @@ public class UserLoginController {
               return RestResponseBo.fail("用户名或者密码不正确!");
     	  }
     	  
-    	  String token = StrUtil.uuid();
-
-          //存放唯一的 token 并设置过期时间
-    	  operator.set(JdkApiInterceptor.USER_REDIS_SESSION + ":" + username, token, REDIS_TIMEOUT);
-    	  
-    	  //设置用户  密码  token等信息 
-          operator.set(username, username+":"+password+":"+token);
+    	  String jwtToken = jwtTokenProvider.createToken(username);
 
           //用户浏览器会存放两种cookie: userToken,userId。
-          CookieUtil.addCookie("userName", username);
+          jwtTokenProvider.saveJwtToken(jwtToken);
 
-          return RestResponseBo.ok();//
+          return RestResponseBo.ok();
 		}
+    
+    
+    @PostMapping(value = "loginOut")
+	@ResponseBody
+    public RestResponseBo loginOut() {
+    	
+    	
+    	jwtTokenProvider.removeJwtToken();
+    	
+
+        return RestResponseBo.ok();
+    	
+    }
+    
+    
+    
 }

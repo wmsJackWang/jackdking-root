@@ -2,7 +2,6 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-parent</artifactId>
@@ -10,11 +9,11 @@
       <relativePath/>
   </parent>
   <groupId>com.jackdking.root</groupId>
-  <artifactId>jackdking-login-jwt</artifactId>
+  <artifactId>jackdking-login-redis-token</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>jackdking-login-jwt</name>
+  <name>jackdking-login-redis-token</name>
   <url>http://maven.apache.org</url>
-   <properties>
+  <properties>
    		<jedis.version>2.9.0</jedis.version>
         <spring-data-redis.version>2.0.7.RELEASE</spring-data-redis.version>
    		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -46,6 +45,13 @@
 
 
     <dependencies>
+    
+		<dependency>
+			<!-- JSON Web Token Support -->
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
             <!--第三方开源工具类-->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -76,7 +82,12 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
         </dependency>
-        <!-- 设置内置的tomcat容器与外部容器不冲突 -->
+		<dependency>
+			<!-- JSON Web Token Support -->
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 	
     </dependencies>
 </project>
