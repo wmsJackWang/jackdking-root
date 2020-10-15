@@ -9,9 +9,9 @@
       <relativePath/>
   </parent>
   <groupId>com.jackdking.root</groupId>
-  <artifactId>jackdking-login-redis-token</artifactId>
+  <artifactId>jackdking-login-jwt-token</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>jackdking-login-redis-token</name>
+  <name>jackdking-login-jwt-token</name>
   <url>http://maven.apache.org</url>
   <properties>
    		<jedis.version>2.9.0</jedis.version>
