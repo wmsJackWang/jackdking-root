@@ -14,10 +14,6 @@
  
 Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助力架构初级开发者、中级开发者的架构能力成长。方案包括 多数据源，读写分离，分布式事务，三种重试机制 及其原理和应用，幂等性，状态机机制替换大量的if/else代码等等。
 
-#### 介绍
-Java架构师方案宝典 学习示例
-
----
 
 ## Java架构师方案宝典
 
@@ -34,12 +30,12 @@ Java架构师方案宝典 学习示例
 - [Java架构师方案—透彻理解「状态机」的全套机制 (附完整项目代码)](http://bittechblog.com/blog/article/6) ：jackdking-statemachine
 - [Java架构师方案—状态机(附完整项目代码)](http://bittechblog.com/blog/article/5) ：jackdking-statemachine-demo
 
-
+---
 
 SpringBoot2.0-Jackdking 使用的各种示例，整合流行的中间件，此开源项目中的每个示例都是站在初学者角度，细心剖析技术实现细节，帮助初学者快速掌握 Spring Boot2.0 各组件的使用。
 
 #### 介绍
 **[Spring Boot 学习示例](http://bittechblog.com/blog/type/5)**  |  **[Gitee地址](https://gitee.com/wmsking1234/spring-boot2.0-jackdking/)**
 
-- [SpringBoot学习示例—整合Redis之StringRedisTemplate(附完整项目代码)](http://bittechblog.com/blog/article/27)：SpringBoot学习示例—整合Redis之StringRedisTemplate(附完整项目代码)
+- [SpringBoot学习示例—整合Redis之StringRedisTemplate(附完整项目代码)](http://bittechblog.com/blog/article/27)：SpringBoot2.0-Redis-StringRedisTemplate 
 
