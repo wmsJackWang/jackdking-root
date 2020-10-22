@@ -31,6 +31,7 @@
     <module>jackdking-muti-datasource</module>
     <module>jackdking-login-jwt</module>
     <module>jackdking-login-redis-jwt-token</module>
+    <module>jackdking-statemachine-demo</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
