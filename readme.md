@@ -21,13 +21,13 @@ Java架构师方案宝典 学习示例
 
 **架构方案系列文章**
 
-- [Java架构师方案—分布式session基于redis的共享机制(附完整项目代码)](http://bittechblog.com/blog/article/26)：分布式session基于redis的共享机制(附完整项目代码)
-- [Java架构师方案—多数据源开发详解及原理(二)(附完整项目代码)](http://bittechblog.com/blog/article/11)：多数据源开发详解及原理(二)(附完整项目代码)
-- [Java架构师方案—多数据源原理及应用(附完整项目代码)](http://bittechblog.com/blog/article/10)：多数据源原理及应用(附完整项目代码)
-- [Java架构师方案—分布式事务2PC方案Atomikos(附完整项目代码)](http://bittechblog.com/blog/article/9)：分布式事务2PC方案Atomikos(附完整项目代码)
-- [Java架构师方案—重试机制原理和应用，还有比这个讲的更好的吗(附完整项目代码)](http://bittechblog.com/blog/article/8) ：重试机制原理和应用，还有比这个讲的更好的吗(附完整项目代码)
-- [Java架构师方案—透彻理解「状态机」的全套机制 (附完整项目代码)](http://bittechblog.com/blog/article/6) ：透彻理解「状态机」的全套机制 (附完整项目代码)
-- [Java架构师方案—状态机(附完整项目代码)](http://bittechblog.com/blog/article/5) ：状态机(附完整项目代码)
+- [Java架构师方案—分布式session基于redis的共享机制(附完整项目代码)](http://bittechblog.com/blog/article/26)：jackdking-login-redis-token
+- [Java架构师方案—多数据源开发详解及原理(二)(附完整项目代码)](http://bittechblog.com/blog/article/11)：jackdking-shardjdbcyaml
+- [Java架构师方案—多数据源原理及应用(附完整项目代码)](http://bittechblog.com/blog/article/10)：jackdking-datasource
+- [Java架构师方案—分布式事务2PC方案Atomikos(附完整项目代码)](http://bittechblog.com/blog/article/9)：jackdking-JTA-Atomikos
+- [Java架构师方案—重试机制原理和应用，还有比这个讲的更好的吗(附完整项目代码)](http://bittechblog.com/blog/article/8) ：jackdking-retry
+- [Java架构师方案—透彻理解「状态机」的全套机制 (附完整项目代码)](http://bittechblog.com/blog/article/6) ：jackdking-statemachine
+- [Java架构师方案—状态机(附完整项目代码)](http://bittechblog.com/blog/article/5) ：jackdking-statemachine-demo
 
  
  ![alt](http://bittechblog.com/upload/2020/09/09lcf8rcngi7qogr80af33gcvs.gif)
