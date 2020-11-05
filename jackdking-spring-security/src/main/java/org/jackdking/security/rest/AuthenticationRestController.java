@@ -38,6 +38,7 @@ public class AuthenticationRestController {
    
 	/*
 	 * 创建了token并将jwt的token放入到 会话中去
+	 * ,这个是登入接口，但是 security配置中没有设置跳转页面，只是返回数据。
 	 */
    @PostMapping("/authenticate")
    public ResponseEntity<JWTToken> authorize(@Valid @RequestBody LoginDto loginDto) {
@@ -47,7 +48,7 @@ public class AuthenticationRestController {
 
       //根据用户名和密码来生成 对应的认证  元数据对象
       Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-      SecurityContextHolder.getContext().setAuthentication(authentication);
+      SecurityContextHolder.getContext().setAuthentication(authentication);//用户 认证后  将认证信息对象authentication 放入到ThreadLocal存储仓库中。
 
       //认证  授权 在登入模块逻辑过程中  用户会选择是否记住 这次的登入
       // rememberMe 这个选择体现在 用户登入成功状态token 过期时间的长短

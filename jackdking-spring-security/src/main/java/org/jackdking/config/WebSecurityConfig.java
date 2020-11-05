@@ -7,6 +7,7 @@ import org.jackdking.security.jwt.JWTConfigurer;
 import org.jackdking.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.filter.CorsFilter;
 
@@ -102,6 +104,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          
          
          //################################################################################
+         //默认的表单登入 ：使用默认的表单登录页面和登录端点/login进行登录
+//         .and()
+//         .formLogin()
+//         .defaultSuccessUrl("/toIndex",false)
+//         .permitAll()
+         //################################################################################
+         
+         
+         //################################################################################
          // 设置rememberMe(记住我)功能， 设置了remember功能，用户登入后会 给浏览器一个token，这个token
          // 设置了60分钟过期时间，用户关闭浏览器后60分钟内 再访问网站就不用再重新认证。
 //         .and()
@@ -109,11 +120,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //         .tokenValiditySeconds(3600)
          //################################################################################
          
-         //################################################################################
-         //
+         
+         
+         
          
          //################################################################################
+         // 权限配置
+//         .and()
+//         .authorizeRequests()//开启配置路径的权限
+//         .antMatchers("/api/info1","/api/info2","/api/authenticate")
+//         .permitAll()//设置这3个 url 不用登入拦截
+//         
+//         .anyRequest()//设置其他的任何请求都要拦截
+//         .authenticated()
+         //################################################################################
 
+         
+         //################################################################################
+         //登出 接口 不用登入拦截。
+//         .and()
+//         .logout()
+//         .permitAll()
+         //################################################################################
+
+         //################################################################################
+         //配置某个url  ， 只有用户拥有某个权限后  才能通过访问。
+//         .and()
+//         .authorizeRequests()
+//         .antMatchers("url").hasAuthority("ROLE_ADMIN")//该url只允许拥有权限ROLE_ADMIN请求
+         //################################################################################
+         
+         
          // create no session
          .and()
          .sessionManagement()//允许配置会话管理
@@ -133,7 +170,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          .anyRequest().authenticated()////表示剩余的其他接口，登录之后就能访问
 
          .and()//获取httpSecurity的builder，构建httpSecurity对象
-         .apply(securityConfigurerAdapter());//再添加一个配置bean
+         //再添加一个配置bean ，通过适配器模式将SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity>对象
+         //放入到
+         .apply(securityConfigurerAdapter());
    }
 
    private JWTConfigurer securityConfigurerAdapter() {
