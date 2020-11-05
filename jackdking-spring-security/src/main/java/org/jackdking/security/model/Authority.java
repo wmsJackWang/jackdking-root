@@ -1,8 +1,12 @@
-package org.zerhusen.security.model;
+package org.jackdking.security.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "AUTHORITY")

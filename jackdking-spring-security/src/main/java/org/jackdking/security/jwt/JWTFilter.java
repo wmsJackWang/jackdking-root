@@ -1,4 +1,4 @@
-package org.zerhusen.security.jwt;
+package org.jackdking.security.jwt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,12 @@
-package org.zerhusen.security;
+package org.jackdking.security;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
+import org.jackdking.security.model.User;
+import org.jackdking.security.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,12 +16,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.zerhusen.security.model.User;
-import org.zerhusen.security.repository.UserRepository;
-
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
 
 /**
  * Authenticate a user from the database.

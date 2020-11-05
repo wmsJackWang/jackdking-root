@@ -1,4 +1,4 @@
-package org.zerhusen.security;
+package org.jackdking.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

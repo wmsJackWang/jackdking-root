@@ -1,6 +1,10 @@
-package org.zerhusen.security.rest;
+package org.jackdking.security.rest;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.Valid;
+
+import org.jackdking.security.jwt.JWTFilter;
+import org.jackdking.security.jwt.TokenProvider;
+import org.jackdking.security.rest.dto.LoginDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.zerhusen.security.rest.dto.LoginDto;
-import org.zerhusen.security.jwt.JWTFilter;
-import org.zerhusen.security.jwt.TokenProvider;
 
-import javax.validation.Valid;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Controller to authenticate users.

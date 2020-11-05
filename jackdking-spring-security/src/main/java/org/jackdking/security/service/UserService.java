@@ -1,12 +1,12 @@
-package org.zerhusen.security.service;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.zerhusen.security.SecurityUtils;
-import org.zerhusen.security.model.User;
-import org.zerhusen.security.repository.UserRepository;
+package org.jackdking.security.service;
 
 import java.util.Optional;
+
+import org.jackdking.security.SecurityUtils;
+import org.jackdking.security.model.User;
+import org.jackdking.security.repository.UserRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional

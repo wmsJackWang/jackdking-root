@@ -1,4 +1,4 @@
-package org.zerhusen.security;
+package org.jackdking.security;
 
 import org.springframework.security.core.AuthenticationException;
 

@@ -1,7 +1,13 @@
-package org.zerhusen.config;
+package org.jackdking.config;
 
+import org.jackdking.security.JwtAccessDeniedHandler;
+import org.jackdking.security.JwtAuthenticationEntryPoint;
+import org.jackdking.security.UserModelDetailsService;
+import org.jackdking.security.jwt.JWTConfigurer;
+import org.jackdking.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -12,10 +18,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.filter.CorsFilter;
-import org.zerhusen.security.JwtAccessDeniedHandler;
-import org.zerhusen.security.JwtAuthenticationEntryPoint;
-import org.zerhusen.security.jwt.JWTConfigurer;
-import org.zerhusen.security.jwt.TokenProvider;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
@@ -37,6 +39,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       this.authenticationErrorHandler = authenticationErrorHandler;
       this.jwtAccessDeniedHandler = jwtAccessDeniedHandler;
    }
+   
+   //可以通过 覆盖这个方法  设置userdetail服务，自定义获取用户认证数据的实现类
+   @Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		// TODO Auto-generated method stub
+//	    auth.userDetailsService(new UserModelDetailsService(null));
+		super.configure(auth);
+	}
 
    // Configure BCrypt password encoder =====================================================================
 
@@ -89,6 +99,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          .headers()//将安全标头添加到响应
          .frameOptions()
          .sameOrigin()
+         
+         
+         //################################################################################
+         // 设置rememberMe(记住我)功能， 设置了remember功能，用户登入后会 给浏览器一个token，这个token
+         // 设置了60分钟过期时间，用户关闭浏览器后60分钟内 再访问网站就不用再重新认证。
+//         .and()
+//         .rememberMe()
+//         .tokenValiditySeconds(3600)
+         //################################################################################
+         
+         //################################################################################
+         //
+         
+         //################################################################################
 
          // create no session
          .and()
