@@ -1,0 +1,51 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: spring-security
+  datasource:
+    name: test
+    #url: jdbc:mysql://127.0.0.1:3306/vhr?useUnicode=true&characterEncoding=UTF-8
+    #Mysql8.0以上版本,由于MySql8.0废弃了convertToNull该写法，改为 CONVERT_TO_NULL
+    url: jdbc:mysql://db4free.net:3306/galen_db?characterEncoding=utf8&serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: user_galen
+    password:  Galen*10*
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    #driver-class-name: com.mysql.jdbc.Driver
+    #Mysql8.0以上版本
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  # 格式化时间
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis:
+  mapper-locations: classpath:mybatis/mappers/**/*.xml
+  type-aliases-package: com.galen.security.pojo
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: false #禁用合理化,pageNum>pages会返回空数据
+  supportMethodsArguments: true
+  params: count=countSql
+#日志输出配置
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.galen.security.mapper: DEBUG

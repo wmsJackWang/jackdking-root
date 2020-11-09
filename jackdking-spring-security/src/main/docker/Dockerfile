@@ -1,5 +1,5 @@
 FROM adoptopenjdk/openjdk11:alpine
-MAINTAINER Stephan Zerhusen <strephan.zerhusen@gmail.com>
+MAINTAINER jack jackdking <jackdking@foxmail.com>
 
 # Add the service itself
 ARG JAR_FILE
