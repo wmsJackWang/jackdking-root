@@ -34,6 +34,7 @@
     <module>jackdking-statemachine-demo</module>
     <module>jackdking-spring-security</module>
     <module>jackdking-login-security-simulator</module>
+    <module>jackdking-springsecurity-one</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
