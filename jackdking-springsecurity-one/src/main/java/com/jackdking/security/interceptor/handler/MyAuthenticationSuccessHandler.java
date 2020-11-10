@@ -23,7 +23,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         response.setContentType("application/json;charset=utf-8");
         RespBean respBean = RespBean.ok("【MyAuthenticationSuccessHandler】登录成功!", SecurityUserUtil.getCurrentUser());
-        new GalenWebMvcWrite().writeToWeb(response, respBean);
+        new GalenWebMvcWrite().writeToWeb(request,response, respBean);
         System.out.println("【MyAuthenticationSuccessHandler】登录成功!");
     }
 }

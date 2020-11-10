@@ -42,7 +42,9 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
         } else {
             respBean = RespBean.error("登录失败!");
         }
+        
+        System.out.println("失败逻辑处理。");
         //response.setStatus(401);
-        new GalenWebMvcWrite().writeToWeb(response, respBean);
+        new GalenWebMvcWrite().writeToWeb(request, response, respBean);
     }
 }

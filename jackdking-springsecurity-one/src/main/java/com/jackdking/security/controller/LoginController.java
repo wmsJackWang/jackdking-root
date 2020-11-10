@@ -1,6 +1,11 @@
 package com.jackdking.security.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +25,7 @@ import io.swagger.annotations.ApiOperation;
 public class LoginController {
 
     @ApiOperation(value = "swagger端测试登录入口")
-    @PostMapping("/login12")
+    @PostMapping("/login")
     @ResponseBody
     public RespBean login(String username, String password) {
         System.out.println(username + "------" + password);
@@ -41,13 +46,24 @@ public class LoginController {
 //        return ResponseUtils.invalid();
     	return "login";
     }
+    
+    @ApiOperation(value = "提示跳转到登录页面")
+    @GetMapping("/index")
+    public String index() {
+//        return ResponseUtils.invalid();
+    	return "index";
+    }
 
     
     @ApiOperation(value = "跳转到自定义错误页面，如果是error 则自动覆盖了springboot默认的error页面")
     @GetMapping("/error_p")
-    public String error() {
+    public String error(HttpServletRequest request , HttpServletResponse response , Model model) {
 //        return ResponseUtils.invalid();
-    	return "error";
+    	
+    	RespBean respBean = (RespBean)request.getAttribute("respBean");
+    	model.addAttribute("respBean",respBean);
+    	System.out.println(respBean.toString());
+    	return "error_p";
     }
 
 }
