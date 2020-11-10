@@ -24,13 +24,13 @@ import io.swagger.annotations.ApiOperation;
 @Controller
 public class LoginController {
 
-    @ApiOperation(value = "swagger端测试登录入口")
-    @PostMapping("/login")
-    @ResponseBody
-    public RespBean login(String username, String password) {
-        System.out.println(username + "------" + password);
-        return RespBean.ok("【LoginController.login】登录成功!");
-    }
+//    @ApiOperation(value = "swagger端测试登录入口")
+//    @PostMapping("/login")
+//    @ResponseBody
+//    public RespBean login(String username, String password) {
+//        System.out.println(username + "------" + password);
+//        return RespBean.ok("【LoginController.login】登录成功!");
+//    }
 
     @ApiOperation(value = "swagger端测试注销入口")
     @PostMapping("/logout")
