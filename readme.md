@@ -22,6 +22,7 @@ Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助
 
 **架构方案系列文章**
 
+- [Java架构师方案——Spring Security（一）快速入门(附完整项目代码)](http://bittechblog.com/blog/article/44)：jackdking-springsecurity-one
 - [Java架构师方案—基于JWT的Token认证(附完整项目代码)](http://bittechblog.com/blog/article/36)：jackdking-login-jwt-token
 - [Java架构师方案—分布式session基于redis的共享机制(附完整项目代码)](http://bittechblog.com/blog/article/26)：jackdking-login-redis-token
 - [Java架构师方案—多数据源开发详解及原理(二)(附完整项目代码)](http://bittechblog.com/blog/article/11)：jackdking-shardjdbcyaml
