@@ -31,6 +31,7 @@ Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助
 - [Java架构师方案—重试机制原理和应用，还有比这个讲的更好的吗(附完整项目代码)](http://bittechblog.com/blog/article/8) ：jackdking-retry
 - [Java架构师方案—透彻理解「状态机」的全套机制 (附完整项目代码)](http://bittechblog.com/blog/article/6) ：jackdking-statemachine
 - [Java架构师方案—状态机(附完整项目代码)](http://bittechblog.com/blog/article/5) ：jackdking-statemachine-demo
+- [Java架构师方案——模拟Spring Security，我徒手写了一个简单的安全框架(附完整项目代码)](http://bittechblog.com/blog/article/40)
 
 ---
 
