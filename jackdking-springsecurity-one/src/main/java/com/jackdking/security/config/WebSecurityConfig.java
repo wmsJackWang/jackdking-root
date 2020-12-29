@@ -72,10 +72,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //奇怪的是 这个url并没有被访问到。
                 .loginProcessingUrl("/login")// 自定义的登录接口，这个接口必须和你登入页面form的action地址一样。否则一直进入login_p页面
                 .usernameParameter("username").passwordParameter("password")//告诉security form表单用户名和密码的参数表达式。
-                .failureHandler(new MyAuthenticationFailureHandler())// 这个失败处理 跟 failureUrl 配置是互斥的。 两种只选择一种
-                .successHandler(new MyAuthenticationSuccessHandler())//跟defaultSuccessUrl互斥 ，这个支持返回json数据。如果不设置这个成功后的处理器，则会报错 999。
-//                .defaultSuccessUrl("/index")   //跟successHandler配置互斥，这个支持重定向到成功页面。 访问指定页面，用户未登入，跳转至登入页面，如果登入成功，跳转至用户访问指定页面，用户访问登入页面，默认的跳转页面
-//                .failureUrl("/error_p") // 重定向失败页面   跟 failureHandler 配置是互斥的。 两种只选择一种
+//                .failureHandler(new MyAuthenticationFailureHandler())// 这个失败处理 跟 failureUrl 配置是互斥的。 两种只选择一种
+//                .successHandler(new MyAuthenticationSuccessHandler())//跟defaultSuccessUrl互斥 ，这个支持返回json数据。如果不设置这个成功后的处理器，则会报错 999。
+                .defaultSuccessUrl("/index")   //跟successHandler配置互斥，这个支持重定向到成功页面。 访问指定页面，用户未登入，跳转至登入页面，如果登入成功，跳转至用户访问指定页面，用户访问登入页面，默认的跳转页面
+                .failureUrl("/error_p") // 重定向失败页面   跟 failureHandler 配置是互斥的。 两种只选择一种
                 .permitAll()
                 
                 .and()
