@@ -1,9 +1,11 @@
 package com.jackdking.security.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,8 +51,15 @@ public class LoginController {
     
     @ApiOperation(value = "提示跳转到登录页面")
     @GetMapping("/index")
-    public String index() {
+    public String index(Model model) {
 //        return ResponseUtils.invalid();
+//    	System.out.println("index");
+    	Map msg = new HashMap<String, String>();
+    	msg.put("title", "主页面");
+    	msg.put("content", "用户权限显示");
+    	msg.put("etraInfo", "此用户是admin权限用户");
+    	model.addAttribute("msg",msg);
+    	
     	return "index";
     }
 
