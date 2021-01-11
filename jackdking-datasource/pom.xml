@@ -2,11 +2,11 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.jackdking.root</groupId>
-    <artifactId>jackdking-root</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent> 
+	<parent>
+	  <groupId>com.jackdking.root</groupId>
+	  <artifactId>jackdking-root</artifactId>
+  	  <version>0.0.1-SNAPSHOT</version>
+	</parent>
   <artifactId>jackdking-datasource</artifactId>
   <name>jackdking-datasource</name>
   <url>http://maven.apache.org</url>
@@ -22,7 +22,6 @@
    	<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
-		<version>4.12</version>
 		<scope>test</scope>
 	</dependency>
 	<dependency>
@@ -39,14 +38,22 @@
         <artifactId>mysql-connector-java</artifactId> 
         <scope>runtime</scope>
    	</dependency>
+
+
+    <!-- aop -->
     <dependency>
-		<groupId>org.aspectj</groupId>
-		<artifactId>aspectjweaver</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+	
+
+	<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+	<dependency>
+	    <groupId>org.mybatis.spring.boot</groupId>
+	    <artifactId>mybatis-spring-boot-starter</artifactId>
+	    <version>2.1.0</version>
 	</dependency>
-		<dependency>
-		<groupId>org.mybatis.spring.boot</groupId>
-		<artifactId>mybatis-spring-boot-starter</artifactId>
-	</dependency>
+
   </dependencies>
   
    <build>
@@ -58,6 +65,7 @@
                     <!-- 指定该Main Class为全局的唯一入口 -->
                     <mainClass>springboot.JackDKingDataSource</mainClass>
                     <layout>ZIP</layout>
+                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>

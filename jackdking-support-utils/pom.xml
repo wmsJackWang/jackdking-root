@@ -15,6 +15,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  
+    <!--guava依赖-->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>com.google.guava</groupId> -->
+<!-- 	    <artifactId>guava</artifactId> -->
+<!-- 	    <version>22.0</version> -->
+<!-- 	</dependency> -->
+  
+  	<dependency>
+	    <groupId>com.google.guava</groupId>
+	    <artifactId>guava</artifactId>
+	    <version>29.0-jre</version>
+	</dependency>
+  
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

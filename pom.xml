@@ -6,12 +6,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 <!--   第一种创建多个springboot项目方法 -->
-  <parent>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-parent</artifactId>
-	<version>2.1.0.RELEASE</version>
-	<relativePath/> 
-  </parent> 
+<!--   <parent> -->
+<!-- 	<groupId>org.springframework.boot</groupId> -->
+<!-- 	<artifactId>spring-boot-starter-parent</artifactId> -->
+<!-- 	<version>2.1.0.RELEASE</version> -->
+<!-- 	<relativePath/>  -->
+<!--   </parent>  -->
   <modules>
     <module>jackdking-datasource</module> 
     <module>jackdking-bigfileupload</module>
@@ -21,7 +21,7 @@
     <module>jackdking-retry</module>
     <module>jackdking-core</module>
     <module>jackdking-redistemplate</module>
-  <module>jackdking-swagger</module>
+  	<module>jackdking-swagger</module>
     <module>jackdking-controller_samples</module>
     <module>jackdking-shardjdbcyaml</module>
     <module>jackdking-algorithm</module>
@@ -36,6 +36,8 @@
     <module>jackdking-login-security-simulator</module>
     <module>jackdking-springsecurity-one</module>
     <module>jackdking-springsecurity-two</module>
+    <module>jackdking-springsecurity-three</module>
+    <module>jackdking-springsecurity-four</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
@@ -50,6 +52,9 @@
 <!-- 	        </dependency> -->
 <!-- 	    </dependencies> -->
 <!-- 	</dependencyManagement> -->
+	
+	
+	
 	
 	<properties>
 		<java.version>1.8</java.version>
@@ -85,6 +90,15 @@
 	<!-- 子模块选择继承或者不继承 -->
 	<dependencyManagement>  
 		<dependencies>
+		
+			<dependency>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-dependencies</artifactId>
+	            <version>2.1.1.RELEASE</version>
+	            <type>pom</type>
+	            <scope>import</scope>
+	        </dependency>
+	        
 			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>

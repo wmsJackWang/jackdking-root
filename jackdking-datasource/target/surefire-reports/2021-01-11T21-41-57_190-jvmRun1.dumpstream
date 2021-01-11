@@ -1,0 +1,25 @@
+# Created on 2021-01-11T21:42:04.488
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+# Created on 2021-01-11T21:42:04.514
+Unexpected IOException with stream: 2021-01-11 21:42:04.511  INFO 20244 --- [           main] .DynamicDatasourceMethodApplicationTests : Starting DynamicDatasourceMethodApplicationTests on jackdking with PID 20244 (started by 10421 in C:\Users\10421\Documents\GitHub\jackdking-root\jackdking-datasource)
+
+
+# Created on 2021-01-11T21:42:04.516
+Unexpected IOException with stream: 2021-01-11 21:42:04.514  INFO 20244 --- [           main] .DynamicDatasourceMethodApplicationTests : No active profile set, falling back to default profiles: default
+
+
+# Created on 2021-01-11T21:42:04.564
+Unexpected IOException with stream: 2021-01-11 21:42:04.526  INFO 20244 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@47af099e: startup date [Mon Jan 11 21:42:04 CST 2021]; root of context hierarchy
+
+
+# Created on 2021-01-11T21:42:05.192
+Unexpected IOException with stream: 2021-01-11 21:42:05.191  INFO 20244 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+
+
