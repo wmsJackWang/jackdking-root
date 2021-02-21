@@ -38,6 +38,10 @@
     <module>jackdking-springsecurity-two</module>
     <module>jackdking-springsecurity-three</module>
     <module>jackdking-springsecurity-four</module>
+    <module>jackdking-rpcservice</module>
+    <module>jackdking-hystrix-jiangji</module>
+    <module>jackdking-springsecurity-five</module>
+    <module>jackdking-springsecurity-six</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
