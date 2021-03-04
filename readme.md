@@ -51,5 +51,4 @@ SpringBoot2.0-Jackdking 使用的各种示例，整合流行的中间件，此�
 - [SpringBoot学习示例—Redis多个实例简单的手动配置之整合Lettuce池(附完整项目代码)](http://bittechblog.com/blog/article/28)：SpringBoot2.0-Redis-MultilDb
 
 - [SpringBoot学习示例—全面解析RedisTemplate配置及序列化、与StringRedisTemplate序列化区别(附完整项目代码)](http://bittechblog.com/blog/article/29)：SpringBoot2.0-Redis-RedisTemplate
-- [SpringBoot学习示例——主动回滚，@Transactional注解捕获异常事务回滚，开发人员根据业务情况主动回滚](http://bittechblog.com/blog/article/50)：SpringBoot2.0-Redis-RedisTemplate
-
+- [SpringBoot学习示例——主动回滚，@Transactional注解捕获异常事务回滚，开发人员根据业务情况主动回滚](http://bittechblog.com/blog/article/50)：
