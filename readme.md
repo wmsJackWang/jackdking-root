@@ -35,6 +35,8 @@ Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助
 - [Spring Security（1）——基于内存认证信息(附完整项目代码)](http://bittechblog.com/blog/article/47)：jackdking-springsecurity-two
 - [Spring Security（2）——实现Remember Me功能(附完整项目代码)](http://bittechblog.com/blog/article/48)：jackdking-springsecurity-three
 - [Spring Security（3）——实现基于数据库的Remember Me功能(附完整项目代码)](http://bittechblog.com/blog/article/49)：jackdking-springsecurity-four
+- [Spring Security（4）——springSecurity框架如何使用多个过滤器链(附完整项目代码)](http://bittechblog.com/blog/article/51)：jackdking-springsecurity-five
+- [Spring Security（5）—— 控制用户并发登入，并剔除前一个用户(附完整项目代码)](http://bittechblog.com/blog/article/55)：jackdking-springsecurity-six
 
 ---
 
