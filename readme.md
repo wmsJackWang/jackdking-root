@@ -32,6 +32,7 @@ Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助
 - [Java架构师方案—透彻理解「状态机」的全套机制 (附完整项目代码)](http://bittechblog.com/blog/article/6) ：jackdking-statemachine
 - [Java架构师方案—状态机(附完整项目代码)](http://bittechblog.com/blog/article/5) ：jackdking-statemachine-demo
 - [Java架构师方案——模拟Spring Security，我徒手写了一个简单的安全框架(附完整项目代码)](http://bittechblog.com/blog/article/40)：jackdking-login-security-simulator
+- [大型网站架构师方案—屌爆了！这种优化方案让我网站响应速度提高了近80倍](http://bittechblog.com/blog/article/45)：
 - [Spring Security（1）——基于内存认证信息(附完整项目代码)](http://bittechblog.com/blog/article/47)：jackdking-springsecurity-two
 - [Spring Security（2）——实现Remember Me功能(附完整项目代码)](http://bittechblog.com/blog/article/48)：jackdking-springsecurity-three
 - [Spring Security（3）——实现基于数据库的Remember Me功能(附完整项目代码)](http://bittechblog.com/blog/article/49)：jackdking-springsecurity-four
