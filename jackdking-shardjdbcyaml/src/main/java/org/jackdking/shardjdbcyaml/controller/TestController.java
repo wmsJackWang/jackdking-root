@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.http.HttpResponse;
@@ -57,14 +58,14 @@ public class TestController {
 				do {
 					
 				++num;
-				userid = "userid:"+(new Date()).getTime();
-				orderid =(new Date()).getTime();
+				userid = "userid:"+new Random().nextInt();
+//				orderid =(new Date()).getTime();
 				ordertime = new java.sql.Timestamp(System.currentTimeMillis());
 		        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				//将参数暂时存放到map中去
 				Map<String,Object> map = new HashMap<String,Object>();
 		        map.put("userid",userid);
-		        map.put("orderid",orderid);
+		        map.put("orderid",String.valueOf(System.currentTimeMillis() + new Random().nextInt()));
 		        map.put("ordertime" , sdf.format(ordertime));
 		      
 //		      // 遍历map，设置参数到list中

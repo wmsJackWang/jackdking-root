@@ -15,6 +15,6 @@ public class ShardingJdbcYamlApplication
 {
     public static void main( String[] args )
     {
-    	SpringApplication.run(ShardingJdbcYamlApplication.class, args);
+    	SpringApplication.run(ShardingJdbcYamlApplication.class, args); 
     }
 }
