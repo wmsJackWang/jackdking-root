@@ -32,27 +32,27 @@ spring:
 #        url: jdbc:mysql://10.18.93.13:3308/myutilproject0?characterEncoding=GBK&useSSL=false
 #        username: root
 #        password: jackdking@1234
-        url: jdbc:mysql://xxx.com:3308/myutilproject0?characterEncoding=GBK&useSSL=false
+        url: jdbc:mysql://bittechblog.com:3308/myutilproject0?characterEncoding=GBK&useSSL=false
         username: root
-        password: xx@xx
+        password: wanyang@wms
         driver-class-name: com.mysql.jdbc.Driver
       ds1:
         type: com.alibaba.druid.pool.DruidDataSource
 #        url: jdbc:mysql://10.18.93.13:3308/myutilproject1?characterEncoding=GBK&useSSL=false
 #        username: root
 #        password: jackdking@1234
-        url: jdbc:mysql://xxx.com:3308/myutilproject1?characterEncoding=GBK&useSSL=false
+        url: jdbc:mysql://bittechblog.com:3308/myutilproject1?characterEncoding=GBK&useSSL=false
         username: root
-        password: xx@xx
+        password: wanyang@wms
         driver-class-name: com.mysql.jdbc.Driver
     sharding:
-      default-table-strategy:
-        standard:
-          precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
-          sharding-column: orderid
       tables:
         TransInfo:
           actual-data-nodes: ds$->{0..1}.TransInfo$->{0..1}
+          database-strategy:
+            standard:
+              precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperDbShardingAlgorithm
+              sharding-column: orderid
           table-strategy:
             standard:
               precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
@@ -65,10 +65,10 @@ spring:
           key-generator:
             column: id
             type: SNOWFLAKE
-      default-database-strategy:
-        standard:
-          precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
-          sharding-column: orderid
+#      default-database-strategy:
+#        standard:
+#          precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
+#          sharding-column: orderid
 #        inline:
 #          sharding-column: id
 #          algorithm-expression: ds$->{id % 2}

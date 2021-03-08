@@ -5,16 +5,7 @@ import java.util.Collection;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
 
-/**
- * 
- * @ClassName: Super9000TableShardingAlgorithm
- * @Description 精准查询
- * @author:luchenxi
- * @date: 2019年11月13日 上午10:02:30
- *
- *             注意：本内容仅限内部传阅，禁用于其他的商业目
- */
-public class SuperTableShardingAlgorithm extends AbstractShardingAlgorithm  implements PreciseShardingAlgorithm<Long>
+public class SuperDbShardingAlgorithm  extends AbstractShardingAlgorithm   implements PreciseShardingAlgorithm<Long>
 {
 
 	/**
@@ -30,18 +21,18 @@ public class SuperTableShardingAlgorithm extends AbstractShardingAlgorithm  impl
 	@ Override
 	public String doSharding(Collection<String> availableTargetNames , PreciseShardingValue<Long> shardingValue)
 	{
-		System.out.println("精确分表策略生效...");
+		System.out.println("精确分库策略生效...");
 		String bussinessOrderId = shardingValue.getValue().toString();//业务方的订单号
 		if(bussinessOrderId != null)
 		{
 			// 查询所在周的周一日期后缀
-			String mondayStr = getTableShardingValue(bussinessOrderId); 
-			System.out.println("目标表后缀 : " + mondayStr);
+			String mondayStr = getDbShardingValue(bussinessOrderId); 
+			System.out.println("目标库后缀 : " + mondayStr);
 			for(String each : availableTargetNames)
 			{
 				if(each.endsWith(mondayStr))
 				{
-					System.out.println("实际表 : " + each);
+					System.out.println("实际库 : " + each);
 					return each;
 				}
 			}
@@ -49,7 +40,7 @@ public class SuperTableShardingAlgorithm extends AbstractShardingAlgorithm  impl
 		throw new IllegalArgumentException();
 	}
 	
-	
+//	
 //	public static void main(String[] args) throws UnsupportedEncodingException {
 //		   String random = getMD5("DA112434354068904823Aaadfdfdfdfdf15");//1631659253101783393684335719623985   6537497330365575379774450529845286931782970345057771873
 //		   											 //1631659253101783393684335719623985   6537497330365575379774450529845286931782970345057771873
@@ -72,6 +63,8 @@ public class SuperTableShardingAlgorithm extends AbstractShardingAlgorithm  impl
 //		   
 //		   System.out.println(i+":"+j);
 //	}
+//	
 
+	
 
 }
