@@ -32,9 +32,12 @@ Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助
 - [Java架构师方案—透彻理解「状态机」的全套机制 (附完整项目代码)](http://bittechblog.com/blog/article/6) ：jackdking-statemachine
 - [Java架构师方案—状态机(附完整项目代码)](http://bittechblog.com/blog/article/5) ：jackdking-statemachine-demo
 - [Java架构师方案——模拟Spring Security，我徒手写了一个简单的安全框架(附完整项目代码)](http://bittechblog.com/blog/article/40)：jackdking-login-security-simulator
+- [大型网站架构师方案—屌爆了！这种优化方案让我网站响应速度提高了近80倍](http://bittechblog.com/blog/article/45)：
 - [Spring Security（1）——基于内存认证信息(附完整项目代码)](http://bittechblog.com/blog/article/47)：jackdking-springsecurity-two
 - [Spring Security（2）——实现Remember Me功能(附完整项目代码)](http://bittechblog.com/blog/article/48)：jackdking-springsecurity-three
 - [Spring Security（3）——实现基于数据库的Remember Me功能(附完整项目代码)](http://bittechblog.com/blog/article/49)：jackdking-springsecurity-four
+- [Spring Security（4）——springSecurity框架如何使用多个过滤器链(附完整项目代码)](http://bittechblog.com/blog/article/51)：jackdking-springsecurity-five
+- [Spring Security（5）—— 控制用户并发登入，并剔除前一个用户(附完整项目代码)](http://bittechblog.com/blog/article/55)：jackdking-springsecurity-six
 
 ---
 
@@ -48,4 +51,4 @@ SpringBoot2.0-Jackdking 使用的各种示例，整合流行的中间件，此�
 - [SpringBoot学习示例—Redis多个实例简单的手动配置之整合Lettuce池(附完整项目代码)](http://bittechblog.com/blog/article/28)：SpringBoot2.0-Redis-MultilDb
 
 - [SpringBoot学习示例—全面解析RedisTemplate配置及序列化、与StringRedisTemplate序列化区别(附完整项目代码)](http://bittechblog.com/blog/article/29)：SpringBoot2.0-Redis-RedisTemplate
-
+- [SpringBoot学习示例——主动回滚，@Transactional注解捕获异常事务回滚，开发人员根据业务情况主动回滚](http://bittechblog.com/blog/article/50)：
