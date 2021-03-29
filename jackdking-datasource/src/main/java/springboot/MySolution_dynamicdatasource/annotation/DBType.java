@@ -7,8 +7,8 @@ import java.lang.annotation.Target;
 
 import springboot.MySolution_RWseparation.mybatis.dynamicdatasource.DataSourceType;
 
-@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface DBType {
     DataSourceType value() default DataSourceType.MASTER;
     boolean resetDatasourceType() default false;

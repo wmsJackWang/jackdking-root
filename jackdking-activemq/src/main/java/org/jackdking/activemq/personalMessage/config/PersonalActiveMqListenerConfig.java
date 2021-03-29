@@ -11,6 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jms.connection.CachingConnectionFactory;
 import org.springframework.jms.connection.JmsTransactionManager;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
+import org.springframework.util.backoff.FixedBackOff;
 
 @Configuration
 @PropertySource("classpath:mq_config.properties")
@@ -32,12 +33,15 @@ public class PersonalActiveMqListenerConfig {
      * @return 消息监听容器 	这个是关联消费者的，监听器就是消费者。
      */
     @Bean(name = "personalQueueMessageListenerContainer")
-    public DefaultMessageListenerContainer orderQueryQueueMessageListenerContainer(@Qualifier("personalConnectionFactory") CachingConnectionFactory personalConnectionFactory, @Qualifier("personalQueueMessageListener") PersonalQueueMessageListener personalQueueMessageListener) {
+    public DefaultMessageListenerContainer orderQueryQueueMessageListenerContainer(@Qualifier("personalConnectionFactory") CachingConnectionFactory personalConnectionFactory, 
+    																			   @Qualifier("personalQueueMessageListener") PersonalQueueMessageListener personalQueueMessageListener,
+    																			   FixedBackOff backOff) {
         DefaultMessageListenerContainer messageListenerContainer = new DefaultMessageListenerContainer();
         messageListenerContainer.setConnectionFactory(personalConnectionFactory);
         messageListenerContainer.setDestinationName(personalMessageQueueName);
         messageListenerContainer.setMessageListener(personalQueueMessageListener);
         messageListenerContainer.setSessionAcknowledgeMode(4);
+        messageListenerContainer.setBackOff(backOff);
         return messageListenerContainer;//sessionAcknowledgeMode = Session.AUTO_ACKNOWLEDGE;消息确认模式默认为自动确认
     }
 
@@ -45,11 +49,14 @@ public class PersonalActiveMqListenerConfig {
      * 	这个是关联消费者的，监听器就是消费者。
      */
     @Bean(name = "personalTopicMessageListenerContainer")
-    public DefaultMessageListenerContainer tradeQueueNotifyDestinationListenerContainer(@Qualifier("personalConnectionFactory") CachingConnectionFactory personalConnectionFactory,  @Qualifier("personalTopicMessageListener") PersonalTopicMessageListener personalTopicMessageListener) {
+    public DefaultMessageListenerContainer tradeQueueNotifyDestinationListenerContainer(@Qualifier("personalConnectionFactory") CachingConnectionFactory personalConnectionFactory,  
+    																					@Qualifier("personalTopicMessageListener") PersonalTopicMessageListener personalTopicMessageListener,
+    																					FixedBackOff backOff) {
         DefaultMessageListenerContainer messageListenerContainer = new DefaultMessageListenerContainer();
         messageListenerContainer.setConnectionFactory(personalConnectionFactory);
         messageListenerContainer.setDestinationName(personalMessageTopic);
         messageListenerContainer.setMessageListener(personalTopicMessageListener);
+        messageListenerContainer.setBackOff(backOff);
         return messageListenerContainer;//sessionAcknowledgeMode = Session.AUTO_ACKNOWLEDGE;消息确认模式默认为自动确认
     }
     
@@ -63,16 +70,20 @@ public class PersonalActiveMqListenerConfig {
         INDIVIDUAL_ACKNOWLEDGE = 4    单条消息确认
      */
     @Bean(name = "jmsContainerTransaction")
-    public DefaultMessageListenerContainer jmsContainerTransaction(@Qualifier("personalConnectionFactory") CachingConnectionFactory personalConnectionFactory,  @Qualifier("personalQueueMessageListenerTransaction") PersonalQueueMessageListenerTransaction personalQueueMessageListenerTransaction,
-    															   @Qualifier("jmsTransactionManager")JmsTransactionManager jmsTransactionManager) {
+    public DefaultMessageListenerContainer jmsContainerTransaction(@Qualifier("personalConnectionFactory") CachingConnectionFactory personalConnectionFactory,  
+    															   @Qualifier("personalQueueMessageListenerTransaction") PersonalQueueMessageListenerTransaction personalQueueMessageListenerTransaction,
+    															   @Qualifier("jmsTransactionManager")JmsTransactionManager jmsTransactionManager,
+    															   FixedBackOff backoff) {
         DefaultMessageListenerContainer messageListenerContainer = new DefaultMessageListenerContainer();
         messageListenerContainer.setConnectionFactory(personalConnectionFactory);
         messageListenerContainer.setDestinationName(personalQueueTransaction);
         messageListenerContainer.setMessageListener(personalQueueMessageListenerTransaction);
         messageListenerContainer.setSessionAcknowledgeMode(4);
+        messageListenerContainer.setBackOff(backoff);
         //对消息开启事务模式
         messageListenerContainer.setSessionTransacted(true);
         messageListenerContainer.setTransactionManager(jmsTransactionManager);
+        
         return messageListenerContainer;//sessionAcknowledgeMode = Session.AUTO_ACKNOWLEDGE;消息确认模式默认为自动确认
     }
     
@@ -82,4 +93,6 @@ public class PersonalActiveMqListenerConfig {
     	JmsTransactionManager jmsTransactionManager = new JmsTransactionManager(personalConnectionFactory);
     	return jmsTransactionManager;
     }
+    
+    
 }

@@ -1,5 +1,8 @@
 package org.jackdking.activemq.personalMessage.consumerlistener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.jms.BytesMessage;
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
@@ -21,13 +24,18 @@ public class PersonalQueueMessageListener implements SessionAwareMessageListener
 		// TODO Auto-generated method stub
 		if (message instanceof TextMessage){
             String msg = ((TextMessage) message).getText();
+    		SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd-hhmmss");
 
             System.out.println("------------------------------------------");
-            System.out.println("消费者收到的消息：" + msg);
+            System.out.println("消费者收到的消息：" + msg + "——" + sdf.format(new Date()));
             System.out.println("------------------------------------------");
+
+    		
+            message.acknowledge();
 
             try {
                 if ("test2".equals(msg)) {
+                	System.out.println("test2抛出异常");
                     throw new RuntimeException("故意抛出的异常");
                 }
                 // 确认消息。只要被确认后  就会出队，接受失败没有确认成功，会在原队列里面
@@ -36,8 +44,9 @@ public class PersonalQueueMessageListener implements SessionAwareMessageListener
             } catch (Exception e) {
                 // 此不可省略 重发信息使用，如果不写此方法，将不会实现重发操作。失败的消息将会一直在队列中，因为没有进行消息确认。
                 // 下次还会监听到这条消息。效果将会是：第一次接受一个消息2。第二次接受2个，依次累加
-                      session.recover();
-
+                    session.recover();
+                  	System.out.println("test2消息recover");
+                      
             }
         }
         //接收实体类

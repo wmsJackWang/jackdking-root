@@ -22,6 +22,7 @@
         <thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>
         <hutool-all.version>4.1.15</hutool-all.version>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<skipTest>true</skipTest>
     </properties>
     <packaging>jar</packaging>
 

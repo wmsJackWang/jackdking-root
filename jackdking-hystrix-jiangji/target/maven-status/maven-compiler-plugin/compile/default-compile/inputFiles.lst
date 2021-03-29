@@ -1,4 +1,4 @@
-C:\Users\10421\Documents\GitHub\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\client\IMsgClient.java
-C:\Users\10421\Documents\GitHub\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\controller\MessageController.java
-C:\Users\10421\Documents\GitHub\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\conf\HystrixConfig.java
-C:\Users\10421\Documents\GitHub\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\HystrixJiangjiApplication.java
+D:\workspace\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\conf\HystrixConfig.java
+D:\workspace\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\client\IMsgClient.java
+D:\workspace\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\HystrixJiangjiApplication.java
+D:\workspace\jackdking-root\jackdking-hystrix-jiangji\src\main\java\org\jackdking\hystrix\jiangji\controller\MessageController.java

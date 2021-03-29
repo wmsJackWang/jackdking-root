@@ -29,8 +29,6 @@
     <module>jackdking-JTA-Atomikos</module>
     <module>jackdking-support-utils</module>
     <module>jackdking-muti-datasource</module>
-    <module>jackdking-login-jwt</module>
-    <module>jackdking-login-redis-jwt-token</module>
     <module>jackdking-statemachine-demo</module>
     <module>jackdking-spring-security</module>
     <module>jackdking-login-security-simulator</module>
@@ -64,6 +62,7 @@
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	    <skipTests>true</skipTests>
 	</properties> 
 	
 	<dependencies>
@@ -82,7 +81,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>provide</scope>
+			<scope>provided</scope>
 		</dependency>
 		
 <!-- 		<dependency> -->
@@ -121,11 +120,11 @@
 	            <version>1.8.7</version>
         	</dependency>
         	
-        	<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>5.1.37</version>
-			</dependency> 
+<!--         	<dependency> -->
+<!-- 				<groupId>mysql</groupId> -->
+<!-- 				<artifactId>mysql-connector-java</artifactId> -->
+<!-- 				<version>5.1.37</version> -->
+<!-- 			</dependency>  -->
         </dependencies> 
 	
 	</dependencyManagement>
