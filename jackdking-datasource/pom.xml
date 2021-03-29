@@ -13,27 +13,22 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.8</java.version>
+    <skipTests>true</skipTests>
   </properties>
+  
   <dependencies>
-  
-  
-    <!-- spring-boot-devtools -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-devtools</artifactId>
-		<optional>true</optional> <!-- 表示依赖不会传递 -->
-	</dependency>
   	<dependency>
 	  	<groupId>com.jackdking.root</groupId>
 	    <artifactId>jackdking-core</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	
    	<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
 		<scope>test</scope>
 	</dependency>
+	
 	<dependency>
 	   <groupId>org.springframework.boot</groupId>
 	   <artifactId>spring-boot-starter-web</artifactId>
@@ -41,48 +36,19 @@
 
 	<dependency>
         <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId> 
-        <scope>runtime</scope>
+        <artifactId>mysql-connector-java</artifactId>
    	</dependency>
+   	
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
     
-    <!-- 切面编程依赖 -->
-   	<dependency>
-		<groupId>org.aspectj</groupId>
-		<artifactId>aspectjweaver</artifactId>
-	</dependency>
-
     <!-- aop -->
-<!--     <dependency> -->
-<!--         <groupId>org.springframework.boot</groupId> -->
-<!--         <artifactId>spring-boot-starter-aop</artifactId> -->
-<!--     </dependency> -->
-
-<!--     <dependency> -->
-<!--      	<groupId>org.aspectj</groupId> -->
-<!--      	<artifactId>aspectjweaver</artifactId> -->
-<!--      	<version>1.8.7</version> -->
-<!-- 	</dependency> -->
-    
-<!--     切面编程 -->
-<!-- 	    <dependency> -->
-<!-- 	        <groupId>org.aspectj</groupId> -->
-<!-- 	        <artifactId>aspectjrt</artifactId> -->
-<!-- 	        <type>pom</type> -->
-<!-- 			<scope>import</scope> -->
-<!-- 	        <version>1.8.7</version> -->
-<!-- 	    </dependency> -->
-<!-- 	    <dependency> -->
-<!-- 	        <groupId>org.aspectj</groupId> -->
-<!-- 	        <artifactId>aspectjweaver</artifactId> -->
-<!-- 	        <type>pom</type> -->
-<!-- 			<scope>import</scope> -->
-<!-- 	        <version>1.8.7</version> -->
-<!-- 	  	</dependency> -->
-    	
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
 	<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
 	<dependency>
 	    <groupId>org.mybatis.spring.boot</groupId>
@@ -91,25 +57,4 @@
 	</dependency>
 
   </dependencies>
-  
-   
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!-- 跳过测试 -->
-            <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-				   <skip>true</skip>
-				</configuration>
-			</plugin>
-        </plugins>
-        <!-- 在pom.xml文件中将build节点中的finalName修改为server.context-path中的路径。就是项目名称。 -->
-        <finalName>datasources</finalName>
-    </build>
-
 </project>

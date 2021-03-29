@@ -5,7 +5,6 @@ springboot\JackDKingDataSource.class
 springboot\MySolution_dynamicdatasource\proxyautowired\impl\SelfBeanProxyListener.class
 springboot\MySolution_dynamicdatasource\proxyautowired\ProxyAutowiredPlugin.class
 springboot\service\UserService.class
-META-INF\spring-configuration-metadata.json
 springboot\MySolution_dynamicdatasource\aspect\JDKingDynamicDataSourceAspect.class
 springboot\MySolution_dynamicdatasource\proxyautowired\SelfBeanProxyAware.class
 springboot\MySolution_RWseparation\mybatis\config\DynamicDataSourceConfig.class

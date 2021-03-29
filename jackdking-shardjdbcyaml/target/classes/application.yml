@@ -50,6 +50,8 @@ spring:
         TransInfo:
           actual-data-nodes: ds$->{0..1}.TransInfo$->{0..1}
           database-strategy:
+            hint:
+              algorithm-class-name: 
             standard:
               precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperDbShardingAlgorithm
               sharding-column: orderid
