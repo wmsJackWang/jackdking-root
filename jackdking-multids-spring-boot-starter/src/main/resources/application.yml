@@ -1,0 +1,20 @@
+print:
+  serviceConfigs:
+    - serviceName: jackdking
+    - serviceName: hello
+    - serviceName: world
+multi:
+  ds:
+    defaultDs: ds1
+    dsConfigs:
+      - dsName: ds1
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://ip:port/myutilproject0?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+      - dsName: ds2
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://ip:port/myutilproject1?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+      

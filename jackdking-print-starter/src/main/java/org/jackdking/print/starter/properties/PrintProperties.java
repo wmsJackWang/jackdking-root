@@ -1,23 +1,32 @@
 package org.jackdking.print.starter.properties;
 
+import java.util.List;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @ConfigurationProperties(prefix = "print")
 public class PrintProperties {
-
-	private String serviceName = "hello world";
-
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
-	}
 	
-	public String getServiceName() {
-		return serviceName;
-	}
+	@Setter
+	@Getter
+	private List<ServiceConfig> serviceConfigs;
 	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "[serviceName="+this.serviceName+"]";
+	@Data
+	public static class ServiceConfig {
+		
+		private String serviceName;
+		
 	}
+//	
+//	private static PrintProperties  printProperties;
+//	
+//    @Autowired
+//    public void setPrintProperties(PrintProperties printProperties) {
+//    	PrintProperties.printProperties = printProperties;
+//    }
+
 }

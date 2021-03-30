@@ -1,16 +1,18 @@
 package org.jackdking.print.starter.service;
 
+import org.jackdking.print.starter.properties.PrintProperties;
+
 public class PrintService {
 	
-	private String printServiceName;
+	private PrintProperties printProperties;
 	
-	public void setPrintServiceName(String printServiceName) {
-		this.printServiceName = printServiceName;
+	public void setPrintServiceName(PrintProperties printProperties) {
+		this.printProperties = printProperties;
 	}
 	
 	
-	public String getPrintServiceName() {
-		return printServiceName;
+	public PrintProperties getPrintServiceName() {
+		return printProperties;
 	}
 	
 

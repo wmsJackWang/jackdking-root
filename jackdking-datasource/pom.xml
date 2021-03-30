@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 	<parent>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-parent</artifactId>
-      <version>1.5.1.RELEASE</version>
-      <relativePath/>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+        <relativePath/>
 	</parent>
   <artifactId>jackdking-datasource</artifactId>
   <name>jackdking-datasource</name>
@@ -22,6 +22,12 @@
 	    <artifactId>jackdking-core</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
   	</dependency>
+    
+    <dependency>
+      <groupId>com.jackdking.root</groupId>
+	  <artifactId>jackdking-multids-spring-boot-starter</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+    </dependency>
   	
    	<dependency>
 		<groupId>junit</groupId>
@@ -30,9 +36,20 @@
 	</dependency>
 	
 	<dependency>
-	   <groupId>org.springframework.boot</groupId>
-	   <artifactId>spring-boot-starter-web</artifactId>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
 	</dependency>
+	
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <optional>true</optional>
+    </dependency>
+    
+   	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-autoconfigure</artifactId>
+    </dependency>
 
 	<dependency>
         <groupId>mysql</groupId>

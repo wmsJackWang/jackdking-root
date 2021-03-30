@@ -25,7 +25,7 @@ public class PrintAutoConfiguration {
     @ConditionalOnMissingBean(PrintService.class)
     public PrintService PrintService() {
     	PrintService printService = new PrintService();
-    	printService.setPrintServiceName(printProperties.getServiceName());
+    	printService.setPrintServiceName(printProperties);
         return printService;
     }
 

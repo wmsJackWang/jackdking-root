@@ -11,13 +11,13 @@ public class Test implements ApplicationRunner{
 
 
 	@Autowired
-	private PrintService printService;
+	public PrintService printService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		System.out.println(printService.getPrintServiceName());
+		System.out.println(printService.getPrintServiceName().getServiceConfigs());
 		
 	}
 	
