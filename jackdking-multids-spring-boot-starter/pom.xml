@@ -3,13 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.jackdking.root</groupId>
-    <artifactId>jackdking-root</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-dependencies</artifactId>
+     <version>2.1.1.RELEASE</version>
   </parent>
-  <groupId>com.jackdking.root</groupId>
+  <groupId>com.bittechblog</groupId>
   <artifactId>jackdking-multids-spring-boot-starter</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>2.1.1.RELEASE</version>
   <name>jackdking-multids-spring-boot-starter</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -69,12 +69,165 @@
     
   </dependencies>
   
+<!--     <build> -->
+<!--       <plugins> -->
+<!--           <plugin> -->
+<!--               <groupId>org.springframework.boot</groupId> -->
+<!--               <artifactId>spring-boot-maven-plugin</artifactId> -->
+<!--           </plugin> -->
+<!--       </plugins> -->
+<!--     </build> -->
+
+
+
+    <!-- 版权许可 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <!-- 代码库 -->
+    <scm>
+        <tag>master</tag>
+        <url>https://github.com/wmsJackWang/jackdking-root.git</url>
+        <connection>scm:git:git@github.com:wmsJackWang/jackdking-root.git</connection>
+        <developerConnection>scm:git:git@github.com:wmsJackWang/jackdking-root.git</developerConnection>
+    </scm>
+    <!-- 开发者信息 -->
+    <developers>
+        <developer>
+            <name>jackdking</name>
+            <email>jackdking@foxmail.com</email>
+            <roles>
+                <role>owner</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+    <!-- 定义snapshots库和releases库的nexus地址 -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+
     <build>
-      <plugins>
-          <plugin>
-              <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-maven-plugin</artifactId>
-          </plugin>
-      </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                </plugin>
+                <!--deploy插件-->
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                    <executions>
+                        <execution>
+                            <id>default-deploy</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>deploy</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!--sonatype的staging插件-->
+                <!--<plugin>-->
+                    <!--<groupId>org.sonatype.plugins</groupId>-->
+                    <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
+                    <!--<version>1.6.7</version>-->
+                    <!--<extensions>true</extensions>-->
+                    <!--<configuration>-->
+                        <!--&lt;!&ndash;<serverId>sonatype-nexus-snapshots</serverId>&ndash;&gt;-->
+                        <!--<serverId>sonatype-nexus-staging</serverId>-->
+                        <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+                        <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+                    <!--</configuration>-->
+                <!--</plugin>-->
+                <!--SCM插件-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>1.8.1</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
     </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.1.2</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <configuration>
+                            <aggregate>true</aggregate>
+                            <!--需要配置，不然会出现“错误: 未知标记:xxxx”-->
+                            <charset>UTF-8</charset>
+                            <encoding>UTF-8</encoding>
+                            <docencoding>UTF-8</docencoding>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+<!--                         <configuration> -->
+<!--                         	<skip>true</skip> -->
+<!--                     	</configuration> -->
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <version>1.6</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>

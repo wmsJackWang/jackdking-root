@@ -8,7 +8,7 @@ package jackdking.multids.dynamicdatasource;
  */
 public class DynamicDataSourceHolder {
 
-    private static final ThreadLocal<String> dataSourceHolder = new ThreadLocal<>();
+    private static final ThreadLocal<String> dataSourceHolder = new ThreadLocal<String>();
 
 
     public static void setType(String dataSourceType){

@@ -1,6 +1,6 @@
 package springboot.MySolution_dynamicdatasource.proxyautowired;
 
-public interface SelfBeanProxyAware {
+public interface SelfBeanProxyAware<T> {
 	
-	void setSelBeanfProxy(Object proxyObj);
+	void setSelBeanfProxy(T proxyObj);
 }

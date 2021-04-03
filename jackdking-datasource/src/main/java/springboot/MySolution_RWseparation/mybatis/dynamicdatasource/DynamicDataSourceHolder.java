@@ -11,9 +11,9 @@ import java.util.Set;
  */
 public class DynamicDataSourceHolder {
 
-    private static final ThreadLocal<DataSourceType> dataSourceHolder = new ThreadLocal<>();
+    private static final ThreadLocal<DataSourceType> dataSourceHolder = new ThreadLocal<DataSourceType>();
 
-    private static final Set<DataSourceType> dataSourceTypes = new HashSet<>();
+    private static final Set<DataSourceType> dataSourceTypes = new HashSet<DataSourceType>();
     static {
         dataSourceTypes.add(DataSourceType.MASTER);
         dataSourceTypes.add(DataSourceType.SLAVE);

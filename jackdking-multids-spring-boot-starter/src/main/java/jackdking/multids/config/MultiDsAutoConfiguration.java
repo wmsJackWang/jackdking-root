@@ -57,7 +57,7 @@ public class MultiDsAutoConfiguration {
     		throw new RuntimeException("多数据源未配置，请按照刚放文档配置数据源");
     	
     	DataSource ds = null;
-        Map<Object,Object> dataSourceMap = new HashMap<>();
+        Map<Object,Object> dataSourceMap = new HashMap<Object, Object>();
     	JDKingDynamicDataSource dynamicDataSource = new JDKingDynamicDataSource();
     	for(DsConfig dsConfig : dsConfigs){
     		
