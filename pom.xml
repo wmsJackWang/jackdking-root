@@ -41,6 +41,7 @@
     <module>jackdking-springsecurity-five</module>
     <module>jackdking-springsecurity-six</module>
     <module>jackdking-multids-spring-boot-starter</module>
+    <module>jackdking-dache</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

@@ -3,9 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-     <groupId>org.springframework.boot</groupId>
-     <artifactId>spring-boot-dependencies</artifactId>
-     <version>2.1.1.RELEASE</version>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-parent</artifactId>
+	<version>2.1.1.RELEASE</version>
+    <relativePath/>
   </parent>
   <groupId>com.bittechblog</groupId>
   <artifactId>jackdking-multids-spring-boot-starter</artifactId>
@@ -82,17 +83,20 @@
 
     <!-- 版权许可 -->
     <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
+     <license>
+        <name>Lesser General Public License (LGPL) version 3.0</name>
+        <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+     </license>
+     <license>
+        <name>Apache Software License (ASL) version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+     </license>
     </licenses>
     <!-- 代码库 -->
     <scm>
-        <tag>master</tag>
-        <url>https://github.com/wmsJackWang/jackdking-root.git</url>
+<!--         <tag>master</tag> -->
         <connection>scm:git:git@github.com:wmsJackWang/jackdking-root.git</connection>
+        <url>https://github.com/wmsJackWang/jackdking-root.git</url>
         <developerConnection>scm:git:git@github.com:wmsJackWang/jackdking-root.git</developerConnection>
     </scm>
     <!-- 开发者信息 -->
@@ -100,20 +104,29 @@
         <developer>
             <name>jackdking</name>
             <email>jackdking@foxmail.com</email>
-            <roles>
-                <role>owner</role>
-            </roles>
-            <timezone>+8</timezone>
+	        <roles>
+	           <role>Lead Developer</role>
+	        </roles>
+<!--             <timezone>+8</timezone> -->
         </developer>
     </developers>
+    
+    
+
+	<issueManagement>
+	   <system>GitHub Issue Tracker</system>
+	   <url>https://github.com/wmsJackWang/jackdking-root/issues</url>
+	</issueManagement>
+	
+	
     <!-- 定义snapshots库和releases库的nexus地址 -->
     <distributionManagement>
         <snapshotRepository>
-            <id>sonatype-nexus</id>
+            <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>sonatype-nexus</id>
+            <id>ossrh</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
@@ -165,69 +178,86 @@
         </pluginManagement>
 
     </build>
+    
+    
+    
+  <profiles>
+     <!--
+     This profile will sign the JAR file, sources file, and javadocs file using the GPG key on the local machine.
+     See: https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven
+     -->
+     <profile>
+        <id>release-sign-artifacts</id>
+        <activation>
+           <property>
+              <name>release</name>
+              <value>true</value>
+           </property>
+        </activation>
+     </profile>
+  </profiles>
 
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.1.2</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+<!--     <profiles> -->
+<!--         <profile> -->
+<!--             <id>release</id> -->
+<!--             <build> -->
+<!--                 <plugins> -->
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-source-plugin</artifactId> -->
+<!--                         <version>2.1.2</version> -->
+<!--                         <executions> -->
+<!--                             <execution> -->
+<!--                                 <id>attach-sources</id> -->
+<!--                                 <phase>package</phase> -->
+<!--                                 <goals> -->
+<!--                                     <goal>jar-no-fork</goal> -->
+<!--                                 </goals> -->
+<!--                             </execution> -->
+<!--                         </executions> -->
+<!--                     </plugin> -->
 
-                    <!-- Javadoc -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
-                        <configuration>
-                            <aggregate>true</aggregate>
-                            <!--需要配置，不然会出现“错误: 未知标记:xxxx”-->
-                            <charset>UTF-8</charset>
-                            <encoding>UTF-8</encoding>
-                            <docencoding>UTF-8</docencoding>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- GPG -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
+<!--                     Javadoc -->
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-javadoc-plugin</artifactId> -->
+<!--                         <version>2.9.1</version> -->
+<!--                         <configuration> -->
+<!--                             <aggregate>true</aggregate> -->
+<!--                             需要配置，不然会出现“错误: 未知标记:xxxx” -->
+<!--                             <charset>UTF-8</charset> -->
+<!--                             <encoding>UTF-8</encoding> -->
+<!--                             <docencoding>UTF-8</docencoding> -->
+<!--                             <additionalparam>-Xdoclint:none</additionalparam> -->
+<!--                         </configuration> -->
+<!--                         <executions> -->
+<!--                             <execution> -->
+<!--                                 <phase>package</phase> -->
+<!--                                 <goals> -->
+<!--                                     <goal>jar</goal> -->
+<!--                                 </goals> -->
+<!--                             </execution> -->
+<!--                         </executions> -->
+<!--                     </plugin> -->
+<!--                     GPG -->
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-gpg-plugin</artifactId> -->
 <!--                         <configuration> -->
 <!--                         	<skip>true</skip> -->
 <!--                     	</configuration> -->
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <version>1.6</version>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+<!--                         <executions> -->
+<!--                             <execution> -->
+<!--                                 <phase>verify</phase> -->
+<!--                                 <goals> -->
+<!--                                     <goal>sign</goal> -->
+<!--                                 </goals> -->
+<!--                             </execution> -->
+<!--                         </executions> -->
+<!--                     </plugin> -->
+<!--                 </plugins> -->
+<!--             </build> -->
+<!--         </profile> -->
+<!--     </profiles> -->
 
 </project>
