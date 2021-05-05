@@ -58,6 +58,7 @@ public class OrderStateMachineBuilder {
             @Override
             public void execute(StateContext<OrderStates, OrderEvents> context) {
                System.out.println(context);
+               System.out.println("事件引发状态的切换，状态切换出发的动作");
             }
         };
     }

@@ -1,5 +1,7 @@
 package org.jackdking.statemachine.web;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.annotation.Resource;
 
 import org.jackdking.statemachine.bean.Form;
@@ -31,6 +33,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/statemachine")
 public class StateMachineController {
 	
+	
+	//状态机对象是有状态的对象，每次状态流转结束了，是还会留存上一次状态信息的。
 	@Autowired
 	private StateMachine orderSingleMachine;
 	
@@ -67,12 +71,16 @@ public class StateMachineController {
 
 		// 创建流程
 		orderSingleMachine.start();
-
+		
+		TimeUnit.SECONDS.sleep(3);
 		// 触发PAY事件
 		orderSingleMachine.sendEvent(OrderEvents.PAY);
 
+		TimeUnit.SECONDS.sleep(3);
 		// 触发RECEIVE事件
 		orderSingleMachine.sendEvent(OrderEvents.RECEIVE);
+		TimeUnit.SECONDS.sleep(3);
+		
 
 //		Order order = new Order(orderId, "547568678", "广东省深圳市", "13435465465", "RECEIVE");
 //		Message<OrderEvents> message = MessageBuilder.withPayload(OrderEvents.RECEIVE).setHeader("order", order).build();
