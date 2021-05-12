@@ -1,0 +1,15 @@
+spring:
+  main:
+    redis: 
+        database: 0 
+        #host: 192.168.64.224 
+        #host: 192.168.0.101 
+        host: localhost
+        password:  
+        port: 6379 
+        #port: 6479 
+        #port: 6379 
+        pool: 
+            max-idle: 100 
+            min-idle: 100 
+            max-active: 100     

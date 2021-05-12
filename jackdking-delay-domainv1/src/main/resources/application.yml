@@ -1,0 +1,35 @@
+# Tomcat
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 200
+        min-spare-threads: 75
+    port: 80
+    connection-timeout: 15000
+    servlet:
+      context-path: /redpack
+     
+# mysql
+spring: 
+    # 环境 dev|test|pro
+    profiles:
+        active: test
+    # jackson时间格式化
+    jackson:
+      time-zone: GMT+8
+      date-format: yyyy-MM-dd HH:mm:ss
+    servlet:
+      multipart:
+        enabled: true
+        max-request-size: 100MB
+        max-file-size: 100MB
+    # 指定静态资源的路径
+    resources:
+        static-locations: classpath:/static/,classpath:/views/
+    aop: 
+        auto: true 
+        proxy-target-class: true 
+## Mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.sohu.modules.redpacket.entity

@@ -1,0 +1,16 @@
+#redis配置
+spring:
+  redis:
+    database: 0 
+    #host: 192.168.64.224 
+    #host: 192.168.0.101 
+    #password: a*#sIYn$iP#Rvx&*rEdIs$%^%z 
+    host: mpt.zw.redis.sohucs.com
+    password: fda86f1d38a542f6b05cb68bd00c9606 
+    port: 22060 
+    #port: 6479 
+    #port: 6379 
+    pool: 
+      max-idle: 100 
+      min-idle: 100 
+      max-active: 100       
