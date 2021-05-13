@@ -7,10 +7,9 @@ import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
 import org.jackdking.delay.domainv1.config.DelayServiceConfig;
+import org.jackdking.delay.domainv1.config.ListenerConfig;
 import org.jackdking.delay.domainv1.exceptions.BussinessErrorException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
@@ -34,6 +33,8 @@ public class DelayService {
 	
 //	@Autowired
 	RedisTemplate<String, Object> redisTemplate;
+	
+	DelayMessageRouterRule delayMessageRouterRule;
 	
 	/*
 	 * 发送延迟消息  ，如果消息发送失败，方法抛出异常，供业务回滚事务
@@ -66,6 +67,11 @@ public class DelayService {
 		
 	}
 	
+	public DelayService setDelayMessageRouterRule(DelayMessageRouterRule delayMessageRouterRule) {
+		this.delayMessageRouterRule = delayMessageRouterRule;
+		return this;
+	}
+	
 	public DelayService setConfig(DelayServiceConfig config) {
 		this.config = config;
 		return this;
@@ -79,10 +85,17 @@ public class DelayService {
 	public DelayService init() {
 		
 		try {
-			Class<DelayMessageLisenter> listenerClass  = (Class<DelayMessageLisenter>) Class.forName(listenerClassName);
-			DelayMessageLisenter listener = listenerClass.newInstance(); 
-			listener.setRedisTemplate(redisTemplate);
-			listeners.add(listener);
+			if(config.getListenerConfig()==null)
+				throw new BussinessErrorException("延迟服务启动失败，没有设置延迟监听器！");
+			for(ListenerConfig listenerConfig : config.getListenerConfig()) {
+				
+				Class<DelayMessageLisenter> listenerClass  = (Class<DelayMessageLisenter>) Class.forName(listenerConfig.getListenerClassName());
+				DelayMessageLisenter listener = listenerClass.newInstance(); 
+				listener.setRedisTemplate(redisTemplate);
+				listener.setDelayMessageRouterRule(delayMessageRouterRule);
+				listeners.add(listener);
+				
+			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

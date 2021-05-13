@@ -33,3 +33,14 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
   type-aliases-package: com.sohu.modules.redpacket.entity
+
+delay-service-config:
+  handlerConfig:
+    - handlerName: JdkDelayMessageListener
+      handlerClassName: org.jackdking.delay.domainv1.delayService.JdkDelayMessageListener
+  listenerConfig:
+    - listenerName: JdkDelayMessageListener
+      listenerClassName: org.jackdking.delay.domainv1.delayService.JdkDelayMessageListener
+      handlerName:
+        - JdkDelayMessageListener
+    

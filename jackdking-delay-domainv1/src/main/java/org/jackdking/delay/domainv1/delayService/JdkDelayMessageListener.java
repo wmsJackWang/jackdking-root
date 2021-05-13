@@ -7,9 +7,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import org.springframework.util.StringUtils;
 
+import io.lettuce.core.resource.Delay;
+
 public class JdkDelayMessageListener implements DelayMessageLisenter{
 	
 	RedisTemplate< String, Object>  redisTemplate;
+	
+	DelayMessageRouterRule  delayMessageRouterRule;
 	
 	public void setRedisTemplate(RedisTemplate< String, Object>  redisTemplate) {
 		this.redisTemplate = redisTemplate;
@@ -30,7 +34,10 @@ public class JdkDelayMessageListener implements DelayMessageLisenter{
 		    {
 			    for (TypedTuple t : tupleSet) {
 			        String message = String.valueOf(t.getValue());
-			        System.out.println("消费消息："+message);
+			        DelayMessage<String> msg = new DelayMessage<String>();
+			        msg.setPlayload(message);
+			        msg.setUniqueKey(message);
+			        delayMessageRouterRule.route(msg);
 			        if(StringUtils.isEmpty(message)) continue;
 			    	
 			    }
@@ -51,6 +58,12 @@ public class JdkDelayMessageListener implements DelayMessageLisenter{
 			
 		}while(true);
 		
+	}
+
+	@Override
+	public void setDelayMessageRouterRule(DelayMessageRouterRule delayMessageRouterRule) {
+		// TODO Auto-generated method stub
+		this.delayMessageRouterRule = delayMessageRouterRule;
 	}
 	
 	

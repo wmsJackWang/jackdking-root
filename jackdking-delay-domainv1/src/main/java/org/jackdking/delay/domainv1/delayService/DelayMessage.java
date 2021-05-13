@@ -53,6 +53,7 @@ public class DelayMessage<T> implements Serializable{
 		
 		JSONObject data = new JSONObject();
 		data.put("playload",JSON.toJSONString(playload));
+		data.put("uniqueKey", uniqueKey);
 		data.put("expireTime", expireTime);
 		data.put("failDeliverCount", failDeliverCount);
 		

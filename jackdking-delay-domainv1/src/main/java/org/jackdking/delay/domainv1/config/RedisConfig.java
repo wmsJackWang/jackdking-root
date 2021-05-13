@@ -1,5 +1,7 @@
 package org.jackdking.delay.domainv1.config;
 
+import org.jackdking.delay.domainv1.delayService.DelayMessageRouterRule;
+import org.jackdking.delay.domainv1.delayService.DelayQueueExcuetor;
 import org.jackdking.delay.domainv1.delayService.DelayService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,17 +37,31 @@ public class RedisConfig {
 	
 	
 	@Bean
-	public DelayService newDelayService(RedisTemplate<String, Object> redisTemplate) {
+	public DelayService newDelayService(RedisTemplate<String, Object> redisTemplate,DelayMessageRouterRule delayMessageRouterRule,DelayServiceConfig delayServiceConfig) {
 		
 		DelayService delayService = new DelayService();
 		
+		System.out.println(delayServiceConfig.toString());
+		
 		delayService.setRedisTemplate(redisTemplate)
-					.setConfig(null)
+					.setConfig(delayServiceConfig)
+					.setDelayMessageRouterRule(delayMessageRouterRule)
 					.init()
 					.start();
 		
 		return delayService;
 		
+	}
+
+	@Bean
+	public DelayMessageRouterRule newDelayMessageRouterRule(DelayQueueExcuetor excuetor) {
+		
+		DelayMessageRouterRule delayMessageRouterRule = new DelayMessageRouterRule();
+		
+		delayMessageRouterRule.setExcuetor(excuetor)
+							  .init();
+		
+		return delayMessageRouterRule;
 	}
 
 }

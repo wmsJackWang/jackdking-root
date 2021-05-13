@@ -7,6 +7,8 @@ public interface DelayMessageLisenter {
 
 	 public void listen();
 	 
-	 public void setRedisTemplate(RedisTemplate< String, Object>  redisTemplate);
+	 public void setRedisTemplate(RedisTemplate<String, Object>  redisTemplate);
+	 
+	 public void setDelayMessageRouterRule(DelayMessageRouterRule delayMessageRouterRule);
 
 }

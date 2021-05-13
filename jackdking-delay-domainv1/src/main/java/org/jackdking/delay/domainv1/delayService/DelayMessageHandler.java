@@ -1,6 +1,6 @@
 package org.jackdking.delay.domainv1.delayService;
 
-public interface DelayMessageHanler {
+public interface DelayMessageHandler {
 	
 	public void handle(DelayMessage msg);
 	
