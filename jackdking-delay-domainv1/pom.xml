@@ -2,31 +2,61 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.jackdking.root</groupId>
-    <artifactId>jackdking-root</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
   <groupId>com.jackdking.root</groupId>
   <artifactId>jackdking-delay-domainv1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>jackdking-delay-domainv1</name>
   <url>http://maven.apache.org</url>
   <properties>
+	<java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<skipTests>true</skipTests>
+  </properties> 
+  
+  
+  <dependencyManagement>  
+	<dependencies>
+	
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>2.1.1.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+  </dependencyManagement>
+	
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    
+     <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <optional>true</optional>
+     </dependency>
+	 <dependency>  
+	    <groupId>junit</groupId>  
+	    <artifactId>junit</artifactId>  
+	    <version>4.12</version>  
+	    <scope>compile</scope>  
+	</dependency>
+
+      <dependency>
+          <groupId>io.netty</groupId>
+          <artifactId>netty-all</artifactId>
+          <version>4.1.6.Final</version>
+      </dependency>
+
     <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
         <version>1.2.54</version>
+    </dependency>
+
+
+    <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
     </dependency>
     	
 	<dependency>
@@ -34,7 +64,18 @@
 	    <artifactId>spring-boot-starter-web</artifactId>
 	</dependency>
 	
-            
+	<!-- 构建Restful API -->  
+	<dependency>  
+	    <groupId>io.springfox</groupId>  
+	    <artifactId>springfox-swagger2</artifactId>  
+	    <version>2.7.0</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>io.springfox</groupId>  
+	    <artifactId>springfox-swagger-ui</artifactId>  
+	    <version>2.7.0</version>  
+	</dependency>
+
      <!-- 引入 redis 依赖 -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -42,4 +83,28 @@
     </dependency>
     
   </dependencies>
+  
+  	
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+<!--            在parent标签后面就跟了java版本信息         <java.version>1.8</java.version> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>    <!--默认关掉单元测试 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

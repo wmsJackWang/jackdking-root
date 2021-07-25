@@ -2,6 +2,7 @@ package dache;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * Hello world!
@@ -50,7 +51,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 	1. 系统接单后，打印出司机和行程单信息。
 	
  */
-
+@EnableAsync
 @SpringBootApplication
 public class Application
 {

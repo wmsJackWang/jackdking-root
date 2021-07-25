@@ -23,20 +23,20 @@ public class DaCheUtil {
 	 * 
 	 * 
 	 **/
-	public static int lati = 40*60*60;
-	public static int lontu = 116*60*60;
+	public static int lati = 40*60*60;//测试使用的纬度值
+	public static int lontu = 116*60*60;//测试使用的经度值
 	
-	public final static int STEP_LENGTH = 40;
-	public final static String NET_POINT_PREFIX = "net_point";
-	public final static String KEY_SPLIT = ":";
+	public final static int STEP_LENGTH = 40;//网格模型的网格步长，单位 秒。
+	public final static String NET_POINT_PREFIX = "net_point";//站点key的前缀
+	public final static String KEY_SPLIT = ":";//redis key的间隔符
 	
 	//latitude:维度  ， longitude:经度
 	//根据传入的经纬度数值，得到它对应的网格节点队列
 	public static String getNetPointKey(int latitude , int longitude) {
 		
-		Long lat =(long) Math.ceil(latitude*0.1/STEP_LENGTH) ;
+		Long lat =(long) Math.ceil(latitude*1.0/STEP_LENGTH) ;
 		
-		Long lon = (long) Math.ceil(longitude*0.1/STEP_LENGTH);
+		Long lon = (long) Math.ceil(longitude*1.0/STEP_LENGTH);
 		
 		return NET_POINT_PREFIX+KEY_SPLIT+lon+KEY_SPLIT+lat;
 		
@@ -56,7 +56,10 @@ public class DaCheUtil {
 	
 	
 	public static void main(String[] args) {
-		System.out.println(getLatitu_lontude(10, 1000));
+		System.out.println(getLatitu_lontude(lati, lati));
+		System.out.println(getLatitu_lontude(lontu, lontu));
+		
+		System.out.println(getNetPointKey(getLatitu_lontude(lati, lati),getLatitu_lontude(lontu, lontu)));
 	}
 	
 }

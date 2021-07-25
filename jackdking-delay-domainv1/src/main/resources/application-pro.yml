@@ -12,4 +12,4 @@ spring:
         pool: 
             max-idle: 100 
             min-idle: 100 
-            max-active: 100     
+            max-active: 100

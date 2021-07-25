@@ -7,7 +7,7 @@ server:
     port: 80
     connection-timeout: 15000
     servlet:
-      context-path: /redpack
+      context-path: /delay
      
 # mysql
 spring: 
@@ -29,18 +29,15 @@ spring:
     aop: 
         auto: true 
         proxy-target-class: true 
-## Mybatis配置
-mybatis:
-  mapper-locations: classpath:mapper/**/*.xml
-  type-aliases-package: com.sohu.modules.redpacket.entity
-
 delay-service-config:
   handlerConfig:
     - handlerName: JdkDelayMessageListener
-      handlerClassName: org.jackdking.delay.domainv1.delayService.JdkDelayMessageListener
+      handlerClassName: org.jackdking.delay.domainv1.delayService.handlers.JdkDelayMessageHandler
   listenerConfig:
     - listenerName: JdkDelayMessageListener
-      listenerClassName: org.jackdking.delay.domainv1.delayService.JdkDelayMessageListener
+      listenerClassName: org.jackdking.delay.domainv1.delayService.listener.JdkDelayMessageListener
       handlerName:
         - JdkDelayMessageListener
-    
+#延迟服务 客户端-服务端通信  server侧的端口号,默认9999
+delay-netty-server:
+  port: 9999
