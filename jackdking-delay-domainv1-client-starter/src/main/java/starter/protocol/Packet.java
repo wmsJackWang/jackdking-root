@@ -1,4 +1,4 @@
-package org.jackdking.delay.domainv1.ptotocol;
+package starter.protocol;
 
 public interface Packet extends Command{
 

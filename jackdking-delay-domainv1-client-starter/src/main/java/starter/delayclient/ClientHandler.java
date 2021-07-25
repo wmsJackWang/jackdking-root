@@ -1,8 +1,8 @@
-package delayclient;
+package starter.delayclient;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import protocol.RpcResponse;
+import starter.protocol.RpcResponse;
 
 public class ClientHandler extends SimpleChannelInboundHandler<RpcResponse>{
 

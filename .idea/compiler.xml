@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jackdking-springsecurity-five" />
+        <module name="jackdking-login-security-simulator" />
+        <module name="jackdking-multids-spring-boot-starter" />
+        <module name="jackdking-algorithm" />
+        <module name="demo" />
+        <module name="jackdking-hystrix-jiangji" />
+        <module name="jackdking-activemq" />
+        <module name="jackdking-core" />
+        <module name="jackdking-JTA-Atomikos" />
+        <module name="jackdking-javamail" />
+        <module name="jackdking-controller_samples" />
+        <module name="jackdking-springsecurity-three" />
+        <module name="jackdking-springsecurity-two" />
+        <module name="jackdking-retry" />
+        <module name="jackdking-delay-domainv1-client-starter" />
+        <module name="jackdking-redistemplate" />
+        <module name="jackdking-datasource" />
+        <module name="jackdking-muti-datasource" />
+        <module name="jackdking-swagger" />
+        <module name="jackdking-delay-domainv1" />
+        <module name="jackdking-bigfileupload" />
+        <module name="jackdking-springsecurity-one" />
+        <module name="jackdking-springsecurity-four" />
+        <module name="jackdking-springsecurity-six" />
+        <module name="jackdkign-redissioncluster" />
+        <module name="jackdking-dache" />
+        <module name="jackdking-common" />
+        <module name="jackdking-spring-security" />
+        <module name="jackdking-shardjdbcyaml" />
+        <module name="jackdking-support-utils" />
+        <module name="jackdking-rpcservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Delay-Client-SpringBoot-Starter" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="jackdkign-redissioncluster" target="1.8" />
+      <module name="jackdking-activemq" target="1.8" />
+      <module name="jackdking-algorithm" target="1.8" />
+      <module name="jackdking-bigfileupload" target="1.8" />
+      <module name="jackdking-common" target="1.8" />
+      <module name="jackdking-controller_samples" target="1.8" />
+      <module name="jackdking-core" target="1.8" />
+      <module name="jackdking-dache" target="1.8" />
+      <module name="jackdking-datasource" target="1.8" />
+      <module name="jackdking-delay-domainv1" target="1.8" />
+      <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
+      <module name="jackdking-hystrix-jiangji" target="1.8" />
+      <module name="jackdking-javamail" target="1.8" />
+      <module name="jackdking-JTA-Atomikos" target="1.8" />
+      <module name="jackdking-login-security-simulator" target="1.8" />
+      <module name="jackdking-multids-spring-boot-starter" target="1.8" />
+      <module name="jackdking-muti-datasource" target="1.8" />
+      <module name="jackdking-redistemplate" target="1.8" />
+      <module name="jackdking-retry" target="1.8" />
+      <module name="jackdking-root" target="1.8" />
+      <module name="jackdking-rpcservice" target="1.8" />
+      <module name="jackdking-shardjdbcyaml" target="1.8" />
+      <module name="jackdking-spring-security" target="1.8" />
+      <module name="jackdking-springsecurity-five" target="1.8" />
+      <module name="jackdking-springsecurity-four" target="1.8" />
+      <module name="jackdking-springsecurity-one" target="1.8" />
+      <module name="jackdking-springsecurity-six" target="1.8" />
+      <module name="jackdking-springsecurity-three" target="1.8" />
+      <module name="jackdking-springsecurity-two" target="1.8" />
+      <module name="jackdking-support-utils" target="1.8" />
+      <module name="jackdking-swagger" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+      <module name="jackdking-dache" options="-parameters" />
+      <module name="jackdking-datasource" options="-parameters" />
+      <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
+      <module name="jackdking-muti-datasource" options="-parameters" />
+      <module name="jackdking-springsecurity-five" options="-parameters" />
+      <module name="jackdking-springsecurity-four" options="-parameters" />
+      <module name="jackdking-springsecurity-one" options="-parameters" />
+      <module name="jackdking-springsecurity-six" options="-parameters" />
+      <module name="jackdking-springsecurity-two" options="-parameters" />
+    </option>
+  </component>
+</project>

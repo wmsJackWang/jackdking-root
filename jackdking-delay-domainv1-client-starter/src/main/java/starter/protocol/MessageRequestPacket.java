@@ -1,5 +1,8 @@
-package org.jackdking.delay.domainv1.ptotocol;
+package starter.protocol;
 
+import lombok.Data;
+
+@Data
 public class MessageRequestPacket implements Packet{
 
     private String message;

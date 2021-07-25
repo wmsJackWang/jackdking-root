@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Delay-Client-SpringBoot-Starter:war">
+    <output-path>$PROJECT_DIR$/Delay-Client-SpringBoot-Starter/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Delay-Client-SpringBoot-Starter</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Delay-Client-SpringBoot-Starter-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Delay-Client-SpringBoot-Starter:war exploded" />
+    </root>
+  </artifact>
+</component>
