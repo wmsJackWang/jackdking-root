@@ -37,4 +37,8 @@ public interface Command {
     Byte HEARTBEAT_REQUEST = 17;
 
     Byte HEARTBEAT_RESPONSE = 18;
+
+    Byte TOPIC_MANAGE_RESPONSE = 19;
+
+    Byte TOPIC_MANAGE_REQUEST = 20;
 }

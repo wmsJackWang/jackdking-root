@@ -67,7 +67,7 @@ public class NettyClient {
                         ch.pipeline().addLast(new LogoutResponseHandler());
                         ch.pipeline().addLast(new PacketEncoder());
 
-                        // 心跳定时器
+                        // 心跳定时器,定期发送心跳检测信号给服务端，这个只作为一个最后的handler使用。
                         ch.pipeline().addLast(new HeartBeatTimerHandler());
                     }
                 });

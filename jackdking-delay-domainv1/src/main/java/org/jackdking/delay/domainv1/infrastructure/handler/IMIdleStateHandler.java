@@ -3,6 +3,7 @@ package org.jackdking.delay.domainv1.infrastructure.handler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.handler.timeout.IdleStateHandler;
+import org.jackdking.delay.domainv1.protocol.request.HeartBeatRequestPacket;
 
 import java.util.concurrent.TimeUnit;
 

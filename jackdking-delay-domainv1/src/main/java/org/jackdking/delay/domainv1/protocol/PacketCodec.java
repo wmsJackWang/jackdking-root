@@ -76,12 +76,16 @@ public class PacketCodec implements Command {
         // 数据包长度
         int length = byteBuf.readInt();
 
+        //读取数据
         byte[] bytes = new byte[length];
         byteBuf.readBytes(bytes);
 
+        //根据command字节数据，得到数据包请求类型
         Class<? extends Packet> requestType = getRequestType(command);
+        //根据序列化算法key，得到序列化工具对象
         Serializer serializer = getSerializer(serializeAlgorithm);
 
+        //反序列化，将字节数据 转化为 对象
         if (requestType != null && serializer != null) {
             return serializer.deserialize(requestType, bytes);
         }
