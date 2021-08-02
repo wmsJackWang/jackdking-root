@@ -12,6 +12,7 @@
         <module name="jackdking-multids-spring-boot-starter" />
         <module name="jackdking-algorithm" />
         <module name="demo" />
+        <module name="jackdking-annotation" />
         <module name="jackdking-hystrix-jiangji" />
         <module name="jackdking-activemq" />
         <module name="jackdking-core" />
@@ -46,6 +47,7 @@
       <module name="jackdkign-redissioncluster" target="1.8" />
       <module name="jackdking-activemq" target="1.8" />
       <module name="jackdking-algorithm" target="1.8" />
+      <module name="jackdking-annotation" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-common" target="1.8" />
       <module name="jackdking-controller_samples" target="1.8" />
