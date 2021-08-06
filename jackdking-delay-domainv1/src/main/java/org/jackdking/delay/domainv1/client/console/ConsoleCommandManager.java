@@ -19,12 +19,13 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("quitGroup", new QuitGroupConsoleCommand());
         consoleCommandMap.put("listGroupMembers", new ListGroupMembersConsoleCommand());
         consoleCommandMap.put("sendToGroup", new SendToGroupConsoleCommand());
+        consoleCommandMap.put("sendMsg", new TopicMessageConsoleCommand());
     }
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
         //  获取第一个指令
-        String command = scanner.next();
+        String command = scanner.nextLine();
 
         if (!SessionUtil.hasLogin(channel)) {
             return;

@@ -41,4 +41,6 @@ public interface Command {
     Byte TOPIC_MANAGE_RESPONSE = 19;
 
     Byte TOPIC_MANAGE_REQUEST = 20;
+
+    Byte TEXT_MESSAGE_REQUEST = 21;
 }

@@ -2,6 +2,7 @@ package org.jackdking.delay.domainv1.client.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.util.AttributeKey;
 import org.jackdking.delay.domainv1.infrastructure.session.Session;
 import org.jackdking.delay.domainv1.infrastructure.util.SessionUtil;
 import org.jackdking.delay.domainv1.protocol.response.LoginResponsePacket;

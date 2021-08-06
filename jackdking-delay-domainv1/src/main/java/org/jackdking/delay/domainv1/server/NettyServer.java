@@ -15,6 +15,7 @@ import org.jackdking.delay.domainv1.server.handler.AuthHandler;
 import org.jackdking.delay.domainv1.server.handler.HeartBeatRequestHandler;
 import org.jackdking.delay.domainv1.server.handler.IMHandler;
 import org.jackdking.delay.domainv1.server.handler.LoginRequestHandler;
+import org.jackdking.delay.domainv1.server.topic.handler.TopicMessageHandler;
 
 import java.util.Date;
 
@@ -41,7 +42,7 @@ public class NettyServer {
                         ch.pipeline().addLast(LoginRequestHandler.INSTANCE);
                         ch.pipeline().addLast(HeartBeatRequestHandler.INSTANCE);
                         ch.pipeline().addLast(AuthHandler.INSTANCE);
-                        ch.pipeline().addLast(IMHandler.INSTANCE);
+                        ch.pipeline().addLast(TopicMessageHandler.INSTANCE);
                     }
                 });
 

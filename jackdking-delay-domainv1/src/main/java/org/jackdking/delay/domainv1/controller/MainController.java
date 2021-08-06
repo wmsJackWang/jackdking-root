@@ -12,7 +12,6 @@ public class MainController {
 	
 	@RequestMapping("/check")
 	public String heartBeatController() {
-		log.info("heart beat check");
 		return "SUCCESS";
 	}
 

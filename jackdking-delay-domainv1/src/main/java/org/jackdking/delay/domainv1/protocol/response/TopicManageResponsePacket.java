@@ -7,7 +7,7 @@ import static org.jackdking.delay.domainv1.protocol.command.Command.TOPIC_MANAGE
 @Data
 public class TopicManageResponsePacket  extends Packet {
 
-    private String topicName;
+    private String topic;
 
     private boolean success;
 

@@ -8,13 +8,19 @@ import org.jackdking.delay.domainv1.infrastructure.util.IDUtil;
 import org.jackdking.delay.domainv1.infrastructure.util.SessionUtil;
 import org.jackdking.delay.domainv1.protocol.request.LoginRequestPacket;
 import org.jackdking.delay.domainv1.protocol.response.LoginResponsePacket;
+import org.jackdking.delay.domainv1.service.ClientLoginService;
+import org.jackdking.delay.domainv1.service.impl.ClientLoginServiceImpl;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
+import java.util.Objects;
 
 @ChannelHandler.Sharable
 public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginRequestPacket> {
 
     public static final LoginRequestHandler INSTANCE = new LoginRequestHandler();
+
+    private static ClientLoginService clientLoginService = new ClientLoginServiceImpl();
 
     protected LoginRequestHandler() {
     }
@@ -42,7 +48,11 @@ public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginReques
     }
 
     private boolean valid(LoginRequestPacket loginRequestPacket) {
-        return true;
+        if(Objects.isNull(loginRequestPacket)||StringUtils.isEmpty(loginRequestPacket.getUserName())
+                                              ||StringUtils.isEmpty(loginRequestPacket.getPassword())) {
+            return false;
+        }
+        return clientLoginService.login(loginRequestPacket.getUserName(),loginRequestPacket.getPassword());
     }
 
     @Override

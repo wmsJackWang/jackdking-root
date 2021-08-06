@@ -16,7 +16,6 @@
     <module>jackdking-datasource</module> 
     <module>jackdking-bigfileupload</module>
     <module>jackdking-activemq</module>
-    <module>jackdking-redissioncluster</module>
     <module>jackdking-common</module>
     <module>jackdking-retry</module>
     <module>jackdking-core</module>
@@ -44,7 +43,7 @@
     <module>jackdking-dache</module>
     <module>jackdking-delay-domainv1</module>
     <module>jackdking-delay-domainv1-client-starter</module>
-      <module>jackdking-annotation</module>
+    <module>jackdking-annotation</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

@@ -11,6 +11,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import org.jackdking.delay.domainv1.client.console.ConsoleCommandManager;
 import org.jackdking.delay.domainv1.client.console.LoginConsoleCommand;
 import org.jackdking.delay.domainv1.client.handler.*;
+import org.jackdking.delay.domainv1.client.handler.Mq.TopicManageResponseHandler;
 import org.jackdking.delay.domainv1.infrastructure.codec.PacketDecoder;
 import org.jackdking.delay.domainv1.infrastructure.codec.PacketEncoder;
 import org.jackdking.delay.domainv1.infrastructure.codec.Spliter;
@@ -65,6 +66,9 @@ public class NettyClient {
                         ch.pipeline().addLast(new GroupMessageResponseHandler());
                         // 登出响应处理器
                         ch.pipeline().addLast(new LogoutResponseHandler());
+                        //主题消息发送处理器
+                        ch.pipeline().addLast(new TopicManageResponseHandler());
+
                         ch.pipeline().addLast(new PacketEncoder());
 
                         // 心跳定时器,定期发送心跳检测信号给服务端，这个只作为一个最后的handler使用。
