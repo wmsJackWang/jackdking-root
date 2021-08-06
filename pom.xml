@@ -44,6 +44,8 @@
     <module>jackdking-delay-domainv1</module>
     <module>jackdking-delay-domainv1-client-starter</module>
     <module>jackdking-annotation</module>
+    <module>jackdking-guava-collections</module>
+    <module>jackdking-ace</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-statemachine-demo/demo.iml" filepath="$PROJECT_DIR$/jackdking-statemachine-demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-redissioncluster/jackdkign-redissioncluster.iml" filepath="$PROJECT_DIR$/jackdking-redissioncluster/jackdkign-redissioncluster.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-JTA-Atomikos/jackdking-JTA-Atomikos.iml" filepath="$PROJECT_DIR$/jackdking-JTA-Atomikos/jackdking-JTA-Atomikos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-ace/jackdking-ace.iml" filepath="$PROJECT_DIR$/jackdking-ace/jackdking-ace.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-activemq/jackdking-activemq.iml" filepath="$PROJECT_DIR$/jackdking-activemq/jackdking-activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-algorithm/jackdking-algorithm.iml" filepath="$PROJECT_DIR$/jackdking-algorithm/jackdking-algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" filepath="$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" />
@@ -16,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" filepath="$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-guava-collections/jackdking-guava-collections.iml" filepath="$PROJECT_DIR$/jackdking-guava-collections/jackdking-guava-collections.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" filepath="$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" filepath="$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" filepath="$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" />
