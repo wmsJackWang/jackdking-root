@@ -1,4 +1,8 @@
 package ace.classifier;
 
-public interface IClassifier {
+import ace.AceContext;
+import ace.AceResult;
+
+public interface IClassifier{
+    public AceResult classify(AceContext aceContext);
 }
