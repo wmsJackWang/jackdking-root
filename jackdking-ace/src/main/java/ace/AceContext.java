@@ -1,9 +1,11 @@
-package com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace;
+package ace;
 
 import com.google.common.collect.Maps;
+import lombok.Data;
 
 import java.util.Map;
 
+@Data
 public class AceContext<T> {
 
     private String aceSence;

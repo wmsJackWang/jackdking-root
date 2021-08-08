@@ -11,7 +11,13 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/springboot/JackDKingDataSource.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/springboot/MySolution_RWseparation/mybatis/config/MyBatisConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/springboot/MySolution_RWseparation/mybatis/config/DynamicDataSourceConfig.java</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">

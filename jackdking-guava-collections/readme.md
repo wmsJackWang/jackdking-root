@@ -10,6 +10,21 @@ Map<String,String> map = ImmutableMap.of("key1", "val1", "key2", "val2");
 //map的可读性较差
 ImmutableMap<String,String> map = ImmutableMap.of("key1", "value1", "key2", "value2");
 
+#多值的map
+Multimap<Integer, String> map = LinkedListMultimap.create();
+map.put(1, "xue");
+map.put(1, "wang");
+map.put(1, "zhang");
+map.put(1, "zhang");
+System.out.println("size:"+map.size());
+System.out.println(map);
+System.out.println(map.get(1));
+
+// output
+size:4
+{1=[xue, wang, zhang, zhang]}
+[xue, wang, zhang, zhang]
+
 #list转化为Stirng
 
 #int数组转化为String数组

@@ -1,13 +1,17 @@
-package com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace;
+package ace;
 
-import com.taobao.tddl.common.model.Atom;
 
+import com.google.common.collect.Multimap;
+
+import java.lang.annotation.Annotation;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public interface AceInitService {
 
     public void init();
-    public void parseAnnoation();
+    public Multimap<String,String> parseAnnoation();
     public void parseAttributor();
     public void parseClassifier();
     public void parseExecutor();

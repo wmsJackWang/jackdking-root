@@ -1,4 +1,4 @@
-package com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace;
+package ace;
 
 import lombok.Data;
 

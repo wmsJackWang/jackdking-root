@@ -1,8 +1,8 @@
-package com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace.factory;
+package ace.factory;
 
-import com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace.attributor.IAttributor;
-import com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace.classifier.IClassifier;
-import com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace.executor.IExecutor;
+import ace.attributor.IAttributor;
+import ace.classifier.IClassifier;
+import ace.executor.IExecutor;
 import com.google.common.collect.Maps;
 
 import java.lang.reflect.Method;
@@ -16,19 +16,12 @@ public class AceFactory {
     public Map<String , Method> rulerMap = Maps.newHashMap();
     public Map<String , Object> rulerParamMap = Maps.newHashMap();
 
-    private static AceFactory aceFactory ;
+    private static AceFactory INSTANCE  = new AceFactory();
 
     private AceFactory(){
 
     }
     public static AceFactory getInstance() {
-        if(aceFactory==null) {
-            synchronized (AceFactory.class) {
-                if(aceFactory==null) {
-                    aceFactory = new AceFactory();
-                }
-            }
-        }
-        return aceFactory;
+        return INSTANCE;
     }
 }

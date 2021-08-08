@@ -1,4 +1,4 @@
-package com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace.anoation;
+package ace.annoation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

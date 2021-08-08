@@ -1,0 +1,9 @@
+#ace 各个组件的路径
+#属性校验器，分类器。执行器可以分散在多个包下，支持按照业务来划分。
+ace:
+  attributors-path:
+    - ace.attributor
+  classifiers-path:
+    - ace.classifier
+  executors-path:
+    - ace.executor

@@ -1,20 +1,13 @@
-package com.autonavi.aos.tmp.settle.hotel.gather.prepay.ace;
+package ace;
 
 
 public class AceWorker {
-    private static AceWorker aceWorker;
+    private final static AceWorker INSTANCE = new AceWorker();
     private AceWorker(){
 
     }
     public static AceWorker getInstance() {
-        if(aceWorker==null) {
-            synchronized (AceWorker.class) {
-                if(aceWorker==null) {
-                    aceWorker = new AceWorker();
-                }
-            }
-        }
-        return aceWorker;
+        return INSTANCE;
     }
 
     public AceResult classify(String classfierName , AceContext aceContext) {
