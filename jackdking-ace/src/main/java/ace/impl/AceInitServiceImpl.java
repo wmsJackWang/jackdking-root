@@ -3,10 +3,12 @@ package ace.impl;
 import ace.*;
 import ace.annoation.Attributor;
 import ace.annoation.Classifier;
+import ace.annoation.Executor;
 import ace.annoation.Ruler;
 import ace.attributor.IAttributor;
 import ace.attributor.TopicTagAttributor;
 import ace.classifier.IClassifier;
+import ace.executor.IExecutor;
 import ace.factory.AceFactory;
 import com.google.common.base.Function;
 import com.google.common.collect.*;
@@ -91,71 +93,87 @@ public class AceInitServiceImpl implements AceInitService , ApplicationListener<
             log.info("Ace already init");
             return;
         }
-        log.info(aceProperty.toString());
+        log.debug(aceProperty.toString());
         Assert.notEmpty(aceProperty.getAttributorsPath(),"AttributorsPath cannt be empty");
         Assert.notEmpty(aceProperty.getClassifiersPath(),"ClassifiersPath cannt be empty");
         Assert.notEmpty(aceProperty.getExecutorsPath(),"ExecutorsPath cannt be empty");
-
-        Multimap<String,String> annotationsMap = parseAnnoation();
-
+        parseAnnoation();
+        parseAttributor();
+        parseClassifier();
+        parseExecutor();
     }
 
     @Override
-    public Multimap<String,String> parseAnnoation() {
-        Multimap<String,String> annotationsMap = LinkedListMultimap.create();
-
-        aceProperty.getAttributorsPath().stream().forEach(path->{
+    public void parseAnnoation() {
+        /*
+         * 解析包下的所有的校验器类
+         */
+        aceProperty.getAttributorsPath().stream().forEach(path -> {
             Set<Class<?>> attributors = doScan(path);
             attributors.stream().forEach(c -> {
                 Attributor attributor = c.getAnnotation(Attributor.class);
                 aceFactory.attributorMap.put(attributor.name(), (IAttributor) newInstance(c));
             });
-            Assert.notEmpty(aceFactory.attributorMap,"attributorsMap is illegally empty");
-            aceFactory.attributorMap.entrySet().stream().distinct().forEach(attributor -> {
-                Method[] methods = attributor.getValue().getClass().getMethods();
-                if(methods==null||methods.length==0) {
-                    return;
-                }
-                log.info("methods size:{}",methods.length);
-                Arrays.stream(methods).filter(method -> method.isAnnotationPresent(Ruler.class)) .forEach(method -> {
-                    Ruler ruler = method.getAnnotation(Ruler.class);
-                    aceFactory.rulerMap.put(ruler.name(),method);
-                    String values[] = ruler.value();
-                    //根据规则注解中的value 来赋予新的值。
-                    if(values!=null && values.length>0) {
-                        aceFactory.rulerParamMap.put(ruler.name(),values);
-                        return;
-                    }
-                });
-            });
         });
 
-        aceProperty.classifiersPath.stream().forEach(path -> {
+        aceProperty.getClassifiersPath().stream().forEach(path -> {
             Set<Class<?>> classifiers = doScan(path);
             classifiers.stream().forEach(c -> {
                 Classifier classifier = c.getAnnotation(Classifier.class);
-                aceFactory.classifierMap.put(classifier.name(), (IClassifier) newInstance(c));
-
-                Ruler[] matcher = classifier.matcher();//匹配规则集合
-                Ruler[] filter  = classifier.filter();//过滤规则集合
-
-                Assert.notEmpty(matcher,"分类器"+classifier.name()+"匹配规则 不能为空");
-
-
-
+                aceFactory.classifierMap.put(classifier.name(),(IClassifier) newInstance(c));
             });
-            Assert.notEmpty(aceFactory.classifierMap,"classifierMap is illegally empty");
-
-
         });
 
+        aceProperty.getExecutorsPath().stream().forEach(path -> {
+            Set<Class<?>> executors = doScan(path);
+            executors.stream().forEach(c -> {
+                Executor executor = c.getAnnotation(Executor.class);
+                aceFactory.executorMap.put(executor.name(),(IExecutor) newInstance(c));
+            });
+        });
 
-        log.info("attributorMap size：{}",aceFactory.attributorMap.size());
-        log.info("rulerMap size：{}",aceFactory.rulerMap.size());
-        log.info("rulerParamMap size：{}",aceFactory.rulerParamMap.size());
-        return null;
+        Assert.notEmpty(aceFactory.attributorMap,"attributors is illegally empty");
+        Assert.notEmpty(aceFactory.classifierMap,"classifier cannt be null");
+        Assert.notEmpty(aceFactory.executorMap,"executor cannt be null");
+
+        /*
+         * 解析 属性校验器的规则
+         */
+        Assert.notEmpty(aceFactory.attributorMap,"attributorsMap is illegally empty");
+        aceFactory.attributorMap.entrySet().stream().distinct().forEach(attributor -> {
+            Method[] methods = attributor.getValue().getClass().getMethods();
+            if(methods==null||methods.length==0) {
+                return;
+            }
+
+            Arrays.stream(methods).filter(method -> method.isAnnotationPresent(Ruler.class)) .forEach(method -> {
+                Ruler ruler = method.getAnnotation(Ruler.class);
+                aceFactory.rulerMap.put(ruler.name(),method);
+                String values[] = ruler.value();
+                //根据规则注解中的value 来赋予新的值。
+                if(values!=null && values.length>0) {
+                    aceFactory.rulerParamMap.put(ruler.name(),values);
+                    return;
+                }
+            });
+        });
+
+        log.debug("attributorMap size：{}",aceFactory.attributorMap.size());
+        log.debug("rulerMap size：{}",aceFactory.rulerMap.size());
+        log.debug("rulerParamMap size：{}",aceFactory.rulerParamMap.size());
+        log.debug("classifierMap size：{}",aceFactory.classifierMap.size());
+        log.debug("executorMap size：{}",aceFactory.executorMap.size());
     }
 
+    /**
+     * description: 根据类class对象 来新建对象 <br>
+     * version: 1.0 <br>
+     * date: 14/08/2021 5:18 下午 <br>
+     * author: jackdking <br>
+     *
+     * @param : 类class对象
+     * @return: 返回创建好的对象
+     **/
     private Object newInstance(Class<?> c) {
         try{
             return c.newInstance();

@@ -7,3 +7,7 @@ ace:
     - ace.classifier
   executors-path:
     - ace.executor
+
+logging:
+  level:
+    ace: debug
