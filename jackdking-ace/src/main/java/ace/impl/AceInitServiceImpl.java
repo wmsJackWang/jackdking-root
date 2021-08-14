@@ -2,9 +2,11 @@ package ace.impl;
 
 import ace.*;
 import ace.annoation.Attributor;
+import ace.annoation.Classifier;
 import ace.annoation.Ruler;
 import ace.attributor.IAttributor;
 import ace.attributor.TopicTagAttributor;
+import ace.classifier.IClassifier;
 import ace.factory.AceFactory;
 import com.google.common.base.Function;
 import com.google.common.collect.*;
@@ -127,6 +129,27 @@ public class AceInitServiceImpl implements AceInitService , ApplicationListener<
                 });
             });
         });
+
+        aceProperty.classifiersPath.stream().forEach(path -> {
+            Set<Class<?>> classifiers = doScan(path);
+            classifiers.stream().forEach(c -> {
+                Classifier classifier = c.getAnnotation(Classifier.class);
+                aceFactory.classifierMap.put(classifier.name(), (IClassifier) newInstance(c));
+
+                Ruler[] matcher = classifier.matcher();//匹配规则集合
+                Ruler[] filter  = classifier.filter();//过滤规则集合
+
+                Assert.notEmpty(matcher,"分类器"+classifier.name()+"匹配规则 不能为空");
+
+
+
+            });
+            Assert.notEmpty(aceFactory.classifierMap,"classifierMap is illegally empty");
+
+
+        });
+
+
         log.info("attributorMap size：{}",aceFactory.attributorMap.size());
         log.info("rulerMap size：{}",aceFactory.rulerMap.size());
         log.info("rulerParamMap size：{}",aceFactory.rulerParamMap.size());

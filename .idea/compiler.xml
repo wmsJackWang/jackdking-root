@@ -34,7 +34,6 @@
         <module name="jackdking-springsecurity-one" />
         <module name="jackdking-springsecurity-four" />
         <module name="jackdking-springsecurity-six" />
-        <module name="jackdkign-redissioncluster" />
         <module name="jackdking-dache" />
         <module name="jackdking-common" />
         <module name="jackdking-spring-security" />
@@ -53,7 +52,7 @@
       <module name="jackdking-annotation" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-common" target="1.8" />
-      <module name="jackdking-controller_samples" target="1.8" />
+      <module name="jackdking-controller_samples" target="1.6" />
       <module name="jackdking-core" target="1.8" />
       <module name="jackdking-dache" target="1.8" />
       <module name="jackdking-datasource" target="1.8" />

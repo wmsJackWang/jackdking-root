@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.jackdking.root:jackdking-multids-spring-boot-starter:0.0.1-SNAPSHOT">
     <CLASSES>
-      <root url="jar://D:/maven/com/jackdking/root/jackdking-multids-spring-boot-starter/0.0.1-SNAPSHOT/jackdking-multids-spring-boot-starter-0.0.1-SNAPSHOT.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/com/jackdking/root/jackdking-multids-spring-boot-starter/0.0.1-SNAPSHOT/jackdking-multids-spring-boot-starter-0.0.1-SNAPSHOT.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/maven/com/jackdking/root/jackdking-multids-spring-boot-starter/0.0.1-SNAPSHOT/jackdking-multids-spring-boot-starter-0.0.1-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/com/jackdking/root/jackdking-multids-spring-boot-starter/0.0.1-SNAPSHOT/jackdking-multids-spring-boot-starter-0.0.1-SNAPSHOT-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://D:/maven/com/jackdking/root/jackdking-multids-spring-boot-starter/0.0.1-SNAPSHOT/jackdking-multids-spring-boot-starter-0.0.1-SNAPSHOT-sources.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/com/jackdking/root/jackdking-multids-spring-boot-starter/0.0.1-SNAPSHOT/jackdking-multids-spring-boot-starter-0.0.1-SNAPSHOT-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

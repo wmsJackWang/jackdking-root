@@ -14,6 +14,8 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <guava.version>30.1-jre</guava.version>
+        <fastjson.version>1.2.75</fastjson.version>
     </properties>
     <dependencies>
         <!-- springboot依赖，springboot项目都需要配置  -->
@@ -28,11 +30,13 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
         <!-- 对象解析工具-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
