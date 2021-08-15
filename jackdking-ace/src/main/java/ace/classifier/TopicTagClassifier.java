@@ -1,7 +1,7 @@
 package ace.classifier;
 
-import ace.AceContext;
-import ace.AceResult;
+import ace.core.AceContext;
+import ace.core.AceResult;
 import ace.annoation.Classifier;
 import ace.annoation.Ruler;
 

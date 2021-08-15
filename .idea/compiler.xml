@@ -52,7 +52,7 @@
       <module name="jackdking-annotation" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-common" target="1.8" />
-      <module name="jackdking-controller_samples" target="1.6" />
+      <module name="jackdking-controller_samples" target="1.8" />
       <module name="jackdking-core" target="1.8" />
       <module name="jackdking-dache" target="1.8" />
       <module name="jackdking-datasource" target="1.8" />

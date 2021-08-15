@@ -1,7 +1,7 @@
 package ace.executor;
 
-import ace.AceContext;
-import ace.AceResult;
+import ace.core.AceContext;
+import ace.core.AceResult;
 import ace.annoation.Executor;
 
 /**

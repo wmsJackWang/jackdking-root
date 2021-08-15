@@ -10,4 +10,5 @@ ace:
 
 logging:
   level:
+    #ace包下的所有类打印日志级别都是 debug
     ace: debug

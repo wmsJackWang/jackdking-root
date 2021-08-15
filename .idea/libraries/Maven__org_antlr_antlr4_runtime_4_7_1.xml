@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.antlr:antlr4-runtime:4.7.1">
     <CLASSES>
-      <root url="jar:///usr/local/ApachMaven/repository/org/antlr/antlr4-runtime/4.7.1/antlr4-runtime-4.7.1.jar!/" />
+      <root url="jar://D:/maven/org/antlr/antlr4-runtime/4.7.1/antlr4-runtime-4.7.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar:///usr/local/ApachMaven/repository/org/antlr/antlr4-runtime/4.7.1/antlr4-runtime-4.7.1-javadoc.jar!/" />
+      <root url="jar://D:/maven/org/antlr/antlr4-runtime/4.7.1/antlr4-runtime-4.7.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar:///usr/local/ApachMaven/repository/org/antlr/antlr4-runtime/4.7.1/antlr4-runtime-4.7.1-sources.jar!/" />
+      <root url="jar://D:/maven/org/antlr/antlr4-runtime/4.7.1/antlr4-runtime-4.7.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
