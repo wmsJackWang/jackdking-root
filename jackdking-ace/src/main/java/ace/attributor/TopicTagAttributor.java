@@ -26,8 +26,30 @@ import java.util.Optional;
 @Data
 public class TopicTagAttributor implements IAttributor {
 
+    @Ruler(name = "checkTopicTagLegal")
+    public AceResult checkTopicTagLegal(AceContext<Map<String,Object>,String[],Object>  aceContext) {
+        log.debug("begin to execute ruler {}","checkTopicTagLegal");
+        Preconditions.checkNotNull(aceContext,"TopicTagAttributor cannt be null");
+        Preconditions.checkNotNull(aceContext.getDataParam(),"data of aceContext cannt be null");
+        Map<String , Object> contextDataParam = Optional.ofNullable(aceContext.getDataParam()).orElse(Collections.emptyMap());
+        Object tagValue = contextDataParam.get(Constants.TAG);
+        String[] rulerParam = aceContext.getRulerParam();
+
+        Preconditions.checkArgument(!StringUtils.isEmpty(rulerParam),"classifer defined rulerParam cannt be empty");
+        Preconditions.checkArgument(!StringUtils.isEmpty(tagValue)," tagValue cannt be empty");
+
+        boolean result =  false;
+        if(Arrays.stream(rulerParam).anyMatch(tag -> tag.equals(tagValue))) {
+            result = true;
+        }
+
+        AceResult checkTopicTagResult = new AceResult(result,null);
+        log.debug("checkTopicTag ruler result :{}",JSON.toJSONString(checkTopicTagResult));
+        return checkTopicTagResult;
+    }
+
     @Ruler(name = "checkTopicTag")
-    public AceResult attribute(AceContext<Map<String,Object>,String[],Object>  aceContext) {
+    public AceResult checkTopicTag(AceContext<Map<String,Object>,String[],Object>  aceContext) {
         log.debug("begin to execute ruler {}","checkTopicTag");
         Preconditions.checkNotNull(aceContext,"TopicTagAttributor cannt be null");
         Preconditions.checkNotNull(aceContext.getDataParam(),"data of aceContext cannt be null");
@@ -40,7 +62,6 @@ public class TopicTagAttributor implements IAttributor {
 
         log.debug("rulerParam is :{}", JSON.toJSONString(rulerParam));
         log.debug("dataParam is :{}", JSON.toJSONString(tagValue));
-
 
         boolean result =  false;
         if(Arrays.stream(rulerParam).anyMatch(tag -> tag.equals(tagValue))) {

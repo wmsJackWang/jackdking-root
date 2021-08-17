@@ -11,6 +11,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class AceFactory {
 
@@ -36,6 +38,8 @@ public class AceFactory {
     public Map<String ,String> classifierPriority = Maps.newHashMap();
 
     private static AceFactory INSTANCE  = new AceFactory();
+
+    public final Supplier<String> executorNullError = () -> "executor is null";
 
     private AceFactory(){
 

@@ -35,6 +35,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.*;
 import org.springframework.core.io.Resource;
 
+import javax.xml.bind.ValidationEvent;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -54,8 +55,14 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        IAttributor attributor = (IAttributor) Class.forName("ace.attributor.TopicTagAttributor").newInstance();
-        System.out.println(JSON.toJSONString(attributor));
+
+        boolean isAtomicClassifier = true;
+        boolean isNestClassifier = true;
+        Assert.isTrue(isAtomicClassifier^isNestClassifier, ErrorMessageCode.CLASSIFIER_ILLEGAL.retCheckMessage("classifierName"));
+//
+//
+//        IAttributor attributor = (IAttributor) Class.forName("ace.attributor.TopicTagAttributor").newInstance();
+//        System.out.println(JSON.toJSONString(attributor));
 //
 //        Annotation annotation = AnnotationUtils.getAnnotation(TopicTagAttributor.class, Attributor.class);
 //        System.out.println("name:"+((Attributor)annotation).name());
@@ -211,8 +218,9 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
             Ruler[] matchers = classifier.matcher();
             Ruler[] filters = classifier.filter();
             String priority = classifier.priority();
+            
+            validateLegalParam(classifier.name(), matchers, filters, priority);
 
-            Assert.notEmpty(matchers, ErrorMessageCode.CLASSIFIER_MATCHERS_NULL.retCheckMessage(classifier.name()));
 
             //filters  can be empty
             if (!ObjectUtils.isEmpty(filters)) {
@@ -245,14 +253,19 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
         });
     }
 
+    private void validateLegalParam(String classifierName, Ruler[] matchers, Ruler[] filters, String priority) {
+
+        boolean isAtomicClassifier = !ObjectUtils.isEmpty(matchers) || !ObjectUtils.isEmpty(filters);
+        boolean isNestClassifier = !StringUtils.isEmpty(priority);
+        Assert.isTrue(isAtomicClassifier^isNestClassifier, ErrorMessageCode.CLASSIFIER_ILLEGAL.retCheckMessage(classifierName));
+    }
+
     @Override
     public void parseExecutor() {
 //        aceFactory.executorMap.entrySet().stream().distinct().forEach(c -> {
 //            Executor executor = c.getValue().getClass().getAnnotation(Executor.class);
 //            log.debug("executor {} begin to parse",executor.name());
-//
-//
-//
+//            aceFactory.executorMap.put(executor.name(), (IExecutor) newInstance(c.getValue().getClass()));
 //        });
     }
 

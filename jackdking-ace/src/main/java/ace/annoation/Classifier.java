@@ -9,7 +9,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Classifier {
     String name();
+    //matcher ，filter 与 priority不能同时存在
     Ruler[] matcher();
     Ruler[] filter() ;
-    String priority() default "";//宏分类器吗，包含多个原子分类器
+    String priority() default "";//宏分类器吗，包含多个原子分类器,表明了分类器的优先级
 }

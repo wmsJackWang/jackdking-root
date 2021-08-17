@@ -5,6 +5,7 @@ import ace.attributor.IAttributor;
 import ace.classifier.IClassifier;
 import ace.constant.Constants;
 import ace.enums.ErrorMessageCode;
+import ace.executor.IExecutor;
 import ace.factory.AceFactory;
 import ace.utils.AceUtil;
 import com.alibaba.fastjson.JSON;
@@ -12,9 +13,11 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
+import org.assertj.core.util.Preconditions;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.invoke.ConstantCallSite;
@@ -67,7 +70,7 @@ public class AceWorker {
         long classifierCount = allClassifierResult.size();
 
         Assert.isTrue(classifierCount>0 , ErrorMessageCode.CLASSIFIER_MATCH_NOT_EXIST.retCheckMessage(aceContext.getAceScene().sceneName));
-        Assert.isTrue(classifierCount<=1 , ErrorMessageCode.CLASSIFIER_MATCH_BEYOND_ONE.retCheckMessage(aceContext.getAceScene().sceneName));
+        Assert.isTrue(classifierCount==1 , ErrorMessageCode.CLASSIFIER_MATCH_BEYOND_ONE.retCheckMessage(aceContext.getAceScene().sceneName));
 
         Map.Entry<String,AceResult> result = allClassifierResult.entrySet().stream().findFirst().get();
         IClassifier classifier = aceFactory.classifierMap.get(result.getKey());
@@ -125,12 +128,21 @@ public class AceWorker {
     }
 
     private AceResult execute(String executorName , AceContext aceContext){
+        IExecutor executor = aceFactory.executorMap.get(executorName);
+        Assert.isTrue(!Objects.isNull(executor), aceFactory.executorNullError);
 
-        return null;
+        return executor.execute(aceContext);
     }
 
-    public AceResult execute(AceContext aceContext){
-        return null;
+    public List<AceResult> execute(AceContext<ImmutableList<String>,Object,Object> aceContext){
+        if (Objects.isNull(aceContext)||CollectionUtils.isEmpty(aceContext.getDataParam())) {
+            return Lists.newArrayList(AceResult.fail());
+        }
+        List<AceResult> aceResultList = Lists.newArrayList();
+        aceContext.getDataParam().stream().forEach(executorName -> {
+            aceResultList.add(execute(executorName,aceContext));
+        });
+        return aceResultList;
     }
 
 }
