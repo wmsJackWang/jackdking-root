@@ -1,0 +1,3 @@
+logging:
+  pattern:
+    console: %date %level [%thread] %logger{10} [%file:%line] - %msg%n
