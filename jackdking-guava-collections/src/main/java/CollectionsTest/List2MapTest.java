@@ -11,6 +11,7 @@ import org.assertj.core.util.Lists;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -107,4 +108,5 @@ class User {
     String username;
     Integer age;
     String gender;
+    BigDecimal balance;
 }

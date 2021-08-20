@@ -46,39 +46,39 @@
       <module name="Delay-Client-SpringBoot-Starter" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="jackdkign-redissioncluster" target="1.8" />
-      <module name="jackdking-ace" target="8" />
-      <module name="jackdking-activemq" target="1.5" />
-      <module name="jackdking-algorithm" target="1.5" />
-      <module name="jackdking-annotation" target="8" />
-      <module name="jackdking-bigfileupload" target="1.5" />
-      <module name="jackdking-common" target="1.5" />
-      <module name="jackdking-controller_samples" target="1.6" />
-      <module name="jackdking-core" target="1.5" />
+      <module name="jackdking-ace" target="1.8" />
+      <module name="jackdking-activemq" target="1.8" />
+      <module name="jackdking-algorithm" target="1.8" />
+      <module name="jackdking-annotation" target="1.8" />
+      <module name="jackdking-bigfileupload" target="1.8" />
+      <module name="jackdking-common" target="1.8" />
+      <module name="jackdking-controller_samples" target="1.8" />
+      <module name="jackdking-core" target="1.8" />
       <module name="jackdking-dache" target="1.8" />
       <module name="jackdking-datasource" target="1.8" />
-      <module name="jackdking-delay-domainv1" target="1.5" />
-      <module name="jackdking-delay-domainv1-client-starter" target="1.5" />
+      <module name="jackdking-delay-domainv1" target="1.8" />
+      <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
       <module name="jackdking-guava-collections" target="1.8" />
-      <module name="jackdking-hystrix-jiangji" target="1.5" />
-      <module name="jackdking-javamail" target="1.5" />
-      <module name="jackdking-JTA-Atomikos" target="1.5" />
+      <module name="jackdking-hystrix-jiangji" target="1.8" />
+      <module name="jackdking-javamail" target="1.8" />
+      <module name="jackdking-JTA-Atomikos" target="1.8" />
       <module name="jackdking-login-security-simulator" target="1.8" />
       <module name="jackdking-multids-spring-boot-starter" target="1.8" />
       <module name="jackdking-muti-datasource" target="1.8" />
-      <module name="jackdking-redistemplate" target="1.5" />
-      <module name="jackdking-retry" target="1.5" />
+      <module name="jackdking-redistemplate" target="1.8" />
+      <module name="jackdking-retry" target="1.8" />
       <module name="jackdking-root" target="1.8" />
-      <module name="jackdking-rpcservice" target="1.5" />
-      <module name="jackdking-shardjdbcyaml" target="1.5" />
-      <module name="jackdking-spring-security" target="1.5" />
+      <module name="jackdking-rpcservice" target="1.8" />
+      <module name="jackdking-shardjdbcyaml" target="1.8" />
+      <module name="jackdking-spring-security" target="1.8" />
       <module name="jackdking-springsecurity-five" target="1.8" />
       <module name="jackdking-springsecurity-four" target="1.8" />
       <module name="jackdking-springsecurity-one" target="1.8" />
       <module name="jackdking-springsecurity-six" target="1.8" />
-      <module name="jackdking-springsecurity-three" target="1.5" />
+      <module name="jackdking-springsecurity-three" target="1.8" />
       <module name="jackdking-springsecurity-two" target="1.8" />
-      <module name="jackdking-support-utils" target="1.5" />
-      <module name="jackdking-swagger" target="1.5" />
+      <module name="jackdking-support-utils" target="1.8" />
+      <module name="jackdking-swagger" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

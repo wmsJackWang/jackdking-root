@@ -1,6 +1,14 @@
 package CollectionsTest;
 
+import com.google.common.collect.ImmutableList;
+import com.sun.xml.internal.bind.v2.TODO;
 import lombok.extern.slf4j.Slf4j;
+import org.jboss.logging.Param;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Copyright (C) 阿里巴巴
@@ -14,5 +22,198 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GroupList2MapTest {
 
+    /**
+     * @Description: 对象流 按照对象的某一个字段进行 分组  得到map数据
+     * @MethodName:
+     * @Param:
+     * @return:
+     * @Author: jackdking
+     * @User: 10421
+     * @Date: 2021/8/21
+     *
+     * key:34  value:[User(username=john2, age=34, gender=man)]
+     * key:67  value:[User(username=john7, age=67, gender=man)]
+     * key:23  value:[User(username=john5, age=23, gender=man)]
+     * key:56  value:[User(username=john8, age=56, gender=man)]
+     * key:24  value:[User(username=john1, age=24, gender=man)]
+     * key:12  value:[User(username=jack, age=12, gender=man), User(username=john4, age=12, gender=man)]
+     * key:45  value:[User(username=john6, age=45, gender=man)]
+     * key:46  value:[User(username=john3, age=46, gender=man)]
+     *
+     **/
+    @Test
+    public void testGroupByOneColumnList2Map() {
+
+        ImmutableList<User> userList = ImmutableList.<User>builder()
+                .add(User.builder().username("jack").age(12).gender("man").build())
+                .add(User.builder().username("john1").age(24).gender("man").build())
+                .add(User.builder().username("john2").age(34).gender("man").build())
+                .add(User.builder().username("john3").age(46).gender("man").build())
+                .add(User.builder().username("john4").age(12).gender("man").build())
+                .add(User.builder().username("john5").age(23).gender("man").build())
+                .add(User.builder().username("john6").age(45).gender("man").build())
+                .add(User.builder().username("john7").age(67).gender("man").build())
+                .add(User.builder().username("john8").age(56).gender("man").build())
+                .build();
+
+        Map map = userList.stream().collect(Collectors.groupingBy(User::getAge));
+
+        map.forEach((k, v) -> {
+            System.out.println("key:"+ k + "  value:" + v);
+        });
+    }
+
+    /**
+     * @Description: TODO  对象流按照 对象的多个字段进行分组 得到 map数据结构
+     *                  按照用户对象的用户名和年龄进行分组
+     * @MethodName:
+     * @Param: 
+     * @return: 
+     * @Author: jackdking
+     * @User: 10421
+     * @Date: 2021/8/21
+     *
+     * key:john8_56  value:[User(username=john8, age=56, gender=man)]
+     * key:john7_67  value:[User(username=john7, age=67, gender=man), User(username=john7, age=67, gender=man)]
+     * key:john6_45  value:[User(username=john6, age=45, gender=man)]
+     * key:john1_24  value:[User(username=john1, age=24, gender=man)]
+     * key:john3_46  value:[User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man)]
+     * key:john2_34  value:[User(username=john2, age=34, gender=man)]
+     * key:john4_12  value:[User(username=john4, age=12, gender=man), User(username=john4, age=12, gender=man)]
+     * key:john5_23  value:[User(username=john5, age=23, gender=man)]
+     * key:jack_12  value:[User(username=jack, age=12, gender=man)]
+     **/ 
+    @Test
+    public void testGroupByBeyondTwoColumnList2Map() {
+
+        ImmutableList<User> userList = ImmutableList.<User>builder()
+                .add(User.builder().username("jack").age(12).gender("man").build())
+                .add(User.builder().username("john1").age(24).gender("man").build())
+                .add(User.builder().username("john2").age(34).gender("man").build())
+                .add(User.builder().username("john3").age(46).gender("man").build())
+                .add(User.builder().username("john3").age(46).gender("man").build())
+                .add(User.builder().username("john4").age(12).gender("man").build())
+                .add(User.builder().username("john5").age(23).gender("man").build())
+                .add(User.builder().username("john4").age(12).gender("man").build())
+                .add(User.builder().username("john6").age(45).gender("man").build())
+                .add(User.builder().username("john7").age(67).gender("man").build())
+                .add(User.builder().username("john8").age(56).gender("man").build())
+                .add(User.builder().username("john7").age(67).gender("man").build())
+                .build();
+
+        Map map = userList.stream().collect(Collectors.groupingBy(item -> item.getUsername()+"_"+item.getAge()));
+
+        map.forEach((k, v) -> {
+            System.out.println("key:"+ k + "  value:" + v);
+        });
+
+    }
+
+    /**
+     * @Description: TODO  对流的每个元素  按照某些条件进行分组，得到 map数据结构
+     * @MethodName:
+     * @Param:
+     * @return:
+     * @Author: jackdking
+     * @User: 10421
+     * @Date: 2021/8/21
+     *
+     * key:成年人 value:[User(username=john1, age=24, gender=man), User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john7, age=67, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     * key:未成年人 value:[User(username=jack, age=12, gender=man), User(username=john4, age=12, gender=man), User(username=john4, age=12, gender=man)]
+     **/
+    @Test
+    public void testGroupByCondition() {
+        ImmutableList<User> userList = ImmutableList.<User>builder()
+                .add(User.builder().username("jack").age(12).gender("man").build())
+                .add(User.builder().username("john1").age(24).gender("man").build())
+                .add(User.builder().username("john2").age(34).gender("man").build())
+                .add(User.builder().username("john3").age(46).gender("man").build())
+                .add(User.builder().username("john3").age(46).gender("man").build())
+                .add(User.builder().username("john4").age(12).gender("man").build())
+                .add(User.builder().username("john5").age(23).gender("man").build())
+                .add(User.builder().username("john4").age(12).gender("man").build())
+                .add(User.builder().username("john6").age(45).gender("man").build())
+                .add(User.builder().username("john7").age(67).gender("man").build())
+                .add(User.builder().username("john8").age(56).gender("man").build())
+                .add(User.builder().username("john7").age(67).gender("man").build())
+                .build();
+
+        Map map = userList.stream().collect(Collectors.groupingBy(item -> {
+            if (item.getAge() < 18) {
+                return "未成年人";
+            } else {
+                return "成年人";
+            }
+        }));
+
+        map.forEach((k, v) -> System.out.println("key:" + k + " value:" + v));
+
+    }
+
+    /**
+     * @Description: TODO   多级分组，将流对象按照 属性或者条件 进行多级分组 ， 可以一直继续分下去
+     * @MethodName:
+     * @Param: 
+     * @return: 
+     * @Author: jackdking
+     * @User: 10421
+     * @Date: 2021/8/21
+     *
+     * woman
+     *   未成年人
+     *     [User(username=john4, age=12, gender=woman)]
+     *   成年人
+     *     [User(username=john1, age=24, gender=woman), User(username=john7, age=67, gender=woman)]
+     *     [User(username=john1, age=24, gender=woman), User(username=john7, age=67, gender=woman)]
+     * man
+     *   成年人
+     *     [User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     *     [User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     *     [User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     *     [User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     *     [User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     *     [User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     *     [User(username=john2, age=34, gender=man), User(username=john3, age=46, gender=man), User(username=john3, age=46, gender=man), User(username=john5, age=23, gender=man), User(username=john6, age=45, gender=man), User(username=john8, age=56, gender=man), User(username=john7, age=67, gender=man)]
+     *   未成年人
+     *     [User(username=jack, age=12, gender=man), User(username=john4, age=12, gender=man)]
+     *     [User(username=jack, age=12, gender=man), User(username=john4, age=12, gender=man)]
+     *
+     **/ 
+    @Test
+    public void testMultiLevelGroupByColumn() {
+
+
+        ImmutableList<User> userList = ImmutableList.<User>builder()
+                .add(User.builder().username("jack").age(12).gender("man").build())
+                .add(User.builder().username("john1").age(24).gender("woman").build())
+                .add(User.builder().username("john2").age(34).gender("man").build())
+                .add(User.builder().username("john3").age(46).gender("man").build())
+                .add(User.builder().username("john3").age(46).gender("man").build())
+                .add(User.builder().username("john4").age(12).gender("man").build())
+                .add(User.builder().username("john5").age(23).gender("man").build())
+                .add(User.builder().username("john4").age(12).gender("woman").build())
+                .add(User.builder().username("john6").age(45).gender("man").build())
+                .add(User.builder().username("john7").age(67).gender("woman").build())
+                .add(User.builder().username("john8").age(56).gender("man").build())
+                .add(User.builder().username("john7").age(67).gender("man").build())
+                .build();
+
+        Map<String, Map<String, List<User>>> map = userList.stream().collect(Collectors.groupingBy(User::getGender ,
+                Collectors.groupingBy(item -> {
+                    if (item.getAge() < 18) {
+                        return "未成年人";
+                    } else {
+                        return "成年人";
+                    }
+                })));
+
+        map.forEach((k, v) -> {
+            System.out.println(k);
+            v.forEach((k1, v2) -> {
+                System.out.println("  " + k1);
+                v2.stream().forEach(item -> System.out.println("    "+v2));
+            });
+        });
+    }
 
 }
