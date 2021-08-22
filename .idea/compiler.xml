@@ -26,7 +26,6 @@
         <module name="jackdking-delay-domainv1-client-starter" />
         <module name="jackdking-redistemplate" />
         <module name="jackdking-datasource" />
-        <module name="jackdking-guava-collections" />
         <module name="jackdking-muti-datasource" />
         <module name="jackdking-swagger" />
         <module name="jackdking-delay-domainv1" />
@@ -39,6 +38,7 @@
         <module name="jackdking-spring-security" />
         <module name="jackdking-shardjdbcyaml" />
         <module name="jackdking-support-utils" />
+        <module name="jackdking-guava" />
         <module name="jackdking-rpcservice" />
       </profile>
     </annotationProcessing>
@@ -58,7 +58,7 @@
       <module name="jackdking-datasource" target="1.8" />
       <module name="jackdking-delay-domainv1" target="1.8" />
       <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
-      <module name="jackdking-guava-collections" target="1.8" />
+      <module name="jackdking-guava" target="1.8" />
       <module name="jackdking-hystrix-jiangji" target="1.8" />
       <module name="jackdking-javamail" target="1.8" />
       <module name="jackdking-JTA-Atomikos" target="1.8" />

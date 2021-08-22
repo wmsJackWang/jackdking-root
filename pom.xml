@@ -44,7 +44,7 @@
     <module>jackdking-delay-domainv1</module>
     <module>jackdking-delay-domainv1-client-starter</module>
     <module>jackdking-annotation</module>
-    <module>jackdking-guava-collections</module>
+    <module>jackdking-guava</module>
     <module>jackdking-ace</module>
   </modules>
   
