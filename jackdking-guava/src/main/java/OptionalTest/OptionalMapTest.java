@@ -10,8 +10,6 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 public class OptionalMapTest {
-
-
     @Test
     public void testOptionalMap() {
 

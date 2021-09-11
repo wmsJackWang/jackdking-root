@@ -9,9 +9,10 @@
     <file url="file://$PROJECT_DIR$/jackdking-activemq/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-annotation/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jackdking-annotation/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-bigfileupload/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-bigfileupload/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/resources" charset="UTF-8" />
@@ -23,7 +24,6 @@
     <file url="file://$PROJECT_DIR$/jackdking-datasource/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-datasource/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-guava/src/main/java" charset="UTF-8" />
