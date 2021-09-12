@@ -162,12 +162,13 @@ public class CodeGenerator {
 
     private static TemplateConfig getTemplateConfig() {
         return new TemplateConfig()
-                .setController("/templates-generator/controller.java.vm")
-                .setService("/templates-generator/service.java.vm")
-                .setServiceImpl("/templates-generator/serviceImpl.java.vm")
-                .setEntity("/templates-generator/entity.java.vm")
-                .setMapper("/templates-generator/mapper.java.vm")
-                .setXml("/templates-generator/mapper.xml.vm");
+//                .setController("/templates-generator/controller.java.vm")
+//                .setService("/templates-generator/service.java.vm")
+//                .setServiceImpl("/templates-generator/serviceImpl.java.vm")
+//                .setEntity("/templates-generator/entity.java.vm")
+//                .setMapper("/templates-generator/mapper.java.vm")
+//                .setXml("/templates-generator/mapper.xml.vm")
+                ;
     }
 
     private static String scanner(String tip) {
