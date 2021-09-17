@@ -29,6 +29,7 @@ public class Application implements ApplicationRunner {
         AceWorker aceWorker = AceWorker.getInstance();
         JSONObject dataParam = new JSONObject() {{
             put(Constants.TAG,"order_ready");
+            put(Constants.orderType, 2);
         }};
         AceContext context = AceContext.of(dataParam, AceScene.ACE_SCENE_HOTEL_SETTLE);
         AceResult aceResult = aceWorker.classify(context);

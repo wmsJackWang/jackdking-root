@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-activemq/jackdking-activemq.iml" filepath="$PROJECT_DIR$/jackdking-activemq/jackdking-activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-algorithm/jackdking-algorithm.iml" filepath="$PROJECT_DIR$/jackdking-algorithm/jackdking-algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" filepath="$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" filepath="$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" filepath="$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" filepath="$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-common/jackdking-common.iml" filepath="$PROJECT_DIR$/jackdking-common/jackdking-common.iml" />

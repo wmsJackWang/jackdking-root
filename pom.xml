@@ -47,6 +47,7 @@
     <module>jackdking-guava</module>
     <module>jackdking-ace</module>
     <module>jackdking-code-gen</module>
+      <module>jackdking-aviator</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

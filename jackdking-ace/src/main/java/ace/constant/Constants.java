@@ -7,4 +7,5 @@ public interface Constants {
     String SPLITER = "_";
     String FILTER = "filter";
     String MATCHER = "matcher";
+    String orderType = "orderType";
 }

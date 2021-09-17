@@ -1,11 +1,13 @@
 package ace.attributor;
 
-
+import ace.core.AceAttributorCheckManager;
 import ace.core.AceContext;
 import ace.core.AceResult;
 import ace.constant.Constants;
 import ace.annoation.Attributor;
 import ace.annoation.Ruler;
+import ace.core.api.AttributorMatcher;
+import ace.core.api.CommonAttributorMatcher;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Preconditions;
 import lombok.Data;
@@ -27,21 +29,32 @@ import java.util.Optional;
 public class TopicTagAttributor implements IAttributor {
 
     @Ruler(name = "checkTopicTagLegal")
-    public AceResult checkTopicTagLegal(AceContext<Map<String,Object>,String[],Object>  aceContext) {
+    public AceResult checkTopicTagLegal(AceContext<Map<String,Object>, String[],Object> aceContext) {
         log.debug("begin to execute ruler {}","checkTopicTagLegal");
-        Preconditions.checkNotNull(aceContext,"TopicTagAttributor cannt be null");
-        Preconditions.checkNotNull(aceContext.getDataParam(),"data of aceContext cannt be null");
-        Map<String , Object> contextDataParam = Optional.ofNullable(aceContext.getDataParam()).orElse(Collections.emptyMap());
-        Object tagValue = contextDataParam.get(Constants.TAG);
-        String[] rulerParam = aceContext.getRulerParam();
 
-        Preconditions.checkArgument(!StringUtils.isEmpty(rulerParam),"classifer defined rulerParam cannt be empty");
-        Preconditions.checkArgument(!StringUtils.isEmpty(tagValue)," tagValue cannt be empty");
+        boolean result = AceAttributorCheckManager.check(aceContext, new AttributorMatcher<Map<String,Object>, String[],Object>() {
+            @Override
+            public boolean bizCheck(AceContext<Map<String,Object>, String[],Object> aceContext) {
 
-        boolean result =  false;
-        if(Arrays.stream(rulerParam).anyMatch(tag -> tag.equals(tagValue))) {
-            result = true;
-        }
+                Map<String , Object> contextDataParam = aceContext.getDataParam();
+                Object tagValue = contextDataParam.get(Constants.TAG);
+                String[] rulerParam = aceContext.getRulerParam();
+
+                Preconditions.checkArgument(!StringUtils.isEmpty(rulerParam),"classifer defined rulerParam cannt be empty");
+                Preconditions.checkArgument(!StringUtils.isEmpty(tagValue)," tagValue cannt be empty");
+                return true;
+            }
+
+            @Override
+            public boolean isMatch(Map<String, Object> contextDataParam, String[] rulerParam) {
+
+                Object tagValue = contextDataParam.get(Constants.TAG);
+                if(Arrays.stream(rulerParam).anyMatch(tag -> tag.equals(tagValue))) {
+                    return true;
+                }
+                return false;
+            }
+        });
 
         AceResult checkTopicTagResult = new AceResult(result,null);
         log.debug("checkTopicTag ruler result :{}",JSON.toJSONString(checkTopicTagResult));
@@ -51,22 +64,19 @@ public class TopicTagAttributor implements IAttributor {
     @Ruler(name = "checkTopicTag")
     public AceResult checkTopicTag(AceContext<Map<String,Object>,String[],Object>  aceContext) {
         log.debug("begin to execute ruler {}","checkTopicTag");
-        Preconditions.checkNotNull(aceContext,"TopicTagAttributor cannt be null");
-        Preconditions.checkNotNull(aceContext.getDataParam(),"data of aceContext cannt be null");
-        Map<String , Object> contextDataParam = Optional.ofNullable(aceContext.getDataParam()).orElse(Collections.emptyMap());
-        String[] rulerParam = aceContext.getRulerParam();
-        Object tagValue = contextDataParam.get(Constants.TAG);
 
-        Preconditions.checkArgument(!StringUtils.isEmpty(rulerParam),"classifer defined rulerParam cannt be empty");
-        Preconditions.checkArgument(!StringUtils.isEmpty(tagValue)," tagValue cannt be empty");
+        boolean result = AceAttributorCheckManager.check(aceContext, new CommonAttributorMatcher<Map<String,Object>, String[],Object>() {
 
-        log.debug("rulerParam is :{}", JSON.toJSONString(rulerParam));
-        log.debug("dataParam is :{}", JSON.toJSONString(tagValue));
+            @Override
+            public boolean isMatch(Map<String, Object> contextDataParam, String[] rulerParam) {
 
-        boolean result =  false;
-        if(Arrays.stream(rulerParam).anyMatch(tag -> tag.equals(tagValue))) {
-            result = true;
-        }
+                Object tagValue = contextDataParam.get(Constants.TAG);
+                if(Arrays.stream(rulerParam).anyMatch(tag -> tag.equals(tagValue))) {
+                    return true;
+                }
+                return false;
+            }
+        }, Constants.TAG);
 
         AceResult checkTopicTagResult = new AceResult(result,null);
         log.debug("checkTopicTag ruler result :{}",JSON.toJSONString(checkTopicTagResult));

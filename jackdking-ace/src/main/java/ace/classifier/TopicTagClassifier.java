@@ -10,10 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 @Classifier(name="orderTagClassifier" ,
-        matcher = { @Ruler(name = "checkTopicTag",value = {"order_finsh","order_ready"}),
-                    @Ruler(name = "checkTopicTagLegal",value = {"order_finsh","order_cancel"})
-        },
-        filter = {@Ruler(name="checkTopicTag",value={"order_cancel"})})
+            matcher = { @Ruler(name = "checkTopicTag",value = {"order_finsh","order_ready"}),
+                        @Ruler(name = "checkTopicTagLegal",value = {"order_finsh","order_cancel"})},
+            filter  = { @Ruler(name="checkTopicTag",value={"order_cancel"})})
 @Slf4j
 public class TopicTagClassifier implements IClassifier{
 

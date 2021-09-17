@@ -1,6 +1,5 @@
 package ace.core;
 
-import ace.annoation.Attributor;
 import ace.attributor.IAttributor;
 import ace.classifier.IClassifier;
 import ace.constant.Constants;
@@ -10,20 +9,15 @@ import ace.factory.AceFactory;
 import ace.utils.AceUtil;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.util.Lists;
-import org.assertj.core.util.Preconditions;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 
-import java.lang.invoke.ConstantCallSite;
 import java.lang.reflect.Method;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -68,6 +62,7 @@ public class AceWorker {
                 .collect(Collectors.toMap(e -> e.getKey(),e -> e.getValue()));
 
         long classifierCount = allClassifierResult.size();
+        log.info("classifierCount :{}",classifierCount);
 
         Assert.isTrue(classifierCount>0 , ErrorMessageCode.CLASSIFIER_MATCH_NOT_EXIST.retCheckMessage(aceContext.getAceScene().sceneName));
         Assert.isTrue(classifierCount==1 , ErrorMessageCode.CLASSIFIER_MATCH_BEYOND_ONE.retCheckMessage(aceContext.getAceScene().sceneName));

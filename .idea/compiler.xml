@@ -11,6 +11,7 @@
         <module name="jackdking-ace" />
         <module name="jackdking-login-security-simulator" />
         <module name="jackdking-multids-spring-boot-starter" />
+        <module name="jackdking-aviator" />
         <module name="jackdking-algorithm" />
         <module name="demo" />
         <module name="jackdking-annotation" />
@@ -51,6 +52,7 @@
       <module name="jackdking-activemq" target="1.8" />
       <module name="jackdking-algorithm" target="1.8" />
       <module name="jackdking-annotation" target="1.8" />
+      <module name="jackdking-aviator" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-code-gen" target="1.8" />
       <module name="jackdking-common" target="1.8" />
