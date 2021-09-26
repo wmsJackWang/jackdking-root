@@ -2,10 +2,15 @@ package ace.core;
 
 import lombok.Data;
 
+import java.util.function.Consumer;
+
 @Data
 public class AceResult<T>{
     private Boolean isEffect;
     private T result;
+
+    private static final AceResult EMPTY = new AceResult(null, null);
+
     public AceResult(Boolean isEffect , T result){
         AceResult.this.isEffect = isEffect;
         AceResult.this.result = result;
@@ -34,5 +39,20 @@ public class AceResult<T>{
 
     public static AceResult fail(){
         return new AceResult(false,null);
+    }
+
+    public static AceResult empty() {
+        @SuppressWarnings("unchecked")
+        AceResult t = (AceResult) EMPTY;
+        return t;
+    }
+
+    public boolean isPresent() {
+        return isEffect != null;
+    }
+
+    public void ifPresent(Consumer<? super T> consumer) {
+        if (isEffect != null)
+            consumer.accept(result);
     }
 }

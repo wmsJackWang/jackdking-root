@@ -33,9 +33,13 @@ public class Application implements ApplicationRunner {
         }};
         AceContext context = AceContext.of(dataParam, AceScene.ACE_SCENE_HOTEL_SETTLE);
         AceResult aceResult = aceWorker.classify(context);
+
         log.info("classify result:{}",JSON.toJSONString(aceResult));
-        AceContext executorAceContext = AceContext.of(aceResult.getResult(),AceScene.ACE_SCENE_HOTEL_SETTLE);
-        List<AceResult> aceResultList =  aceWorker.execute(executorAceContext);
-        log.debug("executor list result is :{}", JSON.toJSONString(aceResultList));
+
+        aceResult.ifPresent((result) -> {
+            AceContext executorAceContext = AceContext.of(result, AceScene.ACE_SCENE_HOTEL_SETTLE);
+            List<AceResult> aceResultList =  aceWorker.execute(executorAceContext);
+            log.debug("executor list result is :{}", JSON.toJSONString(aceResultList));
+        });
     }
 }

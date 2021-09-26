@@ -36,17 +36,24 @@ public class AceAttributorCheckManager {
     }
 
     public static boolean check(AceContext aceContext, AttributorMatcher matcher, String... argKey){
+
+        //common checker
+        if(!matcher.defaultCheck(aceContext)) {
+            return false;
+        }
+
         Preconditions.checkArgument(argKey.length <= 2147483635, "the total number of elements must fit in an int");
         Preconditions.checkArgument(aceContext.getDataParam() instanceof Map, "dataParam must be Map");
         Preconditions.checkArgument(((Map<?, ?>) aceContext.getDataParam()).keySet().stream().allMatch(key -> key instanceof String), "map key must be String");
         //没有需要null判断的参数
-        if(argKey.length<=0) {
-            return true;
-        }
-        if (Arrays.stream(argKey).allMatch(e -> Objects.nonNull(((Map<String, ?>) aceContext.getDataParam()).get(e)))) {
-            return true;
+        if (argKey.length<=0) {
+            return false;
         }
 
-        return false;
+        if (!Arrays.stream(argKey).allMatch(e -> Objects.nonNull(((Map<String, ?>) aceContext.getDataParam()).get(e)))) {
+            return false;
+        }
+
+        return matcher.isMatch(aceContext.getDataParam(), aceContext.getRulerParam());
     }
 }

@@ -15,9 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Map;
-import java.util.Optional;
 
 /*
  * 消息tag校验器
@@ -50,9 +48,9 @@ public class TopicTagAttributor implements IAttributor {
 
                 Object tagValue = contextDataParam.get(Constants.TAG);
                 if(Arrays.stream(rulerParam).anyMatch(tag -> tag.equals(tagValue))) {
-                    return true;
+                    return false;
                 }
-                return false;
+                return true;
             }
         });
 
@@ -82,5 +80,4 @@ public class TopicTagAttributor implements IAttributor {
         log.debug("checkTopicTag ruler result :{}",JSON.toJSONString(checkTopicTagResult));
         return checkTopicTagResult;
     }
-
 }

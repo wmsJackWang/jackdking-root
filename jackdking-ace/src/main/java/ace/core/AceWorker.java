@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
@@ -24,16 +25,6 @@ import java.util.stream.Collectors;
 public class AceWorker {
     private final static AceWorker INSTANCE = new AceWorker();
     AceFactory aceFactory = AceFactory.getInstance();
-
-    public static void main(String[] args) {
-        Map<String,String> temp = Maps.newHashMap();
-        temp.put("1","2");
-        temp.put("2","2");
-        temp.put("3","2");
-        temp = temp.entrySet().stream().filter(e -> !e.getKey().equals("1")).collect(Collectors.toMap(e -> e.getKey(),e -> e.getValue()));
-        System.out.println(JSON.toJSONString(temp));
-
-    }
 
     private AceWorker(){
 
@@ -62,10 +53,13 @@ public class AceWorker {
                 .collect(Collectors.toMap(e -> e.getKey(),e -> e.getValue()));
 
         long classifierCount = allClassifierResult.size();
-        log.info("classifierCount :{}",classifierCount);
+        log.debug("classifierCount :{}",classifierCount);
 
-        Assert.isTrue(classifierCount>0 , ErrorMessageCode.CLASSIFIER_MATCH_NOT_EXIST.retCheckMessage(aceContext.getAceScene().sceneName));
-        Assert.isTrue(classifierCount==1 , ErrorMessageCode.CLASSIFIER_MATCH_BEYOND_ONE.retCheckMessage(aceContext.getAceScene().sceneName));
+        Assert.isTrue(classifierCount <= 1 , ErrorMessageCode.CLASSIFIER_MATCH_BEYOND_ONE.retCheckMessage(aceContext.getAceScene().sceneName));
+        if (classifierCount == 0) {
+            log.debug("no classifier match, message:{}, aceContext:{}",  ErrorMessageCode.CLASSIFIER_MATCH_NOT_EXIST.retCheckMessage(aceContext.getAceScene().sceneName), JSON.toJSONString(aceContext));
+            return AceResult.empty();
+        }
 
         Map.Entry<String,AceResult> result = allClassifierResult.entrySet().stream().findFirst().get();
         IClassifier classifier = aceFactory.classifierMap.get(result.getKey());
@@ -96,7 +90,8 @@ public class AceWorker {
             //获取ruler的参数，并设置到 上下文
             aceContext.setRulerParam(rulerParam);
             log.debug("matcher {} begin to execute ruler",ruler);
-            matchersResultList.add((AceResult) ReflectionUtils.invokeMethod(method,attributor,aceContext));
+            AceResult result = (AceResult) ReflectionUtils.invokeMethod(method,attributor,aceContext);
+            matchersResultList.add(result);
         });
 
         AceResult matchersAceResult = AceUtil.aggregateResult(matchersResultList);
@@ -111,7 +106,8 @@ public class AceWorker {
                 //获取ruler的参数，并设置到 上下文
                 aceContext.setRulerParam(rulerParam);
                 log.debug("filter {} begin to execute ruler",ruler);
-                filtersResultList.add((AceResult) ReflectionUtils.invokeMethod(method,attributor,aceContext));
+                AceResult result = (AceResult) ReflectionUtils.invokeMethod(method,attributor,aceContext);
+                filtersResultList.add(result);
             });
             log.debug("classifier {} filters result is :{}",classifierName,JSON.toJSONString(filtersResultList));
             filtersAceResult = filtersAceResult.and(AceUtil.aggregateResult(AceUtil.negativeAceResultList(filtersResultList)));
