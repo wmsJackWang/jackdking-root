@@ -1,0 +1,8 @@
+ymlspring:
+  my-example:
+    listvalue:
+      - http://example.com
+      - http://spring.io
+    mapvalue:
+      foo: bar
+      hello: world

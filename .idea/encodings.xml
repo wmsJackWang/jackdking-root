@@ -9,8 +9,8 @@
     <file url="file://$PROJECT_DIR$/jackdking-activemq/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-annotation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-annotation/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-aviator/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jackdking-aviator/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-bigfileupload/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-bigfileupload/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/java" charset="UTF-8" />
@@ -26,6 +26,7 @@
     <file url="file://$PROJECT_DIR$/jackdking-datasource/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-datasource/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-guava/src/main/java" charset="UTF-8" />
@@ -39,6 +40,8 @@
     <file url="file://$PROJECT_DIR$/jackdking-multids-spring-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-muti-datasource/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-muti-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-properties-yml/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-properties-yml/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-redissioncluster/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-redissioncluster/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-redistemplate/src/main/java" charset="UTF-8" />

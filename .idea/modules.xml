@@ -24,6 +24,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" filepath="$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-multids-spring-boot-starter/jackdking-multids-spring-boot-starter.iml" filepath="$PROJECT_DIR$/jackdking-multids-spring-boot-starter/jackdking-multids-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-muti-datasource/jackdking-muti-datasource.iml" filepath="$PROJECT_DIR$/jackdking-muti-datasource/jackdking-muti-datasource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-properties-yml/jackdking-properties-yml.iml" filepath="$PROJECT_DIR$/jackdking-properties-yml/jackdking-properties-yml.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-redistemplate/jackdking-redistemplate.iml" filepath="$PROJECT_DIR$/jackdking-redistemplate/jackdking-redistemplate.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-retry/jackdking-retry.iml" filepath="$PROJECT_DIR$/jackdking-retry/jackdking-retry.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-root.iml" filepath="$PROJECT_DIR$/jackdking-root.iml" />

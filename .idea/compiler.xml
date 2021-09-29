@@ -18,6 +18,7 @@
         <module name="jackdking-code-gen" />
         <module name="jackdking-hystrix-jiangji" />
         <module name="jackdking-activemq" />
+        <module name="jackdking-properties-yml" />
         <module name="jackdking-core" />
         <module name="jackdking-JTA-Atomikos" />
         <module name="jackdking-javamail" />
@@ -56,7 +57,7 @@
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-code-gen" target="1.8" />
       <module name="jackdking-common" target="1.8" />
-      <module name="jackdking-controller_samples" target="1.6" />
+      <module name="jackdking-controller_samples" target="1.8" />
       <module name="jackdking-core" target="1.8" />
       <module name="jackdking-dache" target="1.8" />
       <module name="jackdking-datasource" target="1.8" />
@@ -69,6 +70,7 @@
       <module name="jackdking-login-security-simulator" target="1.8" />
       <module name="jackdking-multids-spring-boot-starter" target="1.8" />
       <module name="jackdking-muti-datasource" target="1.8" />
+      <module name="jackdking-properties-yml" target="1.8" />
       <module name="jackdking-redistemplate" target="1.8" />
       <module name="jackdking-retry" target="1.8" />
       <module name="jackdking-root" target="1.8" />
