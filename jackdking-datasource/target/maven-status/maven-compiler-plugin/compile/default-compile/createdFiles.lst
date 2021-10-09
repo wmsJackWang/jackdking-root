@@ -7,6 +7,7 @@ springboot\MySolution_dynamicdatasource\proxyautowired\ProxyAutowiredPlugin.clas
 springboot\service\UserService.class
 springboot\MySolution_dynamicdatasource\aspect\JDKingDynamicDataSourceAspect.class
 springboot\MySolution_dynamicdatasource\proxyautowired\SelfBeanProxyAware.class
+springboot\service\ProxyServiceImpl.class
 springboot\MySolution_RWseparation\mybatis\config\DynamicDataSourceConfig.class
 springboot\MySolution_RWseparation\mybatis\dynamicdatasource\DynamicDataSourceHolder.class
 springboot\MySolution_RWseparation\mybatis\config\MyBatisConfig.class

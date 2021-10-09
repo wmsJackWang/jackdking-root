@@ -1,9 +1,14 @@
-starter\delayclient\NettyClient$2.class
 starter\delayclient\NettyClient.class
 starter\protocol\RpcResponse.class
+starter\protocol\LoginRequestPacket.class
+starter\protocol\Packet.class
+starter\DelayStarterTest.class
+starter\protocol\MessageRequestPacket.class
+starter\protocol\RpcEncoder.class
+starter\delayclient\NettyClient$2.class
 starter\protocol\RpcDecoder.class
 starter\delayclient\ClientHandler.class
-starter\DelayStarterTest.class
+starter\protocol\Command.class
 starter\delayclient\NettyClient$1.class
-starter\protocol\RpcEncoder.class
+starter\protocol\MessageResponsePacket.class
 starter\protocol\RpcRequest.class

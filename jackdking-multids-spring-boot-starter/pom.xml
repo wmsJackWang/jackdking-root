@@ -8,7 +8,7 @@
 	<version>2.1.1.RELEASE</version>
     <relativePath/>
   </parent>
-  <groupId>com.bittechblog1</groupId>
+  <groupId>com.jackdking.root</groupId>
   <artifactId>jackdking-multids-spring-boot-starter</artifactId>
   <version>2.1.1.RELEASE</version>
   <name>jackdking-multids-spring-boot-starter</name>
@@ -81,24 +81,15 @@
 
 
 
-    <!-- 版权许可 -->
-    <licenses>
-     <license>
-        <name>Lesser General Public License (LGPL) version 3.0</name>
-        <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
-     </license>
-     <license>
-        <name>Apache Software License (ASL) version 2.0</name>
-        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-     </license>
-    </licenses>
-    <!-- 代码库 -->
-    <scm>
-<!--         <tag>master</tag> -->
-        <connection>scm:git:git@github.com:wmsJackWang/jackdking-root.git</connection>
-        <url>https://github.com/wmsJackWang/jackdking-root.git</url>
-        <developerConnection>scm:git:git@github.com:wmsJackWang/jackdking-root.git</developerConnection>
-    </scm>
+
+    <distributionManagement>
+
+        <repository>
+            <id>gitee-maven</id>
+            <url>file:D:/giteeRepostory/maven/repository/</url>
+        </repository>
+    </distributionManagement>
+
     <!-- 开发者信息 -->
     <developers>
         <developer>
@@ -110,26 +101,6 @@
 <!--             <timezone>+8</timezone> -->
         </developer>
     </developers>
-    
-    
-
-	<issueManagement>
-	   <system>GitHub Issue Tracker</system>
-	   <url>https://github.com/wmsJackWang/jackdking-root/issues</url>
-	</issueManagement>
-	
-	
-    <!-- 定义snapshots库和releases库的nexus地址 -->
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
 
     <build>
@@ -178,8 +149,7 @@
         </pluginManagement>
 
     </build>
-    
-    
+
     
   <profiles>
      <!--
@@ -196,6 +166,7 @@
         </activation>
      </profile>
   </profiles>
+
 
 <!--     <profiles> -->
 <!--         <profile> -->

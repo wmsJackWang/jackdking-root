@@ -61,8 +61,16 @@
 	    <artifactId>mysql-connector-java</artifactId>
 	</dependency>
   </dependencies>
-  
-   <build>
+
+    <distributionManagement>
+
+        <repository>
+            <id>gitee-maven</id>
+            <url>file:D:/giteeRepostory/maven/repository/</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -73,5 +81,5 @@
             </plugin>
         </plugins>
     </build>
-  
+
 </project>

@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.jackdking.root</groupId>
   <artifactId>jackdking-common</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>jackdking-common</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -23,4 +23,13 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
+  <distributionManagement>
+
+    <repository>
+      <id>gitee-maven</id>
+      <url>file:D:/giteeRepostory/maven/repository/</url>
+    </repository>
+  </distributionManagement>
 </project>

@@ -1,0 +1,17 @@
+com\jta\service\impl\PeopleServiceImpl.class
+com\jta\config\SpringDataSourceConfiguration.class
+com\jta\model\spring\User.class
+com\jta\service\UserService.class
+com\jta\mapper\test\PeopleMapper.class
+com\jta\service\impl\PeopleServiceImpl$1.class
+com\jta\config\MybatisConfiguration.class
+com\jta\mapper\spring\UserMapper.class
+com\jta\api\OperationApi.class
+com\jta\model\test\People.class
+com\jta\JtaApplication.class
+com\jta\service\PeopleService.class
+com\jta\api\SwaggerApi.class
+com\jta\service\impl\UserServiceImpl.class
+com\jta\config\SpringConfiguration.class
+com\jta\config\SwaggerConfig.class
+com\jta\config\TestDataSourceConfiguration.class

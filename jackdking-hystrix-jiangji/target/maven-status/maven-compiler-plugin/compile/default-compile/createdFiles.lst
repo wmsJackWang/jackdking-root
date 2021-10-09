@@ -1,0 +1,4 @@
+org\jackdking\hystrix\jiangji\controller\MessageController.class
+org\jackdking\hystrix\jiangji\conf\HystrixConfig.class
+org\jackdking\hystrix\jiangji\client\IMsgClient.class
+org\jackdking\hystrix\jiangji\HystrixJiangjiApplication.class

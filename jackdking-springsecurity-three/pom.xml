@@ -39,4 +39,13 @@
         <scope></scope>
     </dependency>
   </dependencies>
+
+    <distributionManagement>
+
+        <repository>
+            <id>gitee-maven</id>
+            <url>file:D:/giteeRepostory/maven/repository/</url>
+        </repository>
+    </distributionManagement>
+
 </project>

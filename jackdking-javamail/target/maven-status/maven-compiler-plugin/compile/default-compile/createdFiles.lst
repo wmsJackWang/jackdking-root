@@ -1,0 +1,3 @@
+org\jackdking\javamail\service\IMailService.class
+org\jackdking\javamail\service\impl\MailServiceImpl.class
+org\jackdking\javamail\SpringbootMailApplication.class

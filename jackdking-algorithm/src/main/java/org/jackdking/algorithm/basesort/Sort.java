@@ -15,7 +15,7 @@ public abstract  class Sort {
 		printArray(array);
 	}
 
-	 public static void printArray(int []array){
+	 public static void printArray(int[] array){
 		 int index=0;
 		for(int i:array)
 			System.out.print(i+" ");

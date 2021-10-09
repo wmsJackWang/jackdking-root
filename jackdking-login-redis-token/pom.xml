@@ -79,4 +79,11 @@
         <!-- 设置内置的tomcat容器与外部容器不冲突 -->
 	
     </dependencies>
+    <distributionManagement>
+
+        <repository>
+            <id>gitee-maven</id>
+            <url>file:D:/giteeRepostory/maven/repository/</url>
+        </repository>
+    </distributionManagement>
 </project>

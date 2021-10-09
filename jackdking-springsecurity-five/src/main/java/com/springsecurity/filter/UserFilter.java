@@ -18,33 +18,3 @@ public class UserFilter extends GenericFilterBean {
         chain.doFilter(request, response);
     }
 }
-
-server {
-  listen 443;
-  server_name exam.bittechblog.com; 
-  ssl on;
-  ssl_certificate  /usr/local/nginx/cert/exam.bittechblog.com.key;
-  ssl_certificate_key /usr/local/nginx/cert/exam.bittechblog.com.pem;
-  location / {
-   proxy_pass  localhost:8082;
-  }
-  
-  
-  server {
-	　　listen 443 ssl;
-	　　server_name exam.bittechblog.com; 
-	　　ssl on;
-	　　ssl_certificate /usr/local/nginx/cert/exam.bittechblog.com.key;
-	　　ssl_certificate_key /usr/local/nginx/cert/exam.bittechblog.com.pem;
-
-	　　ssl_session_cache shared:SSL:1m;
-	　　ssl_session_timeout 10m;
-
-	　　ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!aNULL:!MD5:!ADH:!RC4;
-	　　ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-	　　ssl_prefer_server_ciphers on;
-
-	　　location / {
-	　　　　proxy_pass localhost:8082;
-	　　}
-	}

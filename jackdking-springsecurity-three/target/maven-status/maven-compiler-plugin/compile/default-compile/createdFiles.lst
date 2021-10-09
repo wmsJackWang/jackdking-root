@@ -1,0 +1,4 @@
+com\springsecurity\SpringSecurityApplication.class
+com\springsecurity\config\CustomAccessDeniedHandler.class
+com\springsecurity\config\SecurityConfiguration.class
+com\springsecurity\config\MvcConfig.class
