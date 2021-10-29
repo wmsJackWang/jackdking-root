@@ -1,5 +1,7 @@
 package org.jackdking.delay.domainv1.infrastructure.codec;
 
+import com.google.common.base.Preconditions;
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -19,7 +21,9 @@ public class PacketCodecHandler extends MessageToMessageCodec<ByteBuf, Packet> {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> out) {
-        out.add(PacketCodec.INSTANCE.decode(byteBuf));
+        Packet packet = PacketCodec.INSTANCE.decode(byteBuf);
+        Preconditions.checkNotNull(packet, "decode result packet cant be null");
+        out.add(packet);
     }
 
     @Override

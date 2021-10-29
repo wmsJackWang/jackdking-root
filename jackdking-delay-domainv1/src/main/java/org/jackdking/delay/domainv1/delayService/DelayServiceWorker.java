@@ -62,7 +62,6 @@ public class DelayServiceWorker {
 			result = redisTemplate.opsForZSet().add(DELAY_QUEUE, msg.getUniqueKey(), msg.getExpireTime());
 		}catch (Exception e) {
 			// TODO: handle exception
-
 			throw new BussinessErrorException("【延迟消息服务】消息发送失败:发送到redis服务器异常"+msg.getMessageJson());
 		}
 		

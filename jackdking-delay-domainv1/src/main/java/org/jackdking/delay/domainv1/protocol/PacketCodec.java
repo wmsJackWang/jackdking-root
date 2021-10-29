@@ -40,6 +40,7 @@ public class PacketCodec implements Command {
         packetTypeMap.put(GROUP_MESSAGE_RESPONSE, GroupMessageResponsePacket.class);
         packetTypeMap.put(HEARTBEAT_REQUEST, HeartBeatRequestPacket.class);
         packetTypeMap.put(HEARTBEAT_RESPONSE, HeartBeatResponsePacket.class);
+        packetTypeMap.put(TEXT_MESSAGE_REQUEST, TextMessageRequestPacket.class);
 
         serializerMap = new HashMap<>();
         Serializer serializer = new JSONSerializer();
