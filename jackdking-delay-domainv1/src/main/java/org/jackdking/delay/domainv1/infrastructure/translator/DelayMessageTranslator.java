@@ -5,18 +5,21 @@ import org.jackdking.delay.domainv1.vo.NotifyVo;
 
 public class DelayMessageTranslator<T> {
 	
-	public NotifyMessage<T> toUser(NotifyVo notifyVo){
+	public NotifyMessage toUser(NotifyVo notifyVo){
 		
 		long expireTime = notifyVo.getExpireTime();
 		expireTime = System.currentTimeMillis()+expireTime*1000;
 		String uniqueKey = notifyVo.getUniqueKey();
 		String bizType = notifyVo.getBizType();
-		T playload = null ;//= notifyVo.getPlayload();
+		Object playLoad = notifyVo.getPlayload();
 		String notifyUrl = notifyVo.getNotifyUrl();
-		return new NotifyMessage.Builder<T>(expireTime, uniqueKey, bizType)
-				    .playload(playload)
-				    .notifyUrl(notifyUrl)
-				    .build();
+		return NotifyMessage.builder()
+				.expireTime(expireTime)
+				.uniqueKey(uniqueKey)
+				.bizType(bizType)
+				.playload(playLoad)
+				.notifyUrl(notifyUrl)
+				.build();
 	}
 	
 	public NotifyMessage<Object> toUser(String msgJsonData){

@@ -81,7 +81,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-redis</artifactId>
     </dependency>
-    
+      <dependency>
+          <groupId>com.jackdking.root</groupId>
+          <artifactId>jackdking-core</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+          <scope>compile</scope>
+      </dependency>
+
   </dependencies>
 
 

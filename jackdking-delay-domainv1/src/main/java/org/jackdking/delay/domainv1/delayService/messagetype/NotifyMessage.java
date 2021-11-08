@@ -6,9 +6,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import junit.framework.Assert;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-public class NotifyMessage<T> extends DelayMessage<T> {
+@Data
+@Builder
+public class NotifyMessage<T> extends DelayMessage{
 	
 	/**
 	 * 
@@ -18,14 +22,14 @@ public class NotifyMessage<T> extends DelayMessage<T> {
 	private int failDeliverCount = 0;
 	
 	private String notifyUrl;
-	
-	public NotifyMessage(Builder<T> builder) {
-		// TODO Auto-generated constructor stub
-		super(builder);
-		this.failDeliverCount = builder.failDeliverCount;
-		this.setBizType(builder.bizType);
-		this.setNotifyUrl(builder.notifyUrl);
-	}
+
+	public T playload;
+
+	public long expireTime;
+
+	public String uniqueKey;
+
+	public String bizType;
 
 	@SuppressWarnings({ "deprecation", "unchecked" })
 	public NotifyMessage<T> messageBody(Map<String,Object> map){
@@ -41,15 +45,6 @@ public class NotifyMessage<T> extends DelayMessage<T> {
 		return this;
 	}
 
-
-	public int getFailDeliverCount() {
-		return failDeliverCount;
-	}
-
-	public void setFailDeliverCount(int failDeliverCount) {
-		this.failDeliverCount = failDeliverCount;
-	}
-	
 	public String getMessageJson(){
 		
 		JSONObject data = new JSONObject();
@@ -60,56 +55,4 @@ public class NotifyMessage<T> extends DelayMessage<T> {
 		
 		return data.toJSONString();
 	}
-
-
-	public String getNotifyUrl() {
-		return notifyUrl;
-	}
-
-	public void setNotifyUrl(String notifyUrl) {
-		this.notifyUrl = notifyUrl;
-	}
-
-	public static class Builder<T>{
-		
-		protected T playload;
-		
-		protected final long expireTime;
-		
-		protected final String uniqueKey;
-		
-		protected final String bizType;
-		
-		protected int failDeliverCount = 0;
-		
-		protected String notifyUrl;
-		
-		public Builder(long expireTime,String uniqueKey,String bizType) {
-			this.expireTime = expireTime;
-			this.uniqueKey = uniqueKey;
-			this.bizType = bizType;
-		}
-		
-		public Builder<T> playload(T playload) {
-			this.playload = playload;
-			return this;
-		}
-		
-		public Builder<T> failDeliverCount(int failDeliverCount) {
-			this.failDeliverCount = failDeliverCount;
-			return this;
-		}
-		
-		public Builder<T> notifyUrl(String notifyUrl) {
-			this.notifyUrl = notifyUrl;
-			return this;
-		}
-		
-		public NotifyMessage<T> build() {
-			
-			return new NotifyMessage<T>(this);
-		}
-		
-	}
-	
 }
