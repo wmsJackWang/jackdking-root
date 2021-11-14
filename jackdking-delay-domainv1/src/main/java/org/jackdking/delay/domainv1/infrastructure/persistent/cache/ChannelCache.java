@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jackdking.delay.domainv1.infrastructure.cache;
+package org.jackdking.delay.domainv1.infrastructure.persistent.cache;
 
 import io.netty.channel.Channel;
-import io.netty.channel.group.ChannelGroup;
 
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**

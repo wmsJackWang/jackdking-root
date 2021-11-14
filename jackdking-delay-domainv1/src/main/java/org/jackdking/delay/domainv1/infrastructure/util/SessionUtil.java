@@ -3,11 +3,8 @@ package org.jackdking.delay.domainv1.infrastructure.util;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import org.jackdking.delay.domainv1.infrastructure.attribute.Attributes;
-import org.jackdking.delay.domainv1.infrastructure.cache.LoginSessionCache;
+import org.jackdking.delay.domainv1.infrastructure.persistent.cache.LoginSessionCache;
 import org.jackdking.delay.domainv1.infrastructure.session.Session;
-
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class SessionUtil {
 

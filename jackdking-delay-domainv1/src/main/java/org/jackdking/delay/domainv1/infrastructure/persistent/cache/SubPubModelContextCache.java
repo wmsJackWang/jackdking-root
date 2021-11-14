@@ -1,6 +1,5 @@
-package org.jackdking.delay.domainv1.infrastructure.cache;
+package org.jackdking.delay.domainv1.infrastructure.persistent.cache;
 
-import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import io.netty.channel.Channel;
 
@@ -29,7 +28,6 @@ public class SubPubModelContextCache {
 
     //在线实例对应的channel对象，连接时候放入到容器，断开连接后从容器中删除
     public ConcurrentHashMap<String, Channel> onLineConsumerIdToChannel = new ConcurrentHashMap<>();
-
 
 
 }

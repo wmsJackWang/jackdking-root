@@ -87,6 +87,16 @@
           <version>0.0.1-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
+      <dependency>
+          <groupId>javax.jms</groupId>
+          <artifactId>javax.jms-api</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>commons-beanutils</groupId>
+          <artifactId>commons-beanutils</artifactId>
+          <version>1.8.2</version>
+          <scope>compile</scope>
+      </dependency>
 
   </dependencies>
 
