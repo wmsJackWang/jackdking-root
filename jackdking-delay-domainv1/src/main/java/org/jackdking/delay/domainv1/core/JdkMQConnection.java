@@ -11,7 +11,7 @@ import javax.jms.Topic;
 import javax.jms.TopicSession;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class JdkMQConnection implements Connection, TopicConnection, QueueConnection, MakeObject<JdkMQConnection> {
+public class JdkMQConnection implements Connection, TopicConnection, QueueConnection {
 
     private final IdGenerator clientIdGenerator;
     private ConnectionInfo connectionInfo;
@@ -19,15 +19,15 @@ public class JdkMQConnection implements Connection, TopicConnection, QueueConnec
     private Channel channel;
     private final CopyOnWriteArrayList<JdkMQSession> sessions = new CopyOnWriteArrayList<>();
     private final LongSequenceGenerator sessionIdGenerator = new LongSequenceGenerator();
-    private JdkMQConnectionFactory connectionFactory;
 
     public JdkMQConnection(IdGenerator clientIdGenerator) {
         this.clientIdGenerator = clientIdGenerator;
     }
 
-    public JdkMQConnection(JdkMQConnectionFactory connectionFactory, IdGenerator clientIdGenerator) {
+    public JdkMQConnection(Channel channel, IdGenerator clientIdGenerator) {
 
         this.clientIdGenerator = clientIdGenerator;
+        this.channel = channel;
     }
 
     protected void setUserName(String userName) {
@@ -131,11 +131,5 @@ public class JdkMQConnection implements Connection, TopicConnection, QueueConnec
     @Override
     public ConnectionConsumer createSharedDurableConnectionConsumer(Topic topic, String s, String s1, ServerSessionPool serverSessionPool, int i) throws JMSException {
         return null;
-    }
-
-    @Override
-    public JdkMQConnection makeObject() {
-        assert connectionFactory !=null;
-        return (JdkMQConnection)connectionFactory.makeObject();
     }
 }

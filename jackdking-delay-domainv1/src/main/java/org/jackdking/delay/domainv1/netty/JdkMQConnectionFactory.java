@@ -121,7 +121,8 @@ public class JdkMQConnectionFactory implements ConnectionFactory, QueueConnectio
                                 //开始进行身份登入
                                 hook.hookConnectionEvent(channel);
                                 connected = true;
-                                jdkMQConnection = new JdkMQConnection(this, clientIdGenerator);
+                                messageChannel = channel;
+                                jdkMQConnection = new JdkMQConnection(messageChannel, clientIdGenerator);
 
                             }catch (Throwable throwable) {
                                 connected = false;
@@ -187,7 +188,7 @@ public class JdkMQConnectionFactory implements ConnectionFactory, QueueConnectio
             }
         }
     }
-    
+
     @Override
     public QueueConnection createQueueConnection() throws JMSException {
         return null;
