@@ -26,9 +26,11 @@
         <module name="jackdking-springsecurity-three" />
         <module name="jackdking-springsecurity-two" />
         <module name="jackdking-retry" />
+        <module name="jackdking-commons-lang" />
         <module name="jackdking-delay-domainv1-client-starter" />
         <module name="jackdking-redistemplate" />
         <module name="jackdking-datasource" />
+        <module name="jackdking-PopulateComponetTest" />
         <module name="jackdking-muti-datasource" />
         <module name="jackdking-swagger" />
         <module name="jackdking-delay-domainv1" />
@@ -57,6 +59,7 @@
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-code-gen" target="1.8" />
       <module name="jackdking-common" target="1.8" />
+      <module name="jackdking-commons-lang" target="1.8" />
       <module name="jackdking-controller_samples" target="1.8" />
       <module name="jackdking-core" target="1.8" />
       <module name="jackdking-dache" target="1.8" />
@@ -70,6 +73,7 @@
       <module name="jackdking-login-security-simulator" target="1.8" />
       <module name="jackdking-multids-spring-boot-starter" target="1.8" />
       <module name="jackdking-muti-datasource" target="1.8" />
+      <module name="jackdking-PopulateComponetTest" target="1.8" />
       <module name="jackdking-properties-yml" target="1.8" />
       <module name="jackdking-redistemplate" target="1.8" />
       <module name="jackdking-retry" target="1.8" />

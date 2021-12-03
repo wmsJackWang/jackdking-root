@@ -34,15 +34,14 @@ public class StreamAChangeToStreamBTest {
         log.info("userNames :{}", JSON.toJSONString(userNames));
     }
 
-
     //将流中的每个元素都各自映射到一个流中，然后flatmap 将各个流合并, 需要结合map方法使用
-    //Arrays::stream , Stream::of
+    //Arrays::stream , Stream::of, Stream.of本质是调用了Arrays.stream
     @Test
     public void testStreamAFlatMap2StreamB(){
 
         ImmutableList<User> userList = ImmutableList.<User>builder()
-                .add(User.builder().username("jack").age(12).gender("man").build())
-                .add(User.builder().username("john").age(21).gender("man").build())
+                .add(User.builder().username("jack.d.king").age(12).gender("man").build())
+                .add(User.builder().username("john.d.tty").age(21).gender("man").build())
                 .build();
 
         userList.stream()
@@ -56,9 +55,11 @@ public class StreamAChangeToStreamBTest {
         userList.stream()
                 .map(user -> user.getGender())
                 .map(gender -> gender.split(""))
+                .flatMap(Stream::of)//Stream.of方法将String[]字符串数组转化为字符串流，然后被flapMap融合
+                                    //flatMap方法参数返回的值必须是一个stream
+
                 .distinct()
-                .flatMap(Stream::of)
-                .forEach(System.out::print);
+                .forEach(System.out::println);
 
     }
 

@@ -3,6 +3,7 @@ package CollectionsTest;
 import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
@@ -56,33 +57,8 @@ public class PartitioningByTest {
 
 
 
-    /**
-     * Returns a {@code Collector} which performs a reduction of its
-     * input elements under a specified {@code PartitioningByTest}.  The result
-     * is described as an {@code Optional<T>}.
-     *
-     * @apiNote
-     * The {@code reducing()} collectors are most useful when used in a
-     * multi-level reduction, downstream of {@code groupingBy} or
-     * {@code partitioningBy}.  To perform a simple reduction on a stream,
-     * use {@link Stream#reduce(BinaryOperator)} instead.
-     *
-     * <p>For example, given a stream of {@code Person}, to calculate tallest
-     * person in each city:
-     * <pre>{@code
-     *     Comparator<Person> byHeight = Comparator.comparing(Person::getHeight);
-     *     Map<City, Person> tallestByCity
-     *         = people.stream().collect(groupingBy(Person::getCity, reducing(BinaryOperator.maxBy(byHeight))));
-     * }</pre>
-     *
-     * @param <T> element type for the input and output of the reduction
-     * @param op a {@code PartitioningByTest} used to reduce the input elements
-     * @return a {@code Collector} which implements the reduction operation
-     *
-     * @see #testPartitioningBy()
-     * @see #testPartitioningBy()
-     * @see {@code CollectorsToMap2TreeMap} #testCollectorsToMap2TreeMap()
-     */
+
+    //分区函数
     @Test
     public void testPartitioningBy() {
 
@@ -98,21 +74,28 @@ public class PartitioningByTest {
                 .add(User.builder().username("john8").age(56).gender("man").build())
                 .build();
 
+
+        System.out.println("分区函数：按照某一个字段属性的值范围进行分组，分两组，分组后的value为list结构");
         userList.stream().collect(Collectors.partitioningBy(user -> user.getAge()>=18, Collectors.toList()))
         .forEach((k, v) -> System.out.println("key: "+k+"value: "+v));
 
-
+        System.out.println("分区函数：按照某一个字段属性的值范围进行分组，分两组，分组后的value为set结构");
         userList.stream().collect(Collectors.partitioningBy(user -> user.getAge()>=18, Collectors.toSet()))
                 .forEach((k, v) -> System.out.println("key: "+k+" value: "+v));
 
-
+        System.out.println("分区函数：按照某一个字段属性的值范围进行分组，分两组，分组后的value为计数数据");
         userList.stream().collect(Collectors.partitioningBy(user -> user.getAge()>=18, Collectors.counting()))
                 .forEach((k, v) -> System.out.println("key: "+k+" value: "+v));
 
+        System.out.println("reducing,找到年龄最大的人");
+        userList.stream().collect(Collectors.reducing(BinaryOperator.maxBy(Comparator.comparingInt(User::getAge))))
+                .ifPresent(System.out::println);
 
+        System.out.println("reducing,分组后找到年龄最小的人");
         userList.stream().collect(Collectors.partitioningBy(user -> user.getGender().equals("man"), Collectors.reducing(BinaryOperator.minBy(Comparator.comparingInt(User::getAge)))))
                 .forEach((k, v) -> System.out.println("key: "+k+" value: "+v));
 
+        System.out.println("reducing,partitioningBy,按年龄分区后找到年龄最小的人");
         userList.stream().collect(Collectors.partitioningBy(user -> user.getGender().equals("man"), Collectors.counting()))
                 .forEach((k, v) -> System.out.println("key: "+k+" value: "+v));
 

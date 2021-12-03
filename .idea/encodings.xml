@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/jackdking-JTA-Atomikos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-JTA-Atomikos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-PopulateComponetTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-PopulateComponetTest/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-ace/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-ace/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-activemq/src/main/java" charset="UTF-8" />
@@ -16,6 +18,8 @@
     <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-commons-lang/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-commons-lang/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/webapp" charset="UTF-8" />
