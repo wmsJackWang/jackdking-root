@@ -17,6 +17,9 @@ public class TopicMessageConsoleCommand implements ConsoleCommand {
         textMessageRequestPacket.setTopic(scanner.nextLine());
         System.out.print("输入 message：");
         textMessageRequestPacket.setContent(scanner.nextLine());
+        System.out.print("输入 多久后消息过期：");
+        textMessageRequestPacket.setExpireTime(Long.valueOf(scanner.nextLine()));
+
         channel.writeAndFlush(textMessageRequestPacket);
     }
 }

@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 @Api(tags ="延迟域")
 public class DelayServiceApi extends BaseController{
 
-	
 	@Autowired
 	private DelayServiceWorker delayService;
 	

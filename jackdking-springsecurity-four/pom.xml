@@ -48,7 +48,6 @@
 	<dependency>
     	<groupId>org.thymeleaf.extras</groupId>
     	<artifactId>thymeleaf-extras-springsecurity5</artifactId>
-        <scope></scope>
     </dependency>
 	<!--spring-boot-starter-jdbc自动配置-->
 	<dependency>

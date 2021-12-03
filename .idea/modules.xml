@@ -39,6 +39,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-springsecurity-six/jackdking-springsecurity-six.iml" filepath="$PROJECT_DIR$/jackdking-springsecurity-six/jackdking-springsecurity-six.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-springsecurity-three/jackdking-springsecurity-three.iml" filepath="$PROJECT_DIR$/jackdking-springsecurity-three/jackdking-springsecurity-three.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-springsecurity-two/jackdking-springsecurity-two.iml" filepath="$PROJECT_DIR$/jackdking-springsecurity-two/jackdking-springsecurity-two.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-starter-test/jackdking-starter-test.iml" filepath="$PROJECT_DIR$/jackdking-starter-test/jackdking-starter-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-support-utils/jackdking-support-utils.iml" filepath="$PROJECT_DIR$/jackdking-support-utils/jackdking-support-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-swagger/jackdking-swagger.iml" filepath="$PROJECT_DIR$/jackdking-swagger/jackdking-swagger.iml" />
     </modules>

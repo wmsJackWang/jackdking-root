@@ -41,9 +41,13 @@ public class JdkDelayMessageListener implements DelayMessageLisenter{
 		    {
 			    for (TypedTuple<Object> t : tupleSet) {
 			        String message = String.valueOf(t.getValue());
-			        DelayMessage<String> msg = new NotifyMessage.Builder<String>(0L,message,message).build();
-			        msg.setPlayload(message);
-			        msg.setUniqueKey(message);
+			        NotifyMessage<Object> msg = NotifyMessage.builder()
+							.failDeliverCount(0)
+							.notifyUrl(message)
+							.bizType(message)
+							.playload(message)
+							.uniqueKey(message)
+							.build();
 			        delayMessageRouterRule.route(msg);
 			        if(StringUtils.isEmpty(message)) continue;
 
@@ -59,9 +63,7 @@ public class JdkDelayMessageListener implements DelayMessageLisenter{
 					e.printStackTrace();
 				}
 			}
-			
 		}while(true);
-		
 	}
 
 	@Override

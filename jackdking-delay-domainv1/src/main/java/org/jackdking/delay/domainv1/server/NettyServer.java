@@ -46,7 +46,6 @@ public class NettyServer {
                     }
                 });
 
-
         bind(serverBootstrap, port);
     }
 

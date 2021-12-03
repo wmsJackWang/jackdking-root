@@ -18,3 +18,7 @@ multi:
         username: root
         password: wanyang@wms
       
+
+redisSwitch:
+  enabled: true
+  simpleRedisTemplate: true

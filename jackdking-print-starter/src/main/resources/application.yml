@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+print:
+  serviceConfigs:
+    - serviceName: jackdking
+    - serviceName: hello
+    - serviceName: world

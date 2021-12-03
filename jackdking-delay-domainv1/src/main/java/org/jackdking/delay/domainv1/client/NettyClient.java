@@ -23,7 +23,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author wechat
+ * @author jackdking
  */
 public class NettyClient {
     private static final int MAX_RETRY = 5;
@@ -32,8 +32,11 @@ public class NettyClient {
 
 
     public static void main(String[] args) {
-        NioEventLoopGroup workerGroup = new NioEventLoopGroup();
+        start();
+    }
 
+    private static void start() {
+        NioEventLoopGroup workerGroup = new NioEventLoopGroup();
 
         Bootstrap bootstrap = new Bootstrap();
         bootstrap
@@ -107,8 +110,10 @@ public class NettyClient {
         new Thread(() -> {
             while (!Thread.interrupted()) {
                 if (!SessionUtil.hasLogin(channel)) {
+                    //not login channel, enter username and password to login
                     loginConsoleCommand.exec(scanner, channel);
                 } else {
+                    //has login channel, enter other command to do business
                     consoleCommandManager.exec(scanner, channel);
                 }
             }
