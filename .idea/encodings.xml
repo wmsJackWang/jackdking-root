@@ -20,6 +20,7 @@
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/webapp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-core/src/main/java/org" charset="GBK" />
     <file url="file://$PROJECT_DIR$/jackdking-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-dache/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-dache/src/main/resources" charset="UTF-8" />
@@ -66,10 +67,13 @@
     <file url="file://$PROJECT_DIR$/jackdking-springsecurity-three/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-springsecurity-two/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-springsecurity-two/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-starter-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-starter-test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-statemachine-demo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-statemachine-demo/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-support-utils/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-swagger/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-swagger/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
   </component>
 </project>

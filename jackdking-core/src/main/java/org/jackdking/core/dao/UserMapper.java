@@ -1,17 +1,22 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package org.jackdking.core.dao;
 
 import org.jackdking.core.bean.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer var1);
 
-    int insert(User record);
+    int insert(User var1);
 
-    int insertSelective(User record);
+    int insertSelective(User var1);
 
-    User selectByPrimaryKey(Integer id);
+    User selectByPrimaryKey(Integer var1);
 
-    int updateByPrimaryKeySelective(User record);
+    int updateByPrimaryKeySelective(User var1);
 
-    int updateByPrimaryKey(User record);
+    int updateByPrimaryKey(User var1);
 }

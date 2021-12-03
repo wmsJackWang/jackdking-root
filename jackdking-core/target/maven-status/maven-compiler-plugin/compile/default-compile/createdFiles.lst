@@ -1,5 +1,10 @@
 org\jackdking\core\bean\User.class
-org\jackdking\core\config\RedisConfig.class
+org\jackdking\core\config\RedisTemplateAutoConfiguration.class
+org\jackdking\limiter\aspect\AccessLimiterAspect.class
+org\jackdking\limiter\config\LimiterConfiguration.class
+org\jackdking\core\anoation\EnableRedisTemplate.class
 org\jackdking\core\serializer\DefaultStrSerializer.class
+org\jackdking\limiter\enums\LimiterType.class
 org\jackdking\core\dao\UserMapper.class
+org\jackdking\limiter\anoation\AccessLimiter.class
 org\jackdking\core\common\JdkApplicationContext.class

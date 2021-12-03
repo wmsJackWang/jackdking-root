@@ -15,6 +15,7 @@
         <module name="jackdking-algorithm" />
         <module name="demo" />
         <module name="jackdking-annotation" />
+        <module name="jackdking-starter-test" />
         <module name="jackdking-code-gen" />
         <module name="jackdking-hystrix-jiangji" />
         <module name="jackdking-activemq" />
@@ -83,6 +84,7 @@
       <module name="jackdking-springsecurity-six" target="1.8" />
       <module name="jackdking-springsecurity-three" target="1.8" />
       <module name="jackdking-springsecurity-two" target="1.8" />
+      <module name="jackdking-starter-test" target="1.8" />
       <module name="jackdking-support-utils" target="1.8" />
       <module name="jackdking-swagger" target="1.8" />
     </bytecodeTargetLevel>
@@ -99,6 +101,7 @@
       <module name="jackdking-springsecurity-one" options="-parameters" />
       <module name="jackdking-springsecurity-six" options="-parameters" />
       <module name="jackdking-springsecurity-two" options="-parameters" />
+      <module name="jackdking-starter-test" options="" />
     </option>
   </component>
 </project>
