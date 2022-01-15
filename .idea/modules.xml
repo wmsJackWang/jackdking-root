@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" filepath="$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" filepath="$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" filepath="$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" filepath="$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" filepath="$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" />

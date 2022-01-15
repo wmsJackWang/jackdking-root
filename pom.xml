@@ -47,14 +47,12 @@
     <module>jackdking-guava</module>
     <module>jackdking-ace</module>
     <module>jackdking-code-gen</module>
-      <module>jackdking-aviator</module>
-      <module>jackdking-properties-yml</module>
-<<<<<<< HEAD
-      <module>jackdking-PopulateComponetTest</module>
-      <module>jackdking-commons-lang</module>
-=======
-      <module>jackdking-starter-test</module>
->>>>>>> b4255329835d1de2f6db42b3d2950c5241443887
+    <module>jackdking-aviator</module>
+    <module>jackdking-properties-yml</module>
+    <module>jackdking-PopulateComponetTest</module>
+    <module>jackdking-commons-lang</module>
+    <module>jackdking-starter-test</module>
+      <module>jackdking-groovy</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
@@ -78,6 +76,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	    <skipTests>true</skipTests>
+        <groovy.version>2.5.7</groovy.version>
 	</properties> 
 	
 	<dependencies>
@@ -87,6 +86,17 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <!-- groovy-all 包含所有groovy GDK 中的包,
+             groovy 只包含基础 Groovy 编译需要的包-->
+            <artifactId>groovy-all</artifactId>
+            <!-- any version of Groovy \>= 1.8.2 should work here -->
+            <version>${groovy.version}</version>
+            <!--指定类型为 pom -->
+            <type>pom</type>
+        </dependency>
 	
 	    <dependency>
 	        <groupId>org.springframework.boot</groupId>

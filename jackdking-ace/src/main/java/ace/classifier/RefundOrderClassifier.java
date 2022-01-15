@@ -33,4 +33,8 @@ public class RefundOrderClassifier  implements IClassifier{
         //返回要生成的IExecutor集合
         return aceResult;
     }
+
+    public void testComponent() {
+        log.info("classfier is in ioc");
+    }
 }

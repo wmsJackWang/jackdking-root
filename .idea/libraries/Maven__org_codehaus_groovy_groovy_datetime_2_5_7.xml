@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.codehaus.groovy:groovy-datetime:2.5.7">
+    <CLASSES>
+      <root url="jar:///usr/local/ApachMaven/repository/org/codehaus/groovy/groovy-datetime/2.5.7/groovy-datetime-2.5.7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///usr/local/ApachMaven/repository/org/codehaus/groovy/groovy-datetime/2.5.7/groovy-datetime-2.5.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///usr/local/ApachMaven/repository/org/codehaus/groovy/groovy-datetime/2.5.7/groovy-datetime-2.5.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

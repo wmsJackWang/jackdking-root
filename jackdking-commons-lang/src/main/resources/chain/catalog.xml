@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!-- @see ConfigRuleSet.java -->
+<catalog>
+    <chain name="printChain">
+        <command name="printDate" className="chain.commands.PrintDateCommand" />
+        <command name="printTimestamp" className="chain.commands.PrintTimestampCommand" />
+    </chain>
+</catalog>
+        <!-- you can have more catalogs,but everyone should have a unique name -->
+        <!--
+        <catalog name="printCatalog">
+            <chain name="test">
+                <command name="printDate" className="com.test.chain.PrintDateCommand" />
+                <command name="printTimestamp" className="com.test.chain.PrintTimestampCommand" />
+            </chain>
+        </catalog>
+        -->

@@ -17,29 +17,29 @@ import java.util.function.Supplier;
 public class AceFactory {
 
     //校验器集合
-    public Map<String , IAttributor> attributorMap = Maps.newHashMap();
+    public static Map<String , IAttributor> attributorMap = Maps.newHashMap();
     //分类器集合
-    public Map<String , IClassifier> classifierMap = Maps.newHashMap();
+    public static Map<String , IClassifier> classifierMap = Maps.newHashMap();
     //执行器集合
-    public Map<String , IExecutor> executorMap = Maps.newHashMap();
+    public static Map<String , IExecutor> executorMap = Maps.newHashMap();
     //校验器下的规则器集合
-    public Map<String , Method> rulerMap = Maps.newHashMap();
+    public static Map<String , Method> rulerMap = Maps.newHashMap();
     //规则器原始规则参数。
-    public Map<String, String[]> rulerParamMap = Maps.newHashMap();
+    public static Map<String, String[]> rulerParamMap = Maps.newHashMap();
 
-    public Map<String, IAttributor> ruler2AttributorMap = Maps.newHashMap();
+    public static Map<String, IAttributor> ruler2AttributorMap = Maps.newHashMap();
     //规则器定制化规则参数。
-    public Map<String, String[]> classifierRulerParamMap = Maps.newHashMap();
+    public static Map<String, String[]> classifierRulerParamMap = Maps.newHashMap();
 
-    public Multimap<String , String> classifierMatchers = ArrayListMultimap.create();
+    public static Multimap<String , String> classifierMatchers = ArrayListMultimap.create();
 
-    public Multimap<String , String> classifierFilters = ArrayListMultimap.create();
+    public static Multimap<String , String> classifierFilters = ArrayListMultimap.create();
 
-    public Map<String ,String> classifierPriority = Maps.newHashMap();
+    public static Map<String ,String> classifierPriority = Maps.newHashMap();
 
     private static AceFactory INSTANCE  = new AceFactory();
 
-    public final Supplier<String> executorNullError = () -> "executor is null";
+    public final static Supplier<String> executorNullError = () -> "executor is null";
 
     private AceFactory(){
 

@@ -12,6 +12,7 @@ import ace.core.AceWorker;
 import ace.enums.ErrorMessageCode;
 import ace.executor.IExecutor;
 import ace.factory.AceFactory;
+import ace.service.AceInitStrategy;
 import ace.utils.AceUtil;
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
@@ -40,8 +41,12 @@ import java.lang.reflect.Method;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-@Service
+
+/*
+ * 设计有@enable机制来控制策略， 配置propertity属性来控制
+ */
 @Slf4j
+@Service
 @Order(Integer.MIN_VALUE)
 public class AceInitServiceImpl implements AceInitService, ApplicationListener<ContextRefreshedEvent> , ApplicationRunner , ResourceLoaderAware {
 
@@ -51,6 +56,8 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
 
     @Autowired
     private AceProperty aceProperty;
+
+    private AceInitStrategy aceInitStrategy;
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
@@ -97,6 +104,10 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
 
     }
 
+    public AceInitServiceImpl(AceInitStrategy aceInitStrategy) {
+        this.aceInitStrategy = aceInitStrategy;
+    }
+
     @Override
     public void init() {
         if(initialized.get()) {
@@ -108,10 +119,10 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
         Assert.notEmpty(aceProperty.getAttributorsPath(),"AttributorsPath cannt be empty");
         Assert.notEmpty(aceProperty.getClassifiersPath(),"ClassifiersPath cannt be empty");
         Assert.notEmpty(aceProperty.getExecutorsPath(),"ExecutorsPath cannt be empty");
-        parseAnnoation();
-        parseAttributor();
-        parseClassifier();
-        parseExecutor();
+        aceInitStrategy.parseAnnoation();
+        aceInitStrategy.parseAttributor();
+        aceInitStrategy.parseClassifier();
+        aceInitStrategy.parseExecutor();
         complete();
     }
 
@@ -220,7 +231,6 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
             
             validateLegalParam(classifier.name(), matchers, filters, priority);
 
-
             //filters  can be empty
             if (!ObjectUtils.isEmpty(filters)) {
                 Arrays.stream(filters).forEach(ruler -> {
@@ -276,6 +286,10 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         log.info("spring refresh, reload ace component");
+
+        //如果spring方式开启，则开始加载RACE归因组件
+
+        
         initialized.set(false);
         init();
     }
@@ -285,7 +299,6 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
         log.info("ace component start init");
         init();
     }
-
 
     /**
      * Spring容器注入
@@ -333,7 +346,6 @@ public class AceInitServiceImpl implements AceInitService, ApplicationListener<C
     public void setResourceLoader(ResourceLoader resourceLoader) {
         this.resourceLoader = resourceLoader;
     }
-
 
     @ConfigurationProperties(prefix = "ace")
     @Component
