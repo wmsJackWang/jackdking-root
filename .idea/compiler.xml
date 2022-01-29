@@ -88,7 +88,7 @@
       <module name="jackdking-springsecurity-six" target="1.8" />
       <module name="jackdking-springsecurity-three" target="1.8" />
       <module name="jackdking-springsecurity-two" target="1.8" />
-      <module name="jackdking-starter-test" target="8" />
+      <module name="jackdking-starter-test" target="1.8" />
       <module name="jackdking-support-utils" target="1.8" />
       <module name="jackdking-swagger" target="1.8" />
     </bytecodeTargetLevel>

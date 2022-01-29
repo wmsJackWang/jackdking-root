@@ -47,14 +47,11 @@
     <module>jackdking-guava</module>
     <module>jackdking-ace</module>
     <module>jackdking-code-gen</module>
-      <module>jackdking-aviator</module>
-      <module>jackdking-properties-yml</module>
-<<<<<<< HEAD
-      <module>jackdking-PopulateComponetTest</module>
-      <module>jackdking-commons-lang</module>
-=======
-      <module>jackdking-starter-test</module>
->>>>>>> b4255329835d1de2f6db42b3d2950c5241443887
+    <module>jackdking-aviator</module>
+    <module>jackdking-properties-yml</module>
+    <module>jackdking-PopulateComponetTest</module>
+    <module>jackdking-commons-lang</module>
+    <module>jackdking-starter-test</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

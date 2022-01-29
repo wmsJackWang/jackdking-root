@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.cloud:spring-cloud-netflix-hystrix:2.1.3.RELEASE">
     <CLASSES>
-      <root url="jar:///usr/local/ApachMaven/repository/org/springframework/cloud/spring-cloud-netflix-hystrix/2.1.3.RELEASE/spring-cloud-netflix-hystrix-2.1.3.RELEASE.jar!/" />
+      <root url="jar://D:/maven/org/springframework/cloud/spring-cloud-netflix-hystrix/2.1.3.RELEASE/spring-cloud-netflix-hystrix-2.1.3.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar:///usr/local/ApachMaven/repository/org/springframework/cloud/spring-cloud-netflix-hystrix/2.1.3.RELEASE/spring-cloud-netflix-hystrix-2.1.3.RELEASE-javadoc.jar!/" />
+      <root url="jar://D:/maven/org/springframework/cloud/spring-cloud-netflix-hystrix/2.1.3.RELEASE/spring-cloud-netflix-hystrix-2.1.3.RELEASE-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar:///usr/local/ApachMaven/repository/org/springframework/cloud/spring-cloud-netflix-hystrix/2.1.3.RELEASE/spring-cloud-netflix-hystrix-2.1.3.RELEASE-sources.jar!/" />
+      <root url="jar://D:/maven/org/springframework/cloud/spring-cloud-netflix-hystrix/2.1.3.RELEASE/spring-cloud-netflix-hystrix-2.1.3.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
