@@ -31,8 +31,8 @@
         <module name="jackdking-commons-lang" />
         <module name="jackdking-delay-domainv1-client-starter" />
         <module name="jackdking-redistemplate" />
-        <module name="jackdking-datasource" />
         <module name="jackdking-PopulateComponetTest" />
+        <module name="jackdking-datasource" />
         <module name="jackdking-muti-datasource" />
         <module name="jackdking-swagger" />
         <module name="jackdking-delay-domainv1" />
