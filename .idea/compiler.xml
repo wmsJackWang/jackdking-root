@@ -47,6 +47,7 @@
         <module name="jackdking-support-utils" />
         <module name="jackdking-guava" />
         <module name="jackdking-rpcservice" />
+        <module name="jackdking-spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -83,6 +84,7 @@
       <module name="jackdking-root" target="1.8" />
       <module name="jackdking-rpcservice" target="1.8" />
       <module name="jackdking-shardjdbcyaml" target="1.8" />
+      <module name="jackdking-spring" target="1.8" />
       <module name="jackdking-spring-security" target="1.8" />
       <module name="jackdking-springsecurity-five" target="1.8" />
       <module name="jackdking-springsecurity-four" target="1.8" />

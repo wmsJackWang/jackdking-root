@@ -211,7 +211,7 @@ public class AceInitFromNewInstanceStrategy implements AceInitStrategy, Resource
      */
     public Set<Class<?>> doScan(String scanPath) {
         try{
-            Set<Class<?>> classes = new HashSet<Class<?>>();
+            Set<Class<?>> classes = new HashSet<>();
             String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX
                     .concat(ClassUtils.convertClassNameToResourcePath(SystemPropertyUtils.resolvePlaceholders(scanPath))
                             .concat("/**/*.class"));

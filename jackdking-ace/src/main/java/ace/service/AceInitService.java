@@ -11,9 +11,5 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public interface AceInitService {
 
     public void init();
-    public void parseAnnoation();
-    public void parseAttributor();
-    public void parseClassifier();
-    public void parseExecutor();
     public void complete();
 }

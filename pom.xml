@@ -53,6 +53,7 @@
     <module>jackdking-commons-lang</module>
     <module>jackdking-starter-test</module>
       <module>jackdking-groovy</module>
+      <module>jackdking-spring</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

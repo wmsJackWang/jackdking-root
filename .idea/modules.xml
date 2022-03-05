@@ -33,6 +33,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-root.iml" filepath="$PROJECT_DIR$/jackdking-root.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" filepath="$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-shardjdbcyaml/jackdking-shardjdbcyaml.iml" filepath="$PROJECT_DIR$/jackdking-shardjdbcyaml/jackdking-shardjdbcyaml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-spring/jackdking-spring.iml" filepath="$PROJECT_DIR$/jackdking-spring/jackdking-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-spring-security/jackdking-spring-security.iml" filepath="$PROJECT_DIR$/jackdking-spring-security/jackdking-spring-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-springsecurity-five/jackdking-springsecurity-five.iml" filepath="$PROJECT_DIR$/jackdking-springsecurity-five/jackdking-springsecurity-five.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-springsecurity-four/jackdking-springsecurity-four.iml" filepath="$PROJECT_DIR$/jackdking-springsecurity-four/jackdking-springsecurity-four.iml" />
