@@ -19,7 +19,7 @@ public class AceUtil {
         return retResult;
     }
 
-    public static AceResult aggregateResult (AceResult aceresult , AceResult... aceResults) {
+    public static AceResult aggregateResult (AceResult... aceResults) {
         AceResult retResult = new AceResult(true,null);
         for(AceResult aceResult:aceResults) {
             retResult = retResult.and(aceResult);

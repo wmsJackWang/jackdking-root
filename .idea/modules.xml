@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" filepath="$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" filepath="$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" filepath="$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" filepath="$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" filepath="$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" />
@@ -32,6 +33,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-root.iml" filepath="$PROJECT_DIR$/jackdking-root.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" filepath="$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-shardjdbcyaml/jackdking-shardjdbcyaml.iml" filepath="$PROJECT_DIR$/jackdking-shardjdbcyaml/jackdking-shardjdbcyaml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-spring/jackdking-spring.iml" filepath="$PROJECT_DIR$/jackdking-spring/jackdking-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-spring-security/jackdking-spring-security.iml" filepath="$PROJECT_DIR$/jackdking-spring-security/jackdking-spring-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-springsecurity-five/jackdking-springsecurity-five.iml" filepath="$PROJECT_DIR$/jackdking-springsecurity-five/jackdking-springsecurity-five.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-springsecurity-four/jackdking-springsecurity-four.iml" filepath="$PROJECT_DIR$/jackdking-springsecurity-four/jackdking-springsecurity-four.iml" />

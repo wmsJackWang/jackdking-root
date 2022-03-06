@@ -25,6 +25,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @PropertySource({"classpath:config/redistemplate.properties"})
 public class RedisTemplateAutoConfiguration {
     private static final Logger log = LoggerFactory.getLogger(RedisTemplateAutoConfiguration.class);
+
     @Autowired
     private Environment environment;
 

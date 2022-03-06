@@ -7,6 +7,9 @@ ace:
     - ace.classifier
   executors-path:
     - ace.executor
+  #ace初始化策略是扫描包的方式
+#  strategy: scanPackage
+  strategy: scanIoc
 
 logging:
   level:

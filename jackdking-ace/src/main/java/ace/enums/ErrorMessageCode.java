@@ -3,7 +3,6 @@ package ace.enums;
 
 public enum ErrorMessageCode {
 
-
     CLASSIFIER_ILLEGAL("classifier_illegal",001,"classifier is illegal"),
     CLASSIFIER_CHECK_NULL("classifier_check_null",002,"classifier is not exist"),
     CLASSIFIER_MATCH_BEYOND_ONE("classifier_match_beyond_one",003,"scene's classifier match count is beyond 1"),
