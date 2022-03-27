@@ -7,9 +7,11 @@ ace:
     - ace.classifier
   executors-path:
     - ace.executor
-  #ace初始化策略是扫描包的方式
-#  strategy: scanPackage
-  strategy: scanIoc
+  strategy:
+    #扫描package下的class
+    scanPackage: true
+    #从ioc中获取实现了某类型的class
+    scanIoc: false
 
 logging:
   level:

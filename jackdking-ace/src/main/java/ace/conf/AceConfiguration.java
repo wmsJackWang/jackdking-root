@@ -2,6 +2,7 @@ package ace.conf;
 
 import ace.service.impl.AceInitFromIocStrategy;
 import ace.service.impl.AceInitFromNewInstanceStrategy;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * @Version 2.0
  **/
 @Configuration
+@Slf4j
 public class AceConfiguration {
 
     @ConfigurationProperties(prefix = "ace")
@@ -26,15 +28,17 @@ public class AceConfiguration {
     }
 
     @Bean
-    @ConditionalOnProperty(prefix = "ace", name = "strategy", havingValue = "scanPackage")
+    @ConditionalOnProperty(prefix = "ace.strategy", name = "scanPackage", havingValue = "true")
     public AceInitFromNewInstanceStrategy fromNewInstanceStrategy(AceProperty aceProperty) {
+        log.info("enable AceInitFromNewInstanceStrategy, then scan ioc to init Ace Component");
         AceInitFromNewInstanceStrategy fromNewInstanceStrategy = new AceInitFromNewInstanceStrategy(aceProperty);
         return fromNewInstanceStrategy;
     }
 
     @Bean
-    @ConditionalOnProperty(prefix = "ace", name = "strategy", havingValue = "scanIoc")
+    @ConditionalOnProperty(prefix = "ace.strategy", name = "scanIoc", havingValue = "true")
     public AceInitFromIocStrategy fromIocStrategy() {
+        log.info("enable AceInitFromIocStrategy, then scan ioc to init Ace Component");
         AceInitFromIocStrategy fromIocStrategy = new AceInitFromIocStrategy();
         return fromIocStrategy;
     }
