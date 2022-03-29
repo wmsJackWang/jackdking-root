@@ -106,7 +106,6 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.9.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.6.0" level="project" />
-<<<<<<< HEAD
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:2.5.4" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-ant:2.5.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.ant:ant:1.9.13" level="project" />
@@ -146,8 +145,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.testng:testng:6.13.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.beust:jcommander:1.72" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-xml:2.5.4" level="project" />
-=======
->>>>>>> bc7d3cb6bf8208e85c8c5f94873fca139a2ffd49
     <orderEntry type="library" name="Maven: javax.jms:javax.jms-api:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.2" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />

@@ -1,13 +1,13 @@
 package org.jackdking.common;
 
 import junit.framework.TestCase;
-import org.jackdking.common.utils.KUtils;
+import org.jackdking.common.utils.StreamCodeUtils;
 
 public class KUtilsTest extends TestCase {
 
     public void testThrowError (){
 
-        KUtils.isTure(true).throwMessage("参数错误，请求被打回");
+        StreamCodeUtils.requireTure(true).throwMessage("参数错误，请求被打回");
 
     }
 
@@ -22,7 +22,7 @@ public class KUtilsTest extends TestCase {
 
         String falseMessage = "hello god";
 
-        KUtils.isTureOrFalse(true).trueOrFalseHandle(() -> {
+        StreamCodeUtils.isTureOrFalse(true).trueOrFalseHandle(() -> {
             System.out.println(successMsg);
         }, () ->{
             System.out.println(falseMessage);
@@ -41,7 +41,7 @@ public class KUtilsTest extends TestCase {
         String falseMessage = "hello god";
         falseMessage = "false";
 
-        KUtils.isTureOrFalseWithParameter(false, successMessage, falseMessage).handle((parameters) -> {
+        StreamCodeUtils.isTureOrFalseWithParameter(false, successMessage, falseMessage).handle((parameters) -> {
             System.out.println(parameters[0]);
         }, (parameters) -> {
             System.out.println(parameters[1]);
@@ -53,7 +53,7 @@ public class KUtilsTest extends TestCase {
         String successMessage = "hello world";
         successMessage = "";
 
-        KUtils.isBlankOrNoBlank(successMessage).presentOrElseHandle(System.out::println, () -> {
+        StreamCodeUtils.isBlankOrNoBlank(successMessage).presentOrElseHandle(System.out::println, () -> {
             System.out.println("empty string");
         });
 
@@ -67,11 +67,15 @@ public class KUtilsTest extends TestCase {
         String remindMsg = "hello god";
         remindMsg = "empty string";
 
-        KUtils.isBlankOrNoBlankWithParam(successMessage, successMessage, remindMsg).presentOrElseHandle((parameters) -> {
+        StreamCodeUtils.isBlankOrNoBlankWithParam(successMessage, successMessage, remindMsg).presentOrElseHandle((parameters) -> {
             System.out.println(parameters[0]);
         }, (parameters) -> {
             System.out.println(parameters[1]);
         });
+
+    }
+
+    public void testIsTrueOrElseHandler (){
 
     }
 
