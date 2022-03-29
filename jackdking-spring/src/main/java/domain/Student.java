@@ -1,3 +1,5 @@
+package domain;
+
 /**
  * Copyright (C) 阿里巴巴
  *

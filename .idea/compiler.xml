@@ -69,7 +69,7 @@
       <module name="jackdking-datasource" target="1.8" />
       <module name="jackdking-delay-domainv1" target="1.8" />
       <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
-      <module name="jackdking-groovy" target="1.8" />
+      <module name="jackdking-groovy" target="8" />
       <module name="jackdking-guava" target="1.8" />
       <module name="jackdking-hystrix-jiangji" target="1.8" />
       <module name="jackdking-javamail" target="1.8" />

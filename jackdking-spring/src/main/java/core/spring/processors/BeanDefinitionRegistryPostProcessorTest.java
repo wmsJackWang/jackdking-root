@@ -22,17 +22,28 @@ import org.springframework.stereotype.Component;
 public class BeanDefinitionRegistryPostProcessorTest implements BeanDefinitionRegistryPostProcessor, PriorityOrdered {
 
 
+    /*
+     * beanDefinition注册顺序不会影响bean的依赖注入的，注册时候所有bean都还未初始化，也没有设置好依赖关系。
+     */
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException
     {
+
+        System.out.println("开始注册bean");
+
         // 新增
         BeanDefinition bd = new GenericBeanDefinition();
-        bd.setBeanClassName("Student");
+        bd.setBeanClassName("domain.Teacher");
+        registry.registerBeanDefinition("teacher",bd);
+
+        // 新增
+        bd = new GenericBeanDefinition();
+        bd.setBeanClassName("domain.Student");
         registry.registerBeanDefinition("student",bd);
         // 查询和修改
         BeanDefinition student = registry.getBeanDefinition("student");
         // 删除
-        registry.removeBeanDefinition("student");
+//        registry.removeBeanDefinition("student");
     }
 
     @Override

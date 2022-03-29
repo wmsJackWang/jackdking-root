@@ -21,11 +21,12 @@ public class TopicTagClassifier implements IClassifier{
     private RefundOrderClassifier refundOrderClassifier;
 
     //根据属性条件，返回要生成的IExecutor集合，分类器可能需要多个执行单元
+    //注解@Classifier中规则都通过后，再执行下面的分类器单元，返回结果单元
     @Override
     public AceResult classify(AceContext aceContext) {
 
         log.debug("execute orderTagClassifier ");
-        refundOrderClassifier.testComponent();
+//        refundOrderClassifier.testComponent();
         List<String> executorList = ImmutableList.of("TopicTagExecutor");
         AceResult aceResult = AceResult.success();
         aceResult.setResult(executorList);

@@ -24,8 +24,12 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-
-
+        <!-- 省略get/set等方法 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 </project>
