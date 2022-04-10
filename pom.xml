@@ -54,6 +54,8 @@
     <module>jackdking-starter-test</module>
     <module>jackdking-groovy</module>
     <module>jackdking-spring</module>
+      <module>jackdking-EasyRules</module>
+      <module>jackdking-grovvy-rules-praser</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_ADDITIONAL_VM_OPTIONS" value="-Djps.track.ap.dependencies=false" />
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
@@ -13,6 +14,7 @@
         <module name="jackdking-multids-spring-boot-starter" />
         <module name="jackdking-aviator" />
         <module name="jackdking-algorithm" />
+        <module name="jackdking-grovvy-easyrules-aviator-rules-praser" />
         <module name="demo" />
         <module name="jackdking-annotation" />
         <module name="jackdking-starter-test" />
@@ -36,12 +38,12 @@
         <module name="jackdking-muti-datasource" />
         <module name="jackdking-swagger" />
         <module name="jackdking-delay-domainv1" />
+        <module name="jackdking-EasyRules" />
         <module name="jackdking-bigfileupload" />
         <module name="jackdking-springsecurity-one" />
         <module name="jackdking-springsecurity-four" />
         <module name="jackdking-springsecurity-six" />
         <module name="jackdking-dache" />
-        <module name="jackdking-common" />
         <module name="jackdking-spring-security" />
         <module name="jackdking-shardjdbcyaml" />
         <module name="jackdking-support-utils" />
@@ -51,9 +53,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Delay-Client-SpringBoot-Starter" target="1.8" />
       <module name="demo" target="1.8" />
-      <module name="jackdkign-redissioncluster" target="1.8" />
       <module name="jackdking-ace" target="1.8" />
       <module name="jackdking-activemq" target="1.8" />
       <module name="jackdking-algorithm" target="1.8" />
@@ -69,7 +69,9 @@
       <module name="jackdking-datasource" target="1.8" />
       <module name="jackdking-delay-domainv1" target="1.8" />
       <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
+      <module name="jackdking-EasyRules" target="1.8" />
       <module name="jackdking-groovy" target="1.8" />
+      <module name="jackdking-grovvy-easyrules-aviator-rules-praser" target="1.8" />
       <module name="jackdking-guava" target="1.8" />
       <module name="jackdking-hystrix-jiangji" target="1.8" />
       <module name="jackdking-javamail" target="1.8" />
@@ -100,8 +102,10 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="demo" options="-parameters" />
+      <module name="jackdking-common" options="-proc:none" />
       <module name="jackdking-dache" options="-parameters" />
       <module name="jackdking-datasource" options="-parameters" />
+      <module name="jackdking-guava" options="" />
       <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
       <module name="jackdking-muti-datasource" options="" />
       <module name="jackdking-springsecurity-five" options="-parameters" />

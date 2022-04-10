@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jackdking-statemachine-demo/demo.iml" filepath="$PROJECT_DIR$/jackdking-statemachine-demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-EasyRules/jackdking-EasyRules.iml" filepath="$PROJECT_DIR$/jackdking-EasyRules/jackdking-EasyRules.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-JTA-Atomikos/jackdking-JTA-Atomikos.iml" filepath="$PROJECT_DIR$/jackdking-JTA-Atomikos/jackdking-JTA-Atomikos.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-PopulateComponetTest/jackdking-PopulateComponetTest.iml" filepath="$PROJECT_DIR$/jackdking-PopulateComponetTest/jackdking-PopulateComponetTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-ace/jackdking-ace.iml" filepath="$PROJECT_DIR$/jackdking-ace/jackdking-ace.iml" />
@@ -21,6 +22,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" filepath="$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-grovvy-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" filepath="$PROJECT_DIR$/jackdking-grovvy-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" filepath="$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" filepath="$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" filepath="$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" />
