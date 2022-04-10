@@ -7,6 +7,7 @@ import com.github.javaparser.ast.expr.Name;
 import org.eclipse.jdt.core.dom.*;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.List;
@@ -25,12 +26,14 @@ public class JackdkingAnalysis {
     private static final String CLASS_PATH = ClassLoader.getSystemClassLoader().getResource("").getPath();
     private static final File PROJECT_FILE = new File(CLASS_PATH).getParentFile().getParentFile();
     private static final File SRC_MAIN_JAVA_FILE = new File(PROJECT_FILE, "/src/main/java");
+    private static final File SRC_MAIN_CLASS_FILE = new File(PROJECT_FILE, "/target/classes");
     private static final String FILE_NAME = JackdkingAnalysis.class.getName().replace('.', '/') + ".java";
+    private static final String CLASS_FILE_NAME = JackdkingAnalysis.class.getName().replace('.', '/') + ".class";
     private static final File FILE = new File(SRC_MAIN_JAVA_FILE, FILE_NAME);
+    private static final File CLASS_FILE = new File(SRC_MAIN_CLASS_FILE, CLASS_FILE_NAME);
 
     public static void main(String[] args) throws Exception {
         System.out.println(FILE.getAbsoluteFile().toPath());
-
         byte[] bytes = Files.readAllBytes(FILE.getAbsoluteFile().toPath());
         String s = new String(bytes, StandardCharsets.UTF_8);
 
@@ -78,6 +81,10 @@ public class JackdkingAnalysis {
         typeDec.bodyDeclarations().add(0, createLiceseInLineField(unit.getAST()));
 
         System.out.println(unit.toString());
+
+        FileOutputStream fo = new FileOutputStream(CLASS_FILE);
+        fo.write(unit.toString().getBytes(StandardCharsets.UTF_8));
+        fo.flush();
 
         long time3 = System.currentTimeMillis();
 

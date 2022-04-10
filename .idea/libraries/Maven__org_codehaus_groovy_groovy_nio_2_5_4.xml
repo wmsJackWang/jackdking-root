@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.codehaus.groovy:groovy-nio:2.5.4">
     <CLASSES>
-      <root url="jar:///usr/local/ApachMaven/repository/org/codehaus/groovy/groovy-nio/2.5.4/groovy-nio-2.5.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-nio/2.5.4/groovy-nio-2.5.4.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar:///usr/local/ApachMaven/repository/org/codehaus/groovy/groovy-nio/2.5.4/groovy-nio-2.5.4-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-nio/2.5.4/groovy-nio-2.5.4-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar:///usr/local/ApachMaven/repository/org/codehaus/groovy/groovy-nio/2.5.4/groovy-nio-2.5.4-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-nio/2.5.4/groovy-nio-2.5.4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
