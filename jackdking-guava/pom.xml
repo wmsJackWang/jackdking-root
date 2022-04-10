@@ -11,6 +11,13 @@
 
     <artifactId>jackdking-guava</artifactId>
     <dependencies>
+
+        <dependency>
+            <groupId>com.jackdking.root</groupId>
+            <artifactId>jackdking-common</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

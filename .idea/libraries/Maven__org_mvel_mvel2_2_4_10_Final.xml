@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.mvel:mvel2:2.4.10.Final">
+    <CLASSES>
+      <root url="jar:///usr/local/ApachMaven/repository/org/mvel/mvel2/2.4.10.Final/mvel2-2.4.10.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///usr/local/ApachMaven/repository/org/mvel/mvel2/2.4.10.Final/mvel2-2.4.10.Final-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///usr/local/ApachMaven/repository/org/mvel/mvel2/2.4.10.Final/mvel2-2.4.10.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
