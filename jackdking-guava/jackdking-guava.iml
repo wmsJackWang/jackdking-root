@@ -25,6 +25,20 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="jackdking-common" />
+    <orderEntry type="library" name="Maven: com.github.javaparser:javaparser-symbol-solver-core:3.15.21" level="project" />
+    <orderEntry type="library" name="Maven: com.github.javaparser:javaparser-core:3.15.21" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.27.0-GA" level="project" />
+    <orderEntry type="library" name="Maven: de.defmacro:eclipse-astparser:8.1" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: com.sun:tools:1.8">
+        <CLASSES>
+          <root url="jar://C:/software_envronment/java/jdk1.8.0_91/jre/../lib/tools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.7" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.4" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:30.1.1-jre" level="project" />

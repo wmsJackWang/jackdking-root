@@ -1,7 +1,6 @@
 import java.text.SimpleDateFormat;
 
 class GrvyCalculator {
-
     //groovy语法
     def discount(a,b){
         def c = a * b

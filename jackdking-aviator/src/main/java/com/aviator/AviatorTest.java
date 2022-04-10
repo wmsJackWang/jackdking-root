@@ -6,6 +6,8 @@ import com.googlecode.aviator.runtime.function.FunctionUtils;
 import com.googlecode.aviator.runtime.type.AviatorDouble;
 import com.googlecode.aviator.runtime.type.AviatorObject;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,7 +54,9 @@ class MultiplyFunction extends AbstractFunction {
 
         double num1 = FunctionUtils.getNumberValue(arg1, env).doubleValue();
         double num2 = FunctionUtils.getNumberValue(arg2, env).doubleValue();
-        return new AviatorDouble(num1 * num2);
+        BigDecimal result = new BigDecimal(num1 * num2);
+        result.setScale(4, RoundingMode.HALF_UP);
+        return new AviatorDouble(result);
     }
 
     @Override

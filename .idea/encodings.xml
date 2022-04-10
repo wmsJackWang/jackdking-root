@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/jackdking-EasyRules/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-JTA-Atomikos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-JTA-Atomikos/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-PopulateComponetTest/src/main/java" charset="UTF-8" />
@@ -17,6 +18,7 @@
     <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-commons-lang/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-commons-lang/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-controller_samples/src/main/java" charset="UTF-8" />
@@ -33,8 +35,11 @@
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-delay-domainv1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-groovy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-groovy/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-grovvy-easyrules-aviator-rules-praser/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-guava/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-guava/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/src/main/java" charset="UTF-8" />

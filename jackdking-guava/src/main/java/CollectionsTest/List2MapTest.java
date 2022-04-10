@@ -54,6 +54,7 @@ public class List2MapTest {
      **/
     @Test
     public void testList2Map() {
+
         ImmutableList<User> userList = ImmutableList.<User>builder()
                 .add(User.builder().username("jack").age(12).gender("man").build())
                 .add(User.builder().username("john1").age(24).gender("man").build())
@@ -66,11 +67,24 @@ public class List2MapTest {
                 .add(User.builder().username("john8").age(56).gender("man").build())
                 .build();
 
+        Map<String, Object> name2AgeV2 = userList.stream()
+                .collect(Collectors.toMap(user -> user.getUsername() , user -> user.getAge()));
+
+
+
+        Map<String, Integer> name2Age = new HashMap<>();
+        for (User user: userList) {
+            name2Age.put(user.getUsername(), user.getAge());
+        }
+
         userList.stream()
                 .collect(Collectors.toMap(user -> user.getUsername() , user -> user.getAge()))
                 .forEach((k,v) -> System.out.println(k+":"+v));
 
+
     }
+
+
 
     @Test
     public void testStreamSorted(){

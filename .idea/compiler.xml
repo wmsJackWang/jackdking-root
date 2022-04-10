@@ -13,47 +13,47 @@
         <module name="jackdking-multids-spring-boot-starter" />
         <module name="jackdking-aviator" />
         <module name="jackdking-algorithm" />
-        <module name="demo" />
+        <module name="jackdking-grovvy-easyrules-aviator-rules-praser" />
         <module name="jackdking-annotation" />
+        <module name="demo" />
         <module name="jackdking-starter-test" />
         <module name="jackdking-code-gen" />
         <module name="jackdking-hystrix-jiangji" />
         <module name="jackdking-activemq" />
         <module name="jackdking-properties-yml" />
         <module name="jackdking-core" />
-        <module name="jackdking-JTA-Atomikos" />
         <module name="jackdking-javamail" />
+        <module name="jackdking-JTA-Atomikos" />
+        <module name="jackdking-code-structure" />
         <module name="jackdking-controller_samples" />
         <module name="jackdking-springsecurity-three" />
         <module name="jackdking-springsecurity-two" />
-        <module name="jackdking-retry" />
         <module name="jackdking-groovy" />
+        <module name="jackdking-retry" />
         <module name="jackdking-commons-lang" />
         <module name="jackdking-delay-domainv1-client-starter" />
-        <module name="jackdking-redistemplate" />
         <module name="jackdking-PopulateComponetTest" />
         <module name="jackdking-datasource" />
-        <module name="jackdking-muti-datasource" />
+        <module name="jackdking-redistemplate" />
         <module name="jackdking-swagger" />
+        <module name="jackdking-muti-datasource" />
+        <module name="jackdking-EasyRules" />
         <module name="jackdking-delay-domainv1" />
         <module name="jackdking-bigfileupload" />
         <module name="jackdking-springsecurity-one" />
         <module name="jackdking-springsecurity-four" />
         <module name="jackdking-springsecurity-six" />
         <module name="jackdking-dache" />
-        <module name="jackdking-common" />
-        <module name="jackdking-spring-security" />
         <module name="jackdking-shardjdbcyaml" />
-        <module name="jackdking-support-utils" />
+        <module name="jackdking-spring-security" />
         <module name="jackdking-guava" />
+        <module name="jackdking-support-utils" />
         <module name="jackdking-rpcservice" />
         <module name="jackdking-spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Delay-Client-SpringBoot-Starter" target="1.8" />
       <module name="demo" target="1.8" />
-      <module name="jackdkign-redissioncluster" target="1.8" />
       <module name="jackdking-ace" target="1.8" />
       <module name="jackdking-activemq" target="1.8" />
       <module name="jackdking-algorithm" target="1.8" />
@@ -61,6 +61,7 @@
       <module name="jackdking-aviator" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-code-gen" target="1.8" />
+      <module name="jackdking-code-structure" target="8" />
       <module name="jackdking-common" target="1.8" />
       <module name="jackdking-commons-lang" target="1.8" />
       <module name="jackdking-controller_samples" target="1.8" />
@@ -69,7 +70,10 @@
       <module name="jackdking-datasource" target="1.8" />
       <module name="jackdking-delay-domainv1" target="1.8" />
       <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
+      <module name="jackdking-EasyRules" target="1.8" />
+      <module name="jackdking-gongtushe" target="8" />
       <module name="jackdking-groovy" target="8" />
+      <module name="jackdking-grovvy-easyrules-aviator-rules-praser" target="1.8" />
       <module name="jackdking-guava" target="1.8" />
       <module name="jackdking-hystrix-jiangji" target="1.8" />
       <module name="jackdking-javamail" target="1.8" />
@@ -100,16 +104,15 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="demo" options="-parameters" />
+      <module name="jackdking-common" options="-proc:none" />
       <module name="jackdking-dache" options="-parameters" />
       <module name="jackdking-datasource" options="-parameters" />
       <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
-      <module name="jackdking-muti-datasource" options="" />
       <module name="jackdking-springsecurity-five" options="-parameters" />
       <module name="jackdking-springsecurity-four" options="-parameters" />
       <module name="jackdking-springsecurity-one" options="-parameters" />
       <module name="jackdking-springsecurity-six" options="-parameters" />
       <module name="jackdking-springsecurity-two" options="-parameters" />
-      <module name="jackdking-starter-test" options="" />
     </option>
   </component>
 </project>
