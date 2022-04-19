@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.atomikos:transactions-jdbc:4.0.6">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/atomikos/transactions-jdbc/4.0.6/transactions-jdbc-4.0.6.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/com/atomikos/transactions-jdbc/4.0.6/transactions-jdbc-4.0.6.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/atomikos/transactions-jdbc/4.0.6/transactions-jdbc-4.0.6-javadoc.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/com/atomikos/transactions-jdbc/4.0.6/transactions-jdbc-4.0.6-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/atomikos/transactions-jdbc/4.0.6/transactions-jdbc-4.0.6-sources.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/com/atomikos/transactions-jdbc/4.0.6/transactions-jdbc-4.0.6-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
