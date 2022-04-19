@@ -1,6 +1,6 @@
 package aplication;
 
-import core.utils.SpringContextUtils;
+import spring.core.utils.SpringContextUtils;
 import domain.Student;
 import domain.Teacher;
 import groovy.util.logging.Slf4j;
@@ -19,7 +19,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @Version 2.0
  **/
 @SpringBootApplication
-@ComponentScan(basePackages = {"core"})
+@ComponentScan(basePackages = {"spring.core"})
 @Slf4j
 public class Application implements CommandLineRunner {
 

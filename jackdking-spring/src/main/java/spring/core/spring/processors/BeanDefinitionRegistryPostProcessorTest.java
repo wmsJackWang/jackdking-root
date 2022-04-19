@@ -1,4 +1,4 @@
-package core.spring.processors;
+package spring.core.spring.processors;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
