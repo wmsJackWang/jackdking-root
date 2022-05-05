@@ -1,9 +1,3 @@
-
-
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/wmsJackWang/jackdking-root.svg)](https://starchart.cc/wmsJackWang/jackdking-root)
-
 # Jackdking-Root  Java架构师方案宝典 学习示例
 =========================
 
@@ -19,6 +13,10 @@
 # 免费开源分享不易，请给我点个star吧
  
 Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助力架构初级开发者、中级开发者的架构能力成长。方案包括 多数据源，读写分离，分布式事务，三种重试机制 及其原理和应用，幂等性，状态机机制替换大量的if/else代码等等。
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/wmsJackWang/jackdking-root.svg)](https://starchart.cc/wmsJackWang/jackdking-root)
 
 
 ## Java架构师方案宝典
