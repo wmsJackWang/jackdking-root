@@ -2,7 +2,7 @@ package unifiedreponse;
 
 import java.io.Serializable;
 
-public class ResponseData<T> implements Serializable {
+public class ResponseResult<T> implements Serializable {
 
     private String code;
 
@@ -11,29 +11,29 @@ public class ResponseData<T> implements Serializable {
     private T data;
 
 
-    public ResponseData(String code, String msg, T data) {
+    public ResponseResult(String code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public ResponseData(String code, String msg) {
+    public ResponseResult(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public ResponseData(ResultEnums resultEnums) {
+    public ResponseResult(ResultEnums resultEnums) {
         this.code = resultEnums.getCode();
         this.msg = resultEnums.getMsg();
     }
 
-    public ResponseData(ResultEnums resultEnums, T data) {
+    public ResponseResult(ResultEnums resultEnums, T data) {
         this.code = resultEnums.getCode();
         this.msg = resultEnums.getMsg();
         this.data = data;
     }
 
-    public ResponseData() {
+    public ResponseResult() {
     }
 
     public String getCode() {

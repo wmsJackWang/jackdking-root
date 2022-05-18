@@ -37,6 +37,7 @@ public class ProductController {
         Iterable<Product> productList = productService.listAllProducts();
         return productList;
     }
+
     @ApiOperation(value = "Search a product with an ID",response = Product.class)
     @RequestMapping(value = "/show/{id}", method= RequestMethod.GET, produces = "application/json")
     public Product showProduct(@PathVariable Integer id, Model model){

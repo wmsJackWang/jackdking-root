@@ -1,6 +1,6 @@
 package org.jackdking.algorithm.basesort;
 
-public class MergeSort extends Sort{
+public class ArrayMergeSort extends Sort{
 
 	static int array[]= {12,34,3,45,5,89,67,7,8,78,9,9};
 	static int temp [] = new int[array.length];

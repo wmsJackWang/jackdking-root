@@ -16,9 +16,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import net.minidev.json.JSONArray;
-import unifiedreponse.ResponseData;
-import unifiedreponse.ResponseDataUtil;
+import unifiedreponse.ResponseResult;
+import unifiedreponse.ResponseBuilder;
 import unifiedreponse.ResultEnums;
 
 @RestController
@@ -42,10 +41,10 @@ public class OperationApi {
      * @return the all
      */
     @GetMapping("/getAll")
-    @ApiOperation(value = "获取全部用户信息", notes = "查询全部", response = ResponseData.class)
-    public ResponseData getAll() {
+    @ApiOperation(value = "获取全部用户信息", notes = "查询全部", response = ResponseResult.class)
+    public ResponseResult getAll() {
 //        return ApiResult.prepare().success(JSONParseUtils.object2JsonString(userService.selectAll()));
-    	return ResponseDataUtil.buildSuccess(JSON.toJSONString(userService.selectAll()));
+    	return ResponseBuilder.buildSuccess(JSON.toJSONString(userService.selectAll()));
     }
 
     /**
@@ -54,10 +53,10 @@ public class OperationApi {
      * @return the all
      */
     @GetMapping("/getPeopleAll")
-    @ApiOperation(value = "获取全部人类信息", notes = "查询全部", response = ResponseData.class)
-    public ResponseData getPeopleAll() {
+    @ApiOperation(value = "获取全部人类信息", notes = "查询全部", response = ResponseResult.class)
+    public ResponseResult getPeopleAll() {
 //        return ApiResult.prepare().success(JSONParseUtils.object2JsonString(peopleService.selectAll()));
-    	return ResponseDataUtil.buildSuccess(JSON.toJSONString(peopleService.selectAll()));
+    	return ResponseBuilder.buildSuccess(JSON.toJSONString(peopleService.selectAll()));
     }
 
 
@@ -70,12 +69,12 @@ public class OperationApi {
      * @throws Exception the exception
      */
     @RequestMapping(value = "/insertPeopleAndUser", produces = "application/json;charset=UTF-8")
-    @ApiOperation(value = "添加两个表", notes = "测试分布式事务", response = ResponseData.class)
+    @ApiOperation(value = "添加两个表", notes = "测试分布式事务", response = ResponseResult.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "peopleName", value = "人名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "userName", value = "用户信息", required = true, dataType = "String")
     })
-    public ResponseData insertPeopleAndUser(String peopleName, String userName) throws Exception {
+    public ResponseResult insertPeopleAndUser(String peopleName, String userName) throws Exception {
         User user = new User();
         user.setUserName(userName);
         user.setPassword("15251251");
@@ -87,19 +86,19 @@ public class OperationApi {
         Boolean isSuccess = peopleService.insertUserAndPeople(user, people);
         if (isSuccess) {
 //            return ApiResult.prepare().success("同时添加两表成功!");
-        	return ResponseDataUtil.buildSuccess("同时添加两表成功!");
+        	return ResponseBuilder.buildSuccess("同时添加两表成功!");
         }
 //        return ResponseData.prepare().error(JSON.toJSONString(people), 500, "添加失败，全部回滚");
-        return ResponseDataUtil.buildError("添加失败，全部回滚");
+        return ResponseBuilder.buildError("添加失败，全部回滚");
     }
 
     @PostMapping(value = "/insertPeopleAndUserV2", produces = "application/json;charset=UTF-8")
-    @ApiOperation(value = "添加两个表V2", notes = "测试分布式事务", response = ResponseData.class)
+    @ApiOperation(value = "添加两个表V2", notes = "测试分布式事务", response = ResponseResult.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "peopleName", value = "人名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "userName", value = "用户信息", required = true, dataType = "String")
     })
-    public ResponseData insertPeopleAndUserV2(String peopleName, String userName) throws Exception {
+    public ResponseResult insertPeopleAndUserV2(String peopleName, String userName) throws Exception {
         User user = new User();
         user.setUserName(userName);
         user.setPassword("15251251");
@@ -111,9 +110,9 @@ public class OperationApi {
         Boolean isSuccess = peopleService.insertUserAndPeopleV2(user, people);
         if (isSuccess) {
 //            return ApiResult.prepare().success("同时添加两表成功!");
-        	return ResponseDataUtil.buildSuccess("同时添加两表成功!");
+        	return ResponseBuilder.buildSuccess("同时添加两表成功!");
         }
 //        return ApiResult.prepare().error(JSONParseUtils.object2JsonString(people), 500, "添加失败，全部回滚");
-        return ResponseDataUtil.buildError(ResultEnums.ERROR.getCode(), "添加失败，全部回滚", JSON.toJSONString(people));
+        return ResponseBuilder.buildError(ResultEnums.ERROR.getCode(), "添加失败，全部回滚", JSON.toJSONString(people));
     }
 }

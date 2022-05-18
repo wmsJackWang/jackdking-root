@@ -61,7 +61,7 @@
       <module name="jackdking-aviator" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-code-gen" target="1.8" />
-      <module name="jackdking-code-structure" target="1.8" />
+      <module name="jackdking-code-structure" target="8" />
       <module name="jackdking-common" target="1.8" />
       <module name="jackdking-commons-lang" target="1.8" />
       <module name="jackdking-controller_samples" target="1.8" />
@@ -72,7 +72,7 @@
       <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
       <module name="jackdking-EasyRules" target="1.8" />
       <module name="jackdking-gongtushe" target="1.8" />
-      <module name="jackdking-groovy" target="1.8" />
+      <module name="jackdking-groovy" target="8" />
       <module name="jackdking-grovvy-easyrules-aviator-rules-praser" target="1.8" />
       <module name="jackdking-guava" target="1.8" />
       <module name="jackdking-hystrix-jiangji" target="1.8" />
