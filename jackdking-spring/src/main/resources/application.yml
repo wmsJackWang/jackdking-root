@@ -1,0 +1,83 @@
+#设置内置tomcat的启动端口号
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.jackdking.shardjdbcyaml.bean
+#spring:
+#  kafka:
+#    consumer:
+#      enable-auto-commit: true
+#      group-id: kafka #kafka群组id
+#      auto-offset-reset: earliest #启动时接收之前没有接收到的数据
+#      bootstrap-servers: 192.168.3.11:9092,192.168.3.9:9092,192.168.3.13:9092  #kafkade 访问地址，多个用逗号隔开
+#    producer:
+#      bootstrap-servers: 192.168.3.11:9092,192.168.3.9:9092,192.168.3.13:9092  #kafkade 访问地址，多个用逗号隔开
+
+tes:
+  maps:
+    key1: 15
+    key2: 2
+
+#分库分表配置信息
+spring:
+  profiles:
+    active: test-ev,jackdking,testbeanone
+  main:
+# sharding-jdbc定义了重复的dataSource数据源bean，启动时必须添加以下值
+    allow-bean-definition-overriding: true
+# sharding-jdbc 分库、分表配置
+  shardingsphere:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+#        url: jdbc:mysql://10.18.93.13:3308/myutilproject0?characterEncoding=GBK&useSSL=false
+#        username: root
+#        password: jackdking@1234
+        url: jdbc:mysql://bittechblog.com:3308/myutilproject0?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+        driver-class-name: com.mysql.jdbc.Driver
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+#        url: jdbc:mysql://10.18.93.13:3308/myutilproject1?characterEncoding=GBK&useSSL=false
+#        username: root
+#        password: jackdking@1234
+        url: jdbc:mysql://bittechblog.com:3308/myutilproject1?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+        driver-class-name: com.mysql.jdbc.Driver
+    sharding:
+      tables:
+        TransInfo:
+          actual-data-nodes: ds$->{0..1}.TransInfo$->{0..1}
+          database-strategy:
+            hint:
+              algorithm-class-name: 
+            standard:
+              precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperDbShardingAlgorithm
+              sharding-column: orderid
+          table-strategy:
+            standard:
+              precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
+              sharding-column: orderid
+#            inline:
+#              #分片规则对应列，即以user_id值作为分片规则的列
+#              sharding-column: orderid
+#              #分片按user_id列和10取模运算，路由到对应的order0...9的表
+#              algorithm-expression: TransInfo$->{orderid % 2}
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+#      default-database-strategy:
+#        standard:
+#          precise-algorithm-class-name: org.jackdking.shardjdbcyaml.algorithm.SuperTableShardingAlgorithm
+#          sharding-column: orderid
+#        inline:
+#          sharding-column: id
+#          algorithm-expression: ds$->{id % 2}
+    props:
+      sql.show: true      
+          
+

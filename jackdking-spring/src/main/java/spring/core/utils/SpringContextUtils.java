@@ -13,7 +13,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-@Component
+@Component("SpringContextUtils")
 public class SpringContextUtils implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;

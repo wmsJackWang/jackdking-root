@@ -41,6 +41,7 @@
         <module name="jackdking-delay-domainv1" />
         <module name="jackdking-bigfileupload" />
         <module name="jackdking-springsecurity-one" />
+        <module name="jackdking-alipay-sdk-learning" />
         <module name="jackdking-springsecurity-four" />
         <module name="jackdking-springsecurity-six" />
         <module name="jackdking-dache" />
@@ -57,11 +58,12 @@
       <module name="jackdking-ace" target="1.8" />
       <module name="jackdking-activemq" target="1.8" />
       <module name="jackdking-algorithm" target="1.8" />
+      <module name="jackdking-alipay-sdk-learning" target="1.5" />
       <module name="jackdking-annotation" target="1.8" />
       <module name="jackdking-aviator" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
       <module name="jackdking-code-gen" target="1.8" />
-      <module name="jackdking-code-structure" target="8" />
+      <module name="jackdking-code-structure" target="1.8" />
       <module name="jackdking-common" target="1.8" />
       <module name="jackdking-commons-lang" target="1.8" />
       <module name="jackdking-controller_samples" target="1.8" />

@@ -57,6 +57,7 @@
     <module>jackdking-EasyRules</module>
     <module>jackdking-grovvy-easyrules-aviator-rules-praser</module>
       <module>jackdking-gongtushe</module>
+      <module>jackdking-alipay-sdk-learning</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

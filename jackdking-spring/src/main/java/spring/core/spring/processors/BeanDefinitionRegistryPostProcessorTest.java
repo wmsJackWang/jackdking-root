@@ -6,8 +6,13 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.core.PriorityOrdered;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Copyright (C) 阿里巴巴
@@ -19,7 +24,7 @@ import org.springframework.stereotype.Component;
  * @Version 2.0
  **/
 @Component
-public class BeanDefinitionRegistryPostProcessorTest implements BeanDefinitionRegistryPostProcessor, PriorityOrdered {
+public class BeanDefinitionRegistryPostProcessorTest implements BeanDefinitionRegistryPostProcessor, PriorityOrdered , EnvironmentAware {
 
 
     /*
@@ -42,6 +47,10 @@ public class BeanDefinitionRegistryPostProcessorTest implements BeanDefinitionRe
         registry.registerBeanDefinition("student",bd);
         // 查询和修改
         BeanDefinition student = registry.getBeanDefinition("student");
+
+
+//        BeanDefinition springContext = registry.getBeanDefinition("SpringContextUtils");
+//        System.out.println(springContext.getBeanClassName());
         // 删除
 //        registry.removeBeanDefinition("student");
     }
@@ -55,5 +64,10 @@ public class BeanDefinitionRegistryPostProcessorTest implements BeanDefinitionRe
     @Override
     public int getOrder() {
         return 1;
+    }
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        System.out.println(environment.getProperty("tes.maps", HashMap.class));
     }
 }
