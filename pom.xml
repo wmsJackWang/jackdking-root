@@ -57,6 +57,7 @@
     <module>jackdking-EasyRules</module>
     <module>jackdking-grovvy-easyrules-aviator-rules-praser</module>
       <module>jackdking-gongtushe</module>
+      <module>jackdking-gossip</module>
       <module>jackdking-alipay-sdk-learning</module>
   </modules>
   

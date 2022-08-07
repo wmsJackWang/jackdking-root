@@ -46,4 +46,6 @@ public class EventBusExplained {
         asyncEventBus.post(Event.builder().msg("异步eventbus5").build());
 
     }
+
+
 }

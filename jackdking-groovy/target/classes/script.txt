@@ -22,4 +22,15 @@ class GrvyCalculator {
         StringBuilder sb = new StringBuilder();
         return sb.append(var1).append("_").append(var2).append("_").append(var3).append("_").append(dateValue.toLocaleString());
     }
+    //日期转换
+    String dateFormatterChange(String dateString, String inputDateFormatter, String outputDateFormatter) {
+
+        SimpleDateFormat inputFormatter = new SimpleDateFormat(inputDateFormatter);
+        SimpleDateFormat outputFormatter = new SimpleDateFormat(outputDateFormatter);
+
+        Date dateValue = inputFormatter.parse(dateString);
+        String output = outputFormatter.format(dateValue);
+
+        return output;
+    }
 }

@@ -3,6 +3,7 @@ package jackdking.groovy.testgroovy;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyObject;
 import jackdking.groovy.Application;
+import org.assertj.core.util.Maps;
 
 import java.io.*;
 import java.util.HashMap;
@@ -38,6 +39,10 @@ public class GroovyTest {
         try {
             GroovyObject grvyObj = (GroovyObject) groovyClass.newInstance();
             System.out.println("addStr=" + grvyObj.invokeMethod("addStr", map));
+
+            Object[] argValues = new Object[]{"2017-12-08 08:00:00","yyyy-MM-dd hh:mm:ss","yyyyy/MM/dd  hh:mm:ss"};
+
+            System.out.println("dateFormatterChange=" + grvyObj.invokeMethod("dateFormatterChange", argValues));
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
