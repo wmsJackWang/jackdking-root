@@ -13,6 +13,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>jackdking-code-structure</module>
+        <module>jackdking-report-platform</module>
+        <module>jackdking-threadpool-monitor</module>
+        <module>jackdking-validator-hebinate</module>
     </modules>
 
     <properties>

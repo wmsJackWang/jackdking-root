@@ -61,9 +61,16 @@ public class CountNumSort {
 	public static void main(String[] args) {
 		
 		int array[]= {12,34,3,45,5,89,67,7,8,78,9,9};
-		
+		/*
+		 * 第一种方法太浪费空间，如果数组存在特别大的值，那申请的数组空间也会非常的大。
+		 *
+		 */
 		countNumSort(array);//3 5 7 8 9 9 12 34 45 67 78 89 
 		System.out.println();
+
+		/*
+		 * 就算取数组中 最大值和最小值的差值作为 统计数组的长度，但是大数问题还是存在
+		 */
 		countNumSortV2(array);
 		
 	}
