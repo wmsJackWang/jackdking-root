@@ -10,6 +10,14 @@
     <file url="file://$PROJECT_DIR$/jackdking-activemq/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-activemq/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/JdkUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/MainClass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/MyStepValuePassListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/StepCount.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/StepCountListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/StepDetector.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/StepValuePassListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-algorithm/src/main/java/org/jackdking/algorithm/step/UpdateUiCallBack.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-alipay-sdk-learning/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-alipay-sdk-learning/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-annotation/src/main/java" charset="UTF-8" />
@@ -17,6 +25,8 @@
     <file url="file://$PROJECT_DIR$/jackdking-aviator/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-bigfileupload/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-bigfileupload/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-cluster-quartz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-cluster-quartz/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-code-gen/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-common/src/main/java" charset="UTF-8" />
@@ -47,6 +57,8 @@
     <file url="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-javamail/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-load-configfile-properties/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackdking-load-configfile-properties/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-login-security-simulator/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-login-security-simulator/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-multids-spring-boot-starter/src/main/java" charset="UTF-8" />
