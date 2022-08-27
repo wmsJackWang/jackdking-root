@@ -66,7 +66,9 @@ public class ComplexFormStateMachineBuilder {
 						.source(ComplexFormStates.DEAL_CHOICE)
 						.first(ComplexFormStates.FULL_FORM, new ComplexFormDealChoiceGuard(),new ComplexFormChoiceAction())
 						.last(ComplexFormStates.FAILED_FORM,new ComplexFormChoiceAction());
-		 return builder.build();
+
+		StateMachine resultMachine = builder.build();
+		return resultMachine;
 	 }
 }
 

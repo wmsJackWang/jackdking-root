@@ -1,5 +1,8 @@
 package org.jackdking.statemachine.web;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
@@ -24,8 +27,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateMachine;
+import org.springframework.statemachine.access.StateMachineAccess;
+import org.springframework.statemachine.access.StateMachineAccessor;
 import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.statemachine.persist.StateMachinePersister;
+import org.springframework.statemachine.support.DefaultStateMachineContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -215,6 +221,11 @@ public class StateMachineController {
 		message = MessageBuilder.withPayload(ComplexFormEvents.SUBMIT).setHeader("form", form1).build();
 		stateMachine.sendEvent(message);
 		System.out.println("最终状态：" + stateMachine.getState().getId());
+
+		StateMachineAccessor accessor = stateMachine.getStateMachineAccessor();
+		List<StateMachineAccess<OrderStates, OrderEvents>> withAllRegions = accessor.withAllRegions();
+
+
 		
 		System.out.println("-------------------form2------------------");
 		stateMachine = complexFormStateMachineBuilder.build(beanFactory);

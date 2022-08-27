@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" filepath="$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" filepath="$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" filepath="$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-cluster-quartz/jackdking-cluster-quartz.iml" filepath="$PROJECT_DIR$/jackdking-cluster-quartz/jackdking-cluster-quartz.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" filepath="$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/jackdking-code-structure.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/jackdking-code-structure.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-common/jackdking-common.iml" filepath="$PROJECT_DIR$/jackdking-common/jackdking-common.iml" />
@@ -29,6 +30,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" filepath="$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" filepath="$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" filepath="$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-load-configfile-properties/jackdking-load-configfile-properties.iml" filepath="$PROJECT_DIR$/jackdking-load-configfile-properties/jackdking-load-configfile-properties.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" filepath="$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-multids-spring-boot-starter/jackdking-multids-spring-boot-starter.iml" filepath="$PROJECT_DIR$/jackdking-multids-spring-boot-starter/jackdking-multids-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-muti-datasource/jackdking-muti-datasource.iml" filepath="$PROJECT_DIR$/jackdking-muti-datasource/jackdking-muti-datasource.iml" />

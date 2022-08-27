@@ -59,6 +59,8 @@
       <module>jackdking-gongtushe</module>
       <module>jackdking-gossip</module>
       <module>jackdking-alipay-sdk-learning</module>
+      <module>jackdking-load-configfile-properties</module>
+      <module>jackdking-cluster-quartz</module>
   </modules>
   
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

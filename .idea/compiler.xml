@@ -32,6 +32,7 @@
         <module name="jackdking-retry" />
         <module name="jackdking-commons-lang" />
         <module name="jackdking-delay-domainv1-client-starter" />
+        <module name="jackdking-load-configfile-properties" />
         <module name="jackdking-PopulateComponetTest" />
         <module name="jackdking-datasource" />
         <module name="jackdking-redistemplate" />
@@ -45,6 +46,7 @@
         <module name="jackdking-springsecurity-four" />
         <module name="jackdking-springsecurity-six" />
         <module name="jackdking-dache" />
+        <module name="jackdking-cluster-quartz" />
         <module name="jackdking-shardjdbcyaml" />
         <module name="jackdking-spring-security" />
         <module name="jackdking-guava" />
@@ -62,6 +64,7 @@
       <module name="jackdking-annotation" target="1.8" />
       <module name="jackdking-aviator" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
+      <module name="jackdking-cluster-quartz" target="8" />
       <module name="jackdking-code-gen" target="1.8" />
       <module name="jackdking-code-structure" target="1.8" />
       <module name="jackdking-common" target="1.8" />
@@ -80,6 +83,7 @@
       <module name="jackdking-hystrix-jiangji" target="1.8" />
       <module name="jackdking-javamail" target="1.8" />
       <module name="jackdking-JTA-Atomikos" target="1.8" />
+      <module name="jackdking-load-configfile-properties" target="8" />
       <module name="jackdking-login-security-simulator" target="1.8" />
       <module name="jackdking-multids-spring-boot-starter" target="1.8" />
       <module name="jackdking-muti-datasource" target="1.8" />

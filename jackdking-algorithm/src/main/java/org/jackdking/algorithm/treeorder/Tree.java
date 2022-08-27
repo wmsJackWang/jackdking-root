@@ -9,20 +9,45 @@ public class Tree {
 	public static void main(String[] args) {
 		TreeNode tree = initTree();
 		
-		preOrderTraverse1(tree); // 前序遍历-递归
-		System.out.println();
-		preOrderTraverse2(tree); // 前序遍历-非递归
-		
-		System.out.println();
-		
-		jdkMiddleOrderTraverse(tree); // 中序遍历-非递归
+//		preOrderTraverse1(tree); // 前序遍历-递归
+//		System.out.println();
+//		preOrderTraverse2(tree); // 前序遍历-非递归
+//		
+//		System.out.println();
+//		
+//		jdkMiddleOrderTraverse(tree); // 中序遍历-非递归
 
 		System.out.println();
 		jdkBackOrderTraverse(tree); // 后序遍历-非递归
 		
 	}
-	
-	
+
+	private static void jdkBackOrderTraverse(TreeNode tree) {
+
+		LinkedList<TreeNode> stack = new LinkedList<>();
+
+		TreeNode pre = null, p = tree, temp, right;
+		while(p!=null || !stack.isEmpty()) {
+			if (p!=null){
+				stack.push(p);
+				p = p.left;
+			}else {
+				temp = stack.pop();
+				right = temp.right;
+				if (right ==null || pre == right){
+					System.out.println(temp.val + "");
+					pre = temp;
+				}else {
+					stack.push(temp);
+					p = temp.right;
+				}
+			}
+
+		}
+
+	}
+
+
 	static TreeNode initTree() {
 		
 		TreeNode n1 = new TreeNode("1");
@@ -47,15 +72,15 @@ public class Tree {
 	
 
 	//前序遍历——递归
-    public static void preOrderTraverse1(TreeNode root) {  
-    	
-            if (root != null) {  
-                System.out.print(root.val+"  ");  
-                preOrderTraverse1(root.left);  
-                preOrderTraverse1(root.right);  
-            }  
-    }  
-	
+    public static void preOrderTraverse1(TreeNode root)
+	{
+
+		if (root != null) {
+			System.out.print(root.val+"  ");
+			preOrderTraverse1(root.left);
+			preOrderTraverse1(root.right);
+		}
+	}
     //前序遍历——循环+栈
     public static void preOrderTraverse2(TreeNode root) {  
             LinkedList<TreeNode> stack = new LinkedList<>();  
@@ -79,8 +104,7 @@ public class Tree {
     	TreeNode p = root;
     	while(p!=null||!stack.isEmpty()) {
     		
-    		if(p!=null)
-    		{
+    		if(p!=null){
     			stack.push(p);
     			p = p.left;
     		}
@@ -95,36 +119,30 @@ public class Tree {
     	
     }
     
-    public static void jdkBackOrderTraverse(TreeNode root) {
-
-    	LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
-    	TreeNode p = root;
-    	while (p!=null||!stack.isEmpty())
-    	{
-    		if(p!=null)
-    		{
-    			stack.push(p);
-    			p=p.left;
-    			System.out.println("a");
-    		}
-    		else
-    		{
-    			System.out.println("b");
-    			TreeNode te = stack.pop();
-    			TreeNode right = te.right;
-    			if(right==null) {
-    				System.out.print(te.val+"  ");
-    				
-    			}
-    			else {
-    				stack.push(te);
-    				p=right;
-    			}
-    			
-    		}
-    	}
-    	
-    }
+//    public static void jdkBackOrderTraverse(TreeNode root) {
+//
+//    	LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+//    	TreeNode p = root, pre = null;
+//    	while (p!=null||!stack.isEmpty())
+//    	{
+//    		if(p!=null)
+//    		{
+//    			stack.push(p);
+//    			p=p.left;
+//    		}else {
+//    			TreeNode te = stack.pop();
+//    			TreeNode right = te.right;
+//    			if(right==null || te.right == pre) {
+//    				System.out.print(te.val+"  ");
+//    				pre = te;
+//    			}else {
+//    				stack.push(te);
+//    				p=right;
+//    			}
+//    		}
+//    	}
+//
+//    }
 }
 
 class TreeNode {
