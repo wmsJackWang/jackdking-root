@@ -49,7 +49,6 @@
         <module name="jackdking-cluster-quartz" />
         <module name="jackdking-shardjdbcyaml" />
         <module name="jackdking-spring-security" />
-        <module name="jackdking-guava" />
         <module name="jackdking-support-utils" />
         <module name="jackdking-rpcservice" />
         <module name="jackdking-spring" />
