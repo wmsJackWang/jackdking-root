@@ -1,5 +1,7 @@
 package org.jackdking.algorithm.basesort;
 
+import java.util.Objects;
+
 public class CountNumSort {
 	
 	
@@ -72,7 +74,74 @@ public class CountNumSort {
 		 * 就算取数组中 最大值和最小值的差值作为 统计数组的长度，但是大数问题还是存在
 		 */
 		countNumSortV2(array);
+
+		countNumSort20220827(array);
+
+		countNumSort20220827V2(array);
 		
 	}
+
+	private static void countNumSort20220827(int[] array) {
+
+		int maxValue = 0;
+		for (int v : array) {
+			if (v > maxValue) {
+				maxValue = v;
+			}
+		}
+
+		int [] countArray = new int[maxValue];
+		for (int v : array) {
+			countArray[v-1] ++;
+		}
+
+		maxValue = 0;
+		int index = 0;
+		for (int i = 0; i < countArray.length ; i++) {
+			if (maxValue < countArray[i]) {
+				maxValue = countArray[i];
+				index = i;
+			}
+		}
+
+		System.out.println("数组中重复最多的数字："+ ++index);
+	}
+
+
+	private static void countNumSort20220827V2(int[] array) {
+
+		if (Objects.isNull(array) || array.length == 0) {
+			return;
+		}
+
+		int max = array[0], min = array[0];
+		for (int v : array){
+			if (v > max) {
+				max = v;
+			}
+
+			if (v < min) {
+				min = v;
+			}
+		}
+
+		int[] countArray = new int[max - min + 1];
+
+		for (int v : array) {
+			countArray[v - min] ++;
+		}
+
+		int index = 0;
+		max = 0;
+		for (int i = 0 ; i < countArray.length ; i ++) {
+			if (countArray[i] > max) {
+				max = countArray[i];
+				index = i;
+			}
+		}
+
+		System.out.println("数组中重复最多的数字："+ (index+min));
+	}
+
 
 }

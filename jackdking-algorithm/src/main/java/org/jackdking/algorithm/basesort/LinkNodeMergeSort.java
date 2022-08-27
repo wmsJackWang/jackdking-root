@@ -10,4 +10,7 @@ package org.jackdking.algorithm.basesort;
  * @Version 2.0
  **/
 public class LinkNodeMergeSort {
+
+
+
 }

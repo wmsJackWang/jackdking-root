@@ -3,6 +3,7 @@ package org.jackdking.algorithm.basesort;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -39,7 +40,29 @@ public class HeapSort extends Sort{
 		array = new int[]{12, 34, 3, 45, 5, 89, 67, 7, 8, 78, 9, 9};
 		HeapSort20220706(array);
 		printArray(array);
-		
+
+		/*
+		 * 基于父节点比较，每次比较能与左右子节点进行大小比较，那么比较的时间复杂度就是n/2
+		 */
+		array = new int[]{12, 34, 3, 45, 5, 89, 67, 7, 8, 78, 9, 9};
+		HeapSort20220825(array);
+		printArray(array);
+
+		/*
+		 * 基于父节点比较，每次比较能与左右子节点进行大小比较，那么比较的时间复杂度就是n/2
+		 */
+		array = new int[]{12, 34, 3, 45, 5, 89, 67, 7, 8, 78, 9, 9};
+		HeapSort20220827(array);
+		printArray(array);
+
+		/*
+		 * 基于子节点来循环比较
+		 */
+		array = new int[]{12, 34, 3, 45, 5, 89, 67, 7, 8, 78, 9, 9};
+		HeapSort20220827BySonNode(array);
+		printArray(array);
+
+
 	}
 
 	/*
@@ -123,6 +146,100 @@ public class HeapSort extends Sort{
 		int k = arr[i];
 		arr[i] = arr[j];
 		arr[j] = k;
+	}
+
+	/**
+	 * description: practice for heapsort <br>
+	 * version: 1.0 <br>
+	 * date: 08/25/2022 11:58 下午 <br>
+	 * end:
+	 * author: jackdking <br>
+	 * @param : null
+	 * @return: null
+	 **/
+	private static void HeapSort20220825(int[] array) {
+		if (Objects.isNull(array) || array.length == 0) {
+			return;
+		}
+
+		int k;
+
+		for (int index1 = array.length-1 ; index1 > 0 ; index1 --) {
+			for (int index2 = (index1-1)/2 ; index2 >=0 ; index2 --) {
+				if (index2*2+2 <= index1 && array[index2*2+2] > array[index2]) {
+					k = array[index2*2+2];
+					array[index2*2+2] = array[index2];
+					array[index2] = k;
+				}
+
+				if (array[index2*2+1] > array[index2]) {
+					k = array[index2*2+1];
+					array[index2*2+1] = array[index2];
+					array[index2] = k;
+				}
+			}
+
+			//出现过问题：把值交换逻辑搞混了。
+			k = array[index1];
+			array[index1] = array[0];
+			array[0] = k;
+
+		}
+	}
+
+
+	/**
+	 * @Description: 算法训练
+	 * @MethodName:
+	 * @Param:
+	 * @return:
+	 * @Author: jackdking
+	 * @User: 10421
+	 * @Date: 2022/8/27
+	 * 1. 判断父节点的右节点不存在的情况
+	 * 2. 交换值的逻辑 保持正确
+	 **/
+	private static void HeapSort20220827(int[] array) {
+
+		int k;
+		for (int p = array.length -1 ; p > 0 ; p --) {
+			for (int q = (p-1)/2 ; q >= 0 ; q --) {
+				if (q*2+2<=p && array[q] > array[q*2+2]) {
+					k = array[q];
+					array[q] = array[q*2+2];
+					array[q*2+2] = k;
+				}
+
+				if (array[q] > array[q*2+1]) {
+
+					k = array[q];
+					array[q] = array[q*2+1];
+					array[q*2+1] = k;
+				}
+			}
+
+			k = array[0];
+			array[0] = array[p];
+			array[p] = k;
+		}
+
+	}
+
+	public static void HeapSort20220827BySonNode(int[] array){
+		int k;
+		for (int p = array.length-1 ; p > 0 ; p--) {
+			for (int q = p; q > 0 ; q--) {
+				if (array[q] > array[q/2]) {
+					k = array[q];
+					array[q] = array[q/2];
+					array[q/2] = k;
+				}
+			}
+			k = array[p];
+			array[p] = array[0];
+			array[0] = k;
+		}
+
 	}
 
 }
