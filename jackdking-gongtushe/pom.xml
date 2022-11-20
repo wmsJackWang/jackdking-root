@@ -16,6 +16,7 @@
         <module>jackdking-report-platform</module>
         <module>jackdking-threadpool-monitor</module>
         <module>jackdking-validator-hebinate</module>
+        <module>jackdking-cluster-failover</module>
     </modules>
 
     <properties>

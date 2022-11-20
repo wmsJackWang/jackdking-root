@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" filepath="$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" filepath="$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" filepath="$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-cluster-failover/jackdking-cluster-failover.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-cluster-failover/jackdking-cluster-failover.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-cluster-quartz/jackdking-cluster-quartz.iml" filepath="$PROJECT_DIR$/jackdking-cluster-quartz/jackdking-cluster-quartz.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" filepath="$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/jackdking-code-structure.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/jackdking-code-structure.iml" />
@@ -25,6 +26,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-gongtushe.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-gongtushe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-gossip/jackdking-gossip.iml" filepath="$PROJECT_DIR$/jackdking-gossip/jackdking-gossip.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" filepath="$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-grovvy-easyrules-aviator-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" filepath="$PROJECT_DIR$/jackdking-grovvy-easyrules-aviator-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" filepath="$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" />
@@ -36,6 +38,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-muti-datasource/jackdking-muti-datasource.iml" filepath="$PROJECT_DIR$/jackdking-muti-datasource/jackdking-muti-datasource.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-properties-yml/jackdking-properties-yml.iml" filepath="$PROJECT_DIR$/jackdking-properties-yml/jackdking-properties-yml.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-redistemplate/jackdking-redistemplate.iml" filepath="$PROJECT_DIR$/jackdking-redistemplate/jackdking-redistemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-report-platform/jackdking-report-platform.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-report-platform/jackdking-report-platform.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-retry/jackdking-retry.iml" filepath="$PROJECT_DIR$/jackdking-retry/jackdking-retry.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-root.iml" filepath="$PROJECT_DIR$/jackdking-root.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" filepath="$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" />
@@ -51,6 +54,8 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-starter-test/jackdking-starter-test.iml" filepath="$PROJECT_DIR$/jackdking-starter-test/jackdking-starter-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-support-utils/jackdking-support-utils.iml" filepath="$PROJECT_DIR$/jackdking-support-utils/jackdking-support-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-swagger/jackdking-swagger.iml" filepath="$PROJECT_DIR$/jackdking-swagger/jackdking-swagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-threadpool-monitor/jackdking-threadpool-monitor.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-threadpool-monitor/jackdking-threadpool-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-validator-hebinate/jackdking-validator-hebinate.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-validator-hebinate/jackdking-validator-hebinate.iml" />
     </modules>
   </component>
 </project>
