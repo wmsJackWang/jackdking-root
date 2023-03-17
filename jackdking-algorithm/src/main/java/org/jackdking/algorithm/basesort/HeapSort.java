@@ -5,12 +5,13 @@ import com.google.common.collect.Multimap;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Stream;
 
 /*
  * 堆排序
  */
-public class HeapSort extends Sort{
+public class HeapSort {
 
 	public static void main(String[] args) {
 		Multimap<String,Object> scoreMultimap = ArrayListMultimap.create();
@@ -23,37 +24,82 @@ public class HeapSort extends Sort{
 		/*
 		 * 这个是基于子节点，那么只能跟父节点比较，一次比较复杂度是n
 		 */
-		int[] array= {12,34,3,45,5,89,67,7,8,78,9,9};
+		int[] array = createArray();
 		HeapSort(array);
 		printArray(array);
 
 		/*
 		 * 基于父节点比较，每次比较能与左右子节点进行大小比较，那么比较的时间复杂度就是n/2
 		 */
-		array = new int[]{12, 34, 3, 45, 5, 89, 67, 7, 8, 78, 9, 9};
+    array = createArray();
 		HeapSort2(array);
 		printArray(array);
 
 		/*
 		 * 基于父节点比较，每次比较能与左右子节点进行大小比较，那么比较的时间复杂度就是n/2
 		 */
-		array = new int[]{12, 34, 3, 45, 5, 89, 67, 7, 8, 78, 9, 9};
+    array = createArray();
 		HeapSort20220706(array);
 		printArray(array);
 
 		/*
 		 * 基于父节点比较，每次比较能与左右子节点进行大小比较，那么比较的时间复杂度就是n/2
 		 */
-		array = new int[]{12, 34, 3, 45, 5, 89, 67, 7, 8, 78, 9, 9};
+    array = createArray();
 		HeapSort20220825(array);
 		printArray(array);
+
+    /*
+     * 基于父节点比较，每次比较能与左右子节点进行大小比较，那么比较的时间复杂度就是n/2
+     */
+
+    array = createArray();
+    printArray(array);
+//     基于父节点进行排序，
+//     1：父节点和左右子节点的索引关系(index_p * 2 +1 = index_left / index_p * 2 +2 = index_right)
+//     2：右子节点比较时，加上索引越界条件
+//     3：内部索引终点是在0索引元素，而外部则是在1索引元素。
+    HeapSort20230315(array);
+    printArray(array);
 	}
 
-	/*
+  public static void printArray(int[] array){
+    for(int i:array)
+      System.out.print(i+" ");
+
+    System.out.println();
+
+  }
+
+  private static void HeapSort20230315(int[] array) {
+	  for (int index = array.length-1; index > 0 ; --index){
+      for (int i = (index - 1) /2 ; i >= 0 ; i--) {
+        if (array[i] < array[i*2+1]) {
+          exchange(array, i, i*2+1);
+        }
+        if (i*2+2 <= index && array[i] < array[i*2+2]) {
+          exchange(array, i, i*2+2);
+        }
+      }
+      exchange(array, 0, index);
+    }
+  }
+
+  private static int[] createArray() {
+    Random random = new Random();
+    int array[] = new int[12];
+    for (int i = 0 ; i < 12 ; i ++) {
+      array[i] = random.nextInt(100);
+    }
+    return array;
+  }
+
+
+  /*
 	 * 我这个算法的时间复杂度是n的平方，因为我这个进行比较是基于子节点与父节点进行依次比较的思想
 	 */
 	public static void HeapSort(int [] array) {
-		
+
 		int k = 0;
 		for(int index1 = array.length-1 ; index1 > 0 ; index1--)
 		{
@@ -66,15 +112,15 @@ public class HeapSort extends Sort{
 					array[(index2-1)/2] = k;
 				}
 			}
-			
+
 			k = array[0];
 			array[0] = array[index1];
 			array[index1] = k;
-			
+
 		}
-		
+
 	}
-	
+
 	/*
 	 * 堆排序，基于父节点循环的方式，时间复杂度是 n*log2n.
 	 */

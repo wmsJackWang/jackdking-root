@@ -12,6 +12,38 @@ import java.util.List;
  * @Version 2.0
  **/
 public class GossipClusterInfo {
-    List<String> NodeList;
+  private List<Node> NodeList;//使用uid模拟节点
 
+
+
+  static class Node{
+    String nodeId;
+    String port;
+    String ip;
+
+
+    public void setIp(String ip) {
+      this.ip = ip;
+    }
+
+    public String getIp() {
+      return ip;
+    }
+
+    public void setNodeId(String nodeId) {
+      this.nodeId = nodeId;
+    }
+
+    public String getNodeId() {
+      return nodeId;
+    }
+
+    public void setPort(String port) {
+      this.port = port;
+    }
+
+    public String getPort() {
+      return port;
+    }
+  }
 }
