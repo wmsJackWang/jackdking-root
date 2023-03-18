@@ -3,7 +3,7 @@ package org.jackdking.algorithm.basesort;
 import java.util.Arrays;
 import java.util.Random;
 
-public class QuickSortV2 {
+public class QuickSortV2 extends Sort{
 
 	private static int[] arr = {12,23,22,100,-9,-1,10,100,77,234324343,645454,100,3223,34656,-12121};
 
@@ -25,7 +25,38 @@ public class QuickSortV2 {
     // 双索引模型初始值都是0，且范围都是[0, p1) [p1, p2)，p1 p2 划分了大小数区域,而[p2, end]则是待比较区域。
     int result = quickSortFontK20230314(arr, 0, arr.length - 1, 12);
     System.out.println("\nk result val : " + result);
+
+    arr = createArray();
+    printArray("原数组", arr);
+    quickSortFontK20230318(arr, 0, arr.length -1);
+    printArray("快排后数组", arr);
 	}
+
+  private static void quickSortFontK20230318(int[] arr, int start, int end) {
+
+	  if (start >= end){
+	    return;
+    }
+
+	  int p1 = start , p2 = start, k = 0;
+    for ( ; p2 < end ; p2 ++) {
+      if (arr[p2] > arr[end]) {
+        if (p1 != p2) {
+          k = arr[p1];
+          arr[p1] = arr[p2];
+          arr[p2] = k;
+        }
+        p1++;
+      }
+    }
+    if (p1 != end) {
+      k = arr[end];
+      arr[end] = arr[p1];
+      arr[p1] = k;
+    }
+    quickSortFontK20230318(arr, start, p1-1);
+    quickSortFontK20230318(arr, p1 +1, end);
+  }
 
   private static int quickSortFontK20230314(int[] arr, int start, int end, int k) {
 
@@ -63,7 +94,7 @@ public class QuickSortV2 {
       }
   }
 
-  private static void printArray(int[] arr) {
+  public static void printArray(int[] arr) {
 	    System.out.println();
 	    for (int i = 0 ; i < arr.length ; i ++) {
         System.out.print(arr[i] + " ");
