@@ -30,7 +30,38 @@ public class QuickSortV2 extends Sort{
     printArray("原数组", arr);
     quickSortFontK20230318(arr, 0, arr.length -1);
     printArray("快排后数组", arr);
+
+
+    arr = createArray();
+    printArray("原数组", arr);
+    quickSortFontK20230318V2(arr, 0, arr.length -1);
+    printArray("快排后数组", arr);
 	}
+
+  private static void quickSortFontK20230318V2(int[] arr, int start, int end) {
+	  if (start >= end) {
+	    return;
+    }
+	  int p1 = start, p2 = start, k = 0;
+    for (; p2 < end ; p2++) {
+      if (arr[p2] > arr[end]) {
+        if (p2!=p1) {
+          k = arr[p1];
+          arr[p1] = arr[p2];
+          arr[p2] = k;
+        }
+        p1++;
+      }
+    }
+    if (end != p1) {
+      k = arr[end];
+      arr[end] = arr[p1];
+      arr[p1] = k;
+    }
+    quickSortFontK20230318V2(arr, start, p1 - 1);
+    quickSortFontK20230318V2(arr, p1 + 1, end);
+
+  }
 
   private static void quickSortFontK20230318(int[] arr, int start, int end) {
 

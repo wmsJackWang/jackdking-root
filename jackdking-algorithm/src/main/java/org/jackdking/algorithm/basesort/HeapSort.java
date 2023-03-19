@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 /*
  * 堆排序
  */
-public class HeapSort {
+public class HeapSort extends Sort{
 
 	public static void main(String[] args) {
 		Multimap<String,Object> scoreMultimap = ArrayListMultimap.create();
@@ -61,7 +61,57 @@ public class HeapSort {
 //     3：内部索引终点是在0索引元素，而外部则是在1索引元素。
     HeapSort20230315(array);
     printArray(array);
+
+    array = createArray();
+    printArray("原数组", array);
+    HeapSort20230318(array);
+    printArray("排序后数组", array);
+
+    array = createArray();
+    printArray("原数组", array);
+    HeapSort20230318V2(array);
+    printArray("排序后数组", array);
+
 	}
+
+  private static void HeapSort20230318V2(int[] array) {
+	  int k = 0;
+	  for (int i = array.length -1; i > 0; i--) {
+	    for (int j = i ; j > 0 ; j--) {
+	      if (array[j] > array[(j - 1)/2]) {
+	        k = array[j];
+	        array[j] = array[(j - 1)/2];
+          array[(j - 1)/2] = k;
+        }
+      }
+      k = array[0];
+      array[0] = array[i];
+      array[i] = k;
+    }
+  }
+
+  private static void HeapSort20230318(int[] array) {
+
+	  int k = 0 ;
+	  for (int i = array.length - 1; i > 0; i--) {
+	    for (int j = (i - 1)/2 ; j >= 0 ; j--) {
+        if ((j * 2 + 2) <= i && array[j] < array[j*2+2]) {
+          k = array[j * 2 + 2];
+          array[j * 2 + 2] = array[j];
+          array[j] = k;
+        }
+        if (array[j] < array[j * 2 + 1]) {
+          k = array[j * 2 + 1];
+          array[j * 2 + 1] = array[j];
+          array[j] = k;
+        }
+      }
+	    k = array[i];
+	    array[i] = array[0];
+	    array[0] = k;
+    }
+
+  }
 
   public static void printArray(int[] array){
     for(int i:array)
