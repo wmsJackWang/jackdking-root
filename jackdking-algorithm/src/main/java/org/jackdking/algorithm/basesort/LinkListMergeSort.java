@@ -1,5 +1,7 @@
 package org.jackdking.algorithm.basesort;
 
+import java.util.Objects;
+
 public class LinkListMergeSort {
 
     public static void main(String[] args) {
@@ -10,11 +12,61 @@ public class LinkListMergeSort {
 //        printList(two);
 
         printList(merge(one, two));
+
+        one = getList(1, 15);
+        printList(one);
+        two = getList(10, 15);
+        printList(two);
+        //3索引模型
+        printList(merge230315(one, two));
+
     }
 
-    public static void printList(Node head) {
+  private static Node merge230315(Node one, Node two) {
+
+      if (Objects.isNull(one)) {
+          return two;
+      }
+
+      if (Objects.isNull(two)) {
+          return one;
+      }
+      Node header , p1 = one, p2 = two, p3;
+      if (p1.val < p2.val){
+          header = p1;
+          p3 = p1;
+          p1 = p1.next;
+      } else {
+          header = p2;
+          p3 = p2;
+          p2 = p2.next;
+      }
+
+      while (p1 != null && p2 != null) {
+          if (p1.val < p2.val) {
+              p3.next = p1;
+              p1 = p1.next;
+          } else {
+              p3.next = p2;
+              p2 = p2.next;
+          }
+          p3 = p3.next;
+      }
+      if (p1 == null) {
+          p3.next = p2;
+      }
+      if (p2 == null) {
+          p3.next = p1;
+      }
+
+
+      return header;
+  }
+
+  public static void printList(Node head) {
+        System.out.println();
         while (head != null) {
-            System.out.println(head.val);
+            System.out.print(head.val + " ");
             head = head.next;
         }
     }

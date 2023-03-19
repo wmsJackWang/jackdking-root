@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" filepath="$PROJECT_DIR$/jackdking-annotation/jackdking-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" filepath="$PROJECT_DIR$/jackdking-aviator/jackdking-aviator.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" filepath="$PROJECT_DIR$/jackdking-bigfileupload/jackdking-bigfileupload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-cluster-failover/jackdking-cluster-failover.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-cluster-failover/jackdking-cluster-failover.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-cluster-quartz/jackdking-cluster-quartz.iml" filepath="$PROJECT_DIR$/jackdking-cluster-quartz/jackdking-cluster-quartz.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" filepath="$PROJECT_DIR$/jackdking-code-gen/jackdking-code-gen.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/jackdking-code-structure.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-code-structure/jackdking-code-structure.iml" />

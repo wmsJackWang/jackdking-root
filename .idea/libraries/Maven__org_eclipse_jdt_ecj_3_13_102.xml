@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.eclipse.jdt:ecj:3.13.102">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jdt/ecj/3.13.102/ecj-3.13.102.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/org/eclipse/jdt/ecj/3.13.102/ecj-3.13.102.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jdt/ecj/3.13.102/ecj-3.13.102-javadoc.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/org/eclipse/jdt/ecj/3.13.102/ecj-3.13.102-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jdt/ecj/3.13.102/ecj-3.13.102-sources.jar!/" />
+      <root url="jar:///usr/local/ApachMaven/repository/org/eclipse/jdt/ecj/3.13.102/ecj-3.13.102-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
