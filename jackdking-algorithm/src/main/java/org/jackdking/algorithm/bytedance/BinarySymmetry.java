@@ -4,6 +4,7 @@ import org.jackdking.algorithm.basesort.Sort;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -21,8 +22,8 @@ public class BinarySymmetry extends Sort {
   public static void main(String[] args) {
 //    Integer[] arr = new Integer[]{1,2,2,3,4,4,3};
 //    Integer[] arr = new Integer[]{1};
-//    Integer[] arr = new Integer[]{1,2};
-    Integer[] arr = createArray(10, 20);
+    Integer[] arr = new Integer[]{1,2};
+//    Integer[] arr = createArray(10, 20);
     TreeNode tree = createBinaryTree(arr);
     boolean result = symmetryBinary(tree);
     System.out.println("是否为对称二叉树：" + result);
@@ -31,6 +32,42 @@ public class BinarySymmetry extends Sort {
     result = symmetryBinary20230321(tree);
     System.out.println("是否为对称二叉树：" + result);
 
+    //求左右子树的坐标以及其值的列表后，再比较是否相等。
+    result = symmetryBinary20230322(tree);
+    System.out.println("是否为对称二叉树：" + result);
+
+  }
+
+  private static boolean symmetryBinary20230322(TreeNode tree) {
+
+    if (tree == null) {
+      return true;
+    }
+    ArrayList<TreeNode> queue = new ArrayList<>();
+    queue.add(tree.left);
+    queue.add(tree.right);
+
+    TreeNode left, right;
+    while (!queue.isEmpty()){
+      left = queue.get(0);
+      queue.remove(0);
+      right = queue.get(0);
+      queue.remove(0);
+      if (left == null && right == null) {
+        continue;
+      }
+      if (left!=null ^ right != null) {
+        return false;
+      }
+      if (left != null && right != null && left.val != right.val){
+        return false;
+      }
+      queue.add(left.left);
+      queue.add(right.right);
+      queue.add(left.right);
+      queue.add(right.left);
+    }
+    return true;
   }
 
   private static boolean symmetryBinary20230321(TreeNode tree) {
