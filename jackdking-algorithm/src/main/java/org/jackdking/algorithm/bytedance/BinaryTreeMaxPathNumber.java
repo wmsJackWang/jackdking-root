@@ -39,6 +39,25 @@ public class BinaryTreeMaxPathNumber extends Sort{
     maxPathNumber20230327(list);
     System.out.println("result:" +maxValue);
 
+    printArray("原数组：", arr);
+    list = createBinaryTree(arr);
+    maxPathNumber20230328(list);
+    System.out.println("result:" +maxValue);
+
+  }
+
+  private static int maxPathNumber20230328(TreeNode list) {
+
+    if (list == null) {
+      return 0;
+    }
+    int left = maxPathNumber20230328(list.left);
+    int right = maxPathNumber20230328(list.right);
+
+    int cur = list.val + Math.max(0, left) + Math.max(0, right);
+    int res = list.val + Math.max(0, Math.max(left, right));
+    maxValue = Math.max(maxValue, Math.max(cur, res));
+    return res;
   }
 
   private static int maxPathNumber20230322(TreeNode list) {

@@ -39,6 +39,22 @@ public class BuyStockV1 extends Sort {
       result = buyStock20230326V2(arr);
       System.out.println("\nresult:" + result);
 
+    printArray("原数组", arr);
+    result = buyStock20230328(arr);
+    System.out.println("\nresult:" + result);
+
+  }
+
+  private static int buyStock20230328(Integer[] arr) {
+    int dp[][] = new int[arr.length][2];
+    dp[0][0] = 0;
+    dp[0][1] = -arr[0];
+    for (int i = 1 ; i < arr.length ; i++){
+
+      dp[i][0] = Math.max(dp[i-1][1] + arr[i], dp[i-1][0]);
+      dp[i][1] = Math.max(-arr[i], dp[i-1][1]);
+    }
+    return dp[arr.length-1][0];
   }
 
   //动态规划 只买卖一次
