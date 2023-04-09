@@ -15,9 +15,55 @@ public class BitOneCount extends Sort {
 
 		System.out.println(getBitOneCount230317(15));
 		System.out.println(getBitOneCount230317(-15));
+
+		//1.进位运算，要单独拉一个变量，注意！很容易搞错
+    //2.进位循环是逆向的。
+    System.out.println(getBitOneCount230323(-15));
 	}
 
-  	private static int getBitOneCount230317(int k) {
+  private static int getBitOneCount230323(int i) {
+	  int mark[] = new int[32];
+	  int res = 0, carry = 1;
+	  if (i >= 0){
+	    while (i>0){
+        if (i%2==1){
+          res ++;
+        }
+        i/=2;
+      }
+    }else {
+	    //负数求补码
+	    for (int j = 0 ; j < mark.length ; j++) {
+	      mark[j] = 1;
+      }
+	    int realVal = -1 * i;
+	    int k = mark.length -1;
+	    while (realVal >0 && k > 0) {
+	      if (realVal%2==1){
+          mark[k] = 0;
+        }
+	      realVal/=2;
+	      k--;
+      }
+	    printArray(mark);
+	    int cur = 0;
+	    for (i = mark.length - 1; i > 0; i--){
+        cur = mark[i] + carry;
+	      mark[i] = cur%2;
+	      carry = cur/2;
+	      if (mark[i] == 1){
+	        res++;
+        }
+      }
+
+      printArray(mark);
+      res++;
+    }
+
+	  return res;
+  }
+
+  private static int getBitOneCount230317(int k) {
 	  	if (k==0) {
 	    	return 0;
     	}
