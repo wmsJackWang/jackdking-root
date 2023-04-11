@@ -28,7 +28,45 @@ public class GetLongEstPalindrome {
 
     public static void main(String[] args) {
 
-        int longVal = getLongestPalindrome("1212");
+        int longVal = getLongestPalindrome("11011101111");
+        System.out.println("longVal = " + longVal);
+
+        //动态规划
+        longVal = getLongestPalindrome0409("11011101111");
+        System.out.println("longVal = " + longVal);
+    }
+
+    private static int getLongestPalindrome0409(String s) {
+        if (s == null) {
+            return 0;
+        }
+        if (s.length() < 2) {
+            return s.length();
+        }
+        boolean[][]dp = new boolean[s.length()][s.length()];
+        int maxLen = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j <= i; j++){
+                if (s.charAt(i) != s.charAt(j)) {
+                    continue;
+                }
+
+                if (j == i) {
+                    dp[j][i] = true;
+                }else if (i - j < 3) {
+                    dp[j][i] = true;
+                }else {
+                    dp[j][i] = dp[j+1][i-1];
+                }
+
+                if (dp[j][i]&& i - j + 1 > maxLen) {
+                    maxLen = i - j + 1;
+                }
+
+            }
+        }
+        return maxLen;
+
     }
 
     private static int getLongestPalindrome(String str) {
@@ -37,11 +75,27 @@ public class GetLongEstPalindrome {
             return  1;
         }
         int maxLen = 0;
+        int val1 = 0, val2 = 0;
         for (int i = 0; i < str.length(); i++) {
             //两种情况，回文串长度是奇数或偶数
             //第一种
+            val1 = caculatePalindromeLen(str, i, i);
+            val2 = caculatePalindromeLen(str, i, i+1);
+            maxLen = Math.max(maxLen, Math.max(val1, val2));
 
         }
+        return maxLen;
+    }
+
+    private static int caculatePalindromeLen(String str, int i, int j) {
+        while (i>=0 && j<str.length()) {
+            if (str.charAt(i) != str.charAt(j)) {
+                break;
+            }
+            i--;
+            j++;
+        }
+        return j-i-1;
     }
 
 }
