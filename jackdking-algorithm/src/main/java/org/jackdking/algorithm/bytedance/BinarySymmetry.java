@@ -4,6 +4,7 @@ import org.jackdking.algorithm.basesort.Sort;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -40,6 +41,41 @@ public class BinarySymmetry extends Sort {
     result = symmetryBinary20230329(tree);
     System.out.println("是否为对称二叉树：" + result);
 
+    //求左右子树的坐标以及其值的列表后，再比较是否相等。
+    result = symmetryBinary20230331(tree);
+    System.out.println("是否为对称二叉树：" + result);
+
+  }
+
+  private static boolean symmetryBinary20230331(TreeNode tree) {
+    if (tree == null) {
+      return true;
+    }
+    List<TreeNode> nodeList = new ArrayList<>();
+    nodeList.add(tree.left);
+    nodeList.add(tree.right);
+    TreeNode left, right;
+    while (!nodeList.isEmpty()) {
+      left = nodeList.get(0);
+      nodeList.remove(0);
+      right = nodeList.get(0);
+      nodeList.remove(0);
+
+      if (left == null && right == null) {
+        continue;
+      }
+      if (left != null ^ right != null) {
+        return false;
+      }
+      if (left.val != right.val) {
+        return false;
+      }
+      nodeList.add(left.left);
+      nodeList.add(right.right);
+      nodeList.add(left.right);
+      nodeList.add(right.left);
+    }
+    return true;
   }
 
   private static boolean symmetryBinary20230329(TreeNode tree) {

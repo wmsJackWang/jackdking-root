@@ -27,14 +27,64 @@ public class BinaryTreeReBuild extends Sort {
 
     //根据前序、中序来重建数组。
     TreeNode tree = rebuildBinaryTree(pre, mid, 0, pre.length-1, 0, mid.length-1);
-
     System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
 
     pre = new int[]{0,1,3,4,2,5,6};
     mid = new int[]{3,1,4,0,5,2,6};
     tree = rebuildBinaryTree20230323(pre, mid, 0, pre.length-1, 0, mid.length-1);
+    System.out.println();
+    System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
 
+    tree = rebuildBinaryTree20230331(pre, mid, 0, pre.length-1, 0, mid.length-1);
+    System.out.println();
+    System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
 
+  }
+
+  public static void prePrintTreeNode(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+    System.out.print(root.val+ " ");
+    prePrintTreeNode(root.left);
+    prePrintTreeNode(root.right);
+  }
+
+  public static void midPrintTreeNode(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+    midPrintTreeNode(root.left);
+    System.out.print(root.val+ " ");
+    midPrintTreeNode(root.right);
+  }
+
+  private static TreeNode rebuildBinaryTree20230331(int[] pre, int[] mid, int preStart, int preEnd, int midStart, int midEnd) {
+
+    if (preStart > preEnd) {
+      return null;
+    }
+
+    TreeNode root = new TreeNode(pre[preStart]);
+    int k = 0;
+    for (int i = midStart ; i <= midEnd ; i++) {
+      if (mid[i] == pre[preStart]) {
+        k =  i;
+        break;
+      }
+    }
+    root.left = rebuildBinaryTree20230331(pre, mid, preStart+1, preStart + k-midStart, midStart, k-1);
+    root.right = rebuildBinaryTree20230331(pre, mid, preStart+k-midStart +1, preEnd, k+1, midEnd);
+    return root;
   }
 
   // This method takes in an array of integers pre and an array of integers mid, and returns a binary tree
