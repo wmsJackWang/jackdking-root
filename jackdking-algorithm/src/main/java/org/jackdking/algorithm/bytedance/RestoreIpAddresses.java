@@ -33,15 +33,38 @@ import java.util.List;
  */
 //https://www.nowcoder.com/practice/ce73540d47374dbe85b3125f57727e1e?tpId=196&tqId=37059&rp=1&ru=/exam/intelligent&qru=/exam/intelligent&sourceUrl=%2Fexam%2Fintelligent%3FfromPut%3Dad_baidu_sem_wushuang_hangyetiku230216%26plan_id%3D273391570%26unit_id%3D7971864692%26idea_id%3D70478809472%26keyword%3D%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E9%259D%25A2%25E8%25AF%2595%25E9%25A2%2598%25E7%259B%25AE%26bd_vid%3D8346193917978018114&difficulty=undefined&judgeStatus=undefined&tags=&title=
 public class RestoreIpAddresses extends Sort {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        String str = "25525522135";
-        List<String> resultList = restoreIpAddresses(str);
-        printListStr(resultList);
+      String str = "25525522135";
+      List<String> resultList = restoreIpAddresses(str);
+      printListStr(resultList);
+
+      resultList = restoreIpAddresses20230413(str);
+
+  }
+
+  static ArrayList<String> ipList2 = new ArrayList<>();
+  private static List<String> restoreIpAddresses20230413(String str) {
+      if (str == null || str.length()<4) {
+        return ipList2;
+      }
+      backTrack20230413(str, 0, 3);
+      return ipList2;
+  }
+
+  private static void backTrack20230413(String str, int start, int num) {
+
+    if (num == 0) {
+      String[] spliterStr = str.split("\\.");
+      if (spliterStr.length < 4) {
+        return;
+      }
 
     }
 
-    static ArrayList<String> ipList = new ArrayList<>();
+  }
+
+  static ArrayList<String> ipList = new ArrayList<>();
     public static ArrayList<String> restoreIpAddresses (String s) {
         // write code here
 

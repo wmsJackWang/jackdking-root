@@ -30,10 +30,46 @@ public class RotateMatrix {
         int[][] temp = {{7,4,1}, {8,5,2}, {9,6,3}};
 
         //空间n的平方
+        printMatrix(temp);
         int [][] result = rotateMatrix(temp);
+        printMatrix(result);
         //挑战空间为1的损耗
+        temp = new int[][]{{7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
+        result = rotateMatrix20230412(temp);
+        printMatrix(result);
+    }
 
+  private static int[][] rotateMatrix20230412(int[][] temp) {
 
+      int k = 0;
+      for (int i =0; i<= temp.length/2;i++) {
+        for (int j =0 ; j <temp.length; j++) {
+          if (i != temp.length-1-i) {
+            k = temp[i][j];
+            temp[i][j] = temp[temp.length-1-i][j];
+            temp[temp.length-1-i][j] = k;
+          }
+        }
+      }
+
+      for (int i = 0; i < temp.length; i ++){
+        for (int j = i +1; j < temp.length;j++) {
+          k = temp[i][j];
+          temp[i][j]=temp[j][i];
+          temp[j][i] = k;
+        }
+      }
+      return temp;
+  }
+
+  public static void printMatrix(int[][] temp){
+        System.out.println();
+        for (int i = 0 ; i < temp.length ; i++) {
+          for (int j = 0 ; j<temp[i].length ; j++) {
+            System.out.print(" " + temp[i][j]);
+          }
+          System.out.println();
+        }
     }
 
     private static int[][] rotateMatrix(int[][] temp) {

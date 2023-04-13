@@ -24,15 +24,28 @@ package org.jackdking.algorithm.bytedance;
 * https://www.nowcoder.com/practice/459bd355da1549fa8a49e350bf3df484?tpId=196&tqId=37130&rp=1&ru=/exam/company&qru=/exam/company&sourceUrl=%2Fexam%2Fcompany&difficulty=undefined&judgeStatus=undefined&tags=&title=
  */
 public class FindGreatestSumOfSubArray {
-    public static void main(String[] args) {
-        int[] array = {1, -2, 3, 10, -4, 7, 2, -5};
-        int result = findGreatestSumOfSubArray(array);
-        System.out.println("result:" + result);
+  public static void main(String[] args) {
+      int[] array = {1, -2, 3, 10, -4, 7, 2, -5};
+      int result = findGreatestSumOfSubArray(array);
+      System.out.println("result:" + result);
 
+      result = findGreatestSumOfSubArray20230412(array);
+      System.out.println("result:" + result);
+  }
 
-    }
+  private static int findGreatestSumOfSubArray20230412(int[] array) {
+      int dp[] = new int[array.length];
+      dp[0] = array[0];
+      int maxNum = 0;
+      for (int i = 1;i < array.length ;i++){
+        dp[i] = Math.max(dp[i-1] + array[i], array[i]);
+        maxNum = Math.max(dp[i], maxNum);
+      }
+      return maxNum;
 
-    private static int findGreatestSumOfSubArray(int[] array) {
+  }
+
+  private static int findGreatestSumOfSubArray(int[] array) {
 
         int dp[] = new int[array.length];
         dp[0] = array[0];
