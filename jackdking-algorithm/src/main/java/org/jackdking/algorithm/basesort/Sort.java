@@ -2,6 +2,7 @@ package org.jackdking.algorithm.basesort;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 public class Sort {
@@ -49,8 +50,15 @@ public class Sort {
 
 		System.out.println();
 
-
 	}
+    public static void printListStr(List<String> array){
+        System.out.println();
+        for(String i:array)
+            System.out.print(i+" ");
+
+        System.out.println();
+
+    }
 
   public static void printArray(String desc, int[] array){
     System.out.println();
