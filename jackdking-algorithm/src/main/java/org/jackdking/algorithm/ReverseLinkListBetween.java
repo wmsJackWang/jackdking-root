@@ -13,24 +13,30 @@ public class ReverseLinkListBetween extends Sort {
 
     }
 
-    public static ListNode reverseBetween (ListNode head, int m, int n) {
+    public static ListNode reverseBetween (ListNode headRoot, int m, int n) {
         // write code here
 
-        ListNode start = null , end = null;
+        ListNode start = null , end = null, newHead = new ListNode(0), head = headRoot;
+        newHead.next = head;
         int i = 0;
         while (head != null) {
             if (i == m-1){
                 start = head;
             }
-            if (i == n ){
+            if (i == n){
                 end = head;
             }
+            head = head.next;
+            i++;
         }
 
         ListNode list2 = end.next;
         end.next = null;
 
         reverseListNode(start.next);
+        return list2;
+    }
 
+    private static void reverseListNode(ListNode next) {
     }
 }

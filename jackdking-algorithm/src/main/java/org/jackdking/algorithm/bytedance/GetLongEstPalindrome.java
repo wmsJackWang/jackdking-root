@@ -34,13 +34,55 @@ public class GetLongEstPalindrome {
         //动态规划
         longVal = getLongestPalindrome0409("11011101111");
         System.out.println("longVal = " + longVal);
+
+        //动态规划
+        longVal = getLongestPalindrome0416("11011101111");
+        System.out.println("longVal = " + longVal);
     }
+
+    private static int getLongestPalindrome0416(String s) {
+        if (s==null){
+            return 0;
+        }
+        if (s.length() < 2){
+            return s.length();
+        }
+        int maxLen = 0;
+        boolean dp[][] = new boolean[s.length()][s.length()];
+        for (int i = 0 ;i<s.length();i++) {
+            for (int j =0; j < s.length();j++){
+                if (s.charAt(j) != s.charAt(i)) {
+                    continue;//如果不相等，则没必要再判断
+                }
+
+                if (j == i) {
+                    dp[j][i] = true;
+                }else if (i - j <3) {
+                    dp[j][i] = true;
+                } else {
+                    dp[j][i] = dp[j+1][i-1];
+                }
+
+                if (dp[j][i]&& i - j + 1 > maxLen) {
+                    maxLen = i - j + 1;
+                }
+            }
+        }
+        return maxLen;
+
+    }
+
+
+
+
+
+
 
     private static int getLongestPalindrome0409(String s) {
         if (s == null) {
             return 0;
         }
-        if (s.length() < 2) {
+        if (s.length() < 2) {//一个字符串或者空字符串
             return s.length();
         }
         boolean[][]dp = new boolean[s.length()][s.length()];

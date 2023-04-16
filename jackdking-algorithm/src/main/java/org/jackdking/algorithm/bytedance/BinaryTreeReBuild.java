@@ -48,6 +48,48 @@ public class BinaryTreeReBuild extends Sort {
     System.out.println();
     midPrintTreeNode(tree);
 
+    tree = rebuildBinaryTree20230416(pre, mid, 0, pre.length-1, 0, mid.length-1);
+    System.out.println();
+    System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
+
+  }
+
+  private static TreeNode rebuildBinaryTree20230416(int[] pre, int[] mid, int preS, int preE, int midS, int midE) {
+
+    if (preS> preE) {
+      return null;
+    }
+    int i = 0;
+    for (;i <= midE; i++){
+      if (pre[preS] == mid[i]) {
+        break;
+      }
+    }
+
+    TreeNode root = new TreeNode(pre[preS]);
+    root.left = rebuildBinaryTree20230416(pre, mid, preS + 1, preS + i - midS, midS, i-1);
+    root.right = rebuildBinaryTree20230416(pre, mid, preS+i-midS +1, preE, i +1, midE);
+    return root;
+  }
+  public static TreeNode rebuildBinaryTree(int[] pre, int[] mid, int preStart, int preEnd, int midStart, int midEnd) {
+
+    if (preStart>preEnd) {
+      return null;
+    }
+    int k = midStart;
+    TreeNode root = new TreeNode(pre[preStart]);
+    while (k <= midEnd) {
+      if (mid[k] == pre[preStart]) {
+        break;
+      }
+      k ++;
+    }
+    root.left = rebuildBinaryTree(pre, mid, preStart+1, preStart + (k - midStart), midStart, k - 1);
+    root.right = rebuildBinaryTree(pre, mid, preStart+(k-midStart)+1, preEnd, k +1, midEnd);
+    return root;
   }
 
   public static void prePrintTreeNode(TreeNode root) {
@@ -116,21 +158,4 @@ public class BinaryTreeReBuild extends Sort {
     return root;
   }
 
-  public static TreeNode rebuildBinaryTree(int[] pre, int[] mid, int preStart, int preEnd, int midStart, int midEnd) {
-
-    if (preStart>preEnd) {
-      return null;
-    }
-    int k = midStart;
-    TreeNode root = new TreeNode(pre[preStart]);
-    while (k <= midEnd) {
-      if (mid[k] == pre[preStart]) {
-        break;
-      }
-      k ++;
-    }
-    root.left = rebuildBinaryTree(pre, mid, preStart+1, preStart + (k - midStart), midStart, k - 1);
-    root.right = rebuildBinaryTree(pre, mid, preStart+(k-midStart)+1, preEnd, k +1, midEnd);
-    return root;
-  }
 }

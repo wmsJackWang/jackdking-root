@@ -31,9 +31,33 @@ public class FindGreatestSumOfSubArray {
 
       result = findGreatestSumOfSubArray20230412(array);
       System.out.println("result:" + result);
+
+
+      result = findGreatestSumOfSubArray20230415(array);
+      System.out.println("result:" + result);
+
+
+
   }
 
-  private static int findGreatestSumOfSubArray20230412(int[] array) {
+    private static int findGreatestSumOfSubArray20230415(int[] array) {
+
+      int[] dp = new int[array.length];
+      dp[0] = array[0];
+      int maxNum =array[0];
+      for (int i=1;i < array.length;i++){
+          dp[i] = Math.max(dp[i-1]+array[i], array[i]);
+          maxNum = Math.max(dp[i], maxNum);
+      }
+      return maxNum;
+    }
+
+
+
+
+
+
+    private static int findGreatestSumOfSubArray20230412(int[] array) {
       int dp[] = new int[array.length];
       dp[0] = array[0];
       int maxNum = 0;
