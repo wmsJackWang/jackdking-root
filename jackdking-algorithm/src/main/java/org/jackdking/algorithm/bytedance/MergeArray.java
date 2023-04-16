@@ -19,9 +19,20 @@ public class MergeArray extends Sort {
     int[] arr2 = new int[]{12, 16, 44};
     mergeArray(arr, 5, arr2, 3);
     printArray("merge后的数组：", arr);
+
+
+    arr = new int[]{};
+    arr2 = new int[]{12, 16, 44};
+    mergeArray(arr, 5, arr2, 3);
+    printArray("merge后的数组：", arr);
   }
 
   private static void mergeArray(int[] arr, int m, int[] arr2, int n) {
+
+    if (arr.length == 0) {
+      arr = arr2;
+    }
+
     for (int i = 0; i < n; i++) {
       for (int j = m+i-1; j >= 0 ; j--){
         if (arr[j] > arr2[i]) {
