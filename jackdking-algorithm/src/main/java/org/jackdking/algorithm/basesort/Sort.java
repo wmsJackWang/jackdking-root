@@ -1,5 +1,7 @@
 package org.jackdking.algorithm.basesort;
 
+import org.codehaus.groovy.tools.groovydoc.LinkArgument;
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -75,7 +77,6 @@ public class Sort {
   }
 
    public static void quickSort(int [] array , int index1 , int index2) {
-
 
        if(index1>=index2)
            return;
@@ -165,6 +166,17 @@ public class Sort {
       }
     }
     return treeNode;
+  }
+
+  public static ListNode getList(int[]array){
+    ListNode head = new ListNode(array[0]),  p = head, cur;
+    for(int i = 1 ; i < array.length ; i++) {
+      cur = new ListNode(array[i]);
+      cur.next = null;
+      p.next = cur;
+      p = cur;
+    }
+    return head;
   }
 
   public static ListNode getList(int offset, int limit){
