@@ -22,15 +22,15 @@ public class MergeArray extends Sort {
 
 
     arr = new int[]{};
-    arr2 = new int[]{12, 16, 44};
-    mergeArray(arr, 5, arr2, 3);
+    arr2 = new int[]{1};
+    arr = mergeArray(arr, 0, arr2, 1);
     printArray("merge后的数组：", arr);
   }
 
-  private static void mergeArray(int[] arr, int m, int[] arr2, int n) {
+  private static int[] mergeArray(int[] arr, int m, int[] arr2, int n) {
 
     if (arr.length == 0) {
-      arr = arr2;
+      return arr2;
     }
 
     for (int i = 0; i < n; i++) {
@@ -46,6 +46,7 @@ public class MergeArray extends Sort {
         }
       }
     }
+    return arr;
   }
 
 }
