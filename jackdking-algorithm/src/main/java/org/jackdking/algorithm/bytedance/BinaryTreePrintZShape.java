@@ -11,18 +11,66 @@ import java.util.Stack;
 public class BinaryTreePrintZShape extends Sort {
   public static void main(String[] args) {
 
-    Integer[] arr = createArray(20, 20);
-    TreeNode tree = createBinaryTree(arr);
-    ArrayList<ArrayList<Integer>> result = Print(tree);
-    System.out.println(result);
+        Integer[] arr = createArray(20, 20);
+        TreeNode tree = createBinaryTree(arr);
+        ArrayList<ArrayList<Integer>> result = Print(tree);
+        System.out.println(result);
 
-    tree = createBinaryTree(arr);
-    result = Print20230322(tree);
-    System.out.println(result);
+        tree = createBinaryTree(arr);
+        result = Print20230322(tree);
+        System.out.println(result);
+
+        tree = createBinaryTree(arr);
+        result = Print20230419(tree);
+        System.out.println(result);
 
   }
 
-  private static ArrayList<ArrayList<Integer>> Print20230322(TreeNode tree) {
+    private static ArrayList<ArrayList<Integer>> Print20230419(TreeNode tree) {
+
+        Stack<TreeNode> left = new Stack<>();
+        Stack<TreeNode> right = new Stack<>();
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        ArrayList<Integer> detail ;
+        TreeNode node = null;
+
+        left.push(tree);
+        while (!left.isEmpty()||!right.isEmpty()) {
+            detail = new ArrayList<>();
+            if (!left.isEmpty()) {
+                while (!left.isEmpty()) {
+                    node = left.pop();
+                    detail.add(node.val);
+                    if (node.right != null){
+                        right.push(node.right);
+                    }
+                    if (node.left != null){
+                        right.push(node.left);
+                    }
+                }
+                result.add(detail);
+                continue;
+            }
+            if (!right.isEmpty()) {
+                while (!right.isEmpty()) {
+                    node = right.pop();
+                    detail.add(node.val);
+                    if (node.left != null){
+                        left.push(node.left);
+                    }
+                    if (node.right != null){
+                        left.push(node.right);
+                    }
+                }
+                result.add(detail);
+            }
+
+        }
+        return result;
+
+    }
+
+    private static ArrayList<ArrayList<Integer>> Print20230322(TreeNode tree) {
     ArrayList<ArrayList<Integer>> result = new ArrayList<>();
     if (tree==null){
       return result;
