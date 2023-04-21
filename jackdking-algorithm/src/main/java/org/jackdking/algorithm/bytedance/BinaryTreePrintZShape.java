@@ -24,7 +24,55 @@ public class BinaryTreePrintZShape extends Sort {
         result = Print20230419(tree);
         System.out.println(result);
 
+          tree = createBinaryTree(arr);
+          result = Print20230421(tree);
+          System.out.println(result);
+
   }
+
+    private static ArrayList<ArrayList<Integer>> Print20230421(TreeNode tree) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        if (tree == null) {
+            return res;
+        }
+        Stack<TreeNode> left = new Stack<>();
+        Stack<TreeNode> right  = new Stack<>();
+        left.push(tree);
+        ArrayList<Integer> list= null;
+        TreeNode node;
+        while (!left.isEmpty() || !right.isEmpty()) {
+            list = new ArrayList<>();
+            if (!left.isEmpty()) {
+                while (!left.isEmpty()){
+                    node = left.pop();
+                    list.add(node.val);
+                    if (node.right!=null) {
+                        right.push(node.right);
+                    }
+                    if (node.left!= null) {
+                        right.push(node.left);
+                    }
+                }
+                res.add(list);
+                continue;
+            }
+            if (!right.isEmpty()) {
+                while (!right.isEmpty()) {
+                    node = right.pop();
+                    list.add(node.val);
+                    if (node.left != null) {
+                        left.push(node.left);
+                    }
+                    if (node.right != null) {
+                        left.push(node.right);
+                    }
+                }
+                res.add(list);
+                continue;
+            }
+        }
+        return res;
+    }
 
     private static ArrayList<ArrayList<Integer>> Print20230419(TreeNode tree) {
 
