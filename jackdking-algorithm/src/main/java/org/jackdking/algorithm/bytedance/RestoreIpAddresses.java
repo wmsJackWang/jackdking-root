@@ -40,15 +40,16 @@ public class RestoreIpAddresses extends Sort {
       printListStr(resultList);
 
       resultList = restoreIpAddresses20230413(str);
+      printListStr(resultList);
 
   }
 
   static ArrayList<String> ipList2 = new ArrayList<>();
   private static List<String> restoreIpAddresses20230413(String str) {
-      if (str == null || str.length()<4) {
+      if (str == null || str.length()<4) {//少于4个字符，肯定无法生成ip地址
         return ipList2;
       }
-      backTrack20230413(str, 0, 3);
+      backTrack20230413(str, 0, 3);//从第一个字符开始，并插入3个点符号
       return ipList2;
   }
 
@@ -59,7 +60,22 @@ public class RestoreIpAddresses extends Sort {
       if (spliterStr.length < 4) {
         return;
       }
+      for(String e:spliterStr) {
+          if (e.length()>1&&e.charAt(0) == '0') return;//多位数字，首字符不能为0
+          if (Integer.valueOf(e) > 255) return;
+      }
+      ipList2.add(str);
 
+      return;
+    }
+    if (start >= str.length()) return;//点符号不能在字符串外侧，需要左右都有字符
+    int len = str.length();
+    backTrack20230413(str.substring(0, start+1) + "." + str.substring(start+1, len), start+2, num-1);
+    if (start +2 < len) {
+        backTrack20230413(str.substring(0, start+2) + "." + str.substring(start+2, len), start + 3, num-1);
+    }
+    if (start +3 <len) {
+        backTrack20230413(str.substring(0, start +3) + "." + str.substring(start+3, len), start +4, num-1);
     }
 
   }
