@@ -26,7 +26,6 @@ public class EntryNodeOfLoop extends Sort {
     Integer result = node == null ? null : node.value;
     System.out.println("循环入口：" + result);
 
-
   }
 
   private static void makeCycle(ListNode listNode) {

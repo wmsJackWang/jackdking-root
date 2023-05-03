@@ -42,7 +42,34 @@ import java.util.HashMap;
  */
 public class MinNumberDisappeared extends Sort {
 
-    /**
+  public static void main(String[] args) {
+
+    Integer arr[] = createArray(10, 30);
+    printArray("arr", arr);
+    int result = findMinNumberDisappeared(arr);
+    System.out.println("\nresult:"+result);
+
+  }
+
+  private static int findMinNumberDisappeared(Integer[] arr) {
+    int index = 0, res = 0;
+    HashMap<String, Integer> map = new HashMap();
+    for (Integer e : arr) {
+      map.put(String.valueOf(e), e);
+    }
+    for (int i = 1; i < arr.length; i++) {
+      if (map.get(String.valueOf(i))!=null) {
+        continue;
+      } else {
+        res = i;
+        break;
+      }
+    }
+    return res;
+  }
+
+
+  /**
      * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
      *
      *

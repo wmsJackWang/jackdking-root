@@ -49,9 +49,41 @@ public class BuyStockV1 extends Sort {
       result = buyStock20230415(arr);
       System.out.println("\nresult:" + result);
 
+      printArray("原数组", arr);
+      result = buyStock20230417(arr);
+      System.out.println("\nresult:" + result);
+
+      printArray("原数组", arr);
+      result = buyStock20230417V2(arr);
+      System.out.println("\nresult:" + result);
+
   }
 
-    private static int buyStock20230415(Integer[] arr) {
+  private static int buyStock20230417V2(Integer[] arr) {
+    int maxVal = Integer.MIN_VALUE;
+    int min = arr[0];
+    for (int i = 1; i < arr.length ; i++){
+      if (arr[i] < min) {
+        min = arr[i];
+      }else {
+        maxVal = Math.max(maxVal, arr[i] - min);
+      }
+    }
+    return maxVal;
+  }
+
+  private static int buyStock20230417(Integer[] arr) {
+      int mark[][] = new int[arr.length][2];
+      mark[0][0] = 0;
+      mark[0][1] = -arr[0];
+      for (int i =1 ; i < arr.length ; i ++) {
+        mark[i][0] = Math.max(mark[i-1][0], mark[i-1][1] + arr[i]);
+        mark[i][1] = Math.max(mark[i-1][1], -arr[i]);
+      }
+      return mark[arr.length-1][0];
+  }
+
+  private static int buyStock20230415(Integer[] arr) {
 
       int dp[][] = new int[arr.length][2];
       dp[0][0] = 0;
@@ -62,12 +94,6 @@ public class BuyStockV1 extends Sort {
       }
       return dp[arr.length -1][0];
     }
-
-
-
-
-
-
 
 
 

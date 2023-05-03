@@ -3,6 +3,7 @@ package org.jackdking.algorithm.bytedance;
 import org.jackdking.algorithm.basesort.Sort;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Copyright (C) 阿里巴巴
@@ -30,7 +31,41 @@ public class ReSortLinkList extends Sort {
     newList = reSortLinkList20230319(list);
     printList("重排序后链表", newList);
 
+    list = getList(10, 11);
+    printList("原链表", list);
+    newList = reSortLinkList20230417(list);
+    printList("重排序后链表", newList);
+
   }
+
+  private static ListNode reSortLinkList20230417(ListNode list) {
+    int k = 0;
+    ListNode newList = list, pre = null;
+    while (list!=null){
+      k++;
+      list = list.next;
+    }
+    ListNode [] array = new ListNode[k];
+    for (int i =0; i < k; i++) {
+      array[i] = newList;
+      newList = newList.next;
+    }
+    for (int i = 0 ; i < k/2; i++) {
+      if (pre!=null) {
+        pre.next = array[i];
+      }
+      array[i].next = array[k-1-i];
+      pre = array[k-1-i];
+    }
+    if (k%2==0) {
+      pre.next=null;
+    } else {
+      pre.next = array[k/2];
+      pre.next.next = null;
+    }
+    return array[0];
+  }
+
 
   private static ListNode reSortLinkList20230319(ListNode list) {
     if (list == null || list.next == null) {

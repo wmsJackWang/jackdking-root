@@ -2,6 +2,7 @@ package org.jackdking.algorithm.bytedance;
 
 import org.jackdking.algorithm.basesort.Sort;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 /*
@@ -29,9 +30,90 @@ import java.util.*;
  */
 public class Subsets extends Sort {
 
-    static ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+  public static void main(String[] args) {
+    int[] arr = {12, 14, 17, 18, 28, 29, 39, 49};
+    ArrayList<ArrayList<Integer>> results = subsets20230423(arr);
+    System.out.println("results: "+ results);
+    results = subsets(arr);
+    System.out.println("results: "+ results);
+    results = subsets20230423V2(arr);
+    System.out.println("results: "+ results);
+    results = subsets20230424(arr);
+    System.out.println("results: "+ results);
 
-    /**
+
+  }
+
+  private static ArrayList<ArrayList<Integer>> subsets20230424(int[] arr) {
+    ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+    for (int len =0; len < arr.length ; len++){
+      backtracking20230424(results, new ArrayList<>(), arr, len, 0);
+    }
+    return results;
+  }
+
+  private static void backtracking20230424(ArrayList<ArrayList<Integer>> results, ArrayList<Object> objects, int[] arr, int len, int start) {
+    if (len <0) {
+      return;
+    } else if(len ==0) {
+      results.add(new ArrayList(objects));
+    } else {
+      for (int i = start; i < arr.length ; i++) {
+         objects.add(arr[i]);
+         backtracking20230424(results, objects, arr, len -1, i +1);
+         objects.remove(objects.size()-1);
+      }
+    }
+  }
+
+  private static ArrayList<ArrayList<Integer>> subsets20230423V2(int[] arr) {
+    ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+    for (int i = 0; i <=arr.length ; i++) {
+      backtracking2023042V23(results, new ArrayList<Integer>(), arr, 0, i);
+    }
+    return results;
+  }
+
+  private static void backtracking2023042V23(ArrayList<ArrayList<Integer>> results, ArrayList<Integer> integers, int[] arr, int start, int n) {
+
+    if (n<0) {
+      return;
+    }else if (n == 0) {
+      results.add(new ArrayList<>(integers));
+    }else {
+      for (int i = start ; i < arr.length;i++){
+        integers.add(arr[i]);
+        backtracking2023042V23(results, integers, arr, i+1, n-1);
+        integers.remove(integers.size()-1);
+      }
+    }
+  }
+
+  private static ArrayList<ArrayList<Integer>> subsets20230423(int[] arr) {
+    ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+    for (int i = 0; i <= arr.length; i++) {//子集的长度，从0到数组原始长度
+      backtracking20230423(results, new ArrayList<>(), arr, i, 0);//长度i集合，从0开始
+    }
+    return results;
+  }
+
+  private static void backtracking20230423(ArrayList<ArrayList<Integer>> results, ArrayList<Integer> list, int[] arr, int n, int start) {
+    if (n < 0) {
+      return;
+    }else if (n==0){
+      results.add(new ArrayList<>(list));//长度为0，则将元素放入到list。
+    } else {
+      for (int i = start; i < arr.length ;i++){
+        list.add(arr[i]);
+        backtracking20230423(results, list, arr, n-1, i +1);
+        list.remove(list.size()-1);
+      }
+    }
+
+
+  }
+
+  /**
      * 该递归函数完成后，result中是： 在 arr 中 选择k个数字的全部组合(无重复)。
      * 例如arr[]={1,2,3} 那么当backtracking(2,0,new ArrayList(),arr) 调用返回后  result={{1,2},{1,3},{2,3}};
      *
@@ -40,6 +122,7 @@ public class Subsets extends Sort {
      * @param list  一个组合
      * @param arr   原数组
      */
+    static ArrayList<ArrayList<Integer>> result = new ArrayList<>();
     public static void backtracking(int k, int start, List<Integer> list, int[] arr) {
         if (k < 0)
             return;

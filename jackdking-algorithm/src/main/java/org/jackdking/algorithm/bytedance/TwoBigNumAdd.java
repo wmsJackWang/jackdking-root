@@ -20,10 +20,46 @@ public class TwoBigNumAdd {
     caculateBigNum(input1, input2);
     input1 = "733064366";
     input2 = "459309139";
+    caculateBigNum(input1, input2);
     System.out.println(caculateBigNum20230318(input1, input2));
-
+    System.out.println(caculateBigNum20230417(input1, input2));
 
   }
+
+  private static String caculateBigNum20230417(String input1, String input2) {
+    int pre = 0, len1 = input1.length(), len2 = input2.length(), sum = 0;
+    char[] result = new char[len1>len2? len1:len2 + 1];
+    for (int i = result.length-1, k1 = len1-1, k2 = len2 -1; i >=0; i--,k1--,k2--) {
+      if (k1>=0 && k2>=0){
+        sum = (input1.charAt(k1) - '0') + (input2.charAt(k2) - '0') + pre;
+        pre = sum/10;
+        result[i] = (char)(sum%10+'0');
+        continue;
+      }
+      if (k1>=0) {
+        sum = pre + (input1.charAt(k1) - '0');
+        pre = sum/10;
+        result[i] = (char)(sum%10+'0');
+        continue;
+      }
+      if (k2>=0) {
+        sum = pre + (input1.charAt(k2) - '0');
+        pre = sum/10;
+        result[i] = (char)(sum%10+'0');
+        continue;
+      }
+    }
+    if (pre == 1) {
+      result[0] =(char)(1+'0');
+    } else {
+      result[0] =(char)(0+'0');
+    }
+    return new String(result);
+  }
+
+
+
+
 
   private static String  caculateBigNum20230318(String input1, String input2) {
 

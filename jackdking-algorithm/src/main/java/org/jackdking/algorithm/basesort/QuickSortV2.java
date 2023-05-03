@@ -23,20 +23,98 @@ public class QuickSortV2 extends Sort{
 
     arr = createArray();
     // 双索引模型初始值都是0，且范围都是[0, p1) [p1, p2)，p1 p2 划分了大小数区域,而[p2, end]则是待比较区域。
-    int result = quickSortFontK20230314(arr, 0, arr.length - 1, 12);
+    int result = quickSortFontK20230314(arr, 0, arr.length - 1, 4);
     System.out.println("\nk result val : " + result);
+    quickSort(arr, 0, arr.length-1);
+    printArray("快排后数组", arr);
 
     arr = createArray();
     printArray("原数组", arr);
     quickSortFontK20230318(arr, 0, arr.length -1);
     printArray("快排后数组", arr);
 
-
     arr = createArray();
     printArray("原数组", arr);
     quickSortFontK20230318V2(arr, 0, arr.length -1);
     printArray("快排后数组", arr);
+
+    arr = createArray();
+    printArray("原数组", arr);
+    quickSortFontK20230424(arr, 0, arr.length -1);
+    printArray("快排后数组", arr);
+
+    arr = createArray();
+    printArray("原数组", arr);
+    // 双索引模型初始值都是0，且范围都是[0, p1) [p1, p2)，p1 p2 划分了大小数区域,而[p2, end]则是待比较区域。
+    result = quickSortFontK20230425(arr, 0, arr.length - 1, 7);
+    System.out.println("\nk result val : " + result);
+    printArray("数组前k快排后", arr);
+
+    arr = createArray();
+    printArray("原数组", arr);
+    quickSortFontK20230424(arr, 0, arr.length-1);
+    printArray("数组快排后", arr);
 	}
+
+  private static int quickSortFontK20230425(int[] arr, int start, int end, int n) {
+	  if (n >end) {
+	    return -1;
+    }
+	  if (start>end){
+	    return arr[n];
+    }
+
+    int p = start, q = start , k = 0;
+    for (; q < end; q++){
+      if (arr[q] < arr[end]) {
+        if (p!=q) {
+          k = arr[q];
+          arr[p] =arr[q];
+          arr[q] = k;
+        }
+        p++;
+      }
+    }
+    if (p!=end) {
+      k = arr[end];
+      arr[end] = arr[p];
+      arr[p] = k;
+    }
+    if (n == p) {
+      return arr[p];
+    }else if (n > p) {
+      return quickSortFontK20230425(arr, p +1, end, n);
+    }else {
+      return quickSortFontK20230425(arr, start, p-1, n);
+    }
+  }
+
+  private static void quickSortFontK20230424(int[] arr, int start, int end) {
+
+	  if (start>=end) {
+	    return;
+    }
+
+	  int p =start, q = start, k=0;
+	  for (; q < end ; q++){
+      if (arr[q] < arr[end]) {//只要存在，则一直移动
+        if (q != p) {
+          k = arr[q];
+          arr[q] = arr[p];
+          arr[p] = k;
+        }
+        p++;//q!=p,p也需要往后移动
+      }
+    }
+	  if (end != p) {
+	    k = arr[p];
+	    arr[p] = arr[end];
+	    arr[end] = k;
+    }
+
+	  quickSortFontK20230424(arr, start, p-1);
+	  quickSortFontK20230424(arr, p+1, end);
+  }
 
   private static void quickSortFontK20230318V2(int[] arr, int start, int end) {
 	  if (start >= end) {
@@ -89,9 +167,10 @@ public class QuickSortV2 extends Sort{
     quickSortFontK20230318(arr, p1 +1, end);
   }
 
+
   private static int quickSortFontK20230314(int[] arr, int start, int end, int k) {
 
-	    if (k > end) {
+	    if (k > end) {//超过最大索引值则默认为-1
 	      return -1;
       }
 	    if (start > end) {

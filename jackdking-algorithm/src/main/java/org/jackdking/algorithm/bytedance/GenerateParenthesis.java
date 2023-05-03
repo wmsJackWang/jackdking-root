@@ -74,6 +74,7 @@ public class GenerateParenthesis extends Sort {
         ArrayList<String> lastRes=generateParenthesis(n-1);
         for(String item:lastRes){
             //可插入空位个数枚举,2(n-1)+1=2n-1
+            // 左括号不能插入到最后一个右括号后面，否则就
             for(int i=0;i<2*n-1;i++){
                 String prefix;
                 if(i==0) prefix="";
