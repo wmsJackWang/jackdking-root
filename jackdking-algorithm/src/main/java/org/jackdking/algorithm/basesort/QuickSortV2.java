@@ -43,25 +43,152 @@ public class QuickSortV2 extends Sort{
     quickSortFontK20230424(arr, 0, arr.length -1);
     printArray("快排后数组", arr);
 
-    arr = createArray();
+    arr = new int[]{12,23,22,100,-9,-1,10,100,77,234324343,645454,100,3223,34656,-12121};
     printArray("原数组", arr);
     // 双索引模型初始值都是0，且范围都是[0, p1) [p1, p2)，p1 p2 划分了大小数区域,而[p2, end]则是待比较区域。
     result = quickSortFontK20230425(arr, 0, arr.length - 1, 7);
     System.out.println("\nk result val : " + result);
     printArray("数组前k快排后", arr);
 
-    arr = createArray();
+    arr = new int[]{12,23,22,100,-9,-1,10,100,77,234324343,645454,100,3223,34656,-12121};
     printArray("原数组", arr);
     quickSortFontK20230424(arr, 0, arr.length-1);
     printArray("数组快排后", arr);
+
+    arr = createArray(30);
+    printArray("原数组", arr);
+    // 双索引模型初始值都是0，且范围都是[0, p1) [p1, p2)，p1 p2 划分了大小数区域,而[p2, end]则是待比较区域。
+    result = quickSortFontK20230522(arr, 0, arr.length - 1, 10);
+    System.out.println("\nk result val : " + result);
+    printArray("数组前k快排后", arr);
+
+    arr = createArray(30);
+    printArray("原数组", arr);
+    // 双索引模型初始值都是0，且范围都是[0, p1) [p1, p2)，p1 p2 划分了大小数区域,而[p2, end]则是待比较区域。
+    //求第十个数
+    result = quickSortFontK20230605(arr, 0, arr.length - 1, 10-1);
+    System.out.println("\nk result val : " + result);
+    printArray("数组前k快排后", arr);
+    quickSortFontK20230424(arr, 0, arr.length -1);
+    printArray("数组完整快排后", arr);
+
+
+
+    arr = createArray(30);
+    printArray("原数组", arr);
+    // 双索引模型初始值都是0，且范围都是[0, p1) [p1, p2)，p1 p2 划分了大小数区域,而[p2, end]则是待比较区域。
+    //求第十个数
+    result = quickSortFontK20230605V2(arr, 0, arr.length - 1, 10-1);
+    System.out.println("\nk result val : " + result);
+    printArray("数组前k快排后", arr);
 	}
 
+  private static int quickSortFontK20230605V2(int[] arr, int start, int end, int k) {
+	  if (start > end || k > end) {
+	    return -1;
+    }
+	  int p = start, q = start, n =0;
+	  for (;q<end;q++){
+	    if (arr[q] > arr[end]) {
+	      if (q!=p) {
+          n = arr[q];
+          arr[q] = arr[p];
+          arr[p] = n;
+        }
+        p++;
+      }
+    }
+	  if (p!=end) {
+	    n=arr[p];
+	    arr[p] = arr[end];
+	    arr[end] = n;
+    }
+	  if (k == p) {
+	    return arr[p];
+    } else if (k>p) {
+	    return quickSortFontK20230605V2(arr, p+1, end, k);
+    } else {
+	    return quickSortFontK20230605V2(arr, start, p-1, k);
+    }
+
+  }
+
+  private static int quickSortFontK20230605(int[] arr, int start, int end, int k) {
+	  if (start > end || k > end) {
+	    return -1;
+    }
+	  if (start ==k && end == k){
+	    return arr[k];
+    }
+
+	  int p = start, q = start, n = 0;
+	  for (; q < end ; q++){
+      if (arr[q]< arr[end]) {
+
+        if (q!=p) {
+          n = arr[p];
+          arr[p] = arr[q];
+          arr[q] = n;
+        }
+        p++;
+      }
+    }
+	  if (p != end) {
+	    n = arr[p];
+	    arr[p] = arr[end];
+	    arr[end] = n;
+    }
+	  if (p == k) {
+	    return arr[p];
+    } else if (p > k) {
+	    return quickSortFontK20230605(arr, start, p-1, k);
+    } else {
+	    return quickSortFontK20230605(arr, p+1, end, k);
+    }
+
+  }
+
+  private static int quickSortFontK20230522(int[] arr, int i, int i1, int i2) {
+	  if (i > i1) {
+	    return -1;
+    }
+	  if (i1 <i2) {
+	    return -1;
+    }
+
+	  int p1 = i , p2 = i, k;
+    for (; p2 < i1 ; p2++) {
+      if (arr[p2]< arr[i1]) {
+        if (p1!=p2) {
+          k = arr[p1];
+          arr[p1] = arr[p2];
+          arr[p2] = k;
+        }
+        p1++;
+      }
+    }
+    if (i1 != p1) {
+      k = arr[i1];
+      arr[i1] = arr[p1];
+      arr[p1] = k;
+    }
+
+    if (i2==p1){
+      return arr[p1];
+    } else if (i2 > p1) {
+      return quickSortFontK20230425(arr, p1+1, i1, i2);
+    } else {
+      return quickSortFontK20230425(arr, i, p1-1, i2);
+    }
+
+  }
+
   private static int quickSortFontK20230425(int[] arr, int start, int end, int n) {
-	  if (n >end) {
+	  if (n > end) {
 	    return -1;
     }
 	  if (start>end){
-	    return arr[n];
+	    return -1;
     }
 
     int p = start, q = start , k = 0;
@@ -69,8 +196,8 @@ public class QuickSortV2 extends Sort{
       if (arr[q] < arr[end]) {
         if (p!=q) {
           k = arr[q];
-          arr[p] =arr[q];
-          arr[q] = k;
+          arr[q] =arr[p];
+          arr[p] = k;
         }
         p++;
       }
@@ -237,16 +364,6 @@ public class QuickSortV2 extends Sort{
 	    quickSort20230314(arr, start, p1 - 1);
 	    quickSort20230314(arr, p1 + 1, end);
   }
-
-  private static int[] createArray() {
-	    Random random = new Random();
-	    int array[] = new int[12];
-	    for (int i = 0 ; i < 12 ; i ++) {
-	        array[i] = random.nextInt(100);
-      }
-	    return array;
-  }
-
 
   public static void quickSort(int [] array , int index1 , int index2){
 

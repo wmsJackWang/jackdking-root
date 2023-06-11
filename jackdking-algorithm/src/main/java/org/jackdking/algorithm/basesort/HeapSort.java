@@ -149,7 +149,7 @@ public class HeapSort extends Sort{
     }
   }
 
-  private static int[] createArray() {
+  public static int[] createArray() {
     Random random = new Random();
     int array[] = new int[12];
     for (int i = 0 ; i < 12 ; i ++) {

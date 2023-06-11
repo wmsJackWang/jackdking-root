@@ -45,7 +45,18 @@ public class Sort {
     }
   }
 
-	 public static void printArray(int[] array){
+
+  public static int[] createArray(int length) {
+    Random random = new Random();
+    int array[] = new int[length];
+    for (int i = 0 ; i < length ; i ++) {
+      array[i] = random.nextInt(100);
+    }
+    return array;
+  }
+
+
+  public static void printArray(int[] array){
 	  System.out.println();
 		for(int i:array)
 			System.out.print(i+" ");
@@ -218,6 +229,16 @@ public class Sort {
        else return quickSortKVal(array,index1,p1-1,k);
    }
 
+
+
+  public static int[] createArray() {
+    Random random = new Random();
+    int array[] = new int[12];
+    for (int i = 0 ; i < 12 ; i ++) {
+      array[i] = random.nextInt(100);
+    }
+    return array;
+  }
 
   public static Integer[] createArray(int n, int randomNum) {
     Random random = new Random();
