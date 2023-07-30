@@ -1,6 +1,7 @@
 package org.jackdking.algorithm.bytedance;
 
 import org.jackdking.algorithm.basesort.Sort;
+import org.jackdking.algorithm.treeorder.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +27,59 @@ public class BinaryFindPath extends Sort {
         ArrayList<ArrayList<Integer>> result = findPath(list, num);
         System.out.println("路径和:" + num);
         System.out.println("result:" + result);
+
+        result = findPath20230703(list, num);
+        System.out.println("路径和:" + num);
+        System.out.println("result:" + result);
     }
 
-    private static ArrayList<ArrayList<Integer>> findPath(TreeNode list, Integer num) {
+  private static ArrayList<ArrayList<Integer>> findPath20230703(TreeNode list, Integer num) {
+      Stack<Integer> valStack = new Stack<>();
+      Stack<TreeNode> nodeStack = new Stack<>();
+      Stack<ArrayList<Integer>> pathStack = new Stack<>();
+      ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+      if (list==null) {
+        return results;
+      }
+
+      TreeNode p, left, right;
+      Integer val;
+      ArrayList<Integer> path = new ArrayList<>(), newPath;
+      path.add(list.val);
+      valStack.push(list.val);
+      nodeStack.push(list);
+      pathStack.push(path);
+
+      while (!nodeStack.isEmpty()) {
+        p = nodeStack.pop();
+        val = valStack.pop();
+        path = pathStack.pop();
+        left = p.left;
+        right = p.right;
+
+        if (left==null&&right==null &&val.intValue() == num.intValue()) {
+            results.add(path);
+        } else {
+          if (left !=null) {
+            nodeStack.push(left);
+            valStack.push(val+left.val);
+            newPath = new ArrayList<>(path);
+            newPath.add(left.val);
+            pathStack.push(newPath);
+          }
+          if (right!=null) {
+            nodeStack.push(right);
+            valStack.push(val+right.val);
+            newPath = new ArrayList<>(path);
+            newPath.add(right.val);
+            pathStack.push(newPath);
+          }
+        }
+      }
+    return results;
+  }
+
+  private static ArrayList<ArrayList<Integer>> findPath(TreeNode list, Integer num) {
 
         ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
         if (list == null) {

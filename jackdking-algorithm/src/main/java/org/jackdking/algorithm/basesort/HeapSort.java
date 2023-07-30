@@ -86,7 +86,59 @@ public class HeapSort extends Sort{
 		HeapSort20230318V2(array);
 		printArray("排序后数组", array);
 
+    array = createArray();
+    printArray("原数组", array);
+    HeapSort20230625(array);
+    printArray("排序后数组", array);
+
+    array = createArray();
+    printArray("原数组", array);
+    HeapSort20230630(array);
+    printArray("排序后数组", array);
+
 	}
+
+  private static void HeapSort20230630(int[] array) {
+
+	  int k, parent;
+	  for (int i = array.length-1; i >0; i--) {
+	    for (int j = i ; j >=0; j--) {
+	      parent = (j-1)/2;
+	      if (array[parent] < array[j]) {
+	        k = array[parent];
+	        array[parent] = array[j];
+	        array[j] = k;
+        }
+      }
+	    k = array[0];
+	    array[0] = array[i];
+	    array[i] = k;
+    }
+  }
+
+  private static void HeapSort20230625(int[] array) {
+
+	  int k = 0, left, right;
+    for (int i = array.length -1; i >0 ; i--) {
+      for (int j = (i-1)/2; j >=0 ; j--){
+        right = (j+1)*2;
+        left = right -1;
+          if (right <= i && array[j] < array[right]) {
+            k = array[j];
+            array[j] = array[right];
+            array[right] = k;
+          }
+          if (array[j] < array[left]) {
+            k = array[j];
+            array[j] = array[left];
+            array[left] = k;
+          }
+        }
+      k = array[i];
+      array[i] = array[0];
+      array[0] = k;
+    }
+  }
 
   private static void HeapSort20230318V2(int[] array) {
 	  int k = 0;

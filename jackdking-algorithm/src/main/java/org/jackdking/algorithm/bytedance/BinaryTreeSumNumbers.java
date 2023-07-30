@@ -2,6 +2,7 @@ package org.jackdking.algorithm.bytedance;
 
 import org.jackdking.algorithm.basesort.Sort;
 
+import javax.xml.validation.Validator;
 import java.util.Stack;
 
 /**
@@ -27,6 +28,46 @@ public class BinaryTreeSumNumbers extends Sort {
     int result = sumNumbers(list);
     System.out.println("result:" +result);
 
+
+    result = sumNumbers20230703(list);
+    System.out.println("result:" +result);
+
+
+  }
+
+  private static int sumNumbers20230703(TreeNode list) {
+    if (list==null) {
+      return 0;
+    }
+    TreeNode p, left, right;
+    Integer val, sum=0;
+    Stack<TreeNode> nodeStack = new Stack<>();
+    Stack<Integer> valStack = new Stack<>();
+
+    nodeStack.push(list);
+    valStack.push(list.val);
+
+    while (!nodeStack.isEmpty()) {
+
+      val = valStack.pop();
+      p = nodeStack.pop();
+      left = p.left;
+      right = p.right;
+
+      if (left ==null && right ==null) {
+        sum +=val;
+      }
+      if (left != null){
+        nodeStack.push(left);
+        valStack.push(val*10 + left.val);
+      }
+      if(right != null) {
+        nodeStack.push(right);
+        valStack.push(val *10+right.val);
+      }
+
+    }
+    return sum;
 
   }
 

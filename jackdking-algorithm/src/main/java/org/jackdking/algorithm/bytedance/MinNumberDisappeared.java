@@ -44,11 +44,43 @@ public class MinNumberDisappeared extends Sort {
 
   public static void main(String[] args) {
 
+    Integer temp[] = new Integer[]{3,2,4,1,5,8,7,9,10,23};
+
     Integer arr[] = createArray(10, 30);
+    arr = new Integer[]{3,2,4,1,5,8,7,9,10,23};
+
     printArray("arr", arr);
     int result = findMinNumberDisappeared(arr);
     System.out.println("\nresult:"+result);
 
+    arr = createArray(10, 30);
+    arr = new Integer[]{3,2,4,1,5,8,7,9,10,23,6,12};
+
+    printArray("arr", arr);
+    result = findMinNumberDisappeared20230718(arr);
+    System.out.println("\nresult:"+result);
+  }
+
+  private static int findMinNumberDisappeared20230718(Integer[] arr) {
+    int n = arr.length;
+    for (int i = 0; i < arr.length ; i++) {
+      while (arr[i]>0 && arr[i] <=n && arr[arr[i] -1] != arr[i]) {
+        swap(arr, i, arr[i] -1);
+      }
+    }
+    for (int i = 0; i < n; i++){
+      if (arr[i] != i+1) {
+        return i+1;
+      }
+    }
+    return n+1;
+  }
+
+  private static void swap(Integer[] arr, int i, int j) {
+      int k;
+      k = arr[i];
+      arr[i] = arr[j];
+      arr[j] = k;
   }
 
   private static int findMinNumberDisappeared(Integer[] arr) {

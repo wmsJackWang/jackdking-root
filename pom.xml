@@ -13,7 +13,7 @@
 <!-- 	<relativePath/>  -->
 <!--   </parent>  -->
   <modules>
-    <module>jackdking-datasource</module> 
+    <module>jackdking-datasource</module>
     <module>jackdking-bigfileupload</module>
     <module>jackdking-activemq</module>
     <module>jackdking-common</module>
@@ -61,8 +61,10 @@
       <module>jackdking-alipay-sdk-learning</module>
       <module>jackdking-load-configfile-properties</module>
       <module>jackdking-cluster-quartz</module>
+      <module>jackdking-disruptor</module>
+      <module>jackdking-limiter</module>
   </modules>
-  
+
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
 <!-- 	<dependencyManagement> -->
 <!-- 	    <dependencies> -->
@@ -75,18 +77,18 @@
 <!-- 	        </dependency> -->
 <!-- 	    </dependencies> -->
 <!-- 	</dependencyManagement> -->
-	
-	
-	
-	
+
+
+
+
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	    <skipTests>true</skipTests>
         <groovy.version>2.5.7</groovy.version>
-	</properties> 
-	
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -105,28 +107,28 @@
             <!--指定类型为 pom -->
             <type>pom</type>
         </dependency>
-	
+
 	    <dependency>
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter-web</artifactId>
 	    </dependency>
- 
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 <!-- 		<dependency> -->
 <!-- 			<groupId>org.springframework.boot</groupId> -->
 <!-- 			<artifactId>spring-boot-starter-data-redis</artifactId> -->
 <!-- 		</dependency> -->
 	</dependencies>
-	
+
 	<!-- 子模块选择继承或者不继承 -->
-	<dependencyManagement>  
+	<dependencyManagement>
 		<dependencies>
-		
+
 			<dependency>
 	            <groupId>org.springframework.boot</groupId>
 	            <artifactId>spring-boot-dependencies</artifactId>
@@ -134,7 +136,7 @@
 	            <type>pom</type>
 	            <scope>import</scope>
 	        </dependency>
-	        
+
 			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -143,7 +145,7 @@
 		<!-- 		注意这里，mysql默认是Mysql6  此时mysql驱动类是 com.mysql.cj.jdbc.Driver-->
 			<dependency>
 	            <groupId>mysql</groupId>
-	            <artifactId>mysql-connector-java</artifactId> 
+	            <artifactId>mysql-connector-java</artifactId>
 	            <scope>runtime</scope>
     			<version>6.0.6</version>
             </dependency>
@@ -152,14 +154,14 @@
 	            <artifactId>aspectjweaver</artifactId>
 	            <version>1.8.7</version>
         	</dependency>
-        	
+
 <!--         	<dependency> -->
 <!-- 				<groupId>mysql</groupId> -->
 <!-- 				<artifactId>mysql-connector-java</artifactId> -->
 <!-- 				<version>5.1.37</version> -->
 <!-- 			</dependency>  -->
-        </dependencies> 
-	
+        </dependencies>
+
 	</dependencyManagement>
 
 
@@ -171,7 +173,7 @@
             <url>file:D:/giteeRepostory/maven/repository/</url>
         </repository>
     </distributionManagement>
-	
+
 	<build>
         <plugins>
             <plugin>

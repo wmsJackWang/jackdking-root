@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -18,25 +17,17 @@
         <module name="jackdking-report-platform" />
         <module name="jackdking-threadpool-monitor" />
         <module name="jackdking-controller_samples" />
-<<<<<<< HEAD
         <module name="jackdking-retry" />
         <module name="jackdking-groovy" />
-=======
-        <module name="jackdking-groovy" />
-        <module name="jackdking-retry" />
->>>>>>> 173031e2d11131d020781374784286bfc21839ae
         <module name="jackdking-load-configfile-properties" />
         <module name="jackdking-PopulateComponetTest" />
         <module name="jackdking-datasource" />
         <module name="jackdking-swagger" />
-<<<<<<< HEAD
-=======
-        <module name="jackdking-EasyRules" />
->>>>>>> 173031e2d11131d020781374784286bfc21839ae
         <module name="jackdking-delay-domainv1" />
         <module name="jackdking-EasyRules" />
         <module name="jackdking-bigfileupload" />
         <module name="jackdking-springsecurity-one" />
+        <module name="jackdking-disruptor" />
         <module name="jackdking-alipay-sdk-learning" />
         <module name="jackdking-springsecurity-four" />
         <module name="jackdking-springsecurity-six" />
@@ -52,14 +43,9 @@
         <module name="jackdking-login-security-simulator" />
         <module name="jackdking-multids-spring-boot-starter" />
         <module name="jackdking-aviator" />
-<<<<<<< HEAD
-        <module name="demo" />
-        <module name="jackdking-annotation" />
-=======
         <module name="jackdking-cluster-failover" />
-        <module name="jackdking-annotation" />
         <module name="demo" />
->>>>>>> 173031e2d11131d020781374784286bfc21839ae
+        <module name="jackdking-annotation" />
         <module name="jackdking-hystrix-jiangji" />
         <module name="jackdking-javamail" />
         <module name="jackdking-JTA-Atomikos" />
@@ -83,10 +69,7 @@
       <module name="jackdking-annotation" target="1.8" />
       <module name="jackdking-aviator" target="1.8" />
       <module name="jackdking-bigfileupload" target="1.8" />
-<<<<<<< HEAD
-=======
       <module name="jackdking-cluster-failover" target="1.8" />
->>>>>>> 173031e2d11131d020781374784286bfc21839ae
       <module name="jackdking-cluster-quartz" target="1.8" />
       <module name="jackdking-code-gen" target="1.8" />
       <module name="jackdking-code-structure" target="1.8" />
@@ -98,6 +81,7 @@
       <module name="jackdking-datasource" target="1.8" />
       <module name="jackdking-delay-domainv1" target="1.5" />
       <module name="jackdking-delay-domainv1-client-starter" target="1.5" />
+      <module name="jackdking-disruptor" target="8" />
       <module name="jackdking-EasyRules" target="1.8" />
       <module name="jackdking-gongtushe" target="1.8" />
       <module name="jackdking-gossip" target="1.8" />
@@ -112,13 +96,8 @@
       <module name="jackdking-multids-spring-boot-starter" target="1.8" />
       <module name="jackdking-muti-datasource" target="1.8" />
       <module name="jackdking-PopulateComponetTest" target="1.8" />
-<<<<<<< HEAD
-      <module name="jackdking-properties-yml" target="1.8" />
-      <module name="jackdking-redistemplate" target="1.8" />
-=======
       <module name="jackdking-properties-yml" target="8" />
       <module name="jackdking-redistemplate" target="1.5" />
->>>>>>> 173031e2d11131d020781374784286bfc21839ae
       <module name="jackdking-report-platform" target="1.8" />
       <module name="jackdking-retry" target="1.8" />
       <module name="jackdking-root" target="1.8" />
@@ -135,25 +114,13 @@
       <module name="jackdking-starter-test" target="1.8" />
       <module name="jackdking-support-utils" target="1.8" />
       <module name="jackdking-swagger" target="1.8" />
-<<<<<<< HEAD
-      <module name="jackdking-threadpool-monitor" target="8" />
-=======
       <module name="jackdking-threadpool-monitor" target="1.8" />
->>>>>>> 173031e2d11131d020781374784286bfc21839ae
       <module name="jackdking-validator-hebinate" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo" options="-parameters" />
-      <module name="jackdking-common" options="-proc:none" />
-      <module name="jackdking-dache" options="-parameters" />
-      <module name="jackdking-datasource" options="-parameters" />
-      <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
-      <module name="jackdking-springsecurity-five" options="-parameters" />
       <module name="jackdking-springsecurity-four" options="-parameters" />
-      <module name="jackdking-springsecurity-one" options="-parameters" />
-      <module name="jackdking-springsecurity-six" options="-parameters" />
       <module name="jackdking-springsecurity-two" options="-parameters" />
     </option>
   </component>

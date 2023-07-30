@@ -1,6 +1,7 @@
 package org.jackdking.algorithm.bytedance;
 
 import org.jackdking.algorithm.basesort.Sort;
+import org.jackdking.algorithm.treeorder.Tree;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -24,9 +25,49 @@ public class BinaryFindPathExist extends Sort{
         Boolean result = findPath(list, num);
         System.out.println("路径和:" + num);
         System.out.println("result:" + result);
+
+        printArray("原数组", arr);
+        result = findPath20230703(list, num);
+        System.out.println("路径和:" + num);
+        System.out.println("result:" + result);
     }
 
-    private static boolean findPath(Sort.TreeNode list, Integer num) {
+  private static Boolean findPath20230703(TreeNode list, Integer num) {
+
+      if (list == null) {
+        return false;
+      }
+
+      Stack<TreeNode> nodeStack = new Stack<>();
+      Stack<Integer> valStack = new Stack<>();
+      nodeStack.push(list);
+      valStack.push(list.val);
+      TreeNode p, left, right;
+      Integer val;
+
+      while (!nodeStack.isEmpty()) {
+        p = nodeStack.pop();
+        val = valStack.pop();
+        left = p.left;
+        right = p.right;
+
+        //只在叶子节点做判断
+        if(left==null && right == null) {
+          return val.intValue()==num.intValue(); //判断路劲值是否相等
+        }
+        if (left!=null) {
+          nodeStack.push(left);
+          valStack.push(val+ left.val);
+        }
+        if (right !=null) {
+          nodeStack.push(right);
+          valStack.push(val+ right.val);
+        }
+      }
+      return false;
+  }
+
+  private static boolean findPath(Sort.TreeNode list, Integer num) {
 
         ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
         if (list == null) {

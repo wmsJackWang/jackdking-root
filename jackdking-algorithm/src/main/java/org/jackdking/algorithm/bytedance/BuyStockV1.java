@@ -57,6 +57,84 @@ public class BuyStockV1 extends Sort {
       result = buyStock20230417V2(arr);
       System.out.println("\nresult:" + result);
 
+      //极值法：最小阈值，最大收益
+      printArray("原数组", arr);
+      result = buyStock20230613(arr);
+      System.out.println("\nresult:" + result);
+
+      //动态回归
+      printArray("原数组", arr);
+      result = buyStock20230613V2(arr);
+      System.out.println("\nresult:" + result);
+
+      //动态回归
+      printArray("原数组", arr);
+      result = buyStock20230625(arr);
+      System.out.println("\nresult:" + result);
+
+      //动态回归
+      printArray("原数组", arr);
+      result = buyStock20230625V2(arr);
+      System.out.println("\nresult:" + result);
+
+  }
+
+  private static int buyStock20230625V2(Integer[] arr) {
+    int min = Integer.MAX_VALUE, value = Integer.MIN_VALUE;
+    for (int i = 0 ; i < arr.length ; i++) {
+      if (arr[i] < min) {
+        min = arr[i];
+      } else {
+        int k = arr[i] - min;
+        if (k > value) {
+          value = k;
+        }
+      }
+    }
+    return value;
+  }
+
+  private static int buyStock20230625(Integer[] arr) {
+    int mark[][] = new int[arr.length][2];
+    mark[0][0] = 0;
+    mark[0][1] = -arr[0];
+
+    for (int i = 1 ; i < arr.length; i++) {
+      mark[i][0] = Math.max(mark[i-1][0], mark[i-1][1] + arr[i]);
+      mark[i][1] = Math.max(-arr[i], mark[i-1][1]);
+    }
+    return mark[arr.length-1][0];
+  }
+
+  //只买卖一次
+  private static int buyStock20230613V2(Integer[] arr) {
+    int [][] result = new int[arr.length][2];
+
+    result[0][0] = 0;
+    result[0][1] = -arr[0];
+
+    for (int index = 1 ; index < arr.length ;  index++) {
+      result[index][0] = Math.max(result[index-1][0], result[index-1][1] + arr[index]);
+      result[index][1] = Math.max(- arr[index], result[index-1][1]);
+    }
+    return result[arr.length-1][0];
+  }
+
+  private static int buyStock20230613(Integer[] arr) {
+
+    int minVal = Integer.MAX_VALUE, maxProfit = Integer.MIN_VALUE;
+
+    for (int i = 0 ; i < arr.length ; i++) {
+      if (arr[i] < minVal) {
+        minVal = arr[i];
+      } else {
+        int profit = arr[i] - minVal;
+        if (profit > maxProfit) {
+          maxProfit = profit;
+        }
+      }
+    }
+    return maxProfit;
   }
 
   private static int buyStock20230417V2(Integer[] arr) {
