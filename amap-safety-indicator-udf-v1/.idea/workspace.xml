@@ -4,52 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3a2e616-fa7d-48bc-9074-a9c82ca56094" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/IndicatorCallbackServiceUDF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/IndicatorCallbackServiceUDF.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/original-amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/src/main/java/Lower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/amap-safety-indicator-udf-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/classes/Lower.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindMinSonStr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindNumFromTwoDimension.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindSqrtMaxVal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateBracket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateSonSet_V1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateUniquePath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MergeTwoSortedLinkList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinEditCost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateParenthesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateParenthesis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinNumberDisappeared.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinNumberDisappeared.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinWindowStr.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinWindowStr.java" afterDir="false" />
-    </list>
+    <list default="true" id="c3a2e616-fa7d-48bc-9074-a9c82ca56094" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
