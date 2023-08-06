@@ -5,6 +5,7 @@ import org.jackdking.algorithm.basesort.Sort;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
 /*
  * 描述
@@ -33,8 +34,31 @@ n
 public class GenerateParenthesis extends Sort {
 
 
+  public static void main(String[] args) {
+    List<String> result = new ArrayList<>();
+    generateBracket(3, 0, 0, result, "");
+    System.out.println(result);
+  }
 
-    ArrayList<String> res = new ArrayList<>();
+  private static void generateBracket(int n, int l, int r, List<String> list, String res) {
+
+    if (l == n && r == n) {
+      list.add(res);
+      return;
+    }
+
+    if (l <n &&l>=r) {
+      generateBracket(n, l+1, r, list, res+"(");
+    }
+
+    if (r <n &&l>=r) {
+      generateBracket(n, l, r+1, list, res+")");
+    }
+  }
+
+
+
+  ArrayList<String> res = new ArrayList<>();
     int n;
     public ArrayList<String> generateParenthesis (int _n) {
         // write code here

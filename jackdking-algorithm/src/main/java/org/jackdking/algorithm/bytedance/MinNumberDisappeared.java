@@ -3,6 +3,7 @@ package org.jackdking.algorithm.bytedance;
 import org.jackdking.algorithm.basesort.Sort;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*
  * 描述
@@ -54,11 +55,31 @@ public class MinNumberDisappeared extends Sort {
     System.out.println("\nresult:"+result);
 
     arr = createArray(10, 30);
-    arr = new Integer[]{3,2,4,1,5,8,7,9,10,23,6,12};
+    arr = new Integer[]{3,2,4,1,5,8,7,9,10,23,6,12,11};
 
     printArray("arr", arr);
     result = findMinNumberDisappeared20230718(arr);
     System.out.println("\nresult:"+result);
+
+    printArray("arr", arr);
+    result = findMinNumberDisappeared20230731(arr);
+    System.out.println("\nresult:"+result);
+  }
+
+  private static int findMinNumberDisappeared20230731(Integer[] arr) {
+    Map<String, Integer> map = new HashMap<>();
+    for (int i =0; i < arr.length ; i++) {
+      map.put(String.valueOf(arr[i]), arr[i]);
+    }
+
+    for (int i = 0 ; i < arr.length ; i++) {
+      if (map.get((i+1)+"") == null) {
+        return i+1;
+      } else {
+        continue;
+      }
+    }
+    return 0;
   }
 
   private static int findMinNumberDisappeared20230718(Integer[] arr) {

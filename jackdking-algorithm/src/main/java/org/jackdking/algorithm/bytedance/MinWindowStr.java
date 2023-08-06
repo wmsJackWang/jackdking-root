@@ -1,6 +1,7 @@
 package org.jackdking.algorithm.bytedance;
 
 import org.jackdking.algorithm.basesort.Sort;
+import org.springframework.util.StringUtils;
 
 /*
  * 描述
@@ -35,14 +36,50 @@ T ="XYZ"T="XYZ"
 public class MinWindowStr extends Sort {
 
 
-    //滑动窗口
+  public static void main(String[] args) {
+    String result = minWindow("xyzabc", "xab");
+    System.out.println(result);
+
+    result = minWindow20230801("xyzabc", "xza");
+    System.out.println(result);
+  }
+
+  private static String minWindow20230801(String s, String t) {
+
+    if (StringUtils.isEmpty(s) || StringUtils.isEmpty(t)) {
+      return "";
+    }
+    int l =0, r = 0, d = Integer.MAX_VALUE, counter = t.length(), head =0;
+    int mark[] = new int[128];
+    for (int i = 0 ; i < t.length() ; i++) {
+      mark[t.charAt(i)] ++;
+    }
+    for (; r<s.length(); r++) {
+      if (mark[s.charAt(r)]-- > 0) {
+        counter--;
+      }
+      while (counter == 0) {
+        if (d > (r - l)) {
+          d = r-l;
+          head=l;
+        }
+        if (mark[s.charAt(l++)]-- ==0) {
+          counter++;
+        }
+      }
+    }
+
+    return d == Integer.MAX_VALUE? "":s.substring(head, head+d+1);
+  }
+
+  //滑动窗口
     /**
      *
      * @param S string字符串
      * @param T string字符串
      * @return string字符串
      */
-    public String minWindow (String S, String T) {
+    public static String minWindow (String S, String T) {
         if(S.length() == 0 || T.length() == 0) return "" ;
         int minCount = Integer.MAX_VALUE ;
         int[] hash = new int[128] ;
@@ -73,7 +110,7 @@ public class MinWindowStr extends Sort {
             return S.substring(ri , rj + 1) ;
         }
     }
-    public boolean check(int hash[]) {
+    public static boolean check(int hash[]) {
         for(int i = 0 ; i < hash.length ; i ++) {
             if(hash[i] < 0) {
                 return false ;
