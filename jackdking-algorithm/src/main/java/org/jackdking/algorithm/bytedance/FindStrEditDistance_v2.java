@@ -19,10 +19,43 @@ public class FindStrEditDistance_v2 extends Sort {
     int result = findStrEditDistance("abc", "adc", 5, 3, 100);
     System.out.println(result);
 
-    result = findStrEditDistance("abc", "adc", 5, 3, 2);
+    result = findStrEditDistance20230807("abc", "adc", 5, 3, 100);
     System.out.println(result);
 
+  }
 
+  private static int findStrEditDistance20230807(String s, String t, int a, int b, int c) {
+
+      if (isEmpty(s) && isEmpty(t)){
+        return 0;
+      }
+      if (isEmpty(s)) {
+        return t.length() * a;
+      }
+      if (isEmpty(t)) {
+        return s.length()*b;
+      }
+
+      int mark[][] = new int[s.length()+1][t.length()+1];
+      for (int i = 1;i<=s.length();i++ ) {
+        mark[i][0] = b*i;
+      }
+      for (int i =1;i<t.length();i++) {
+        mark[0][i] = a*i;
+      }
+      for (int i = 1;i<=s.length();i++) {
+        for (int j=1;j<=t.length();j++){
+          if (s.charAt(i-1)==t.charAt(j-1)) {
+            mark[i][j] = mark[i-1][j-1];
+          }else {
+            int t1 = mark[i][j-1] + a;
+            int t2 = mark[i-1][j] + b;
+            int t3 = mark[i-1][j-1] + c;
+            mark[i][j] = Math.min(t1, Math.min(t2, t3));
+          }
+        }
+      }
+    return mark[s.length()][t.length()];
   }
 
 //  public int minEditCost (String str1, String str2, int ic, int dc, int rc) {

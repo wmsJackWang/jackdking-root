@@ -22,7 +22,46 @@ public class GenerateBracket  extends Sort {
     generateBracket(result, 0, 0, "", 3);
     System.out.println(result);
 
+    result = new ArrayList<>();
+    generateBracket20230808(result, 0, 0, "", 3);
+    System.out.println(result);
 
+    result = new ArrayList<>();
+    generateBracket20230811(result, 0, 0, "", 3);
+    System.out.println(result);
+
+  }
+
+  private static void generateBracket20230811(ArrayList<String> result, int l, int r, String s, int n) {
+
+    if (l==n && r ==n) {
+      result.add(s);
+      return;
+    }
+
+    if (l < n ) {
+      generateBracket20230811(result, l+1, r, s+"(", n);
+    }
+
+    if (r<n&&l>r) {
+      generateBracket20230808(result, l, r+1, s+")",n);
+    }
+
+  }
+
+  private static void generateBracket20230808(ArrayList<String> result, int l, int r, String s, int n) {
+
+    if (l == n && r == n) {
+      result.add(s);
+    }
+
+    if (l < n) {
+      generateBracket20230808(result, l+1, r, s+"(", n);
+    }
+
+    if (l>r &&r<n) {
+      generateBracket20230808(result, l, r+1, s+")", n);
+    }
   }
 
   private static void generateBracket(ArrayList<String> result, int left, int right, String s, int n) {

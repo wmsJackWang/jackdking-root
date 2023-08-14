@@ -5,50 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b98d5ca-1f47-41e0-af95-54d054066c53" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/dependency-reduced-pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/src/main/java/IndicatorCallbackServiceUDF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/target/amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/target/classes/IndicatorCallbackServiceUDF.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/target/original-amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Lower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/amap-safety-indicator-udf-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Lower.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindMinSonStr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindNumFromTwoDimension.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindSqrtMaxVal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateBracket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateSonSet_V1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateUniquePath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MergeTwoSortedLinkList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinEditCost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateParenthesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateParenthesis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinNumberDisappeared.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinNumberDisappeared.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinWindowStr.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MinWindowStr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/IndicatorCallbackServiceUDF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/IndicatorCallbackServiceUDF.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/original-amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf-v1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Lower.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/amap-safety-indicator-udf-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Lower.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1690979719909</updated>
       <workItem from="1690979722323" duration="13035000" />
+      <workItem from="1691398849653" duration="821000" />
     </task>
     <servers />
   </component>
@@ -123,6 +95,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

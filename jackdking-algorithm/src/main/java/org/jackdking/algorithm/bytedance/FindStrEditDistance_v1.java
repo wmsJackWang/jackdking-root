@@ -23,7 +23,6 @@ public class FindStrEditDistance_v1 extends Sort {
   }
 
 
-
   public static boolean isEmpty(String s) {
     if (s == null || s == "") {
       return true;
