@@ -35,6 +35,30 @@ public class GenerateSonSet_V1 extends Sort {
     }
     System.out.println(result);
 
+    result = new ArrayList<>();
+    arr = new Integer[]{1,2,3};
+    for (int i = 0; i <= arr.length; i++) {
+      // size逐渐递减
+      generateSonset20230823(result, Lists.newArrayList(), arr, 0, i);
+    }
+    System.out.println(result);
+
+  }
+
+  private static void generateSonset20230823(List<List<Integer>> result, ArrayList<Integer> newArrayList, Integer[] arr, int n, int m) {
+
+    if (m == 0) {
+      result.add(newArrayList);
+      return;
+    }
+
+    if (n < arr.length) {
+      ArrayList<Integer> tempList = Lists.newArrayList(newArrayList);
+      tempList.add(arr[n]);
+      generateSonset20230823(result, tempList, arr, n +1, m-1);
+      generateSonset20230823(result, newArrayList, arr, n +1, m);
+    }
+
   }
 
   private static void generateSonset20230801(List<List<Integer>> result, ArrayList<Integer> newArrayList, Integer[] arr, int start, int size) {
