@@ -5,21 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3a2e616-fa7d-48bc-9074-a9c82ca56094" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/dependency-reduced-pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/src/main/java/IndicatorCallbackServiceUDF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/classes/IndicatorCallbackServiceUDF.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/original-amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindMedianSortedArrays.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/MergeArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-amap-safety-indicator-udf-v1-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/src/main/java/Lower.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/amap-safety-indicator-udf-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/classes/Lower.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../amap-safety-indicator-udf/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/FindStrEditDistance_v2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/basesort/QuickSortV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/basesort/QuickSortV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/BuyStockV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/BuyStockV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateBracket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/GenerateBracket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +26,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="2TTQMD5Regd2ClktsfQ5rXCVdLz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -50,6 +51,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -88,6 +90,9 @@
       <option name="presentableId" value="Default" />
       <updated>1691064541142</updated>
       <workItem from="1691064544187" duration="13370000" />
+      <workItem from="1697088685564" duration="172000" />
+      <workItem from="1697088875168" duration="4121000" />
+      <workItem from="1697099015958" duration="482000" />
     </task>
     <servers />
   </component>
@@ -104,8 +109,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
   </component>
 </project>

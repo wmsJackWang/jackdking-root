@@ -27,6 +27,12 @@ public class ConditionUtil {
     ConditionUtil() {
     }
 
+  public static void main(String[] args) throws IOException {
+
+      convertToGroovy("", "test_");
+
+  }
+
     /**
      * 执行规则条件
      *

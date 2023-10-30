@@ -1,6 +1,6 @@
 package jackdking.groovy.controller;
 
-import jackdking.groovy.infrastruture.command.GroovyBeanCommand;
+import jackdking.groovy.commands.GroovyBeanCommand;
 import jackdking.groovy.infrastruture.util.GroovyContextUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

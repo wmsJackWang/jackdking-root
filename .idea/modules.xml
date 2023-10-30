@@ -28,7 +28,6 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-disruptor/jackdking-disruptor.iml" filepath="$PROJECT_DIR$/jackdking-disruptor/jackdking-disruptor.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-gongtushe.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-gongtushe.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gossip/jackdking-gossip.iml" filepath="$PROJECT_DIR$/jackdking-gossip/jackdking-gossip.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" filepath="$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-grovvy-easyrules-aviator-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" filepath="$PROJECT_DIR$/jackdking-grovvy-easyrules-aviator-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" filepath="$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" filepath="$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" />

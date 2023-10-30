@@ -30,6 +30,26 @@ public class GenerateBracket  extends Sort {
     generateBracket20230811(result, 0, 0, "", 3);
     System.out.println(result);
 
+    result = new ArrayList<>();
+    generateBracket20230823(result, 0, 0, "", 3);
+    System.out.println(result);
+
+  }
+
+  private static void generateBracket20230823(ArrayList<String> result, int l, int r, String s, int k) {
+
+    if (l == k && r == k) {
+      result.add(s);
+      return;
+    }
+
+    if (l < k) {
+      generateBracket20230823(result, l+1, r, s+"(", k);
+    }
+    if (l>r && r < k) {
+      generateBracket20230823(result, l, r +1, s + ")", k);
+    }
+
   }
 
   private static void generateBracket20230811(ArrayList<String> result, int l, int r, String s, int n) {

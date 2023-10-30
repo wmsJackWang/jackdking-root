@@ -1,7 +1,6 @@
 package org.jackdking.algorithm.basesort;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class QuickSortV2 extends Sort{
 
@@ -113,7 +112,76 @@ public class QuickSortV2 extends Sort{
     result = quickSortFontK20230727(arr, 0, arr.length - 1, 26-1);
     System.out.println("\nk result val : " + result);
     printArray("数组前k快排后", arr);
-	}
+
+
+    arr = new int[]{12,23,22,100,-9,-1,10,100,77,234324343,645454,100,3223,34656,-12121};
+    arr = createArray();
+    printArray("原数组", arr);
+    quickSort20230823(arr, 0, arr.length -1);
+    printArray("快排后数组", arr);
+
+    arr = new int[]{12,23,22,100,-9,-1,10,100,77,234324343,645454,100,3223,34656,-12121};
+    result = quickSortFontK20230823(arr, 0, arr.length - 1, 11-1);
+    System.out.println("\nk result val : " + result);
+    printArray("数组前k快排后", arr);
+
+  }
+
+  private static int quickSortFontK20230823(int[] arr, int start, int end, int index) {
+	  if (start >= end) {
+      return arr[start];
+    }
+
+    int p = start, q = start, k = 0;
+	  for ( ; q < end-1; q++) {
+	    if (arr[end] > arr[q]) {
+
+	      if (p!=q) {
+	        k = arr[q];
+	        arr[q] = arr[p];
+	        arr[p] = k;
+        }
+	      p++;
+      }
+    }
+	  if (p != end) {
+	    k = arr[end];
+	    arr[end] = arr[p];
+	    arr[p] = k;
+    }
+	  if (index == p) {
+	    return arr[p];
+    }
+	  if (index > p) {
+	    return quickSortFontK20230823(arr, p +1, end, index);
+    } else {
+      return quickSortFontK20230823(arr, start, p-1, index);
+    }
+  }
+
+  private static void quickSort20230823(int[] arr, int start, int end) {
+	  if (start >= end) {
+	    return;
+    }
+	  int p = start , q = start, k = 0 ;
+	  for ( ; q < end; q++) {
+	    if (arr[end] > arr[q]) {
+	      if (q != p) {
+	        k  =arr[q];
+	        arr[q] = arr[p];
+	        arr[p] = k;
+        }
+	      p ++;
+      }
+    }
+	  if (p!=end) {
+	    k = arr[end];
+	    arr[end] = arr[p];
+	    arr[p] = k;
+    }
+	  quickSort20230823(arr, start, p-1);
+	  quickSort20230823(arr, p+1, end);
+  }
 
   private static int quickSortFontK20230727(int[] arr, int start, int end, int k) {
 	  if (start > k || end <k) {
