@@ -67,7 +67,10 @@
     <file url="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-javamail/src/main/java" charset="UTF-8" />
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/jackdking-javamail/src/main/resources" charset="UTF-8" />
+=======
+>>>>>>> 46d7905b4da68c2b75aabdee74edd1587d3414e1
     <file url="file://$PROJECT_DIR$/jackdking-limiter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-limiter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jackdking-load-configfile-properties/src/main/java" charset="UTF-8" />

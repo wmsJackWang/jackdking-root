@@ -13,6 +13,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/Delay-Client-SpringBoot-Starter/pom.xml" />
+        <option value="$PROJECT_DIR$/jackdking-groovy/pom.xml" />
       </set>
     </option>
   </component>

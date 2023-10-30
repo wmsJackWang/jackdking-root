@@ -18,10 +18,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <!-- groovy-all 包含所有groovy GDK 中的包,
-             groovy 只包含基础 Groovy 编译需要的包-->
-            <artifactId>groovy-all</artifactId>
+          <groupId>org.codehaus.groovy</groupId>
+          <!-- groovy-all 包含所有groovy GDK 中的包,
+           groovy 只包含基础 Groovy 编译需要的包-->
+          <artifactId>groovy-all</artifactId>
         </dependency>
         <dependency>
             <groupId>org.codehaus.gmaven.runtime</groupId>
