@@ -64,6 +64,25 @@ public class Sort {
 		System.out.println();
 
 	}
+    public static void printListInteger(List<Integer> array){
+        System.out.println();
+        for(Integer i:array)
+            System.out.print(i+" ");
+
+        System.out.println();
+
+    }
+
+    public static void printListInteger(String desc, List<Integer> array){
+        System.out.println();
+        System.out.print(desc);
+        for(Integer i:array)
+            System.out.print(i+" ");
+
+        System.out.println();
+
+    }
+
     public static void printListStr(List<String> array){
         System.out.println();
         for(String i:array)
