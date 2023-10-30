@@ -22,18 +22,14 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-controller_samples/jackdking-controller_samples.iml" filepath="$PROJECT_DIR$/jackdking-controller_samples/jackdking-controller_samples.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-core/jackdking-core.iml" filepath="$PROJECT_DIR$/jackdking-core/jackdking-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-dache/jackdking-dache.iml" filepath="$PROJECT_DIR$/jackdking-dache/jackdking-dache.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" filepath="$PROJECT_DIR$/jackdking-datasource/jackdking-datasource.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1/jackdking-delay-domainv1.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" filepath="$PROJECT_DIR$/jackdking-delay-domainv1-client-starter/jackdking-delay-domainv1-client-starter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jackdking-disruptor/jackdking-disruptor.iml" filepath="$PROJECT_DIR$/jackdking-disruptor/jackdking-disruptor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-gongtushe.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-gongtushe.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gossip/jackdking-gossip.iml" filepath="$PROJECT_DIR$/jackdking-gossip/jackdking-gossip.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" filepath="$PROJECT_DIR$/jackdking-groovy/jackdking-groovy.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-grovvy-easyrules-aviator-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" filepath="$PROJECT_DIR$/jackdking-grovvy-easyrules-aviator-rules-praser/jackdking-grovvy-easyrules-aviator-rules-praser.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" filepath="$PROJECT_DIR$/jackdking-guava/jackdking-guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" filepath="$PROJECT_DIR$/jackdking-hystrix-jiangji/jackdking-hystrix-jiangji.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" filepath="$PROJECT_DIR$/jackdking-javamail/jackdking-javamail.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jackdking-limiter/jackdking-limiter.iml" filepath="$PROJECT_DIR$/jackdking-limiter/jackdking-limiter.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-load-configfile-properties/jackdking-load-configfile-properties.iml" filepath="$PROJECT_DIR$/jackdking-load-configfile-properties/jackdking-load-configfile-properties.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" filepath="$PROJECT_DIR$/jackdking-login-security-simulator/jackdking-login-security-simulator.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-multids-spring-boot-starter/jackdking-multids-spring-boot-starter.iml" filepath="$PROJECT_DIR$/jackdking-multids-spring-boot-starter/jackdking-multids-spring-boot-starter.iml" />
@@ -42,7 +38,6 @@
       <module fileurl="file://$PROJECT_DIR$/jackdking-redistemplate/jackdking-redistemplate.iml" filepath="$PROJECT_DIR$/jackdking-redistemplate/jackdking-redistemplate.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-gongtushe/jackdking-report-platform/jackdking-report-platform.iml" filepath="$PROJECT_DIR$/jackdking-gongtushe/jackdking-report-platform/jackdking-report-platform.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-retry/jackdking-retry.iml" filepath="$PROJECT_DIR$/jackdking-retry/jackdking-retry.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jackdking-root.iml" filepath="$PROJECT_DIR$/jackdking-root.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" filepath="$PROJECT_DIR$/jackdking-rpcservice/jackdking-rpcservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-shardjdbcyaml/jackdking-shardjdbcyaml.iml" filepath="$PROJECT_DIR$/jackdking-shardjdbcyaml/jackdking-shardjdbcyaml.iml" />
       <module fileurl="file://$PROJECT_DIR$/jackdking-spring/jackdking-spring.iml" filepath="$PROJECT_DIR$/jackdking-spring/jackdking-spring.iml" />
