@@ -45,9 +45,35 @@ false
 说明：
 不存在3，返回false
  */
+/*
+ * 区域型思维
+ *
+ */
 public class FindTwoWeiArray extends Sort {
 
-        public boolean Find(int target, int [][] array) {
+  public static void main(String[] args) {
+    int [][] arr = new int[][]{{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
+    boolean result = findValueInTwoWeiArray(0, arr);
+    System.out.println("数组是否存在："+result);
+
+  }
+
+  private static boolean findValueInTwoWeiArray(int value, int[][] arr) {
+    int row = 0, col = arr[0].length-1;
+    while (row < arr.length && col >= 0){
+      if (value > arr[row][col]){
+        row++;
+      } else if (value < arr[row][col]) {
+        col--;
+      } else {
+        return true;
+      }
+    }
+    return false;
+
+  }
+
+  public boolean Find(int target, int [][] array) {
             for(int i=0;i<array.length;i++){
                 for(int j=0;j<array[0].length;j++){
                     if(array[i][j] == target){

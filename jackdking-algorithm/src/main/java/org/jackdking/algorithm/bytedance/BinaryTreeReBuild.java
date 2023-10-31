@@ -55,6 +55,29 @@ public class BinaryTreeReBuild extends Sort {
     System.out.println();
     midPrintTreeNode(tree);
 
+
+    tree = rebuildBinaryTree20231031(pre, mid, 0, pre.length-1, 0, mid.length-1);
+    System.out.println();
+    System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
+
+  }
+
+  private static TreeNode rebuildBinaryTree20231031(int[] pre, int[] mid, int midStart, int midEnd, int preStart, int preEnd) {
+    if (midStart >midEnd || preStart>preEnd) {
+      return null;
+    }
+    TreeNode treeNode = new TreeNode(pre[preStart]);
+    int headIndex = midStart;
+    while (pre[preStart] != mid[headIndex]) {
+      headIndex++;
+    }
+    int leftLength = headIndex - midStart;
+    treeNode.left = rebuildBinaryTree20231031(pre, mid, midStart, headIndex-1, preStart+1, preStart+leftLength);
+    treeNode.right = rebuildBinaryTree20231031(pre, mid, headIndex +1, midEnd, preStart+leftLength+1, preEnd);
+    return treeNode;
   }
 
   private static TreeNode rebuildBinaryTree20230416(int[] pre, int[] mid, int preS, int preE, int midS, int midE) {

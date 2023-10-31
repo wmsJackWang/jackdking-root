@@ -23,6 +23,10 @@ package org.jackdking.algorithm.bytedance;
 *
 * https://www.nowcoder.com/practice/459bd355da1549fa8a49e350bf3df484?tpId=196&tqId=37130&rp=1&ru=/exam/company&qru=/exam/company&sourceUrl=%2Fexam%2Fcompany&difficulty=undefined&judgeStatus=undefined&tags=&title=
  */
+/*
+ * 回归解题思路
+ * 回归数组dp[i]的意义：所有包含第i个元素连续子数组中，sum最大值。 转移函数如下：dp[i] = Math.max(dp[i], dp[i-1] + dp[i])
+ */
 public class FindGreatestSumOfSubArray {
   public static void main(String[] args) {
       int[] array = {1, -2, 3, 10, -4, 7, 2, -5};
@@ -37,6 +41,20 @@ public class FindGreatestSumOfSubArray {
 
       result = findGreatestSumOfSubArray20230417(array);
       System.out.println("result:" + result);
+
+      result = findGreatestSumOfSubArray20231031(array);
+      System.out.println("result:" + result);
+  }
+
+  private static int findGreatestSumOfSubArray20231031(int[] array) {
+      int max = Integer.MIN_VALUE;
+      int dp[] = new int[array.length];
+      dp[0] = array[0];
+      for (int i = 1 ; i < array.length ; i ++) {
+        dp[i] = Math.max(dp[i], dp[i-1] + array[i]);
+        max = Math.max(dp[i], max);
+      }
+      return max;
   }
 
   private static int findGreatestSumOfSubArray20230417(int[] array) {
@@ -63,10 +81,6 @@ public class FindGreatestSumOfSubArray {
       }
       return maxNum;
     }
-
-
-
-
 
 
     private static int findGreatestSumOfSubArray20230412(int[] array) {

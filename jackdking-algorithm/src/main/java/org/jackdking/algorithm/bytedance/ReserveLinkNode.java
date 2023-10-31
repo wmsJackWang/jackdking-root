@@ -21,6 +21,25 @@ public class ReserveLinkNode extends Sort {
 
     ListNode newLink = reserveLinkNode(link);
     printList("反转后链表：", newLink);
+
+    link = getList(createArray(10));
+    printList("原生链表：", link);
+
+    newLink = reserveLinkNode20231031(link);
+    printList("反转后链表：", newLink);
+
+  }
+
+  private static ListNode reserveLinkNode20231031(ListNode link) {
+    ListNode pre = null, current = link, next = null;
+
+    while (current!=null) {
+      next = current.next;
+      current.next = pre;
+      pre = current;
+      current = next;
+    }
+    return pre;
   }
 
   private static ListNode reserveLinkNode(ListNode link) {
