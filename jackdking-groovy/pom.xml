@@ -14,30 +14,24 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <groovy.version>2.4.15</groovy.version>
+        <lombok.version>1.16.18</lombok.version>
+        <groovy.eclipse.compiler.version>2.9.2-01</groovy.eclipse.compiler.version>
+        <groovy.eclipse.batch.version>2.4.3-01</groovy.eclipse.batch.version>
     </properties>
 
     <dependencies>
-        <dependency>
-          <groupId>org.codehaus.groovy</groupId>
-          <!-- groovy-all 包含所有groovy GDK 中的包,
-           groovy 只包含基础 Groovy 编译需要的包-->
-          <artifactId>groovy-all</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.gmaven.runtime</groupId>
-            <artifactId>gmaven-runtime-1.8</artifactId>
-            <version>1.4</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.codehaus.groovy</groupId>
-                    <artifactId>groovy-all</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+
+      <!-- 添加groovy支持，混合编程 -->
+      <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-all</artifactId>
+        <classifier>indy</classifier>
+        <version>${groovy.version}</version>
+      </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -50,4 +44,49 @@
 
     </dependencies>
 
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+          <compilerId>groovy-eclipse-compiler</compilerId>
+          <verbose>true</verbose>
+          <!-- 不使用lombok的情况下可以去掉下面的配置 -->
+          <compilerArguments>
+            <!-- consult Lombok docs to confirm agent class name for yourversion -->
+            <javaAgentClass>lombok.launch.Agent</javaAgentClass>
+          </compilerArguments>
+          <fork>true</fork>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-compiler</artifactId>
+            <version>${groovy.eclipse.compiler.version}</version>
+          </dependency>
+          <!-- for 2.8.0-01 and later you must have an explicit dependencyon groovy-eclipse-batch -->
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-batch</artifactId>
+            <version>${groovy.eclipse.batch.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-compiler-api</artifactId>
+            <version>2.8.1</version>
+          </dependency>
+          <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
 </project>

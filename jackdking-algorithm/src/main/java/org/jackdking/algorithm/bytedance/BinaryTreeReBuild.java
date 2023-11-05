@@ -62,7 +62,33 @@ public class BinaryTreeReBuild extends Sort {
     prePrintTreeNode(tree);
     System.out.println();
     midPrintTreeNode(tree);
+    //总结： 总之核心点是划分出左右子树。而中序是关键，并且要求节点的值不能重复，否则无法区分。
 
+    tree = rebuildBinaryTree20231102(pre, mid, 0, pre.length-1, 0, mid.length-1);
+    System.out.println();
+    System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
+    //总结：循环体内++,与条件内++是有很大区别的，条件内++永远会比条件内++多执行一次。
+
+  }
+
+  private static TreeNode rebuildBinaryTree20231102(int[] pre, int[] mid, int preS, int preE, int midS, int midE) {
+    if (preS > preE || midS > midE) {
+      return null;
+    }
+    TreeNode node = new TreeNode(pre[preS]);
+    int index = midS;
+    while (mid[index]!=pre[preS]){
+      index++;
+    }
+    int lenght = index - midS;
+
+    node.left = rebuildBinaryTree20231102(pre, mid, preS+1, preS + lenght, midS, index-1);
+    node.right = rebuildBinaryTree20231102(pre, mid, preS+lenght+1, preE, index+1, midE);
+
+    return node;
   }
 
   private static TreeNode rebuildBinaryTree20231031(int[] pre, int[] mid, int midStart, int midEnd, int preStart, int preEnd) {

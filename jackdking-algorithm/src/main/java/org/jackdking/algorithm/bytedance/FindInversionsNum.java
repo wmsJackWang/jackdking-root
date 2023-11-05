@@ -26,13 +26,59 @@ public class FindInversionsNum extends Sort {
     static int sum = 0;
 
     public static void main(String[] args) {
-        int arr[] = new int[]{7,5,6,4};
+        int arr[] = new int[]{7,5,6,4,5};
         mergeSort(arr, 0, arr.length-1);
         printArray("组合排序后数组 ", arr);
         System.out.println("逆序对数量：" + sum);
 
-        printArray(Arrays.copyOfRange(arr, 0, 1));
+        sum = 0;
+        arr = new int[]{7,5,6,4,2};
+        mergeSort20231102(arr, 0, arr.length-1);
+        printArray("组合排序后数组 ", arr);
+        System.out.println("逆序对数量：" + sum);
+        //问题总结：1. 左右数组，索引右边界搞混成mid了，应该是数组长度。 2. 左右数组的长度是跟拆分后的数组长度一样的。
+
     }
+
+  private static void mergeSort20231102(int[] arr, int start, int end) {
+
+      if (start>=end){
+        return;
+      }
+      int mid = (start+end) /2;
+      mergeSort20231102(arr, start, mid);
+      mergeSort20231102(arr, mid+1, end);
+      merge20231102(arr, start, mid, end);
+  }
+
+  private static void merge20231102(int[] arr, int start, int mid, int end) {
+      int left[] = copyOfRange(arr, start, mid);
+      int righ[] = copyOfRange(arr, mid+1, end);
+
+      int l = 0, k = start, r = 0;
+      while (l<=left.length-1 && r <= righ.length-1) {
+        if (left[l] <= righ[r]) {
+          arr[k++] = left[l++];
+        } else {
+          arr[k++] = righ[r++];
+          sum += left.length-l;
+        }
+      }
+      while (l <= left.length-1) {
+        arr[k++] = left[l++];
+      }
+      while (r<= righ.length-1) {
+        arr[k++] = righ[r++];
+      }
+  }
+
+  private static int[] copyOfRange(int[] arr, int start, int end) {
+      int newArr[] = new int[end-start+1];
+      for (int i = start; i <= end; i++){
+        newArr[i-start] = arr[i];
+      }
+      return newArr;
+  }
 
   private static void mergeSort(int[] arr, int begin, int end) {
     if (begin >= end) {

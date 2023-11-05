@@ -1,7 +1,11 @@
 /Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/bean/HelloWorld.java
+/Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/commands/GroovyBeanCommand.groovy
 /Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/controller/GroovyScriptController.java
+/Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/testgroovy/GrvyCalculator.groovy
 /Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/infrastruture/RuleEngine.java
 /Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/Application.java
 /Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/infrastruture/util/GroovyContextUtils.java
+/Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/commands/impl/SampleGroovyCommand.groovy
 /Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/Test/GroovyUtilTest.java
 /Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/testgroovy/GroovyTest.java
+/Users/jackdking/github/jackdking/jackdking-root/jackdking-groovy/src/main/java/jackdking/groovy/commands/BaseDelegate.groovy

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Groovy-Eclipse" />
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,5 +11,9 @@
         <module name="jackdking-groovy" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="GreclipseSettings">
+    <option name="greclipsePath" value="/usr/local/ApachMaven/repository/org/codehaus/groovy/groovy-eclipse-batch/2.4.3-01/groovy-eclipse-batch-2.4.3-01.jar" />
+    <option name="cmdLineParams" value="-javaAgentClass lombok.launch.Agent" />
   </component>
 </project>

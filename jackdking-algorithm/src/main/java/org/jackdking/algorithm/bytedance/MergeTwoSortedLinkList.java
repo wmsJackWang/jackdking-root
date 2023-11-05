@@ -28,6 +28,37 @@ public class MergeTwoSortedLinkList extends Sort {
     newList = mergeTwoSortedLinkList20231031(list1, list2);
     printList("合并后的list：", newList);
 
+    list1 = getList(new int[]{2,5,7,9,12,34});
+    printList("list1：", list1);
+    list2 = getList(new int[]{3,4,10,14,20,39});
+    printList("list2：", list2);
+    newList = mergeTwoSortedLinkList20231102(list1, list2);
+    printList("合并后的list：", newList);
+
+  }
+
+  private static ListNode mergeTwoSortedLinkList20231102(ListNode list1, ListNode list2) {
+    ListNode newHeader = new ListNode(-1);
+    ListNode index = newHeader;
+    while (list1 != null && list2 != null) {
+
+      if (list1.value < list2.value) {
+        index.next = list1;
+        index = list1;
+        list1 = list1.next;
+      } else {
+        index.next = list2;
+        index = list2;
+        list2 = list2.next;
+      }
+    }
+    if (list1!=null) {
+      index.next = list1;
+    }
+    if (list2!=null) {
+      index.next = list2;
+    }
+    return newHeader.next;
   }
 
   private static ListNode mergeTwoSortedLinkList20231031(ListNode list1, ListNode list2) {
