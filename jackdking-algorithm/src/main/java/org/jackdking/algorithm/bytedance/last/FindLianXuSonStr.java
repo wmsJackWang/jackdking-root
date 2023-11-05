@@ -3,13 +3,74 @@ package org.jackdking.algorithm.bytedance.last;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * 最长不重复字符的子串
+ */
 public class FindLianXuSonStr {
 
     public static void main(String[] args) {
 
+        int res = lengthOfLongestSubstring_hash("abcacbdefytu");
+        System.out.println("最长不重复子串:"+res);
+
+        //hash+线性规划
+        res = getMaxNoRepeatSonStr("abcacbdefytu");
+        System.out.println("最长不重复子串:"+res);
+
+        res = getMaxNoRepeatSonStrWindow("abcacbdefytu");
+        System.out.println("最长不重复子串:"+res);
+
     }
+
+    private static int getMaxNoRepeatSonStrWindow(String s) {
+
+        if (s==null ||s.length()==0) {
+            return 0;
+        }
+        int l = 0, r = 1, wl = 0;
+        HashMap<Character, Integer> hash = new HashMap<>();
+        hash.put(s.charAt(0), 0);
+        int res = 1;
+        while (l < s.length() && r< s.length() && l <= r) {
+
+            if (hash.get(s.charAt(r))!=null) {
+                wl = hash.get(s.charAt(r))+1;
+                res = Math.max(res, r - l+1);
+                System.out.println(l + ":" + r + ":" + (r-l+1));
+            }
+            for (int i = l; i <= wl ; i++) {
+                hash.remove(s.charAt(i));
+            }
+            l = wl;
+            hash.put(s.charAt(r), r);
+            r++;
+        }
+
+        return res;
+
+    }
+
+    private static int getMaxNoRepeatSonStr(String s) {
+
+        HashMap<Character, Integer> hash = new HashMap<>();
+        int temp = 0 , res = Integer.MIN_VALUE, m;
+        for (int i = 0; i < s.length() ; i++) {
+            m = hash.getOrDefault(s.charAt(i), -1);
+            hash.put(s.charAt(i), i);//每个字符串的最新索引位置
+            if (i-m > temp) {
+                //最新不重复子串基础上++
+                temp++;
+            }else {
+                //充值最新不重复子串长度。
+                temp = i-m;
+            }
+            res = Math.max(temp, res);
+        }
+        return res;
+    }
+
     //动态规划+哈希表
-    public int lengthOfLongestSubstring_hash(String s) {
+    public static int lengthOfLongestSubstring_hash(String s) {
         //哈希表存储字符的位置
         Map<Character,Integer> hsp = new HashMap<>();
         int res = 0,temp = 0;

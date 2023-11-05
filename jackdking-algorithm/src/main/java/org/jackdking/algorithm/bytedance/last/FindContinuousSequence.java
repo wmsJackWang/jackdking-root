@@ -1,5 +1,8 @@
 package org.jackdking.algorithm.bytedance.last;
 
+import org.jackdking.algorithm.basesort.Sort;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /*
@@ -9,8 +12,51 @@ import java.util.ArrayList;
 输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序
 思路很简单，就是控制好两个端，然后就是判断
  */
-public class FindContinuousSequence {
-    public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
+public class FindContinuousSequence extends Sort {
+
+    public static void main(String[] args) {
+
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+
+        result = FindContinuousSequence(100);
+        print(result);
+
+        result = getContinuousSequence(100);
+        print(result);
+        //总结： 连续数字从1开始，包含最小值元素的连续数字，就是最长连续数字。 后续
+
+    }
+
+    private static ArrayList<ArrayList<Integer>> getContinuousSequence(int s) {
+        if (s <= 0) return null;
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        int l=1, r =2;
+        int mid = s/2, sum = l+r;
+        while (l > 0 && r <=mid+1) {
+            if (sum < s) {
+                r++;
+                sum += r;
+            }else if (sum >s){
+                sum -= l++;
+            }else {
+                result.add(formatList(l, r));
+                sum-=l;
+                l++;
+
+            }
+        }
+        return result;
+
+    }
+
+    public static void print(ArrayList<ArrayList<Integer>> result){
+        for (ArrayList list : result) {
+            printListInteger(list);
+        }
+    }
+
+
+        public static ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
         if (sum <= 0) return null;
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
         int left = 1;
@@ -32,7 +78,7 @@ public class FindContinuousSequence {
         return result;
     }
 
-    public ArrayList<Integer> formatList(int left, int right) {
+    public static ArrayList<Integer> formatList(int left, int right) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         for (int i = left; i <= right; i++) {
             list.add(i);

@@ -72,6 +72,33 @@ public class BinaryTreeReBuild extends Sort {
     midPrintTreeNode(tree);
     //总结：循环体内++,与条件内++是有很大区别的，条件内++永远会比条件内++多执行一次。
 
+
+    tree = rebuildBinaryTree20231105(pre, mid, 0, pre.length-1, 0, mid.length-1);
+    System.out.println();
+    System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
+
+  }
+
+  private static TreeNode rebuildBinaryTree20231105(int[] pre, int[] mid, int pre_start, int pre_end, int mid_start, int mid_end) {
+
+    if (pre_start > pre_end || mid_start > mid_end) {
+      return null;
+    }
+
+    TreeNode node = new TreeNode(pre[pre_start]);
+    int index = mid_start;
+    while (mid[index] != pre[pre_start]) {
+      index++;
+    }
+
+    int length = index - mid_start;
+    node.left = rebuildBinaryTree20231105(pre, mid, pre_start +1, pre_start+length, mid_start, index-1);
+    node.right = rebuildBinaryTree20231105(pre, mid, pre_start+length+1, pre_end, index+1, mid_end);
+
+    return node;
   }
 
   private static TreeNode rebuildBinaryTree20231102(int[] pre, int[] mid, int preS, int preE, int midS, int midE) {

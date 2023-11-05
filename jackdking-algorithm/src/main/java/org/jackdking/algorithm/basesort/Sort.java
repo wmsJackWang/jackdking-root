@@ -45,6 +45,22 @@ public class Sort {
     }
   }
 
+    public static void printTreeNodeList(String desc, List<TreeNode> list) {
+        System.out.println();
+        System.out.print(desc + ":");
+        for(TreeNode node : list) {
+            System.out.print(node.val + " ");
+        }
+    }
+
+    public static void printList(String desc, List<ListNode> list) {
+        System.out.println();
+        System.out.print(desc + ":");
+        for (ListNode node: list) {
+            System.out.print(node.value + " ");
+        }
+    }
+
 
   public static int[] createArray(int length) {
     Random random = new Random();
@@ -55,6 +71,15 @@ public class Sort {
     return array;
   }
 
+
+    public static Integer[] createIntegerArray(int length) {
+        Random random = new Random();
+        Integer array[] = new Integer[length];
+        for (int i = 0 ; i < length ; i ++) {
+            array[i] = random.nextInt(100);
+        }
+        return array;
+    }
 
   public static void printArray(int[] array){
 	  System.out.println();

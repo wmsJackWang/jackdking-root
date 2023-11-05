@@ -106,13 +106,6 @@ public class RevertLinkedList extends Sort{
       return p1;
   }
 
-  public static void printList(String desc, List<ListNode> list) {
-    System.out.println();
-    System.out.print(desc + ":");
-    for (ListNode node: list) {
-      System.out.print(node.value + " ");
-    }
-  }
 
   public static void printList(List<ListNode> list) {
 	  System.out.println();

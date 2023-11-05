@@ -4,6 +4,8 @@ import org.jackdking.algorithm.basesort.Sort;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 /*
  * 题目描述
@@ -22,7 +24,43 @@ import java.util.ArrayList;
  */
 public class BreadthFirstSearch extends Sort {
 
-    public ArrayList<Integer> printFromTopToBottom(TreeNode root) {
+    public static void main(String[] args) {
+
+        Integer[] arr = createIntegerArray(20);
+
+        TreeNode head = createBinaryTree(arr);
+
+        List<Integer> result = printFromTopToBottom(head);
+        printListInteger("结果：", result);
+
+
+        ArrayList<TreeNode> treeNodeList = getBfsTreeResult(head);
+        printTreeNodeList("结果：", treeNodeList);
+
+
+    }
+
+    private static ArrayList<TreeNode> getBfsTreeResult(TreeNode head) {
+        Queue<TreeNode> queue = new ArrayDeque<>();
+
+        ArrayList<TreeNode> results = new ArrayList<>();
+        queue.offer(head);
+        TreeNode node = null;
+        while (!queue.isEmpty()) {
+            node = queue.poll();
+            results.add(node);
+            if (node.left!=null) {
+                queue.offer(node.left);
+            }
+            if (node.right!=null){
+                queue.offer(node.right);
+            }
+        }
+        return results;
+    }
+
+
+    public static ArrayList<Integer> printFromTopToBottom(TreeNode root) {
         if (root == null)
             return new ArrayList<Integer>();
         ArrayList<Integer> list = new ArrayList<Integer>();
