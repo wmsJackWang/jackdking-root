@@ -9,7 +9,47 @@ import org.jackdking.algorithm.basesort.Sort;
  */
 public class IsSubTree extends Sort {
 
-    public boolean HasSubtree(TreeNode root1,TreeNode root2) {
+
+    public static void main(String[] args) {
+        Integer[] arr = createIntegerArray(10);
+        TreeNode tree1 = createBinaryTree(new Integer[]{8,8,7,8,2,4,7,8,9});
+        TreeNode tree2 = createBinaryTree(new Integer[]{8,9});
+
+        boolean  isSubTree = HasSubtree(tree1, tree2);
+        System.out.println("是否为子树："+ isSubTree);
+
+        isSubTree = judgeSubTree(tree1, tree2);
+        System.out.println("是否为子树："+ isSubTree);
+
+
+    }
+
+    private static boolean judgeSubTree(TreeNode tree1, TreeNode tree2) {
+        if (tree2 == null || tree1 == null) {
+            return false;
+        }
+
+        return eqTree(tree1, tree2) || eqTree(tree1.left, tree2) || eqTree(tree1.right, tree2);
+
+    }
+
+    private static boolean eqTree(TreeNode tree1, TreeNode tree2) {
+        if (tree2 == null) {
+            return true;
+        }
+
+        if (tree1 == null){
+            return false;
+        }
+
+        if (tree1.val != tree2.val) {
+            return eqTree(tree1.left, tree2) || eqTree(tree1.right, tree2);
+        }
+        return eqTree(tree1.left, tree2.left) && eqTree(tree1.right, tree2.right);
+    }
+
+
+    public static boolean HasSubtree(TreeNode root1,TreeNode root2) {
         if (root1 == null || root2 == null) return false;
         // 之所以在这里加三种情况，是因为有可能有相同的点
         // 比如根点为8，根点的子结点也为8，但是真正的子结构是从子结点开始的
@@ -19,7 +59,7 @@ public class IsSubTree extends Sort {
     }
 
 
-    public boolean Judge(TreeNode root1, TreeNode root2) {
+    public static boolean Judge(TreeNode root1, TreeNode root2) {
         // 这两个条件由递归式决定，有时候条件决定递归，有时候递归决定条件
         // 我这部分比较完了,返回true
         if (root2 == null) return true;

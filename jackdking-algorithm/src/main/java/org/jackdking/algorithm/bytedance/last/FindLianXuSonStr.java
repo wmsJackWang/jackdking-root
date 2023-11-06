@@ -10,16 +10,51 @@ public class FindLianXuSonStr {
 
     public static void main(String[] args) {
 
-        int res = lengthOfLongestSubstring_hash("abcacbdefytu");
+        String data = "abcacbdefytux";
+        int res = lengthOfLongestSubstring_hash(data);
         System.out.println("最长不重复子串:"+res);
 
         //hash+线性规划
-        res = getMaxNoRepeatSonStr("abcacbdefytu");
+        res = getMaxNoRepeatSonStr(data);
         System.out.println("最长不重复子串:"+res);
 
-        res = getMaxNoRepeatSonStrWindow("abcacbdefytu");
+        res = getMaxNoRepeatSonStrWindow(data);
         System.out.println("最长不重复子串:"+res);
 
+        res = getMaxNoRepeatSonStrWindow20231007(data);
+        System.out.println("最长不重复子串:"+res);
+
+    }
+
+    private static int getMaxNoRepeatSonStrWindow20231007(String s) {
+        if (s== null||s.length() ==0){
+            return 0;
+        }
+
+        int l  = 0, r = 0;
+        int res = 0, cur = 0;
+        HashMap<Character, Integer> hash = new HashMap<>();
+        hash.put(s.charAt(l), l);
+        Integer curL = 0;
+        while (l < s.length() && r < s.length() && l <= r) {
+            curL = hash.get(s.charAt(r));
+            if (curL != null) {
+                for (int i = l; i <= curL ; i++){
+                    hash.remove(s.charAt(i));
+                }
+
+                l = curL + 1;
+            }
+
+            hash.put(s.charAt(r), r);
+
+            if (r - l + 1 > res) {
+                res = r - l + 1;
+            }
+            r ++;
+
+        }
+        return res;
     }
 
     private static int getMaxNoRepeatSonStrWindow(String s) {
@@ -35,14 +70,15 @@ public class FindLianXuSonStr {
 
             if (hash.get(s.charAt(r))!=null) {
                 wl = hash.get(s.charAt(r))+1;
-                res = Math.max(res, r - l+1);
                 System.out.println(l + ":" + r + ":" + (r-l+1));
             }
-            for (int i = l; i <= wl ; i++) {
+            for (int i = l; i < wl ; i++) {
                 hash.remove(s.charAt(i));
             }
             l = wl;
             hash.put(s.charAt(r), r);
+
+            res = Math.max(res, r - l+1);
             r++;
         }
 
