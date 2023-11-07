@@ -157,6 +157,8 @@ public class Sort {
     public ListNode next;
     public int value;
 
+      public ListNode() {
+      }
     public ListNode(int val) {
       this.value = val;
     }
