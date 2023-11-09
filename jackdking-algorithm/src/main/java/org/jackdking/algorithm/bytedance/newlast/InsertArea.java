@@ -1,5 +1,6 @@
 package org.jackdking.algorithm.bytedance.newlast;
 
+import com.alibaba.fastjson.JSON;
 import org.jackdking.algorithm.basesort.Sort;
 
 import java.util.ArrayList;
@@ -38,6 +39,34 @@ import java.util.List;
  */
 public class InsertArea extends Sort {
 
+    public static void main(String[] args) {
+        int [][] areas = new int[][]{{1,2}, {4,6}, {12, 14}, {21, 45}, {50, 60}};
+        int [] newArea = new int[]{9, 44};
+        int [][] result = insert20231108(areas, newArea);
+        System.out.println("结果：" + JSON.toJSONString(result));
+    }
+
+    private static int[][] insert20231108(int[][] areas, int[] newArea) {
+        int i = 0;
+        List<int[]> result = new ArrayList<>();
+        while (areas[i][1] < newArea[0] && i < areas.length) {
+            result.add(areas[i]);
+            i++;
+        }
+        int l = Math.min(newArea[0], areas[i][0]), r = 0;
+        while (i < areas.length && areas[i][0] <= newArea[1] ) {
+            r = Math.max(newArea[1], areas[i][1]);
+            i  ++;
+        }
+
+        result.add(new int[]{l, r});
+        while (i < areas.length) {
+            result.add(areas[i]);
+            i++;
+        }
+
+        return result.toArray(new int [result.size()][]);
+    }
 
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
