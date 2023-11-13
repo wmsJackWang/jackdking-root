@@ -1,6 +1,8 @@
 package org.jackdking.algorithm.bytedance.last;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -10,7 +12,7 @@ public class FindLianXuSonStr {
 
     public static void main(String[] args) {
 
-        String data = "abcacbdefytux";
+        String data = "abcglacbdefytux";
         int res = lengthOfLongestSubstring_hash(data);
         System.out.println("最长不重复子串:"+res);
 
@@ -24,9 +26,46 @@ public class FindLianXuSonStr {
         res = getMaxNoRepeatSonStrWindow20231007(data);
         System.out.println("最长不重复子串:"+res);
 
+        String resStr = getMaxNoRepeatSonStrWindow20231007V1(data);
+        System.out.println("最长不重复子串:"+resStr);
+
     }
 
-    private static int getMaxNoRepeatSonStrWindow20231007(String s) {
+  private static String getMaxNoRepeatSonStrWindow20231007V1(String data) {
+
+      if (data==null || data.length()==0) {
+        return "";
+      }
+      if (data.length()==1) {
+        return data;
+      }
+      HashMap<Character, Integer> hash = new HashMap<>();
+
+      int l = 0, r = 1, res = 1, cur = 1, curl = 0, maxL = 0, maxR = 0;
+      Integer m = 0;
+      hash.put(data.charAt(l), l);
+      while (l < data.length() && r< data.length() &&l <=r) {
+        m = hash.get(data.charAt(r));
+        if (m !=null) {
+          curl = m +1;
+          for (int i  = l; i < curl ; i++){
+            hash.remove(data.charAt(i));
+          }
+        }
+        if (r - curl + 1 > res) {
+          res = r - curl +1;
+          maxL = curl;
+          maxR = r;
+        }
+        hash.put(data.charAt(r), r);
+        r++;
+      }
+
+      return data.substring(maxL, maxR+1);
+
+  }
+
+  private static int getMaxNoRepeatSonStrWindow20231007(String s) {
         if (s== null||s.length() ==0){
             return 0;
         }

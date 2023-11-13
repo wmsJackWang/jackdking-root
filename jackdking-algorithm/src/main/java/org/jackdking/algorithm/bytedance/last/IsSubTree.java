@@ -21,10 +21,61 @@ public class IsSubTree extends Sort {
         isSubTree = judgeSubTree(tree1, tree2);
         System.out.println("是否为子树："+ isSubTree);
 
+      isSubTree = judgeSubTree20231107(tree1, tree2);
+      System.out.println("是否为子树："+ isSubTree);
+
+
+      isSubTree = judgeSubTree20231109(tree1, tree2);
+      System.out.println("是否为子树："+ isSubTree);
 
     }
 
-    private static boolean judgeSubTree(TreeNode tree1, TreeNode tree2) {
+  private static boolean judgeSubTree20231109(TreeNode tree1, TreeNode tree2) {
+      if (tree2 == null || tree1 == null) {
+        return false;
+      }
+      return eqTree20231109(tree1, tree2) || eqTree20231109(tree1.left, tree2) || eqTree20231109(tree1.right, tree2);
+  }
+
+  private static boolean eqTree20231109(TreeNode tree1, TreeNode tree2) {
+      if (tree2==null) {
+        return true;
+      }
+      if (tree1==null) {
+        return false;
+      }
+
+      if (tree1.val != tree2.val) {
+        return eqTree20231109(tree1.left, tree2) || eqTree20231109(tree1.right, tree2);
+      } else {
+        return eqTree20231109(tree1.left, tree2.left) && eqTree20231109(tree1.right, tree2.right);
+      }
+  }
+
+  private static boolean judgeSubTree20231107(TreeNode tree1, TreeNode tree2) {
+      if (tree2==null || tree1 == null) {
+        return false;
+      }
+
+      return eqTree20231107(tree1, tree2) || eqTree20231107(tree1.left, tree2) || eqTree20231107(tree1.right, tree2);
+  }
+
+  private static boolean eqTree20231107(TreeNode tree1, TreeNode tree2) {
+      if (tree2 == null) {
+        return true;
+      }
+      if (tree1==null) {
+        return false;
+      }
+      if (tree1.val != tree2.val) {
+        return eqTree20231107(tree1.left, tree2) || eqTree(tree1.right, tree2);
+      }else {
+        return eqTree20231107(tree1.left, tree2.left) && eqTree20231107(tree1.right, tree2.right);
+      }
+
+  }
+
+  private static boolean judgeSubTree(TreeNode tree1, TreeNode tree2) {
         if (tree2 == null || tree1 == null) {
             return false;
         }

@@ -14,9 +14,29 @@ public class JumpFloor {
         res = jumpFloor20231004V1(val);
         System.out.println(res);
 
+      //双指针， 注意：先变first指针， 再变second指针
+      res = jumpFloor20231009(val);
+      System.out.println(res);
+
     }
 
-    private static int jumpFloor20231004V1(int k) {
+  private static int jumpFloor20231009(int val) {
+      if (val == 1) {
+        return 1;
+      }
+      if (val == 2) {
+        return 2;
+      }
+      int f = 1, s = 2, temp;
+      for (int i = 3 ; i<= val ; i++){
+        temp = f+s;
+        f = s;
+        s = temp;
+      }
+      return s;
+  }
+
+  private static int jumpFloor20231004V1(int k) {
 
         if (k == 1) {
             return 1;
