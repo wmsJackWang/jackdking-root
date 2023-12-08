@@ -20,11 +20,11 @@
         <module name="jackdking-controller_samples" />
         <module name="jackdking-retry" />
         <module name="jackdking-load-configfile-properties" />
-        <module name="jackdking-PopulateComponetTest" />
         <module name="jackdking-datasource" />
+        <module name="jackdking-PopulateComponetTest" />
         <module name="jackdking-swagger" />
-        <module name="jackdking-delay-domainv1" />
         <module name="jackdking-EasyRules" />
+        <module name="jackdking-delay-domainv1" />
         <module name="jackdking-bigfileupload" />
         <module name="jackdking-springsecurity-one" />
         <module name="jackdking-disruptor" />
@@ -52,6 +52,7 @@
         <module name="jackdking-springsecurity-three" />
         <module name="jackdking-springsecurity-two" />
         <module name="jackdking-gossip" />
+        <module name="jackdking-groovy-dsl" />
         <module name="jackdking-commons-lang" />
         <module name="jackdking-delay-domainv1-client-starter" />
         <module name="jackdking-redistemplate" />
@@ -60,67 +61,6 @@
         <module name="jackdking-guava" />
       </profile>
     </annotationProcessing>
-<<<<<<< HEAD
-=======
-    <bytecodeTargetLevel>
-      <module name="demo" target="1.8" />
-      <module name="jackdking-ace" target="1.8" />
-      <module name="jackdking-activemq" target="1.8" />
-      <module name="jackdking-algorithm" target="1.8" />
-      <module name="jackdking-alipay-sdk-learning" target="1.5" />
-      <module name="jackdking-annotation" target="1.8" />
-      <module name="jackdking-aviator" target="1.8" />
-      <module name="jackdking-bigfileupload" target="1.8" />
-      <module name="jackdking-cluster-failover" target="1.8" />
-      <module name="jackdking-cluster-quartz" target="1.8" />
-      <module name="jackdking-code-gen" target="1.8" />
-      <module name="jackdking-code-structure" target="1.8" />
-      <module name="jackdking-common" target="1.8" />
-      <module name="jackdking-commons-lang" target="1.8" />
-      <module name="jackdking-controller_samples" target="1.8" />
-      <module name="jackdking-core" target="1.8" />
-      <module name="jackdking-dache" target="1.8" />
-      <module name="jackdking-datasource" target="1.8" />
-      <module name="jackdking-delay-domainv1" target="1.8" />
-      <module name="jackdking-delay-domainv1-client-starter" target="1.8" />
-      <module name="jackdking-disruptor" target="1.8" />
-      <module name="jackdking-EasyRules" target="1.8" />
-      <module name="jackdking-gongtushe" target="1.8" />
-      <module name="jackdking-gossip" target="1.8" />
-      <module name="jackdking-groovy" target="1.8" />
-      <module name="jackdking-grovvy-easyrules-aviator-rules-praser" target="1.8" />
-      <module name="jackdking-guava" target="1.8" />
-      <module name="jackdking-hystrix-jiangji" target="1.8" />
-      <module name="jackdking-javamail" target="1.8" />
-      <module name="jackdking-JTA-Atomikos" target="1.8" />
-      <module name="jackdking-limiter" target="1.8" />
-      <module name="jackdking-load-configfile-properties" target="1.8" />
-      <module name="jackdking-login-security-simulator" target="1.8" />
-      <module name="jackdking-multids-spring-boot-starter" target="1.8" />
-      <module name="jackdking-muti-datasource" target="1.8" />
-      <module name="jackdking-PopulateComponetTest" target="1.8" />
-      <module name="jackdking-properties-yml" target="1.8" />
-      <module name="jackdking-redistemplate" target="1.8" />
-      <module name="jackdking-report-platform" target="1.8" />
-      <module name="jackdking-retry" target="1.8" />
-      <module name="jackdking-root" target="1.8" />
-      <module name="jackdking-rpcservice" target="1.8" />
-      <module name="jackdking-shardjdbcyaml" target="1.8" />
-      <module name="jackdking-spring" target="1.8" />
-      <module name="jackdking-spring-security" target="1.8" />
-      <module name="jackdking-springsecurity-five" target="1.8" />
-      <module name="jackdking-springsecurity-four" target="1.8" />
-      <module name="jackdking-springsecurity-one" target="1.8" />
-      <module name="jackdking-springsecurity-six" target="1.8" />
-      <module name="jackdking-springsecurity-three" target="1.8" />
-      <module name="jackdking-springsecurity-two" target="1.8" />
-      <module name="jackdking-starter-test" target="1.8" />
-      <module name="jackdking-support-utils" target="1.8" />
-      <module name="jackdking-swagger" target="1.8" />
-      <module name="jackdking-threadpool-monitor" target="1.8" />
-      <module name="jackdking-validator-hebinate" target="1.8" />
-    </bytecodeTargetLevel>
->>>>>>> 46d7905b4da68c2b75aabdee74edd1587d3414e1
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

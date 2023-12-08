@@ -1,4 +1,4 @@
-package com.lesofn.util;
+package decision.util;
 
 import com.google.common.base.Splitter;
 import org.apache.commons.lang3.StringUtils;

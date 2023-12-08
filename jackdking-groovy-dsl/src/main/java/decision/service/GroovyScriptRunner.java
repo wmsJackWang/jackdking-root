@@ -1,18 +1,18 @@
-package com.lesofn.runner;
+package decision.service;
 
-import com.google.common.collect.Lists;
 import com.google.common.hash.Hashing;
 import com.google.common.io.Files;
-import com.lesofn.constant.DSLConstant;
-import com.lesofn.util.PathUtils;
-import dsl.groovy.DslDelegate;
+import decision.bo.DslAgent;
+import decision.constant.DSLConstant;
+import decision.util.PathUtils;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import groovy.lang.Script;
 import groovy.util.logging.Slf4j;
-import org.apache.commons.lang3.StringUtils;
+import org.assertj.core.util.Lists;
 import org.codehaus.groovy.control.CompilerConfiguration;
 import org.codehaus.groovy.runtime.InvokerHelper;
+import org.junit.platform.commons.util.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -58,7 +58,7 @@ public class GroovyScriptRunner {
     private static String getScriptContentByPath(String path) {
 
         CompilerConfiguration compilerConfiguration = new CompilerConfiguration();
-        compilerConfiguration.setScriptBaseClass(DslDelegate.class.getName());
+        compilerConfiguration.setScriptBaseClass(DslAgent.class.getName());
         GroovyShell shell = new GroovyShell(GroovyScriptRunner.class.getClassLoader());
         try {
             URL classpathUrl = GroovyScriptRunner.class.getClassLoader().getResource(path);
@@ -94,7 +94,7 @@ public class GroovyScriptRunner {
 
     private static Script getScriptByPath(String path) {
         CompilerConfiguration compilerConfiguration = new CompilerConfiguration();
-        compilerConfiguration.setScriptBaseClass(DslDelegate.class.getName());
+        compilerConfiguration.setScriptBaseClass(DslAgent.class.getName());
         GroovyShell shell = new GroovyShell(GroovyScriptRunner.class.getClassLoader());
         try {
             URL classpathUrl = GroovyScriptRunner.class.getClassLoader().getResource(path);
