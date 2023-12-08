@@ -13,7 +13,7 @@ public class IsSubTree extends Sort {
     public static void main(String[] args) {
         Integer[] arr = createIntegerArray(10);
         TreeNode tree1 = createBinaryTree(new Integer[]{8,8,7,8,2,4,7,8,9});
-        TreeNode tree2 = createBinaryTree(new Integer[]{8,9});
+        TreeNode tree2 = createBinaryTree(new Integer[]{8,8,9});
 
         boolean  isSubTree = HasSubtree(tree1, tree2);
         System.out.println("是否为子树："+ isSubTree);
@@ -32,7 +32,56 @@ public class IsSubTree extends Sort {
       isSubTree = judgeSubTree20231119(tree1, tree2);
       System.out.println("是否为子树："+ isSubTree);
 
+
+      isSubTree = judgeSubTree20231120(tree1, tree2);
+      System.out.println("是否为子树："+ isSubTree);
+
+
+      isSubTree = judgeSubTree20231204(tree1, tree2);
+      System.out.println("是否为子树："+ isSubTree);
+
     }
+
+  private static boolean judgeSubTree20231204(TreeNode tree1, TreeNode tree2) {
+      if (tree2 == null || tree1 ==null) {
+        return false;
+      }
+
+      return eqTree20231204(tree1, tree2) || judgeSubTree20231204(tree1.left, tree2) || judgeSubTree20231204(tree1.right, tree2);
+  }
+
+  private static boolean eqTree20231204(TreeNode tree1, TreeNode tree2) {
+      if (tree2 == null) {
+        return true;
+      }
+      if (tree1.val == tree2.val) {
+        return eqTree20231204(tree1.left, tree2.left) && eqTree20231204(tree1.right, tree2.right);
+      }
+      return false;
+  }
+
+  private static boolean judgeSubTree20231120(TreeNode tree1, TreeNode tree2) {
+      if (tree2 == null || tree1 == null) {
+        return false;
+      }
+
+      return eqTree20231121(tree1, tree2) || judgeSubTree20231120(tree1.left, tree2) || judgeSubTree20231120(tree1.right, tree2);
+
+  }
+
+  private static boolean eqTree20231121(TreeNode tree1, TreeNode tree2) {
+      if (tree2==null) {
+        return true;
+      }
+      if (tree1==null) {
+        return false;
+      }
+      if (tree1.val == tree2.val) {
+        return eqTree20231121(tree1.left, tree2.left) && eqTree20231121(tree1.right, tree2.right);
+      }
+
+      return false;
+  }
 
   private static boolean judgeSubTree20231119(TreeNode tree1, TreeNode tree2) {
       if (tree2==null || tree1 == null) {
