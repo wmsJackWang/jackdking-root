@@ -22,10 +22,15 @@ Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助
 ## Java架构师方案宝典
 
 **[Java架构师方案宝典] 代码示例地址(https://github.com/wmsJackWang/jackdking-root)**
-
+Java架构师方案——电商平台延迟中台服务的设计(开源项目，可参与代码设计)
 
 **架构方案系列文章**
 
+
+- [大型网站应用架构师方案——架构的内核之浅谈分层、六边形、CQRS架构模式](http://bittechblog.com/blog/article/59)：jackdking-delay-domainv1/jackdking-delay-domainv1-client-starter
+- [Saas平台问题思考—租户系统内核设计挑战点](http://bittechblog.com/blog/article/73)：
+- [大型网站应用架构师方案——架构的内核之浅谈分层、六边形、CQRS架构模式](http://bittechblog.com/blog/article/70)：
+- [Java架构师方案——我写了一个订单归因分类中间件，思路来自淘系交易部门技术论文](http://bittechblog.com/blog/article/72)：jackdking-ace
 - [Java架构师方案——Spring Security（一）快速入门(附完整项目代码)](http://bittechblog.com/blog/article/44)：jackdking-springsecurity-one
 - [Java架构师方案—基于JWT的Token认证(附完整项目代码)](http://bittechblog.com/blog/article/36)：jackdking-login-jwt-token
 - [Java架构师方案—分布式session基于redis的共享机制(附完整项目代码)](http://bittechblog.com/blog/article/26)：jackdking-login-redis-token
@@ -42,6 +47,7 @@ Jackdking-Root 集结了Java Web项目大部分主流的架构设计方案，助
 - [Spring Security（3）——实现基于数据库的Remember Me功能(附完整项目代码)](http://bittechblog.com/blog/article/49)：jackdking-springsecurity-four
 - [Spring Security（4）——springSecurity框架如何使用多个过滤器链(附完整项目代码)](http://bittechblog.com/blog/article/51)：jackdking-springsecurity-five
 - [Spring Security（5）—— 控制用户并发登入，并剔除前一个用户(附完整项目代码)](http://bittechblog.com/blog/article/55)：jackdking-springsecurity-six
+- [Java架构师方案 — 不懂前端不妨碍我设计一个front end组件(架构设计之“连横”)](http://bittechblog.com/blog/article/71)：
 
 ---
 
