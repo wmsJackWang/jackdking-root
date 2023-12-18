@@ -5,8 +5,6 @@
       <configuration />
     </facet>
   </component>
-<<<<<<< HEAD
-=======
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -120,5 +118,4 @@
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
   </component>
->>>>>>> 46d7905b4da68c2b75aabdee74edd1587d3414e1
 </module>

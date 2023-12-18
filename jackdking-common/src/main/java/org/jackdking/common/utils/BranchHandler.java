@@ -4,7 +4,7 @@ package org.jackdking.common.utils;
  * 分支处理接口
  **/
 @FunctionalInterface
-public interface BranchHandle {
+public interface BranchHandler {
 
     /**
      * 分支操作

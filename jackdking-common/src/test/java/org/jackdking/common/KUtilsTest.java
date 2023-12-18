@@ -29,6 +29,22 @@ public class KUtilsTest extends TestCase {
         });
     }
 
+    public void testIfElseV2 (){
+        String successMessage = "hello world";
+        successMessage = "good";
+        String successMsg = successMessage;
+
+        String falseMessage = "hello god";
+
+        StreamCodeUtils.isTureOrFalse(true)
+                .trueOrFalseHandle(() -> System.out.println(successMsg), () -> System.out.println(falseMessage));
+
+        StreamCodeUtils.of(false)
+                .positiveHandler(()->System.out.println(successMsg))
+                .negativeHandler(()->System.out.println(falseMessage))
+                .handle();
+    }
+
 
 
     /*
