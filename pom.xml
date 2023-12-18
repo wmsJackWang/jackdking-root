@@ -63,6 +63,7 @@
       <module>jackdking-cluster-quartz</module>
       <module>jackdking-disruptor</module>
       <module>jackdking-limiter</module>
+    <module>jackdking-groovy-dsl</module>
   </modules>
 
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

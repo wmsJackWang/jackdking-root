@@ -82,6 +82,40 @@ public class BuyStockV1 extends Sort {
       result = buyStock20230823(arr);
       System.out.println("\nresult:" + result);
 
+    //动态回归
+    printArray("原数组", arr);
+    result = buyStock20231109(arr);
+    System.out.println("\nresult:" + result);
+
+    //双指针回归
+    printArray("原数组", arr);
+    result = buyStock20231109V2(arr);
+    System.out.println("\nresult:" + result);
+
+  }
+
+  private static int buyStock20231109V2(Integer[] arr) {
+    int res = 0, min = Integer.MAX_VALUE;
+    for (int i = 0; i < arr.length; i++){
+      if (arr[i] < min) {
+        min = arr[i];
+      }else {
+        res = Math.max(res, arr[i] - min);
+      }
+    }
+    return res;
+  }
+
+  private static int buyStock20231109(Integer[] arr) {
+    int [][] dp = new int[arr.length][2];
+    dp[0][0] = 0;
+    dp[0][1] = -arr[0];
+    int i = 1;
+    for (; i < arr.length; i++) {
+      dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1]+arr[i]);
+      dp[i][1] = Math.max(dp[i-1][1], -arr[i]);
+    }
+    return dp[i-1][0];
   }
 
   private static int buyStock20230823(Integer[] arr) {

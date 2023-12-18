@@ -2,16 +2,18 @@ package org.jackdking.algorithm.bytedance;
 
 import org.jackdking.algorithm.basesort.Sort;
 
+import java.util.Arrays;
+
 public class BigDataMulti extends Sort {
     public static void main(String[] args) {
-        String input1 = "733064366";
-        String input2 = "459309139";
+        String input1 = "233064366";
+        String input2 = "359309139";
 
         String res = MultiTwoBigData(input1, input2);
         System.out.println("大数相乘结果：" + res);
 
         res = MultiTwoBigData20230710(input1, input2);
-        System.out.println("大数相乘结果：" + res);
+        System.out.println(String.format("大数相乘结果v1：%s", res));
 
     }
 
@@ -48,19 +50,31 @@ public class BigDataMulti extends Sort {
       if (up!=0){
         newValArray[0] = up;
       }
-      boolean isOk = true;
-      StringBuilder sb = new StringBuilder();
 
+      StringBuilder temp = new StringBuilder();
       for (int ch : newValArray) {
-        if (isOk&&ch==0) {
-          continue;
-        } else {
-          sb.append(ch);
-          isOk = false;
-        }
+        temp.append(ch);
       }
+      String result = null;
+      result = temp.toString();
+      if (temp.indexOf("0") == 0) {
+        result = temp.substring(1, temp.length());
+      }
+      return result;
 
-      return sb.toString();
+//      boolean isOk = true;
+//      StringBuilder sb = new StringBuilder();
+//
+//      for (int ch : newValArray) {
+//        if (isOk&&ch==0) {//首位数字是否为零，为零则不加入
+//          continue;
+//        } else {
+//          sb.append(ch);
+//          isOk = false;
+//        }
+//      }
+//
+//      return sb.toString();
   }
 
 

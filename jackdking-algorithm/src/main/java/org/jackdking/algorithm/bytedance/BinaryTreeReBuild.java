@@ -80,7 +80,6 @@ public class BinaryTreeReBuild extends Sort {
     System.out.println();
     midPrintTreeNode(tree);
 
-
     tree = rebuildBinaryTree20231107(pre, mid, 0, pre.length-1, 0, mid.length-1);
     System.out.println();
     System.out.println(tree.left.val);
@@ -88,6 +87,30 @@ public class BinaryTreeReBuild extends Sort {
     System.out.println();
     midPrintTreeNode(tree);
 
+    tree = rebuildBinaryTree20231107V1(pre, mid, 0, pre.length-1, 0, mid.length-1);
+    System.out.println();
+    System.out.println(tree.left.val);
+    prePrintTreeNode(tree);
+    System.out.println();
+    midPrintTreeNode(tree);
+
+  }
+
+  private static TreeNode rebuildBinaryTree20231107V1(int[] pre, int[] mid, int preS, int preE, int midS, int midE) {
+
+    if (preS > preE || midS > midE) {
+      return null;
+    }
+
+    int index = midS, length = 0;
+    while (pre[preS] != mid[index]) {
+      index ++;
+    }
+    length = index - midS;
+    TreeNode node = new TreeNode(pre[preS]);
+    node.left = rebuildBinaryTree20231107V1(pre, mid, preS+1, preS+length, midS, index -1);
+    node.right = rebuildBinaryTree20231107V1(pre, mid, preS+length+1, preE, index+1, midE);
+    return node;
   }
 
   private static TreeNode rebuildBinaryTree20231107(int[] pre, int[] mid, int preS, int preE, int midS, int midE) {

@@ -1,7 +1,10 @@
 package org.jackdking.algorithm.bytedance.newlast;
 
+import com.alibaba.fastjson2.JSON;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /*
 . 题目
@@ -20,8 +23,73 @@ nums 中的所有元素 互不相同
  */
 public class Subsets {
 
+  public static void main(String[] args) {
 
-    public List<List<Integer>> ret = new ArrayList<>();
+
+    List<List<Integer>> result = getSubSets(new int[]{2,3,4,5});
+    System.out.println("子集:" + JSON.toJSONString(result));
+
+
+    result = getSubSets20231120(new int[]{2,3,4,5});
+    System.out.println("子集:" + JSON.toJSONString(result));
+
+  }
+
+  private static List<List<Integer>> getSubSets20231120(int[] data) {
+    if (Objects.isNull(data) || data.length == 0) {
+      return new ArrayList<>();
+    }
+    List<List<Integer>> result = new ArrayList<>();
+    List<Integer> ele = new ArrayList<>();
+    result.add(ele);
+    for (int k = 1; k < data.length; k++) {
+      subsets20231120(result, ele, data, 0, k);
+    }
+    return result;
+  }
+
+  private static void subsets20231120(List<List<Integer>> result, List<Integer> ele, int[] data, int i, int k) {
+    if (i >= data.length) {
+      return;
+    }
+    if (k == 0) {
+      result.add(new ArrayList<>(ele));
+      return;
+    }
+
+    ele.add(data[i]);
+    subsets20231120(result, ele, data, i +1, k-1);
+    ele.remove(ele.size()-1);
+    subsets20231120(result, ele, data, i+1, k);
+
+  }
+
+  private static List<List<Integer>> getSubSets(int[] data) {
+    List<List<Integer>> resList = new ArrayList<>();
+    List<Integer> son = new ArrayList<>();
+    for (int i = 0; i < data.length; i++) {
+      subSets(resList, son, 0, i, data);//i集合长度
+    }
+    return resList;
+  }
+
+  private static void subSets(List<List<Integer>> resList, List<Integer> son, int start, int k, int[] data) {
+
+    if (start>=data.length){
+      return;
+    }
+    if (k == 0){
+      resList.add(new ArrayList<>(son));
+      return;
+    }
+    son.add(data[start]);
+    subSets(resList, son, start+1, k-1, data);
+    son.remove(son.size()-1);
+    subSets(resList, son, start+1, k, data);
+
+  }
+
+  public List<List<Integer>> ret = new ArrayList<>();
     public List<Integer> tempList = new ArrayList<>();
 
     public List<List<Integer>> subsets(int[] nums) {
