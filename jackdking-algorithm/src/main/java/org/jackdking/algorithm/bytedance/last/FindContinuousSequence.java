@@ -23,8 +23,29 @@ public class FindContinuousSequence extends Sort {
 
         result = getContinuousSequence(100);
         print(result);
+
+        result = getContinuousSequence01(100);
+        print(result);
         //总结： 连续数字从1开始，包含最小值元素的连续数字，就是最长连续数字。 后续
 
+    }
+
+    private static ArrayList<ArrayList<Integer>> getContinuousSequence01(int k) {
+
+        int l = 1, r = 2, sum = l + r;
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+
+        while (l < r && r < k){
+            if (sum < k) {
+                sum += ++r;
+            }else if (sum > k) {
+                sum -= l++;
+            }else {
+                result.add(formatList(l, r++));
+                sum += r;
+            }
+        }
+        return result;
     }
 
     private static ArrayList<ArrayList<Integer>> getContinuousSequence(int s) {

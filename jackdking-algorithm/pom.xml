@@ -28,19 +28,11 @@
           <version>15.0</version>
           <scope>compile</scope>
       </dependency>
-<<<<<<< HEAD
 
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>1.2.9</version>
     </dependency>
-=======
-      <dependency>
-        <groupId>com.alibaba.fastjson2</groupId>
-        <artifactId>fastjson2</artifactId>
-        <version>2.0.26</version>
-      </dependency>
->>>>>>> 525a0f8263bf29905d93a57c354cfebab667717c
   </dependencies>
 </project>

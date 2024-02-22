@@ -1,6 +1,7 @@
 package org.jackdking.algorithm.bytedance.last;
 
 import org.jackdking.algorithm.basesort.Sort;
+import org.jackdking.algorithm.treeorder.Tree;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -37,7 +38,31 @@ public class BreadthFirstSearch extends Sort {
         ArrayList<TreeNode> treeNodeList = getBfsTreeResult(head);
         printTreeNodeList("结果：", treeNodeList);
 
+        treeNodeList = getBfsTreeResult01(head);
+        printTreeNodeList("结果：", treeNodeList);
 
+
+    }
+
+    private static ArrayList<TreeNode> getBfsTreeResult01(TreeNode head) {
+
+        ArrayList<TreeNode> result = new ArrayList<>();
+        if (head == null) {
+            return result;
+        }
+        ArrayDeque<TreeNode> queue = new ArrayDeque();
+        queue.offer(head);
+        while (!queue.isEmpty()) {
+            TreeNode temp = queue.poll();
+            if (temp.left != null) {
+                queue.offer(temp.left);
+            }
+            if (temp.right != null) {
+                queue.offer(temp.right);
+            }
+        }
+
+        return result;
     }
 
     private static ArrayList<TreeNode> getBfsTreeResult(TreeNode head) {
