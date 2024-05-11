@@ -4,11 +4,26 @@ import junit.framework.TestCase;
 import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.jackdking.common.utils.CodeFlowUtils;
 
+import java.util.Optional;
+
+/**
+ * Copyright (C) ����Ͱ�
+ *
+ * @ClassName CodeFlowUtilsTest
+ * @Description TODO
+ * @Author jackdking
+ * @Date 10/04/2022 12:43 ����
+ * @Version 2.0
+ **/
 public class CodeFlowUtilsTest extends TestCase {
 
 
     public void testCodeFlowUtilsAcceptIf() {
-        CodeFlowUtils.acceptIf(false, o -> o==Boolean.TRUE, o -> System.out.println("right result"));
+        CodeFlowUtils.acceptIf(true, o -> o==Boolean.TRUE, o -> System.out.println("right result"));
+
+        Optional.ofNullable(true)
+                .filter(o -> o==Boolean.TRUE)
+                .ifPresent(o -> System.out.println("right result"));
     }
 
     public void testCodeFlowUtilsAcceptIfElse() {

@@ -26,16 +26,16 @@ public class CodeFlowUtils {
         }
     }
 
-    public static <T> void acceptIfElse(T value, Predicate<T> predicate, Consumer<T> trueConsumer, Consumer<T> falseConsumer) {
-        if (predicate.test(value)) {
+    public static <T> void acceptIfElse(T value, Predicate<T> condition, Consumer<T> trueConsumer, Consumer<T> falseConsumer) {
+        if (condition.test(value)) {
             trueConsumer.accept(value);
         } else {
             falseConsumer.accept(value);
         }
     }
 
-    public static <T, R> R acceptIfElse(T value, Predicate<T> predicate, Function<T, R> trueFunction, Function<T, R> falseFunction) {
-        if (predicate.test(value)) {
+    public static <T, R> R acceptIfElse(T value, Predicate<T> condition, Function<T, R> trueFunction, Function<T, R> falseFunction) {
+        if (condition.test(value)) {
             return trueFunction.apply(value);
         } else {
             return falseFunction.apply(value);

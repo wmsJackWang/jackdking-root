@@ -1,9 +1,58 @@
 package org.jackdking.common.utils;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.function.Predicate;
 
 
-public class StreamCodeUtils {
+public class StreamCodeUtils<T> {
+
+    private StreamCodeBuilder streamCodeBuilder;
+
+    static class StreamCodeBuilder<T>{
+        T value;
+        Runnable positiveHandler;
+        Runnable negativeHandler;
+
+//        Runnable defaultHandler = o -> o;
+
+        public StreamCodeBuilder(T value) {
+            this.value = value;
+        }
+
+        public Boolean result() {return Boolean.valueOf(String.valueOf(value));};
+
+        public void handle() {
+
+            if (result()){
+                positiveHandler.run();
+            } else {
+                negativeHandler.run();
+            }
+        }
+    }
+
+    public StreamCodeUtils (T vlaue){
+        streamCodeBuilder = new StreamCodeBuilder(vlaue);
+    }
+
+    public static StreamCodeUtils of(Boolean value) {
+        return new StreamCodeUtils(value);
+}
+
+    public StreamCodeUtils positiveHandler(Runnable positiveHandler) {
+        this.streamCodeBuilder.positiveHandler = positiveHandler;
+        return this;
+    }
+
+    public StreamCodeUtils negativeHandler(Runnable negativeHandler) {
+        this.streamCodeBuilder.negativeHandler = negativeHandler;
+        return this;
+    }
+
+    public void handle() {
+        this.streamCodeBuilder.handle();
+    }
 
 
     /**
@@ -12,7 +61,7 @@ public class StreamCodeUtils {
      * @param condition
      * @return org.jackdking.common.utils.BranchHandle
      **/
-    public static BranchHandle isTureOrFalse (boolean condition){
+    public static BranchHandler isTureOrFalse (boolean condition){
 
         return (trueHandle, falseHandle) -> {
             if (condition){
@@ -30,7 +79,7 @@ public class StreamCodeUtils {
      * @param predicate
      * @return org.jackdking.common.utils.BranchHandle
      */
-    public static <T> BranchHandle isTureOrFalse (T value, Predicate predicate){
+    public static <T> BranchHandler isTureOrFalse (T value, Predicate predicate){
 
         return (trueHandle, falseHandle) -> {
             if (predicate.test(value)){
@@ -53,7 +102,7 @@ public class StreamCodeUtils {
     }
 
 
-    public static <T> BranchHandleWithParam isTureOrFalseWithParameter (T value, Predicate predicate, Object... parameters){
+    public static <T> BranchHandleWithParam isTureOrFalseWithParameter (T value, Predicate predicate, T... parameters){
 
         return (trueHandle, falseHandle) -> {
             if (predicate.test(value)){
@@ -100,7 +149,7 @@ public class StreamCodeUtils {
      * @param str
      * @return org.jackdking.common.utils.BranchHandle
      **/
-    public static PresentOrElseHandler<?> isBlankOrNoBlank(String str){
+    public static PresentOrElseHandler isBlankOrNoBlank(String str){
 
         return (consumer, runnable) -> {
             if (str == null || str.length() == 0){
@@ -111,7 +160,7 @@ public class StreamCodeUtils {
         };
     }
 
-    public static PresentOrElseHandlerWithParam<?> isBlankOrNoBlankWithParam(String str, Object... params){
+    public static <T> PresentOrElseHandlerWithParam isBlankOrNoBlankWithParam(String str, T... params){
 
         return (consumer, runnable) -> {
             if (str == null || str.length() == 0){
