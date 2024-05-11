@@ -35,7 +35,6 @@ import jackdking.multids.properties.MultiJdbcProperties.DsConfig;
 // 将 application.properties 的相关的属性字段与该类一一对应，并生成 Bean
 @EnableConfigurationProperties(MultiJdbcProperties.class)
 public class MultiDsAutoConfiguration {
-    
 
     private static final Logger logger = LoggerFactory.getLogger(MultiDsAutoConfiguration.class);
 
@@ -48,19 +47,18 @@ public class MultiDsAutoConfiguration {
 //    @ConditionalOnMissingBean(PrintService.class)
     @Primary
     public DataSource dynamicDataSource(){
-    	
+
     	System.out.println("multiJdbcProperties:"+multiJdbcProperties.toString());
-    	
+
     	List<DsConfig> dsConfigs = multiJdbcProperties.getDsConfigs();
-    	
+
     	if(null==dsConfigs||dsConfigs.size()<=0)
     		throw new RuntimeException("多数据源未配置，请按照刚放文档配置数据源");
-    	
+
     	DataSource ds = null;
-        Map<Object,Object> dataSourceMap = new HashMap<Object, Object>();
+    	Map<Object,Object> dataSourceMap = new HashMap<Object, Object>();
     	JDKingDynamicDataSource dynamicDataSource = new JDKingDynamicDataSource();
     	for(DsConfig dsConfig : dsConfigs){
-    		
     		ds = DataSourceBuilder.create()
     				.driverClassName(dsConfig.getDriverClassName())
     				.url(dsConfig.getJdbcUrl())
@@ -69,14 +67,13 @@ public class MultiDsAutoConfiguration {
     				.build();
     		dataSourceMap.put(dsConfig.getDsName(),ds);
     		if(dsConfig.getDsName().equals(multiJdbcProperties.getDefaultDs()))
-    	        dynamicDataSource.setDefaultTargetDataSource(ds);
-    		
+    		  dynamicDataSource.setDefaultTargetDataSource(ds);
     	}
-        dynamicDataSource.setTargetDataSources(dataSourceMap);
-        return dynamicDataSource;
+      dynamicDataSource.setTargetDataSources(dataSourceMap);
+      return dynamicDataSource;
     }
 
-	
+
 
     @Around("@annotation(dbType)")
     public Object changeDataSourceType(ProceedingJoinPoint joinPoint, DBType dbType) throws Throwable {
@@ -97,13 +94,13 @@ public class MultiDsAutoConfiguration {
         //动态修改其参数
         //注意，如果调用joinPoint.proceed()方法，则修改的参数值不会生效，必须调用joinPoint.proceed(Object[] args)
         Object result = joinPoint.proceed(args);
-        
+
         logger.info("remove datasource {} -> {}",dbType.value(),joinPoint.getSignature());
         DynamicDataSourceHolder.clearType();
         //如果这里不返回result，则目标对象实际返回值会被置为null
         return result;
     }
 
-    
-    
+
+
 }

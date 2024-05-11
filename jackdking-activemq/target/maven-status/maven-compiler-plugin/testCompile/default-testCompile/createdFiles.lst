@@ -1,8 +1,8 @@
-org\jackdking\activemq\personproducter\PersonalTopicTest.class
-org\jackdking\activemq\normalproducter\NormalMessageTest$1.class
-org\jackdking\activemq\personproducter\PersonalTransactionQueueTest$1.class
-org\jackdking\activemq\personproducter\PersonalQueueTest$1.class
-org\jackdking\activemq\personproducter\PersonalQueueTest.class
-org\jackdking\activemq\normalproducter\NormalMessageTest$2.class
-org\jackdking\activemq\personproducter\PersonalTransactionQueueTest.class
-org\jackdking\activemq\normalproducter\NormalMessageTest.class
+org/jackdking/activemq/personproducter/PersonalTransactionQueueTest$1.class
+org/jackdking/activemq/personproducter/PersonalTopicTest.class
+org/jackdking/activemq/normalproducter/NormalMessageTest$1.class
+org/jackdking/activemq/personproducter/PersonalTransactionQueueTest.class
+org/jackdking/activemq/personproducter/PersonalQueueTest.class
+org/jackdking/activemq/normalproducter/NormalMessageTest$2.class
+org/jackdking/activemq/personproducter/PersonalQueueTest$1.class
+org/jackdking/activemq/normalproducter/NormalMessageTest.class

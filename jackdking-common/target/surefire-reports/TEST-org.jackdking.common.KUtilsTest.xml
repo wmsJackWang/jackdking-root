@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="org.jackdking.common.KUtilsTest" time="0.068" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="org.jackdking.common.KUtilsTest" time="0.061" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -7,7 +7,7 @@
     <property name="java.vm.version" value="25.291-b10"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/jackdking/github/jackdking-root/jackdking-common"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/jackdking/github/jackdking/jackdking-root"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -17,12 +17,12 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/jackdking/github/jackdking-root/jackdking-common"/>
+    <property name="user.dir" value="/Users/jackdking/github/jackdking/jackdking-root"/>
     <property name="java.runtime.version" value="1.8.0_291-b10"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home/jre/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="java.io.tmpdir" value="/var/folders/jm/20sffm9n01b8wgjxj9ytrg3c0000gp/T/"/>
+    <property name="java.io.tmpdir" value="/var/folders/ry/sxt90wkx3nvbm54yxtrcmlbh0000gp/T/"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
@@ -40,13 +40,13 @@
     <property name="user.timezone" value="Asia/Shanghai"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
-    <property name="file.encoding" value="GBK"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="jackdking"/>
     <property name="java.class.path" value="/Users/jackdking/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/212.4746.92/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/boot/plexus-classworlds.license:/Users/jackdking/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/212.4746.92/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/boot/plexus-classworlds-2.6.0.jar:/Users/jackdking/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/212.4746.92/IntelliJ IDEA.app/Contents/lib/idea_rt.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2 -s /usr/local/ApachMaven/conf/settings.xml install"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.2 deploy"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="zh"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -62,10 +62,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="org.jackdking.common.KUtilsTest" name="testThrowError" time="0.055"/>
+  <testcase classname="org.jackdking.common.KUtilsTest" name="testPresentOrElseHandlerWithParam" time="0.049"/>
   <testcase classname="org.jackdking.common.KUtilsTest" name="testIfElse" time="0.004"/>
+  <testcase classname="org.jackdking.common.KUtilsTest" name="testThrowError" time="0.001"/>
   <testcase classname="org.jackdking.common.KUtilsTest" name="testIfElseWithParameter" time="0.004"/>
-  <testcase classname="org.jackdking.common.KUtilsTest" name="testPresentOrElseHandler" time="0.003"/>
-  <testcase classname="org.jackdking.common.KUtilsTest" name="testPresentOrElseHandlerWithParam" time="0.002"/>
-  <testcase classname="org.jackdking.common.KUtilsTest" name="testIsTrueOrElseHandler" time="0"/>
+  <testcase classname="org.jackdking.common.KUtilsTest" name="testPresentOrElseHandler" time="0.002"/>
+  <testcase classname="org.jackdking.common.KUtilsTest" name="testIsTrueOrElseHandler" time="0.001"/>
 </testsuite>

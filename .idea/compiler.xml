@@ -41,6 +41,7 @@
         <module name="jackdking-ace" />
         <module name="jackdking-login-security-simulator" />
         <module name="jackdking-multids-spring-boot-starter" />
+        <module name="jackdking-print-starter-test" />
         <module name="jackdking-aviator" />
         <module name="jackdking-cluster-failover" />
         <module name="demo" />
@@ -69,6 +70,7 @@
       <module name="jackdking-dache" options="-parameters" />
       <module name="jackdking-datasource" options="-parameters" />
       <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
+      <module name="jackdking-print-starter-test" options="-parameters" />
       <module name="jackdking-springsecurity-five" options="-parameters" />
       <module name="jackdking-springsecurity-four" options="-parameters" />
       <module name="jackdking-springsecurity-one" options="-parameters" />

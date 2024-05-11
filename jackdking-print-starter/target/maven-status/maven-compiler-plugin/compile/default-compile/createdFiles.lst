@@ -1,1 +1,6 @@
-META-INF\spring-configuration-metadata.json
+META-INF/spring-configuration-metadata.json
+org/jackdking/print/starter/properties/PrintProperties.class
+org/jackdking/print/starter/properties/PrintProperties$ServiceConfig.class
+org/jackdking/print/starter/config/PrintAutoConfiguration.class
+org/jackdking/print/starter/service/PrintService.class
+org/jackdking/print/starter/ApplicationStarter.class

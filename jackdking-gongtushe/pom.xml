@@ -17,6 +17,8 @@
         <module>jackdking-threadpool-monitor</module>
         <module>jackdking-validator-hebinate</module>
         <module>jackdking-cluster-failover</module>
+        <module>jackdking-proxyfactory</module>
+        <module>jackdking-jsonpathfinder</module>
     </modules>
 
     <properties>

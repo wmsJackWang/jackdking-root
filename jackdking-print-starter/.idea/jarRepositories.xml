@@ -17,6 +17,11 @@
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="http://mvnrepo.alibaba-inc.com/mvn/repository" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="gitee" />
       <option name="name" value="gitee" />
       <option name="url" value="https://gitee.com/wmsking1234/maven/raw/master/repository" />

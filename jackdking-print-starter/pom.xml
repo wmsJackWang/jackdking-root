@@ -57,15 +57,16 @@
     <!--       </plugins> -->
     <!--     </build> -->
 
-
-
-
     <distributionManagement>
 
-        <repository>
-            <id>gitee-maven</id>
-            <url>file:D:/giteeRepostory/maven/repository/</url>
-        </repository>
+<!--        <repository>-->
+<!--            <id>gitee-maven</id>-->
+<!--            <url>file:D:/giteeRepostory/maven/repository/</url>-->
+<!--        </repository>-->
+      <repository>
+        <id>gitee-maven</id>
+        <url>file:/usr/local/ApachMaven/repository/</url>
+      </repository>
     </distributionManagement>
 
     <!-- 开发者信息 -->

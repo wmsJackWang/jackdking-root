@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jackdking-cluster-failover" />
+        <module name="jackdking-validator-hebinate" />
+        <module name="jackdking-report-platform" />
+        <module name="jackdking-jsonpathfinder" />
+        <module name="jackdking-threadpool-monitor" />
+        <module name="jackdking-proxyfactory" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jackdking.root</groupId>
+  <artifactId>jackdking-common</artifactId>
+  <version>1.0.1</version>
+  <name>jackdking-common</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.javaparser</groupId>
+      <artifactId>javaparser-symbol-solver-core</artifactId>
+      <version>3.15.21</version>
+    </dependency>
+
+    <dependency>
+      <groupId>de.defmacro</groupId>
+      <artifactId>eclipse-astparser</artifactId>
+      <version>8.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun</groupId>
+      <artifactId>tools</artifactId>
+      <version>1.8</version>
+      <scope>system</scope>
+      <systemPath>${java.home}/../lib/tools.jar</systemPath>
+    </dependency>
+  </dependencies>
+
+
+  <distributionManagement>
+
+    <repository>
+      <id>gitee-maven</id>
+      <url>file:D:/giteeRepostory/maven/repository/</url>
+    </repository>
+  </distributionManagement>
+
+
+  <build>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>META-INF/**/*</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <!--
+              指定Java compiler编译时，使用的source与target版本。
+              注: 不同的source、target版本,编译后产生的Class版本号可能不同
+           -->
+          <source>1.8</source>
+          <target>1.8</target>
+          <!-- 解决告警：编码GBK的不可映射字符-->
+          <encoding>UTF-8</encoding>
+          <compilerArgument>-proc:none</compilerArgument>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>process-META</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>target/classes</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}/src/main/resources/</directory>
+                  <includes>
+                    <include>**/*</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
