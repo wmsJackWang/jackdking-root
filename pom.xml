@@ -56,15 +56,16 @@
     <module>jackdking-spring</module>
     <module>jackdking-EasyRules</module>
     <module>jackdking-grovvy-easyrules-aviator-rules-praser</module>
-      <module>jackdking-gongtushe</module>
-      <module>jackdking-gossip</module>
-      <module>jackdking-alipay-sdk-learning</module>
-      <module>jackdking-load-configfile-properties</module>
-      <module>jackdking-cluster-quartz</module>
-      <module>jackdking-disruptor</module>
-      <module>jackdking-limiter</module>
+    <module>jackdking-gongtushe</module>
+    <module>jackdking-gossip</module>
+    <module>jackdking-alipay-sdk-learning</module>
+    <module>jackdking-load-configfile-properties</module>
+    <module>jackdking-cluster-quartz</module>
+    <module>jackdking-disruptor</module>
+    <module>jackdking-limiter</module>
     <module>jackdking-groovy-dsl</module>
-      <module>jackdking-print-starter-test</module>
+    <module>jackdking-print-starter-test</module>
+    <module>jackdking-dynamics-threadpool-starter</module>
   </modules>
 
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

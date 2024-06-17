@@ -39,6 +39,11 @@
     <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
+      <option name="url" value="http://nexus.bailongma-inc.com:8081/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
       <option name="url" value="http://mvnrepo.alibaba-inc.com/mvn/repository" />
     </remote-repository>
   </component>

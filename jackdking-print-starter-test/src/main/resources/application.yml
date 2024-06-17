@@ -1,2 +1,4 @@
 report:
   enable: true
+server:
+  port: 9000
