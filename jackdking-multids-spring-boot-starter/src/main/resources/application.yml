@@ -1,8 +1,3 @@
-print:
-  serviceConfigs:
-    - serviceName: jackdking
-    - serviceName: hello
-    - serviceName: world
 multi:
   ds:
     defaultDs: ds1
@@ -17,8 +12,7 @@ multi:
         jdbcUrl: jdbc:mysql://ip:port/myutilproject1?characterEncoding=GBK&useSSL=false
         username: root
         password: wanyang@wms
-      
 
-redisSwitch:
-  enabled: true
-  simpleRedisTemplate: true
+logging:
+  level:
+    root: debug

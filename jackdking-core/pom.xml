@@ -2,18 +2,30 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.jackdking.root</groupId>
-    <artifactId>jackdking-root</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent> 
+  <groupId>com.jackdking</groupId>
+  <packaging>pom</packaging>
+  <version>0.0.1-SNAPSHOT</version>
   <artifactId>jackdking-core</artifactId>
   <name>jackdking-core</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-	  <dependencies>
+
+	<!-- 子模块选择继承或者不继承 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.3.2.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
 	    <dependency>
 	      <groupId>junit</groupId>
 	      <artifactId>junit</artifactId>
@@ -25,6 +37,10 @@
 		    <artifactId>spring-data-redis</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -54,5 +70,37 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 		</dependency>
-	  </dependencies>
+	</dependencies>
+
+
+	<distributionManagement>
+
+		<repository>
+			<id>gitee-maven</id>
+			<url>file:D:/giteeRepostory/maven/repository/</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<!--            在parent标签后面就跟了java版本信息         <java.version>1.8</java.version> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<skipTests>true</skipTests>    <!--默认关掉单元测试 -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

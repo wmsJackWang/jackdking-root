@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.jackdking</groupId>
+    <artifactId>jackdking-dynamics-threadpool</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>dtp-examples</artifactId>
+  <name>Archetype - dtp-examples</name>
+  <url>http://maven.apache.org</url>
+  <packaging>pom</packaging>
+  <modules>
+    <module>dtp-example-core</module>
+    <module>dtp-spring-boot-starter-example</module>
+  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>com.jackdking</groupId>
+      <artifactId>dtp-sprng-boot-starter</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+</project>

@@ -37,8 +37,4 @@ public class DynamicDataSourceHolder {
     public static boolean containsType(DataSourceType dataSourceType){
         return dataSourceTypes.contains(dataSourceType);
     }
-    
-    public static void main(String[] args) {
-		System.out.println(DataSourceType.MASTER.toString());
-	}
 }

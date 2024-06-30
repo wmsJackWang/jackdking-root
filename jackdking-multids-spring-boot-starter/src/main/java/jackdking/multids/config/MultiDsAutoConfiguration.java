@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -26,17 +27,13 @@ import jackdking.multids.dynamicdatasource.JDKingDynamicDataSource;
 import jackdking.multids.properties.MultiJdbcProperties;
 import jackdking.multids.properties.MultiJdbcProperties.DsConfig;
 
-
-
+@Slf4j
 @Aspect
 @EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
 @Configuration
-//@ConditionalOnClass({PrintService.class})
 // 将 application.properties 的相关的属性字段与该类一一对应，并生成 Bean
 @EnableConfigurationProperties(MultiJdbcProperties.class)
 public class MultiDsAutoConfiguration {
-
-    private static final Logger logger = LoggerFactory.getLogger(MultiDsAutoConfiguration.class);
 
 	  // 注入属性类
     @Autowired
@@ -73,8 +70,6 @@ public class MultiDsAutoConfiguration {
       return dynamicDataSource;
     }
 
-
-
     @Around("@annotation(dbType)")
     public Object changeDataSourceType(ProceedingJoinPoint joinPoint, DBType dbType) throws Throwable {
 
@@ -83,19 +78,19 @@ public class MultiDsAutoConfiguration {
 
         String curType = dbType.value();
         if(!JDKingDynamicDataSource.isReady()) {
-            logger.info("多数据源组件没有配置数据源，使用默认数据源-> {}",dbType.value(),joinPoint.getSignature());
+            log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}",dbType.value(), joinPoint.getSignature());
         }
         else if(!JDKingDynamicDataSource.contains(curType)){
-            logger.info("指定数据源[{}]不存在，使用默认数据源-> {}",dbType.value(),joinPoint.getSignature());
+            log.info("指定数据源[{}]不存在，使用默认数据源-> {}",dbType.value(),joinPoint.getSignature());
         }else{
-            logger.info("use datasource {} -> {}",dbType.value(),joinPoint.getSignature());
+            log.info("use datasource {} -> {}",dbType.value(),joinPoint.getSignature());
             DynamicDataSourceHolder.setType(dbType.value());
         }
         //动态修改其参数
         //注意，如果调用joinPoint.proceed()方法，则修改的参数值不会生效，必须调用joinPoint.proceed(Object[] args)
         Object result = joinPoint.proceed(args);
 
-        logger.info("remove datasource {} -> {}",dbType.value(),joinPoint.getSignature());
+        log.info("remove datasource {} -> {}",dbType.value(),joinPoint.getSignature());
         DynamicDataSourceHolder.clearType();
         //如果这里不返回result，则目标对象实际返回值会被置为null
         return result;

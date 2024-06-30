@@ -8,9 +8,9 @@
 	<version>2.1.1.RELEASE</version>
     <relativePath/>
   </parent>
-  <groupId>com.jackdking.root</groupId>
+  <groupId>com.jackdking</groupId>
   <artifactId>jackdking-multids-spring-boot-starter</artifactId>
-  <version>2.1.1.RELEASE</version>
+  <version>1.0.0</version>
   <name>jackdking-multids-spring-boot-starter</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -74,9 +74,6 @@
 <!--       </plugins> -->
 <!--     </build> -->
 
-
-
-
     <distributionManagement>
 
         <repository>
@@ -93,7 +90,6 @@
 	        <roles>
 	           <role>Lead Developer</role>
 	        </roles>
-<!--             <timezone>+8</timezone> -->
         </developer>
     </developers>
 

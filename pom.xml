@@ -65,7 +65,6 @@
     <module>jackdking-limiter</module>
     <module>jackdking-groovy-dsl</module>
     <module>jackdking-print-starter-test</module>
-    <module>jackdking-dynamics-threadpool-starter</module>
   </modules>
 
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->
@@ -90,7 +89,8 @@
 	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	    <skipTests>true</skipTests>
         <groovy.version>2.5.7</groovy.version>
-	</properties>
+        <spring-boot.version>2.1.1.RELEASE</spring-boot.version>
+    </properties>
 
 	<dependencies>
 		<dependency>
@@ -139,6 +139,12 @@
 	            <type>pom</type>
 	            <scope>import</scope>
 	        </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+            </dependency>
 
 			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>

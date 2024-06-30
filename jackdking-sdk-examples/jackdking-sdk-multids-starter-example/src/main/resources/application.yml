@@ -1,0 +1,24 @@
+multi:
+  ds:
+    defaultDs: ds0
+    dsConfigs:
+      - dsName: ds0
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject0?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+      - dsName: ds1
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject1?characterEncoding=GBK&useSSL=false
+        username: root
+        password: wanyang@wms
+
+logging:
+  level:
+    root: info
+
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.jackdking.model

@@ -10,13 +10,11 @@
         <module name="jackdking-springsecurity-five" />
         <module name="jackdking-algorithm" />
         <module name="jackdking-grovvy-easyrules-aviator-rules-praser" />
-        <module name="jackdking-dynamics-threadpool-starter" />
         <module name="jackdking-starter-test" />
         <module name="jackdking-code-gen" />
         <module name="jackdking-activemq" />
         <module name="jackdking-properties-yml" />
         <module name="jackdking-report-platform" />
-        <module name="jackdking-core" />
         <module name="jackdking-threadpool-monitor" />
         <module name="jackdking-controller_samples" />
         <module name="jackdking-retry" />
@@ -53,6 +51,7 @@
         <module name="jackdking-javamail" />
         <module name="jackdking-limiter" />
         <module name="jackdking-springsecurity-three" />
+        <module name="jackdking-sdk-multids-starter-example" />
         <module name="jackdking-groovy-dsl" />
         <module name="jackdking-springsecurity-two" />
         <module name="jackdking-gossip" />
@@ -67,6 +66,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="jackdking-CompletableFuture" target="22" />
+      <module name="jackdking-dynamics-threadpool-starter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -74,6 +74,7 @@
       <module name="demo" options="-parameters" />
       <module name="jackdking-CompletableFuture" options="-parameters" />
       <module name="jackdking-common" options="-proc:none" />
+      <module name="jackdking-core" options="-parameters" />
       <module name="jackdking-dache" options="-parameters" />
       <module name="jackdking-datasource" options="-parameters" />
       <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
