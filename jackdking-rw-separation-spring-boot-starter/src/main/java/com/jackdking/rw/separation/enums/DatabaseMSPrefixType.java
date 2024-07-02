@@ -3,11 +3,11 @@ package com.jackdking.rw.separation.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
-public enum DatabaseMSType {
-  MASTER("master"), SLAVER("slaver")
+public enum DatabaseMSPrefixType {
+  MASTER("master"), SLAVER("slave")
   ;
 
-  @Getter
   private String prefix;
 }

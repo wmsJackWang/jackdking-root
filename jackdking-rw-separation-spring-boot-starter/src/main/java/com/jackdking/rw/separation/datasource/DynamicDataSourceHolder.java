@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.dynamicdatasource;
+package com.jackdking.rw.separation.datasource;
 
 /**
  * @author mingshengwang

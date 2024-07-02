@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.dynamicdatasource;
+package com.jackdking.rw.separation.datasource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
