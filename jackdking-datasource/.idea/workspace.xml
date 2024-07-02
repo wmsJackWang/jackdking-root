@@ -5,7 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3097193d-5653-4fae-9a85-8919f0e909d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../jackdking-multids-spring-boot-starter/src/main/java/jackdking/multids/annotation/EnableMultiDS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/JackDKingDataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/annotation/EnableRWSeparationDS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/annotation/RWSeparationDBType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/config/MasterWithManySlaverWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/config/RWSeparationDSAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/dynamicdatasource/DynamicDataSourceHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/dynamicdatasource/JDKingDynamicDataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/dynamicdatasource/RWSeparationDSContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/enums/DatabaseMSType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/java/com/jackdking/rw/separation/properties/RWSeparationDsProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jackdking-rw-separation-spring-boot-starter/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/basesort/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/basesort/Sort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/last/BreadthFirstSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/last/BreadthFirstSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/last/FindContinuousSequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-algorithm/src/main/java/org/jackdking/algorithm/bytedance/last/FindContinuousSequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-aop-log/src/main/java/org/jackdking/aop/log/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-aop-log/src/main/java/org/jackdking/aop/log/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-aop-log/src/main/java/org/jackdking/aop/log/aop/OperationLogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-aop-log/src/main/java/org/jackdking/aop/log/aop/OperationLogAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-multids-spring-boot-starter/src/main/java/jackdking/multids/JackDKingDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-multids-spring-boot-starter/src/main/java/jackdking/multids/JackDKingDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-multids-spring-boot-starter/src/main/java/jackdking/multids/config/MultiDsAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-multids-spring-boot-starter/src/main/java/jackdking/multids/config/MultiDsAutoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-multids-spring-boot-starter/src/main/java/jackdking/multids/dynamicdatasource/JDKingDynamicDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-multids-spring-boot-starter/src/main/java/jackdking/multids/dynamicdatasource/JDKingDynamicDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/java/com/jackdking/MultiDsStarterExampleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/java/com/jackdking/MultiDsStarterExampleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/java/com/jackdking/dao/TransInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/java/com/jackdking/dao/TransInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/java/com/jackdking/service/TransInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/java/com/jackdking/service/TransInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/resources/mapper/TransInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/main/resources/mapper/TransInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/test/java/com/jackdking/service/TransInfoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jackdking-sdk-examples/jackdking-sdk-multids-starter-example/src/test/java/com/jackdking/service/TransInfoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +47,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -28,21 +64,15 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/github/jackdking-root/jackdking-sdk-examples&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "Merging master"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3097193d-5653-4fae-9a85-8919f0e909d6" name="Changes" comment="" />
@@ -54,6 +84,8 @@
       <workItem from="1719752461543" duration="7514000" />
       <workItem from="1719849475919" duration="597000" />
       <workItem from="1719912406182" duration="41000" />
+      <workItem from="1719824255408" duration="996000" />
+      <workItem from="1719825867117" duration="821000" />
     </task>
     <servers />
   </component>
@@ -70,5 +102,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
   </component>
 </project>

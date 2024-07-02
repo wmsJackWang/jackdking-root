@@ -16,6 +16,7 @@
         <module name="jackdking-properties-yml" />
         <module name="jackdking-report-platform" />
         <module name="jackdking-threadpool-monitor" />
+        <module name="jackdking-rw-separation-spring-boot-starter" />
         <module name="jackdking-controller_samples" />
         <module name="jackdking-retry" />
         <module name="jackdking-load-configfile-properties" />
@@ -57,6 +58,7 @@
         <module name="jackdking-gossip" />
         <module name="jackdking-commons-lang" />
         <module name="jackdking-proxyfactory" />
+        <module name="jackdking-aop-log" />
         <module name="jackdking-delay-domainv1-client-starter" />
         <module name="jackdking-redistemplate" />
         <module name="jackdking-muti-datasource" />
@@ -73,8 +75,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="demo" options="-parameters" />
       <module name="jackdking-CompletableFuture" options="-parameters" />
+      <module name="jackdking-aop-log" options="-parameters" />
       <module name="jackdking-common" options="-proc:none" />
-      <module name="jackdking-core" options="-parameters" />
+      <module name="jackdking-core" options="" />
       <module name="jackdking-dache" options="-parameters" />
       <module name="jackdking-datasource" options="-parameters" />
       <module name="jackdking-multids-spring-boot-starter" options="-parameters" />

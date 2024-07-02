@@ -1,45 +1,43 @@
-package jackdking.multids.config;
+package com.jackdking.rw.separation.config;
 
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.sql.DataSource;
-
+import com.jackdking.rw.separation.annotation.RWSeparationDBType;
+import com.jackdking.rw.separation.dynamicdatasource.DynamicDataSourceHolder;
+import com.jackdking.rw.separation.dynamicdatasource.JDKingDynamicDataSource;
+import com.jackdking.rw.separation.enums.DatabaseMSType;
+import com.jackdking.rw.separation.properties.RWSeparationDsProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
-import jackdking.multids.annotation.DBType;
-import jackdking.multids.dynamicdatasource.DynamicDataSourceHolder;
-import jackdking.multids.dynamicdatasource.JDKingDynamicDataSource;
-import jackdking.multids.properties.MultiJdbcProperties;
-import jackdking.multids.properties.MultiJdbcProperties.DsConfig;
+import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Aspect
 @EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
 @Configuration
 // 将 application.properties 的相关的属性字段与该类一一对应，并生成 Bean
-@EnableConfigurationProperties(MultiJdbcProperties.class)
-public class MultiDsAutoConfiguration {
+@EnableConfigurationProperties(RWSeparationDsProperties.class)
+public class RWSeparationDSAutoConfiguration {
 
 	  // 注入属性类
     @Autowired
-    private MultiJdbcProperties multiJdbcProperties;
+    private RWSeparationDsProperties rwSeparationDsProperties;
+
+//    private Map<String, >
 
     @Bean
     // 当容器没有这个 Bean 的时候才创建这个 Bean
@@ -47,33 +45,54 @@ public class MultiDsAutoConfiguration {
     @Primary
     public DataSource dynamicDataSource(){
 
-    	System.out.println("multiJdbcProperties:"+multiJdbcProperties.toString());
+    	System.out.println("multiJdbcProperties:"+ rwSeparationDsProperties.toString());
 
-    	List<DsConfig> dsConfigs = multiJdbcProperties.getDsConfigs();
+    	List<RWSeparationDsProperties.DsConfig> masterDsConfigs = rwSeparationDsProperties.getMasterDsConfigs();
+      List<RWSeparationDsProperties.DsConfig> slaverDsConfigs = rwSeparationDsProperties.getSlaverDsConfigs();
 
-    	if(null==dsConfigs||dsConfigs.size()<=0)
-    		throw new RuntimeException("多数据源未配置，请按照刚放文档配置数据源");
+    	if (null==masterDsConfigs || masterDsConfigs.size()<=0 || isBlank(rwSeparationDsProperties.getDefaultDs())) {
+        throw new RuntimeException("数据源写库或默认库未配置，请正确配置数据源");
+      }
 
     	DataSource ds = null;
     	Map<Object,Object> dataSourceMap = new HashMap<Object, Object>();
     	JDKingDynamicDataSource dynamicDataSource = new JDKingDynamicDataSource();
-    	for(DsConfig dsConfig : dsConfigs){
+    	for(RWSeparationDsProperties.DsConfig dsConfig : masterDsConfigs){
     		ds = DataSourceBuilder.create()
     				.driverClassName(dsConfig.getDriverClassName())
     				.url(dsConfig.getJdbcUrl())
     				.username(dsConfig.getUsername())
     				.password(dsConfig.getPassword())
     				.build();
-    		dataSourceMap.put(dsConfig.getDsName(),ds);
-    		if(dsConfig.getDsName().equals(multiJdbcProperties.getDefaultDs()))
-    		  dynamicDataSource.setDefaultTargetDataSource(ds);
+    		String dataSourceKey = String.format("%s:%s", DatabaseMSType.MASTER.getPrefix(), dsConfig.getDsName());
+    		dataSourceMap.put(dataSourceKey, ds);
+    		if(dsConfig.getDsName().equals(rwSeparationDsProperties.getDefaultDs())) {
+          dynamicDataSource.setDefaultTargetDataSource(ds);
+        }
     	}
+
+    	if (!CollectionUtils.isEmpty(slaverDsConfigs)) {
+        for(RWSeparationDsProperties.DsConfig dsConfig : slaverDsConfigs){
+          ds = DataSourceBuilder.create()
+            .driverClassName(dsConfig.getDriverClassName())
+            .url(dsConfig.getJdbcUrl())
+            .username(dsConfig.getUsername())
+            .password(dsConfig.getPassword())
+            .build();
+          String dataSourceKey = String.format("%s:%s", DatabaseMSType.SLAVER.getPrefix(), dsConfig.getDsName());
+          dataSourceMap.put(dataSourceKey, ds);
+          if(dsConfig.getDsName().equals(rwSeparationDsProperties.getDefaultDs())) {
+            dynamicDataSource.setDefaultTargetDataSource(ds);
+          }
+        }
+      }
+
       dynamicDataSource.setTargetDataSources(dataSourceMap);
       return dynamicDataSource;
     }
 
     @Around("@annotation(dbType)")
-    public Object changeDataSourceType(ProceedingJoinPoint joinPoint, DBType dbType) throws Throwable {
+    public Object changeDataSourceType(ProceedingJoinPoint joinPoint, RWSeparationDBType dbType) throws Throwable {
 
         //获取方法参数值数组
         Object[] args = joinPoint.getArgs();
@@ -98,6 +117,12 @@ public class MultiDsAutoConfiguration {
         return result;
     }
 
+    public static boolean isBlank(String str) {
 
+        if (StringUtils.isEmpty(str) || StringUtils.isEmpty(str.trim())) {
+          return true;
+        }
+        return false;
+    }
 
 }

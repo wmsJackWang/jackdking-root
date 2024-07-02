@@ -9,9 +9,17 @@
         #{userid},#{orderid}
         )
     </insert>
-    
+
     <select id="get" parameterType="Long" resultType="TransInfo">
     	select * from trans_info0 where id = #{id}
     </select>
-    
+
+    <select id="queryDs0" parameterType="Long" resultType="TransInfo">
+      select * from trans_info0 where id = #{id}
+    </select>
+
+    <select id="queryDs1" parameterType="Long" resultType="TransInfo">
+      select * from trans_info0 where id = #{id}
+    </select>
+
 </mapper>

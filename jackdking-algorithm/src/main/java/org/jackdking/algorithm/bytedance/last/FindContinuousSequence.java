@@ -79,7 +79,7 @@ public class FindContinuousSequence extends Sort {
 
         public static ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
         if (sum <= 0) return null;
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         int left = 1;
         int right = 2;
         int mid = sum/2;

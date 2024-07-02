@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.1.RELEASE</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.jackdking</groupId>
+  <artifactId>jackdking-rw-separation-spring-boot-starter</artifactId>
+  <version>1.0.0</version>
+  <name>jackdking-rw-separation-spring-boot-starter</name>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+
+    <!-- aop -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+
+  </dependencies>
+
+  <!--     <build> -->
+  <!--       <plugins> -->
+  <!--           <plugin> -->
+  <!--               <groupId>org.springframework.boot</groupId> -->
+  <!--               <artifactId>spring-boot-maven-plugin</artifactId> -->
+  <!--           </plugin> -->
+  <!--       </plugins> -->
+  <!--     </build> -->
+
+  <distributionManagement>
+
+    <repository>
+      <id>gitee-maven</id>
+      <url>file:D:/giteeRepostory/maven/repository/</url>
+    </repository>
+  </distributionManagement>
+
+  <!-- 开发者信息 -->
+  <developers>
+    <developer>
+      <name>jackdking</name>
+      <email>jackdking@foxmail.com</email>
+      <roles>
+        <role>Lead Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+        </plugin>
+        <!--deploy插件-->
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+          <executions>
+            <execution>
+              <id>default-deploy</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!--sonatype的staging插件-->
+        <!--<plugin>-->
+        <!--<groupId>org.sonatype.plugins</groupId>-->
+        <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
+        <!--<version>1.6.7</version>-->
+        <!--<extensions>true</extensions>-->
+        <!--<configuration>-->
+        <!--&lt;!&ndash;<serverId>sonatype-nexus-snapshots</serverId>&ndash;&gt;-->
+        <!--<serverId>sonatype-nexus-staging</serverId>-->
+        <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+        <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+        <!--</configuration>-->
+        <!--</plugin>-->
+        <!--SCM插件-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-plugin</artifactId>
+          <version>1.8.1</version>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+
+  </build>
+  <profiles>
+    <!--
+    This profile will sign the JAR file, sources file, and javadocs file using the GPG key on the local machine.
+    See: https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven
+    -->
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>release</name>
+          <value>true</value>
+        </property>
+      </activation>
+    </profile>
+  </profiles>
+
+
+    <!--     <profiles> -->
+    <!--         <profile> -->
+    <!--             <id>release</id> -->
+    <!--             <build> -->
+    <!--                 <plugins> -->
+    <!--                     <plugin> -->
+    <!--                         <groupId>org.apache.maven.plugins</groupId> -->
+    <!--                         <artifactId>maven-source-plugin</artifactId> -->
+    <!--                         <version>2.1.2</version> -->
+    <!--                         <executions> -->
+    <!--                             <execution> -->
+    <!--                                 <id>attach-sources</id> -->
+    <!--                                 <phase>package</phase> -->
+    <!--                                 <goals> -->
+    <!--                                     <goal>jar-no-fork</goal> -->
+    <!--                                 </goals> -->
+    <!--                             </execution> -->
+    <!--                         </executions> -->
+    <!--                     </plugin> -->
+
+    <!--                     Javadoc -->
+    <!--                     <plugin> -->
+    <!--                         <groupId>org.apache.maven.plugins</groupId> -->
+    <!--                         <artifactId>maven-javadoc-plugin</artifactId> -->
+    <!--                         <version>2.9.1</version> -->
+    <!--                         <configuration> -->
+    <!--                             <aggregate>true</aggregate> -->
+    <!--                             需要配置，不然会出现“错误: 未知标记:xxxx” -->
+    <!--                             <charset>UTF-8</charset> -->
+    <!--                             <encoding>UTF-8</encoding> -->
+    <!--                             <docencoding>UTF-8</docencoding> -->
+    <!--                             <additionalparam>-Xdoclint:none</additionalparam> -->
+    <!--                         </configuration> -->
+    <!--                         <executions> -->
+    <!--                             <execution> -->
+    <!--                                 <phase>package</phase> -->
+    <!--                                 <goals> -->
+    <!--                                     <goal>jar</goal> -->
+    <!--                                 </goals> -->
+    <!--                             </execution> -->
+    <!--                         </executions> -->
+    <!--                     </plugin> -->
+    <!--                     GPG -->
+    <!--                     <plugin> -->
+    <!--                         <groupId>org.apache.maven.plugins</groupId> -->
+    <!--                         <artifactId>maven-gpg-plugin</artifactId> -->
+    <!--                         <configuration> -->
+    <!--                         	<skip>true</skip> -->
+    <!--                     	</configuration> -->
+    <!--                         <executions> -->
+    <!--                             <execution> -->
+    <!--                                 <phase>verify</phase> -->
+    <!--                                 <goals> -->
+    <!--                                     <goal>sign</goal> -->
+    <!--                                 </goals> -->
+    <!--                             </execution> -->
+    <!--                         </executions> -->
+    <!--                     </plugin> -->
+    <!--                 </plugins> -->
+    <!--             </build> -->
+    <!--         </profile> -->
+    <!--     </profiles> -->
+
+</project>

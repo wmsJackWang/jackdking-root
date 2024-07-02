@@ -83,16 +83,18 @@ public class Sort {
 
   public static void printArray(int[] array){
 	  System.out.println();
-		for(int i:array)
-			System.out.print(i+" ");
+		for(int i:array) {
+      System.out.print(i+" ");
+    }
 
 		System.out.println();
 
 	}
     public static void printListInteger(List<Integer> array){
         System.out.println();
-        for(Integer i:array)
-            System.out.print(i+" ");
+        for(Integer i:array) {
+          System.out.print(i+" ");
+        }
 
         System.out.println();
 
@@ -101,8 +103,9 @@ public class Sort {
     public static void printListInteger(String desc, List<Integer> array){
         System.out.println();
         System.out.print(desc);
-        for(Integer i:array)
-            System.out.print(i+" ");
+        for(Integer i:array) {
+          System.out.print(i+" ");
+        }
 
         System.out.println();
 
@@ -110,8 +113,9 @@ public class Sort {
 
     public static void printListStr(List<String> array){
         System.out.println();
-        for(String i:array)
-            System.out.print(i+" ");
+        for(String i:array) {
+          System.out.print(i+" ");
+        }
 
         System.out.println();
 
@@ -120,31 +124,38 @@ public class Sort {
   public static void printArray(String desc, int[] array){
     System.out.println();
     System.out.print(desc + ":");
-    for(int i:array)
+    for(int i:array) {
       System.out.print(i+" ");
+    }
   }
 
   public static void printArray(String desc, Integer[] array){
     System.out.println();
     System.out.print(desc + ":");
-    for(int i:array)
+    for(int i:array) {
       System.out.print(i+" ");
+    }
   }
 
    public static void quickSort(int [] array , int index1 , int index2) {
 
-       if(index1>=index2)
-           return;
+       if(index1>=index2) {
+         return;
+       }
        int p1 = index1 , p2 = index2,key = array[p1];
        while(p1<p2){
-           while(p1<p2&&array[p2]>=key)
-               p2--;
-           if(p1<p2)
-               array[p1]=array[p2];
-           while(p1<p2&&array[p1]<key)
-               p1++;
-           if(p1<p2)
-               array[p2]=array[p1];
+           while(p1<p2&&array[p2]>=key) {
+             p2--;
+           }
+           if(p1<p2) {
+             array[p1]=array[p2];
+           }
+           while(p1<p2&&array[p1]<key) {
+             p1++;
+           }
+           if(p1<p2) {
+             array[p2]=array[p1];
+           }
        }
        array[p1] = key;
        quickSort(array, index1, p1-1);
@@ -157,8 +168,8 @@ public class Sort {
     public ListNode next;
     public int value;
 
-      public ListNode() {
-      }
+    public ListNode() {
+    }
     public ListNode(int val) {
       this.value = val;
     }
@@ -256,23 +267,33 @@ public class Sort {
 
    public static int quickSortKVal(int [] array , int index1 , int index2 , int k){
 
-       if(index1>=index2)
-           return array[index1];
+       if(index1>=index2) {
+         return array[index1];
+       }
        int p1 = index1 , p2 = index2,key = array[p1];
        while(p1<p2){
-           while(p1<p2&&array[p2]>=key)
-               p2--;
-           if(p1<p2)
-               array[p1]=array[p2];
-           while(p1<p2&&array[p1]<key)
-               p1++;
-           if(p1<p2)
-               array[p2]=array[p1];
+           while(p1<p2&&array[p2]>=key) {
+             p2--;
+           }
+           if(p1<p2) {
+             array[p1]=array[p2];
+           }
+           while(p1<p2&&array[p1]<key) {
+             p1++;
+           }
+           if(p1<p2) {
+             array[p2]=array[p1];
+           }
        }
        array[p1] = key;
-       if(k-1==p1)return array[p1];
-       if(k-1>p1)return quickSortKVal(array,p1+1,index2,k);
-       else return quickSortKVal(array,index1,p1-1,k);
+       if(k-1==p1) {
+         return array[p1];
+       }
+       if(k-1>p1) {
+         return quickSortKVal(array,p1+1,index2,k);
+       } else {
+         return quickSortKVal(array,index1,p1-1,k);
+       }
    }
 
 

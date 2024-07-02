@@ -86,8 +86,9 @@ public class BreadthFirstSearch extends Sort {
 
 
     public static ArrayList<Integer> printFromTopToBottom(TreeNode root) {
-        if (root == null)
-            return new ArrayList<Integer>();
+        if (root == null) {
+          return new ArrayList<Integer>();
+        }
         ArrayList<Integer> list = new ArrayList<Integer>();
         ArrayDeque<TreeNode> queue = new ArrayDeque<TreeNode>();
         // 首先将根节点放入队列中
