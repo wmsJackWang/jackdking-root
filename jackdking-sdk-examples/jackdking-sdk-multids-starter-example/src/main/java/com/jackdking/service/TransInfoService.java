@@ -22,4 +22,12 @@ public class TransInfoService {
         return transInfoMapper.get(id);
     }
 
+    public TransInfo queryMapperDs0Record(Long id) {
+      return transInfoMapper.queryDs0(id);
+    }
+
+    public TransInfo queryMapperDs1Record(Long id) {
+      return transInfoMapper.queryDs1(id);
+    }
+
 }

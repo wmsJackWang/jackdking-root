@@ -1,10 +1,10 @@
-package jackdking.multids.dynamicdatasource;
+package com.jackdking.rw.separation.dynamicdatasource;
+
+import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 public class JDKingDynamicDataSource extends AbstractRoutingDataSource {
 

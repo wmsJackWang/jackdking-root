@@ -11,7 +11,7 @@ import org.jackdking.aop.log.anoation.OperationLog;
 @Aspect
 public class OperationLogAspect {
 
-	//匹配OperationLog注解类
+	  //匹配OperationLog注解类
     @Around("@annotation(org.jackdking.aop.log.anoation.OperationLog)")
     public Object addLog(ProceedingJoinPoint point) throws Throwable {
         Object result = point.proceed();
@@ -20,10 +20,10 @@ public class OperationLogAspect {
             return null;
         }
         OperationLog operationLog = (OperationLog) point.getSignature().getDeclaringType().getAnnotation(OperationLog.class);
-        
+
         System.out.println(operationLog.value());
-        
+
         return result;
     }
-	
+
 }
