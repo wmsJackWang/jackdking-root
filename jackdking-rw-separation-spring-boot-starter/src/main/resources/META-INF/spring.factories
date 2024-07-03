@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=jackdking.multids.config.MultiDsAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.jackdking.rw.separation.config.RWSeparationDSAutoConfiguration

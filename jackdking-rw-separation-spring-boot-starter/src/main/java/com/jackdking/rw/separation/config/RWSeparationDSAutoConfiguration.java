@@ -35,7 +35,7 @@ import java.util.Objects;
 @EnableConfigurationProperties(RWSeparationDsProperties.class)
 public class RWSeparationDSAutoConfiguration {
 
-	  // 注入属性类
+    // 注入属性类
     @Autowired
     private RWSeparationDsProperties rwSeparationDsProperties;
 
@@ -105,13 +105,13 @@ public class RWSeparationDSAutoConfiguration {
         //获取方法参数值数组
         Object[] args = joinPoint.getArgs();
 
-        String curType = rwSeparationDBType.value();
+        String dsName = rwSeparationDBType.value();
         DatabaseMSPrefixType databaseMSType = rwSeparationDBType.databaseMSType();
-        String dataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(), curType);
+        String dataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(), dsName);
         if(!JDKingDynamicDataSource.isReady()) {
             log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}",rwSeparationDBType.value(), joinPoint.getSignature());
         }
-        else if(!JDKingDynamicDataSource.contains(curType)){
+        else if(!JDKingDynamicDataSource.contains(dsName)){
             log.info("指定数据源[{}]不存在，使用默认数据源-> {}",rwSeparationDBType.value(),joinPoint.getSignature());
         }else{
             log.info("use datasource {} -> {}",rwSeparationDBType.value(),joinPoint.getSignature());

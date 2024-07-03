@@ -2,6 +2,7 @@ package com.jackdking.rw.separation.plugins;
 
 import com.jackdking.rw.separation.annotation.InterceptAnnotation;
 import com.jackdking.rw.separation.annotation.RWSeparationDBType;
+import com.jackdking.rw.separation.config.Constants;
 import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
 import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
 import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
@@ -16,13 +17,22 @@ import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Properties;
 
 @Component
@@ -32,13 +42,21 @@ import java.util.Properties;
         @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
 })
 @Slf4j
-public class RWSeparationPlugin implements Interceptor {
+public class RWSeparationPlugin implements Interceptor , ApplicationRunner, ApplicationContextAware {
 
-    @Autowired
     RWSeparationContext rwSeparationContext;
 
+    ApplicationContext applicationContext;
+
     @Override
-    public Object intercept(Invocation invocation) throws Throwable {       // 获取原始sql
+    public Object intercept(Invocation invocation) throws Throwable {
+
+//        // 使用反射获取Delegate的targetSource属性
+//        Field targetSourceField = target.getClass().getDeclaredField("targetSource");
+//        targetSourceField.setAccessible(true);
+//        return targetSourceField.get(target);
+
+        // 获取原始sql
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
         BoundSql boundSql = statementHandler.getBoundSql();
         // 通过MetaObject优雅访问对象的属性，这里是访问statementHandler的属性;：MetaObject是Mybatis提供的一个用于方便、
@@ -137,5 +155,18 @@ public class RWSeparationPlugin implements Interceptor {
             }
         }
         return null;
+    }
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        rwSeparationContext = (RWSeparationContext) applicationContext.getBean(Constants.SEPARATION_CONTEXT_BEAN_NAME);
+        Map<String, SqlSessionFactoryBean> sqlSessionFactoryBeanList = applicationContext.getBeansOfType(SqlSessionFactoryBean.class);
+        Optional.ofNullable(sqlSessionFactoryBeanList).orElseGet(Collections::emptyMap)
+                .forEach((s, sqlSessionFactoryBean) -> sqlSessionFactoryBean.setPlugins(this));
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
     }
 }

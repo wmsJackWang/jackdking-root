@@ -1,5 +1,6 @@
 package com.jackdking.rw.separation.strategy;
 
+import com.jackdking.rw.separation.config.Constants;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Component(value = Constants.SEPARATION_CONTEXT_BEAN_NAME)
 @Slf4j
 public class RWSeparationContext {
 
@@ -24,8 +25,6 @@ public class RWSeparationContext {
                 .filter(rwSeparationStrategy -> rwSeparationStrategy.support(rwSeparationStrategyTypeEnum))
                 .findFirst();
 
-        ops.ifPresent(rwSeparationStrategy -> {
-            rwSeparationStrategy.execute(dataSourceName, operationType);
-        });
+        ops.ifPresent(rwSeparationStrategy -> rwSeparationStrategy.execute(dataSourceName, operationType));
     }
 }
