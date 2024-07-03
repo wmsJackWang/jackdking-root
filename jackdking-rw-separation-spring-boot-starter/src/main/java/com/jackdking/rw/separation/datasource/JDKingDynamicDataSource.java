@@ -16,7 +16,6 @@ public class JDKingDynamicDataSource extends AbstractRoutingDataSource {
 
     public JDKingDynamicDataSource() {
       // TODO Auto-generated constructor stub
-
       mutilDs = new ArrayList<String>();
     }
 

@@ -1,6 +1,13 @@
 package com.jackdking.rw.separation.plugins;
 
 import com.jackdking.rw.separation.annotation.InterceptAnnotation;
+import com.jackdking.rw.separation.annotation.RWSeparationDBType;
+import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
+import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
+import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
+import com.jackdking.rw.separation.enums.MethodOperationType;
+import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
+import com.jackdking.rw.separation.strategy.RWSeparationContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
@@ -9,6 +16,7 @@ import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -16,6 +24,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.util.Properties;
+
 @Component
 //拦截StatementHandler类中参数类型为Statement的prepare方法（prepare=在预编译SQL前加入修改的逻辑）
 //即拦截 Statement prepare(Connection var1, Integer var2) 方法
@@ -23,7 +32,11 @@ import java.util.Properties;
         @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
 })
 @Slf4j
-public class MyPlugin implements Interceptor {
+public class RWSeparationPlugin implements Interceptor {
+
+    @Autowired
+    RWSeparationContext rwSeparationContext;
+
     @Override
     public Object intercept(Invocation invocation) throws Throwable {       // 获取原始sql
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
@@ -35,13 +48,16 @@ public class MyPlugin implements Interceptor {
         MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
 
         // 通过反射，拦截方法上带有自定义@InterceptAnnotation注解的方法，并修改sql
-        String mSql = sqlAnnotationEnhance(mappedStatement, boundSql);
+        String newSql = sqlAnnotationEnhance(mappedStatement, boundSql);
 
+        bindNewSql(newSql, boundSql);
+        return invocation.proceed();
+    }
+
+    private void bindNewSql(String newSql, BoundSql boundSql) throws Throwable {
         Field field = boundSql.getClass().getDeclaredField("sql");
         field.setAccessible(true);
-        field.set(boundSql, mSql);
-
-        return invocation.proceed();
+        field.set(boundSql, newSql);
     }
 
     @Override
@@ -71,11 +87,6 @@ public class MyPlugin implements Interceptor {
         // sql语句类型 select、delete、insert、update
         String sqlCommandType = mappedStatement.getSqlCommandType().toString();
 
-        // 数据库连接信息
-        //  Configuration configuration = mappedStatement.getConfiguration();
-        //  ComboPooledDataSource dataSource = (ComboPooledDataSource)configuration.getEnvironment().getDataSource();
-        //  dataSource.getJdbcUrl();
-
         // id为执行的mapper方法的全路径名，如com.cq.UserMapper.insertUser， 便于后续使用反射
         String id = mappedStatement.getId();
         // 获取当前所拦截的方法名称
@@ -88,53 +99,27 @@ public class MyPlugin implements Interceptor {
         if (boundSql.getParameterObject() != null) {
             paramString = boundSql.getParameterObject().toString();
         }
+        String dataSourceName = null;
+        RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum = RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
+        MethodOperationType operationType = MethodOperationType.WRITE;
+        DynamicDataSourceHolder.clearType();//提前清理数据库类型
 
         // 遍历类中所有方法名称，并匹配上当前所拦截的方法
         for (Method method : classType.getDeclaredMethods()) {
             if (mName.equals(method.getName())) {
-                // 判断方法上是否带有自定义@InterceptAnnotation注解
-                InterceptAnnotation interceptorAnnotation = method.getAnnotation(InterceptAnnotation.class);
-                if (interceptorAnnotation != null && interceptorAnnotation.flag()) {
-                    log.info("intercept func:{}, type:{}, origin SQL：{}", mName, sqlCommandType, sql);
-
-                    // 场景1：分页功能： return sql + " limit 1";
-                    if ("select".equals(sqlCommandType.toLowerCase())) {
-                        if (!sql.toLowerCase().contains("limit")) {
-                            sql = sql + " limit 1";
-                        }
-                    }
-
-                    // 场景2：校验功能 :update/delete必须要有where条件，并且打印出where中的条件
-                    if ("update".equals((sqlCommandType.toLowerCase())) || "delete".equals(sqlCommandType.toLowerCase())) {
-                        if (!sql.toLowerCase().contains("where")) {
-                            log.warn("update or delete not safe!");
-                        }
-                    }
-
-                    // 场景3：分表: 根据userId哈希,替换interceptorAnnotation注解中的表名为new_table（同一数据源）
-                    if (sql.toLowerCase().contains(interceptorAnnotation.value())) {
-                        String userId = getValue(paramString, "userId");
-                        if (userId != null) {
-                            int num = Integer.parseInt(userId);
-                            // 相同数据源中，模拟分5个表
-                            String new_table = interceptorAnnotation.value().concat("_").concat(String.valueOf(num % 5));
-                            log.info("set table: {}", new_table);
-                            // 替换sql表名
-                            sql = StringUtils.replace(sql, interceptorAnnotation.value(), new_table);
-                        }
-                    }
-
-                    // 场景4：分库分表: 路由到不同数据源，从参数获取dataSourceType
-                    String sourceType = getValue(paramString, "dataSourceType");
-                    if (sourceType != null) {
-//                        DynamicDataSourceContextHolder.setDataSourceType(sourceType);
-                    } else {
-                        // 也可以根据id 哈希选数据源
-                    }
-
-                    log.info("new SQL：{}", sql);
-                    return sql;
+                if ("select".equals((sqlCommandType.toLowerCase()))) {
+                    operationType = MethodOperationType.READ;
                 }
+
+                // 判断方法上是否带有自定义@InterceptAnnotation注解
+                RWSeparationDBType rwSeparationDBType = method.getAnnotation(RWSeparationDBType.class);
+                if (rwSeparationDBType != null) {
+                    log.debug("intercept func:{}, type:{}, origin SQL：{}", mName, sqlCommandType, sql);
+                    rwSeparationStrategyTypeEnum = rwSeparationDBType.rwStrategyType();
+                    dataSourceName = rwSeparationDBType.value();
+                    log.info("new SQL：{}", sql);
+                }
+                rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType);
             }
         }
         return sql;

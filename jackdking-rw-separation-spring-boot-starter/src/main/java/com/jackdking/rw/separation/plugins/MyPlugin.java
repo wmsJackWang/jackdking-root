@@ -16,12 +16,12 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.util.Properties;
-@Component
-//拦截StatementHandler类中参数类型为Statement的prepare方法（prepare=在预编译SQL前加入修改的逻辑）
-//即拦截 Statement prepare(Connection var1, Integer var2) 方法
-@Intercepts({
-        @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
-})
+//@Component
+////拦截StatementHandler类中参数类型为Statement的prepare方法（prepare=在预编译SQL前加入修改的逻辑）
+////即拦截 Statement prepare(Connection var1, Integer var2) 方法
+//@Intercepts({
+//        @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
+//})
 @Slf4j
 public class MyPlugin implements Interceptor {
     @Override

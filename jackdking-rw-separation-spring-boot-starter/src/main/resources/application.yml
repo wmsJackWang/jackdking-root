@@ -2,6 +2,7 @@ rw:
   separation:
     ds:
       defaultDs: ds0
+      enable: true
     masterDsConfigs:
       - dsName: ds0
         driverClassName: com.mysql.jdbc.Driver
@@ -15,6 +16,8 @@ rw:
         jdbcUrl: jdbc:mysql://ip:port/myutilproject1?characterEncoding=GBK&useSSL=false
         username: root
         password: wanyang@wms
+
+
 
 
 

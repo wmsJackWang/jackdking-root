@@ -1,8 +1,9 @@
-package com.jackdking.rw.separation.config;
+package com.jackdking.rw.separation.datasource;
 
 import lombok.Data;
 
 import javax.sql.DataSource;
+import java.util.Map;
 
 /**
  * Copyright (C) 阿里巴巴
@@ -16,7 +17,10 @@ import javax.sql.DataSource;
 @Data
 public class MasterWithManySlaverWrapper {
 
+  private String dataSourceName;
+
   private DataSource masterDatasource;
 
+  private Map<String, DataSource> stringDataSourceMap;
 
 }

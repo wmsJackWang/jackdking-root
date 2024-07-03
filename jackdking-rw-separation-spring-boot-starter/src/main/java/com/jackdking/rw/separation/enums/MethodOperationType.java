@@ -5,9 +5,8 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum DatabaseMSPrefixType {
-  MASTER("master"), SLAVER("slave")
+public enum MethodOperationType {
+  WRITE, READ
   ;
 
-  private String prefix;
 }

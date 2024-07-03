@@ -11,10 +11,11 @@ public class RWSeparationDsProperties {
 
 	private List<DsConfig> masterDsConfigs;
 
-  private List<DsConfig> slaverDsConfigs;
+    private List<DsConfig> slaverDsConfigs;
 
 	private String defaultDs;
 
+    private Boolean enable = Boolean.FALSE;
 
 	@Data
 	public static class DsConfig {

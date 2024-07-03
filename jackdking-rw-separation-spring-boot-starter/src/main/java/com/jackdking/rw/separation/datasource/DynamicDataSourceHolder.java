@@ -8,7 +8,7 @@ package com.jackdking.rw.separation.datasource;
  */
 public class DynamicDataSourceHolder {
 
-    private static final ThreadLocal<String> dataSourceHolder = new ThreadLocal<String>();
+    private static final InheritableThreadLocal<String> dataSourceHolder = new InheritableThreadLocal<String>();
 
 
     public static void setType(String dataSourceType){
