@@ -42,11 +42,7 @@ import java.util.Properties;
         @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
 })
 @Slf4j
-public class RWSeparationPlugin implements Interceptor , ApplicationRunner, ApplicationContextAware {
-
-    RWSeparationContext rwSeparationContext;
-
-    ApplicationContext applicationContext;
+public class RWSeparationPlugin extends BaseInterceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -157,16 +153,4 @@ public class RWSeparationPlugin implements Interceptor , ApplicationRunner, Appl
         return null;
     }
 
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        rwSeparationContext = (RWSeparationContext) applicationContext.getBean(Constants.SEPARATION_CONTEXT_BEAN_NAME);
-        Map<String, SqlSessionFactoryBean> sqlSessionFactoryBeanList = applicationContext.getBeansOfType(SqlSessionFactoryBean.class);
-        Optional.ofNullable(sqlSessionFactoryBeanList).orElseGet(Collections::emptyMap)
-                .forEach((s, sqlSessionFactoryBean) -> sqlSessionFactoryBean.setPlugins(this));
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
 }
