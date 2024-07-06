@@ -82,6 +82,7 @@
       <module name="jackdking-datasource" options="-parameters" />
       <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
       <module name="jackdking-print-starter-test" options="-parameters" />
+      <module name="jackdking-rw-separation-spring-boot-starter" options="-parameters" />
       <module name="jackdking-springsecurity-five" options="-parameters" />
       <module name="jackdking-springsecurity-four" options="-parameters" />
       <module name="jackdking-springsecurity-one" options="-parameters" />

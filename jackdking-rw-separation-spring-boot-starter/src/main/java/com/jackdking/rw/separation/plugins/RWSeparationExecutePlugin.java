@@ -1,5 +1,9 @@
 package com.jackdking.rw.separation.plugins;
 
+import com.jackdking.rw.separation.annotation.RWSeparationDBType;
+import com.jackdking.rw.separation.enums.MethodOperationType;
+import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -16,10 +20,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
+@Slf4j
 @Component
 @Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
         @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
-public class RWSeparationInterceptor extends BaseInterceptor {
+public class RWSeparationExecutePlugin extends BaseInterceptor {
 
 
     /**
@@ -54,22 +59,34 @@ public class RWSeparationInterceptor extends BaseInterceptor {
         // 获取 sqlCommandType
         SqlCommandType sqlCommandType = ms.getSqlCommandType();
 
+        // id为执行的mapper方法的全路径名，如com.cq.UserMapper.insertUser， 便于后续使用反射
+        String id = ms.getId();
+        // 获取当前所拦截的方法名称
+        String mName = id.substring(id.lastIndexOf(".") + 1);
+        // 通过类全路径获取Class对象
+        Class<?> classType = Class.forName(id.substring(0, id.lastIndexOf(".")));
+
+        String dataSourceName = null;
+        RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum = RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
+        MethodOperationType operationType = MethodOperationType.WRITE;
         // 获取 SQL
         BoundSql boundSql = ms.getSqlSource().getBoundSql(objects[1]);
         String sql = boundSql.getSql().toLowerCase(Locale.CHINA).replace("[\\t\\n\\r]", " ");
 
         if (sqlCommandType.equals(SqlCommandType.SELECT)) {
-
-//            DataSourceTypeManager.set(DataSources.slave);
-
+          operationType = MethodOperationType.READ;
         } else if (UPDATE_SQL_LIST.contains(sqlCommandType) || sql.contains(LOCK_KEYWORD)) {
-
-//            DataSourceTypeManager.set(DataSources.slave);
-
+          // 判断方法上是否带有自定义@RWSeparationDBType注解
+          RWSeparationDBType rwSeparationDBType = targetMethod.getAnnotation(RWSeparationDBType.class);
+          if (rwSeparationDBType != null) {
+            log.debug("intercept func:{}, type:{}, origin SQL：{}", mName, sqlCommandType, sql);
+            rwSeparationStrategyTypeEnum = rwSeparationDBType.rwStrategyType();
+            dataSourceName = rwSeparationDBType.value();
+            log.info("new SQL：{}", sql);
+          }
         } else {
-//            DataSourceTypeManager.set(DataSources.readmore);
-
         }
+        rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType);
 
         Object proceed;
         try {

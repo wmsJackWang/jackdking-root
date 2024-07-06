@@ -42,7 +42,7 @@ import java.util.Properties;
         @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
 })
 @Slf4j
-public class RWSeparationPlugin extends BaseInterceptor {
+public class RWSeparationStatementPlugin extends BaseInterceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
