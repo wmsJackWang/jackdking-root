@@ -12,12 +12,10 @@ public class TransInfoService {
     @Autowired
     private TransInfoMapper transInfoMapper;
 
-    @RWSeparationDBType(value = "ds0")
     public TransInfo queryDs0Record(Long id) {
         return transInfoMapper.get(id);
     }
 
-    @RWSeparationDBType
     public TransInfo queryDs1Record(Long id) {
         return transInfoMapper.get(id);
     }

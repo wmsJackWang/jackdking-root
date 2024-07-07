@@ -1,6 +1,6 @@
 package com.jackdking.rw.separation.plugins;
 
-import com.jackdking.rw.separation.annotation.RWSeparationDBType;
+import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,6 @@ import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +46,8 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         String clazzStr = ms.getId().substring(0, ms.getId().lastIndexOf("."));
         String methodStr = ms.getId().substring(ms.getId().lastIndexOf(".") + 1);
         // 由于 mybatis 同一个接口方法不能重载
-        Method[] mapperMethods = Class.forName(clazzStr).getMethods();
+        Class<?> classObj = Class.forName(clazzStr);
+        Method[] mapperMethods = classObj.getMethods();
         Method targetMethod = null;
         for (Method mapperMethod : mapperMethods) {
             if (mapperMethod.getName().equals(methodStr)) {
@@ -58,17 +58,10 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
 
         // 获取 sqlCommandType
         SqlCommandType sqlCommandType = ms.getSqlCommandType();
-
-        // id为执行的mapper方法的全路径名，如com.cq.UserMapper.insertUser， 便于后续使用反射
-        String id = ms.getId();
-        // 获取当前所拦截的方法名称
-        String mName = id.substring(id.lastIndexOf(".") + 1);
-        // 通过类全路径获取Class对象
-        Class<?> classType = Class.forName(id.substring(0, id.lastIndexOf(".")));
-
         String dataSourceName = null;
         RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum = RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
         MethodOperationType operationType = MethodOperationType.WRITE;
+        String monotonicProperty = null;
         // 获取 SQL
         BoundSql boundSql = ms.getSqlSource().getBoundSql(objects[1]);
         String sql = boundSql.getSql().toLowerCase(Locale.CHINA).replace("[\\t\\n\\r]", " ");
@@ -76,17 +69,31 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         if (sqlCommandType.equals(SqlCommandType.SELECT)) {
           operationType = MethodOperationType.READ;
         } else if (UPDATE_SQL_LIST.contains(sqlCommandType) || sql.contains(LOCK_KEYWORD)) {
-          // 判断方法上是否带有自定义@RWSeparationDBType注解
-          RWSeparationDBType rwSeparationDBType = targetMethod.getAnnotation(RWSeparationDBType.class);
-          if (rwSeparationDBType != null) {
-            log.debug("intercept func:{}, type:{}, origin SQL：{}", mName, sqlCommandType, sql);
-            rwSeparationStrategyTypeEnum = rwSeparationDBType.rwStrategyType();
-            dataSourceName = rwSeparationDBType.value();
-            log.info("new SQL：{}", sql);
-          }
+            operationType = MethodOperationType.WRITE;
         } else {
+            operationType = MethodOperationType.WRITE;
         }
-        rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType);
+
+        // 判断方法上是否带有自定义@RWSeparationDBType注解
+        RWSeparationDBContext methodRWSeparationDBType = targetMethod.getAnnotation(RWSeparationDBContext.class);
+        RWSeparationDBContext classRWSeparationDBType = classObj.getAnnotation(RWSeparationDBContext.class);
+
+        // 对象优先、其次是方法
+        // 类注解
+        if (classRWSeparationDBType != null) {
+            rwSeparationStrategyTypeEnum = classRWSeparationDBType.rwStrategyType();
+            dataSourceName = classRWSeparationDBType.dsKey();
+            monotonicProperty = classRWSeparationDBType.monotonicProperty();
+        }
+
+        // 方法注解
+        if (methodRWSeparationDBType != null) {
+            rwSeparationStrategyTypeEnum = methodRWSeparationDBType.rwStrategyType();
+            dataSourceName = methodRWSeparationDBType.dsKey();
+            monotonicProperty = classRWSeparationDBType.monotonicProperty();
+        }
+
+        rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType, monotonicProperty);
 
         Object proceed;
         try {

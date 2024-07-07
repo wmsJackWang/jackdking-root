@@ -1,14 +1,9 @@
 package com.jackdking.rw.separation.plugins;
 
-import com.jackdking.rw.separation.annotation.InterceptAnnotation;
-import com.jackdking.rw.separation.annotation.RWSeparationDBType;
-import com.jackdking.rw.separation.config.Constants;
+import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
 import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
-import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
-import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
-import com.jackdking.rw.separation.strategy.RWSeparationContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
@@ -17,30 +12,17 @@ import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
-import org.mybatis.spring.SqlSessionFactoryBean;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Optional;
 import java.util.Properties;
 
-@Component
-//拦截StatementHandler类中参数类型为Statement的prepare方法（prepare=在预编译SQL前加入修改的逻辑）
-//即拦截 Statement prepare(Connection var1, Integer var2) 方法
-@Intercepts({
-        @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
-})
+//@Component
+////拦截StatementHandler类中参数类型为Statement的prepare方法（prepare=在预编译SQL前加入修改的逻辑）
+////即拦截 Statement prepare(Connection var1, Integer var2) 方法
+//@Intercepts({
+//        @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})
+//})
 @Slf4j
 public class RWSeparationStatementPlugin extends BaseInterceptor {
 
@@ -126,11 +108,11 @@ public class RWSeparationStatementPlugin extends BaseInterceptor {
                 }
 
                 // 判断方法上是否带有自定义@InterceptAnnotation注解
-                RWSeparationDBType rwSeparationDBType = method.getAnnotation(RWSeparationDBType.class);
+                RWSeparationDBContext rwSeparationDBType = method.getAnnotation(RWSeparationDBContext.class);
                 if (rwSeparationDBType != null) {
                     log.debug("intercept func:{}, type:{}, origin SQL：{}", mName, sqlCommandType, sql);
                     rwSeparationStrategyTypeEnum = rwSeparationDBType.rwStrategyType();
-                    dataSourceName = rwSeparationDBType.value();
+                    dataSourceName = rwSeparationDBType.dsKey();
                     log.info("new SQL：{}", sql);
                 }
                 rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType);

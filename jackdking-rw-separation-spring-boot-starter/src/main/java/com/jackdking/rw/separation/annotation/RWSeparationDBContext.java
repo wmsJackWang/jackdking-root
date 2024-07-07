@@ -11,17 +11,21 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RWSeparationDBType {
+public @interface RWSeparationDBContext {
 
-  String value() default "defaultDs";
+  String dsKey() default "defaultDs";
 
   /**
    *  数据库是主库、从库类型
-   * @return
+   *
    */
   DatabaseMSPrefixType databaseMSType() default DatabaseMSPrefixType.MASTER;
 
   RWSeparationStrategyTypeEnum rwStrategyType() default RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
 
-  boolean resetDatasourceType() default false;
+  /**
+   *  单调读情况下，需要设置单调读hash字段
+   *
+   */
+  String monotonicProperty();
 }

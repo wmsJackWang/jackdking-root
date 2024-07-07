@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum DatabaseMSPrefixType {
-  MASTER("master"), SLAVER("slave")
+  MASTER("master"), SLAVE("slave")
   ;
 
   private String prefix;
