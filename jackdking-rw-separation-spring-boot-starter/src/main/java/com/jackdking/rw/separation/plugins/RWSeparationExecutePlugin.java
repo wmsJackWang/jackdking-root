@@ -3,6 +3,7 @@ package com.jackdking.rw.separation.plugins;
 import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
+import com.jackdking.rw.separation.strategy.StrategyParam;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -88,11 +89,14 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
 
         // 方法注解
         if (methodRWSeparationDBType != null) {
-            rwSeparationStrategyTypeEnum = methodRWSeparationDBType.rwStrategyType();
-            dataSourceName = methodRWSeparationDBType.dsKey();
-            monotonicProperty = classRWSeparationDBType.monotonicProperty();
+          rwSeparationStrategyTypeEnum = methodRWSeparationDBType.rwStrategyType();
+          dataSourceName = methodRWSeparationDBType.dsKey();
+          monotonicProperty = classRWSeparationDBType.monotonicProperty();
         }
-
+        StrategyParam param = new StrategyParam();
+        param.setTargetMethod(targetMethod);
+        param.setTarget(classObj);
+        param.setMethodArgs(targetMethod.getA);
         rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType, monotonicProperty);
 
         Object proceed;
