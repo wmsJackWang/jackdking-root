@@ -118,9 +118,7 @@ public class RWSeparationDSAutoConfiguration {
         String expression = separationDBContext.monotonicPropertyExp();
         if (!org.apache.commons.lang3.StringUtils.isBlank(expression)) {
 
-            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-            Class<?> targetClass = joinPoint.getTarget().getClass();
-            Method method = getDeclaredMethod(targetClass, signature);
+            Method method = resolveMethod(joinPoint);
             String val = ExpressionMethodArgsCalculateUtil.methodArgsExpressionCalculate(expression, method, joinPoint.getArgs());
             DynamicDataSourceHolder.monotonicReadArgsHolder.set(val);
         }
@@ -132,23 +130,23 @@ public class RWSeparationDSAutoConfiguration {
         return result;
     }
 
-    private Method getDeclaredMethod(Class<?> targetClass, MethodSignature signature) throws IllegalAccessException {
+  private Method resolveMethod(ProceedingJoinPoint joinPoint) {
+    MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+    Class<?> targetClass = joinPoint.getTarget().getClass();
 
-        String name = null;
-        try {
-            name = signature.getName();
-            Method method = signature.getMethod();
-            Class<?>[] parameterTypes = method.getParameterTypes();
+    return getDeclaredMethodFor(targetClass, signature.getName(), signature.getMethod().getParameterTypes());
+  }
 
-            return targetClass.getDeclaredMethod(signature.getName(), parameterTypes);
-        } catch (NoSuchMethodException e) {
-            Class<?> supperClass = targetClass.getSuperclass();
-            if (supperClass != null) {
-                return getDeclaredMethod(supperClass, signature);
-            }
-        }
-        throw new IllegalAccessException(String.format("Cannot resolve target method: %s", name));
+  private Method getDeclaredMethodFor(Class<?> clazz, String name, Class<?>... parameterTypes) {
+    try {
+      return clazz.getDeclaredMethod(name, parameterTypes);
+    } catch (NoSuchMethodException e) {
+      Class<?> superClass = clazz.getSuperclass();
+      if (superClass != null) {
+        return getDeclaredMethodFor(superClass, name, parameterTypes);
+      }
     }
-
+    throw new IllegalStateException("Cannot resolve target method: " + name);
+  }
 
 }
