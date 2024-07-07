@@ -2,6 +2,7 @@ package com.jackdking.rw.separation.plugins;
 
 import com.alibaba.fastjson2.JSON;
 import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
+import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
 import com.jackdking.rw.separation.strategy.StrategyParam;
@@ -16,10 +17,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
+import java.util.*;
 
 @Slf4j
 @Component
@@ -77,30 +75,24 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         }
 
         // 判断方法上是否带有自定义@RWSeparationDBType注解
-        RWSeparationDBContext methodRWSeparationDBType = targetMethod.getAnnotation(RWSeparationDBContext.class);
-        RWSeparationDBContext classRWSeparationDBType = classObj.getAnnotation(RWSeparationDBContext.class);
+        RWSeparationDBContext methodRWSeparationDBType = DynamicDataSourceHolder.separationDBContextHolder.get();
+        RWSeparationDBContext classRWSeparationDBType = DynamicDataSourceHolder.separationDBContextHolder.get();
+//        RWSeparationDBContext daoMethodRWSeparationDBType = targetMethod.getAnnotation(RWSeparationDBContext.class);
+//        RWSeparationDBContext daoClassRWSeparationDBType = classObj.getAnnotation(RWSeparationDBContext.class);
 
-        // 对象优先、其次是方法
-        // 类注解
-        if (classRWSeparationDBType != null) {
-            rwSeparationStrategyTypeEnum = classRWSeparationDBType.rwStrategyType();
-            dataSourceName = classRWSeparationDBType.dsKey();
-            monotonicProperty = classRWSeparationDBType.monotonicPropertyExp();
-        }
-
+        RWSeparationDBContext finalRWSeparationDBContext = getFinalRWSeparationDBContext(methodRWSeparationDBType, classRWSeparationDBType);
         // 方法注解
-        if (methodRWSeparationDBType != null) {
-          rwSeparationStrategyTypeEnum = methodRWSeparationDBType.rwStrategyType();
-          dataSourceName = methodRWSeparationDBType.dsKey();
-          monotonicProperty = methodRWSeparationDBType.monotonicPropertyExp();
+        if (finalRWSeparationDBContext != null) {
+            rwSeparationStrategyTypeEnum = finalRWSeparationDBContext.rwStrategyType();
+            dataSourceName = finalRWSeparationDBContext.dsKey();
+            monotonicProperty = finalRWSeparationDBContext.monotonicPropertyExp();
+            StrategyParam param = new StrategyParam();
+            param.setTargetMethod(targetMethod);
+            param.setTarget(classObj);
+    //        param.setMethodArgs(targetMethod.getA);
+            log.info("data:{}", JSON.toJSONString(invocation.getArgs()[1]));
+            rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType, monotonicProperty);
         }
-        StrategyParam param = new StrategyParam();
-        param.setTargetMethod(targetMethod);
-        param.setTarget(classObj);
-//        param.setMethodArgs(targetMethod.getA);
-        log.info("data:{}", JSON.toJSONString(invocation.getArgs()[1]));
-        rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType, monotonicProperty);
-
         Object proceed;
         try {
             proceed = invocation.proceed();
@@ -110,6 +102,17 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
 //            DataSourceTypeManager.reset();
         }
         return proceed;
+    }
+
+    private RWSeparationDBContext getFinalRWSeparationDBContext(RWSeparationDBContext... rwSeparationDBContexts) {
+        if (Objects.nonNull(rwSeparationDBContexts)) {
+            for (RWSeparationDBContext context : rwSeparationDBContexts) {
+                if (Objects.nonNull(context)) {
+                    return context;
+                }
+            }
+        }
+        return null;
     }
 
     @Override

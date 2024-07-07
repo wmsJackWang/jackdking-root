@@ -39,7 +39,7 @@ public class ExpressionMethodArgsCalculateUtil {
    */
   private static String getExpValue(MethodBasedEvaluationContext context, String expr) {
     Expression expression = parser.parseExpression(expr);
-    return (String) expression.getValue(context);
+    return  String.valueOf(expression.getValue(context));
   }
 
   public static String methodArgsExpressionCalculate(String expression, Method targetMethod, Object[] args) {

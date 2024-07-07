@@ -1,5 +1,6 @@
 package com.jackdking.rw.separation.datasource;
 
+import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
 import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
 import lombok.Getter;
 
@@ -18,6 +19,8 @@ public class DynamicDataSourceHolder {
 
 
     public static final InheritableThreadLocal<String> monotonicReadArgsHolder = new InheritableThreadLocal<String>();
+
+    public static final InheritableThreadLocal<RWSeparationDBContext> separationDBContextHolder = new InheritableThreadLocal<RWSeparationDBContext>();
 
     @Getter
     private static final Map<String, MasterWithManySlaverWrapper> dsContext = new HashMap<>();
