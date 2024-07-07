@@ -14,6 +14,7 @@ public interface TransInfoMapper {
 
 	public TransInfo get(@Param("id") Long id);
 
+	@RWSeparationDBContext(dsKey = "ds3", monotonicPropertyExp = "#ids")
 	TransInfo queryDsV1(@Param("id") Long id);
 
     TransInfo queryDsV2(@Param("id") Long id, @Param("ids") Long ids);

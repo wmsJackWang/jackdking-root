@@ -37,7 +37,6 @@ public class TransInfoService {
         return transInfoMapper.queryDsV3(param, id);
     }
 
-    @RWSeparationDBContext(dsKey = "ds3", monotonicPropertyExp = "#transInfo.orderid", rwStrategyType =  RWSeparationStrategyTypeEnum.RW_SEPARATION_WRITE_MASTER_READ_MASTER_SLAVE)
     public TransInfo queryMapperDs3Record(TransInfo transInfo, Long id) {
         return transInfoMapper.queryDsV2(id, id);
     }
