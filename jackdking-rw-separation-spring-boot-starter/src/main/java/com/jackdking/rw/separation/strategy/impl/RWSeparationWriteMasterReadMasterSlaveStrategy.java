@@ -34,16 +34,17 @@ public class RWSeparationWriteMasterReadMasterSlaveStrategy implements RWSeparat
     }
 
     @Override
-    public void execute(String masterDataSourceKey, MethodOperationType operationType, String monotonicProperty) {
+    public void execute(String masterDataSourceName, MethodOperationType operationType, String monotonicProperty) {
 
-        if (StringUtils.isBlank(masterDataSourceKey)) {
-            log.debug("没有指定数据源[{}]，使用默认数据源-> {}", masterDataSourceKey, rwSeparationDsProperties.getDefaultDs());
-            masterDataSourceKey = getDefaultDsKey(rwSeparationDsProperties);
+        if (StringUtils.isBlank(masterDataSourceName)) {
+            log.debug("没有指定数据源[{}]，使用默认数据源-> {}", masterDataSourceName, rwSeparationDsProperties.getDefaultDs());
+            masterDataSourceName = getDefaultDsKey(rwSeparationDsProperties);
         }
 
+        String masterDataSourceKey = DynamicDataSourceHolder.getMasterDsKey(masterDataSourceName);
         String finalDataSourceKey = null;
         if (operationType == MethodOperationType.WRITE) {
-            finalDataSourceKey = masterDataSourceKey;
+            finalDataSourceKey =masterDataSourceKey;
         }else {
             MasterWithManySlaverWrapper wrapper =  DynamicDataSourceHolder.getDsContext().get(masterDataSourceKey);
             List<String> dsList = Lists.newArrayList();

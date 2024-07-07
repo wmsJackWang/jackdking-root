@@ -115,7 +115,7 @@ public class RWSeparationStatementPlugin extends BaseInterceptor {
                     dataSourceName = rwSeparationDBType.dsKey();
                     log.info("new SQL：{}", sql);
                 }
-                rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType);
+//                rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType);
             }
         }
         return sql;

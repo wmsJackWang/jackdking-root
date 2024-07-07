@@ -22,4 +22,7 @@
       select * from trans_info0 where id = #{id}
     </select>
 
+    <select id="queryDsV3" resultType="TransInfo">
+        select * from trans_info0 where id = #{id}
+    </select>
 </mapper>

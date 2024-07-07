@@ -1,28 +1,39 @@
 package com.jackdking.rw.separation.config;
 
 
+import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
 import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
 import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
 import com.jackdking.rw.separation.datasource.MasterWithManySlaverWrapper;
 import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
 import com.jackdking.rw.separation.properties.RWSeparationDsProperties;
+import com.jackdking.rw.separation.utils.ExpressionMethodArgsCalculateUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 @Slf4j
+@Aspect
+@EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
 @Configuration
 // 将 application.properties 的相关的属性字段与该类一一对应，并生成 Bean
 @EnableConfigurationProperties(RWSeparationDsProperties.class)
@@ -97,5 +108,47 @@ public class RWSeparationDSAutoConfiguration {
         }
         return false;
     }
+
+
+    @Around("@annotation(separationDBContext)")
+    public Object changeDataSourceContext(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext) throws Throwable {
+
+        //获取方法参数值数组
+        Object[] args = joinPoint.getArgs();
+        String expression = separationDBContext.monotonicPropertyExp();
+        if (!org.apache.commons.lang3.StringUtils.isBlank(expression)) {
+
+            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+            Class<?> targetClass = joinPoint.getTarget().getClass();
+            Method method = getDeclaredMethod(targetClass, signature);
+            String val = ExpressionMethodArgsCalculateUtil.methodArgsExpressionCalculate(expression, method, joinPoint.getArgs());
+            DynamicDataSourceHolder.monotonicReadArgsHolder.set(val);
+        }
+        //动态修改其参数
+        //注意，如果调用joinPoint.proceed()方法，则修改的参数值不会生效，必须调用joinPoint.proceed(Object[] args)
+        Object result = joinPoint.proceed(args);
+
+        //如果这里不返回result，则目标对象实际返回值会被置为null
+        return result;
+    }
+
+    private Method getDeclaredMethod(Class<?> targetClass, MethodSignature signature) throws IllegalAccessException {
+
+        String name = null;
+        try {
+            name = signature.getName();
+            Method method = signature.getMethod();
+            Class<?>[] parameterTypes = method.getParameterTypes();
+
+            return targetClass.getDeclaredMethod(signature.getName(), parameterTypes);
+        } catch (NoSuchMethodException e) {
+            Class<?> supperClass = targetClass.getSuperclass();
+            if (supperClass != null) {
+                return getDeclaredMethod(supperClass, signature);
+            }
+        }
+        throw new IllegalAccessException(String.format("Cannot resolve target method: %s", name));
+    }
+
 
 }

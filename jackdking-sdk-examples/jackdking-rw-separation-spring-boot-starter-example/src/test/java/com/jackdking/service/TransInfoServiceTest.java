@@ -35,4 +35,10 @@ class TransInfoServiceTest extends BaseTest{
       TransInfo data = transInfoService.queryMapperDs1Record(575491223087742976l);
       log.info("query data:{}", data);
     }
+
+    @Test
+    void queryMapperDs2Record() {
+        TransInfo data = transInfoService.queryMapperDs2Record(575491223087742976l);
+        log.info("query data:{}", data);
+    }
 }

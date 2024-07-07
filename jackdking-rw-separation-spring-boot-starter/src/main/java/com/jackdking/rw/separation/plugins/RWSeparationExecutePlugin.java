@@ -1,5 +1,6 @@
 package com.jackdking.rw.separation.plugins;
 
+import com.alibaba.fastjson2.JSON;
 import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
@@ -84,19 +85,20 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         if (classRWSeparationDBType != null) {
             rwSeparationStrategyTypeEnum = classRWSeparationDBType.rwStrategyType();
             dataSourceName = classRWSeparationDBType.dsKey();
-            monotonicProperty = classRWSeparationDBType.monotonicProperty();
+            monotonicProperty = classRWSeparationDBType.monotonicPropertyExp();
         }
 
         // 方法注解
         if (methodRWSeparationDBType != null) {
           rwSeparationStrategyTypeEnum = methodRWSeparationDBType.rwStrategyType();
           dataSourceName = methodRWSeparationDBType.dsKey();
-          monotonicProperty = classRWSeparationDBType.monotonicProperty();
+          monotonicProperty = methodRWSeparationDBType.monotonicPropertyExp();
         }
         StrategyParam param = new StrategyParam();
         param.setTargetMethod(targetMethod);
         param.setTarget(classObj);
-        param.setMethodArgs(targetMethod.getA);
+//        param.setMethodArgs(targetMethod.getA);
+        log.info("data:{}", JSON.toJSONString(invocation.getArgs()[1]));
         rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType, monotonicProperty);
 
         Object proceed;

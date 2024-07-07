@@ -26,22 +26,22 @@ public class RWSeparationOnlyMasterStrategy implements RWSeparationStrategy {
     }
 
     @Override
-    public void execute(String masterDataSourceKey, MethodOperationType operationType, String monotonicProperty) {
+    public void execute(String masterDataSourceName, MethodOperationType operationType, String monotonicProperty) {
 
-        if (StringUtils.isBlank(masterDataSourceKey)) {
-            log.debug("没有指定数据源[{}]，使用默认数据源-> {}", masterDataSourceKey, rwSeparationDsProperties.getDefaultDs());
-            masterDataSourceKey = getDefaultDsKey(rwSeparationDsProperties);
+        if (StringUtils.isBlank(masterDataSourceName)) {
+            log.debug("没有指定数据源[{}]，使用默认数据源-> {}", masterDataSourceName, rwSeparationDsProperties.getDefaultDs());
+            masterDataSourceName = getDefaultDsKey(rwSeparationDsProperties);
         }
 
-        String dataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(), masterDataSourceKey);
+        String masterDataSourceKey = DynamicDataSourceHolder.getMasterDsKey(masterDataSourceName);
         if(!JDKingDynamicDataSource.isReady()) {
-            log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}", dataSourceKey, dataSourceKey);
+            log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}", masterDataSourceKey, masterDataSourceKey);
         }
-        else if(!JDKingDynamicDataSource.contains(dataSourceKey)){
-            log.info("指定数据源[{}]不存在，使用默认数据源-> {}", dataSourceKey, dataSourceKey);
+        else if(!JDKingDynamicDataSource.contains(masterDataSourceKey)){
+            log.info("指定数据源[{}]不存在，使用默认数据源-> {}", masterDataSourceKey, masterDataSourceKey);
         }else{
-            log.info("use datasource {} -> {}", dataSourceKey, dataSourceKey);
-            DynamicDataSourceHolder.setType(dataSourceKey);
+            log.info("use datasource {} -> {}", masterDataSourceKey, masterDataSourceKey);
+            DynamicDataSourceHolder.setType(masterDataSourceKey);
         }
 
     }

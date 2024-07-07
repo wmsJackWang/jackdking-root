@@ -13,10 +13,9 @@ public interface RWSeparationStrategy {
         return getStrategyType() == strategyTypeEnum;
     }
 
-    void execute(String dataSourceName, MethodOperationType operationType, String monotonicProperty);
+    void execute(String dataSourceName, MethodOperationType operationType, String monotonicProperty) throws Exception;
 
     default String getDefaultDsKey(RWSeparationDsProperties rwSeparationDsProperties) {
-        String masterDataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(), rwSeparationDsProperties.getDefaultDs());
-        return masterDataSourceKey;
+        return rwSeparationDsProperties.getDefaultDs();
     }
 }

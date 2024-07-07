@@ -21,19 +21,18 @@ public class RWSeparationContext {
     @Autowired
     private List<RWSeparationStrategy> strategyList;
 
-    public void decideWriteReadDs(String dataSourceName, RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum, MethodOperationType operationType, String monotonicProperty) {
-
-        if (!DynamicDataSourceHolder.isDataSourceExists(dataSourceName)) {
-            throw new RuntimeException(String.format("主库%s不存在", dataSourceName));
-        }
-
-        String masterDataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(), dataSourceName);
+    public void decideWriteReadDs(String dataSourceName, RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum, MethodOperationType operationType, String monotonicProperty) throws Exception{
         Optional<RWSeparationStrategy> ops = Optional.ofNullable(strategyList).orElseGet(Collections::emptyList)
                 .stream()
                 .filter(rwSeparationStrategy -> rwSeparationStrategy.support(rwSeparationStrategyTypeEnum))
                 .findFirst();
 
-
-        ops.ifPresent(rwSeparationStrategy -> rwSeparationStrategy.execute(masterDataSourceKey, operationType, monotonicProperty));
+        ops.ifPresent(rwSeparationStrategy -> {
+            try {
+                rwSeparationStrategy.execute(dataSourceName, operationType, monotonicProperty);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

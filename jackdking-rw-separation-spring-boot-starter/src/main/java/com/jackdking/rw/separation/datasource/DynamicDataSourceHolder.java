@@ -16,6 +16,9 @@ public class DynamicDataSourceHolder {
 
     private static final InheritableThreadLocal<String> dataSourceHolder = new InheritableThreadLocal<String>();
 
+
+    public static final InheritableThreadLocal<String> monotonicReadArgsHolder = new InheritableThreadLocal<String>();
+
     @Getter
     private static final Map<String, MasterWithManySlaverWrapper> dsContext = new HashMap<>();
 
@@ -23,9 +26,17 @@ public class DynamicDataSourceHolder {
         dsContext.put(key, wrapper);
     }
 
+    public static String getMasterDsKey(String dsName) {
+        return String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(), dsName);
+    }
+
+    public static String getSlaveDsKey(String dsName) {
+        return String.format("%s:%s", DatabaseMSPrefixType.SLAVE.getPrefix(), dsName);
+    }
+
     public static boolean isDataSourceExists(String dsName) {
 
-        String dataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(), dsName);
+        String dataSourceKey = getMasterDsKey(dsName);
         return dsContext.keySet().contains(dataSourceKey);
     }
 

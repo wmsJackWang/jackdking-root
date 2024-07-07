@@ -6,6 +6,7 @@ import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
+import org.springframework.expression.TypedValue;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 import java.lang.reflect.Method;
@@ -32,8 +33,8 @@ public class ExpressionMethodArgsCalculateUtil {
   private static final SpelExpressionParser parser = new SpelExpressionParser();
 
   /**
-   * @param express：el表达式
-   * @param map：el表达式动态参数
+   * @param context：el表达式
+   * @param expr：el表达式动态参数
    * @return
    */
   private static String getExpValue(MethodBasedEvaluationContext context, String expr) {
@@ -41,9 +42,9 @@ public class ExpressionMethodArgsCalculateUtil {
     return (String) expression.getValue(context);
   }
 
-  public static String methodArgsExpressionCalculate(String expression, Object target, Method targetMethod, Object[] args) {
+  public static String methodArgsExpressionCalculate(String expression, Method targetMethod, Object[] args) {
 
-    MethodBasedEvaluationContext context = new MethodBasedEvaluationContext(target, targetMethod, args, parameterNameDiscoverer);
+    MethodBasedEvaluationContext context = new MethodBasedEvaluationContext(TypedValue.NULL, targetMethod, args, parameterNameDiscoverer);
     return getExpValue(context, expression);
   }
 }

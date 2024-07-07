@@ -2,6 +2,7 @@ package com.jackdking.rw.separation.annotation;
 
 import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -24,8 +25,8 @@ public @interface RWSeparationDBContext {
   RWSeparationStrategyTypeEnum rwStrategyType() default RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
 
   /**
-   *  单调读情况下，需要设置单调读hash字段
+   *  单调读情况下，需要设置单调读hash字段取值el表达式
    *
    */
-  String monotonicProperty();
+  String monotonicPropertyExp() default StringUtils.EMPTY;
 }
