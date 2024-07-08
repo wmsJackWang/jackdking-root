@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
-class TransInfoServiceTest extends BaseTest{
+class TransInfoServiceForClassAnoationTest extends BaseTest{
 
     @Autowired
-    TransInfoService transInfoService;
+    TransInfoServiceForClassAnoation transInfoService;
 
     @Test
     void queryServiceDs0Record() {

@@ -1,16 +1,13 @@
 package com.jackdking.rw.separation.utils;
 
-import org.apache.commons.text.StringSubstitutor;
 import org.springframework.context.expression.MethodBasedEvaluationContext;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.expression.Expression;
-import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.TypedValue;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 import java.lang.reflect.Method;
-import java.util.Map;
 
 /**
  * Copyright (C) 阿里巴巴
@@ -39,7 +36,7 @@ public class ExpressionMethodArgsCalculateUtil {
      */
     private static String getExpValue(MethodBasedEvaluationContext context, String expr) {
         Expression expression = parser.parseExpression(expr);
-        return (String) expression.getValue(context);
+        return String.valueOf(expression.getValue(context));
     }
 
     public static String methodArgsExpressionCalculate(String expression, Method targetMethod, Object[] args) {

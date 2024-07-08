@@ -66,6 +66,7 @@
     <module>jackdking-groovy-dsl</module>
     <module>jackdking-print-starter-test</module>
       <module>jackdking-rw-separation-spring-boot-starter</module>
+      <module>jackdking-shardingJdbc</module>
   </modules>
 
 	<!-- 第二种创建多个springboot项目方法，多继承import，用于继承继承企业自身库 -->

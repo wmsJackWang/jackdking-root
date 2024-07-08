@@ -1,5 +1,6 @@
 package com.jackdking.rw.separation.config;
 
+import com.google.common.collect.Maps;
 import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
 import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
 import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
@@ -19,11 +20,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.DefaultParameterNameDiscoverer;
+import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,11 +109,18 @@ public class RWSeparationDSAutoConfiguration {
         return false;
     }
 
-    @Around("@annotation(separationDBContext)")
-    public Object changeDataSourceContext(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext)
-            throws Throwable {
+    @Around("@within(separationDBContext)")
+    public Object classIntercept(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext) throws Throwable {
+        return proceedMethod(joinPoint, separationDBContext);
+    }
 
-        // 获取方法参数值数组
+    @Around("@annotation(separationDBContext)")
+    public Object methodIntercept(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext) throws Throwable {
+        return proceedMethod(joinPoint, separationDBContext);
+    }
+
+    private Object proceedMethod(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext) throws Throwable {
+        //获取方法参数值数组
         Object[] args = joinPoint.getArgs();
         String expression = separationDBContext.monotonicPropertyExp();
         if (!org.apache.commons.lang3.StringUtils.isBlank(expression)) {
@@ -121,6 +132,8 @@ public class RWSeparationDSAutoConfiguration {
         }
         // 动态修改其参数
         // 注意，如果调用joinPoint.proceed()方法，则修改的参数值不会生效，必须调用joinPoint.proceed(Object[] args)
+        //保存注解信息
+        DynamicDataSourceHolder.separationDBContextHolder.set(separationDBContext);
         Object result = joinPoint.proceed(args);
 
         // 如果这里不返回result，则目标对象实际返回值会被置为null
@@ -145,5 +158,4 @@ public class RWSeparationDSAutoConfiguration {
         }
         throw new IllegalStateException("Cannot resolve target method: " + name);
     }
-
 }
