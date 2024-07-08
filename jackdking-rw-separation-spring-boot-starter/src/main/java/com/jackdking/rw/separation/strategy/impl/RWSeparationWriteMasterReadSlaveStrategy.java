@@ -42,23 +42,21 @@ public class RWSeparationWriteMasterReadSlaveStrategy implements RWSeparationStr
         String finalDataSourceKey = null;
         if (operationType == MethodOperationType.WRITE) {
             finalDataSourceKey = masterDataSourceKey;
-        }else {
-            MasterWithManySlaverWrapper wrapper =  DynamicDataSourceHolder.getDsContext().get(masterDataSourceKey);
+        } else {
+            MasterWithManySlaverWrapper wrapper = DynamicDataSourceHolder.getDsContext().get(masterDataSourceKey);
             List<String> dsList = Lists.newArrayList();
             dsList.addAll(wrapper.getStringDataSourceMap().keySet());
             finalDataSourceKey = dsList.get(new Random().nextInt(dsList.size()));
         }
-        if(!JDKingDynamicDataSource.isReady()) {
+        if (!JDKingDynamicDataSource.isReady()) {
             log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}", finalDataSourceKey, finalDataSourceKey);
-        }
-        else if(!JDKingDynamicDataSource.contains(finalDataSourceKey)){
+        } else if (!JDKingDynamicDataSource.contains(finalDataSourceKey)) {
             log.info("指定数据源[{}]不存在，使用默认数据源-> {}", finalDataSourceKey, finalDataSourceKey);
-        }else{
+        } else {
 
             log.info("use datasource {} -> {}", finalDataSourceKey, finalDataSourceKey);
             DynamicDataSourceHolder.setType(finalDataSourceKey);
         }
-
 
     }
 }

@@ -39,7 +39,8 @@ public class RWSeparationStatementPlugin extends BaseInterceptor {
         BoundSql boundSql = statementHandler.getBoundSql();
         // 通过MetaObject优雅访问对象的属性，这里是访问statementHandler的属性;：MetaObject是Mybatis提供的一个用于方便、
         // 优雅访问对象属性的对象，通过它可以简化代码、不需要try/catch各种reflect异常，同时它支持对JavaBean、Collection、Map三种类型对象的操作。
-        MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY, SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY,new DefaultReflectorFactory());
+        MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY,
+                SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY, new DefaultReflectorFactory());
         // 先拦截到RoutingStatementHandler，里面有个StatementHandler类型的delegate变量，其实现类是BaseStatementHandler，然后就到BaseStatementHandler的成员变量mappedStatement
         MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
 
@@ -72,12 +73,14 @@ public class RWSeparationStatementPlugin extends BaseInterceptor {
 
     /**
      * 通过反射，拦截方法上带有自定义@InterceptAnnotation注解的方法，并增强sql
+     *
      * @param mappedStatement
      * @param boundSql
      * @return
      * @throws ClassNotFoundException
      */
-    private String sqlAnnotationEnhance(MappedStatement mappedStatement, BoundSql boundSql) throws ClassNotFoundException {
+    private String sqlAnnotationEnhance(MappedStatement mappedStatement, BoundSql boundSql)
+            throws ClassNotFoundException {
         // 获取到原始sql语句
         String sql = boundSql.getSql().toLowerCase();
         // sql语句类型 select、delete、insert、update
@@ -98,7 +101,7 @@ public class RWSeparationStatementPlugin extends BaseInterceptor {
         String dataSourceName = null;
         RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum = RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
         MethodOperationType operationType = MethodOperationType.WRITE;
-        DynamicDataSourceHolder.clearType();//提前清理数据库类型
+        DynamicDataSourceHolder.clearType();// 提前清理数据库类型
 
         // 遍历类中所有方法名称，并匹配上当前所拦截的方法
         for (Method method : classType.getDeclaredMethods()) {

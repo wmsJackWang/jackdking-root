@@ -16,6 +16,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.util.Properties;
+
 //@Component
 ////拦截StatementHandler类中参数类型为Statement的prepare方法（prepare=在预编译SQL前加入修改的逻辑）
 ////即拦截 Statement prepare(Connection var1, Integer var2) 方法
@@ -25,12 +26,13 @@ import java.util.Properties;
 @Slf4j
 public class MyPlugin implements Interceptor {
     @Override
-    public Object intercept(Invocation invocation) throws Throwable {       // 获取原始sql
+    public Object intercept(Invocation invocation) throws Throwable { // 获取原始sql
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
         BoundSql boundSql = statementHandler.getBoundSql();
         // 通过MetaObject优雅访问对象的属性，这里是访问statementHandler的属性;：MetaObject是Mybatis提供的一个用于方便、
         // 优雅访问对象属性的对象，通过它可以简化代码、不需要try/catch各种reflect异常，同时它支持对JavaBean、Collection、Map三种类型对象的操作。
-        MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY, SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY,new DefaultReflectorFactory());
+        MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY,
+                SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY, new DefaultReflectorFactory());
         // 先拦截到RoutingStatementHandler，里面有个StatementHandler类型的delegate变量，其实现类是BaseStatementHandler，然后就到BaseStatementHandler的成员变量mappedStatement
         MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
 
@@ -60,21 +62,24 @@ public class MyPlugin implements Interceptor {
 
     /**
      * 通过反射，拦截方法上带有自定义@InterceptAnnotation注解的方法，并增强sql
+     *
      * @param mappedStatement
      * @param boundSql
      * @return
      * @throws ClassNotFoundException
      */
-    private String sqlAnnotationEnhance(MappedStatement mappedStatement, BoundSql boundSql) throws ClassNotFoundException {
+    private String sqlAnnotationEnhance(MappedStatement mappedStatement, BoundSql boundSql)
+            throws ClassNotFoundException {
         // 获取到原始sql语句
         String sql = boundSql.getSql().toLowerCase();
         // sql语句类型 select、delete、insert、update
         String sqlCommandType = mappedStatement.getSqlCommandType().toString();
 
         // 数据库连接信息
-        //  Configuration configuration = mappedStatement.getConfiguration();
-        //  ComboPooledDataSource dataSource = (ComboPooledDataSource)configuration.getEnvironment().getDataSource();
-        //  dataSource.getJdbcUrl();
+        // Configuration configuration = mappedStatement.getConfiguration();
+        // ComboPooledDataSource dataSource =
+        // (ComboPooledDataSource)configuration.getEnvironment().getDataSource();
+        // dataSource.getJdbcUrl();
 
         // id为执行的mapper方法的全路径名，如com.cq.UserMapper.insertUser， 便于后续使用反射
         String id = mappedStatement.getId();
@@ -105,7 +110,8 @@ public class MyPlugin implements Interceptor {
                     }
 
                     // 场景2：校验功能 :update/delete必须要有where条件，并且打印出where中的条件
-                    if ("update".equals((sqlCommandType.toLowerCase())) || "delete".equals(sqlCommandType.toLowerCase())) {
+                    if ("update".equals((sqlCommandType.toLowerCase()))
+                            || "delete".equals(sqlCommandType.toLowerCase())) {
                         if (!sql.toLowerCase().contains("where")) {
                             log.warn("update or delete not safe!");
                         }
@@ -117,7 +123,8 @@ public class MyPlugin implements Interceptor {
                         if (userId != null) {
                             int num = Integer.parseInt(userId);
                             // 相同数据源中，模拟分5个表
-                            String new_table = interceptorAnnotation.value().concat("_").concat(String.valueOf(num % 5));
+                            String new_table = interceptorAnnotation.value().concat("_")
+                                    .concat(String.valueOf(num % 5));
                             log.info("set table: {}", new_table);
                             // 替换sql表名
                             sql = StringUtils.replace(sql, interceptorAnnotation.value(), new_table);

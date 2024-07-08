@@ -8,22 +8,20 @@ package jackdking.multids.dynamicdatasource;
  */
 public class DynamicDataSourceHolder {
 
-    private static final ThreadLocal<String> dataSourceHolder = new ThreadLocal<String>();
+  private static final ThreadLocal<String> dataSourceHolder = new ThreadLocal<String>();
 
-
-    public static void setType(String dataSourceType){
-        if(dataSourceType == null){
-            throw new NullPointerException();
-        }
-        dataSourceHolder.set(dataSourceType);
+  public static void setType(String dataSourceType) {
+    if (dataSourceType == null) {
+      throw new NullPointerException();
     }
+    dataSourceHolder.set(dataSourceType);
+  }
 
-    public static String getType(){
-        return dataSourceHolder.get();
-    }
+  public static String getType() {
+    return dataSourceHolder.get();
+  }
 
-    public static void clearType(){
-        dataSourceHolder.remove();
-    }
-
+  public static void clearType() {
+    dataSourceHolder.remove();
+  }
 }

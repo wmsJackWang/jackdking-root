@@ -23,19 +23,16 @@ import java.util.Properties;
 
 @Slf4j
 @Component
-@Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
+@Intercepts({ @Signature(type = Executor.class, method = "update", args = { MappedStatement.class, Object.class }),
+        @Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class,
+                RowBounds.class, ResultHandler.class }) })
 public class RWSeparationExecutePlugin extends BaseInterceptor {
 
+    /** 可以识别为 添加、更新、删除类型的 SQL 语句 */
+    public static final List<SqlCommandType> UPDATE_SQL_LIST = Arrays.asList(SqlCommandType.INSERT,
+            SqlCommandType.UPDATE, SqlCommandType.DELETE);
 
-    /**
-     * 可以识别为 添加、更新、删除类型的 SQL 语句
-     */
-    public static final List<SqlCommandType> UPDATE_SQL_LIST = Arrays.asList(SqlCommandType.INSERT, SqlCommandType.UPDATE, SqlCommandType.DELETE);
-
-    /**
-     * SQL 语句中出现的悲观锁标识
-     */
+    /** SQL 语句中出现的悲观锁标识 */
     private static final String LOCK_KEYWORD = "for update";
 
     @Override
@@ -69,7 +66,7 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         String sql = boundSql.getSql().toLowerCase(Locale.CHINA).replace("[\\t\\n\\r]", " ");
 
         if (sqlCommandType.equals(SqlCommandType.SELECT)) {
-          operationType = MethodOperationType.READ;
+            operationType = MethodOperationType.READ;
         } else if (UPDATE_SQL_LIST.contains(sqlCommandType) || sql.contains(LOCK_KEYWORD)) {
             operationType = MethodOperationType.WRITE;
         } else {
@@ -90,16 +87,17 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
 
         // 方法注解
         if (methodRWSeparationDBType != null) {
-          rwSeparationStrategyTypeEnum = methodRWSeparationDBType.rwStrategyType();
-          dataSourceName = methodRWSeparationDBType.dsKey();
-          monotonicProperty = methodRWSeparationDBType.monotonicPropertyExp();
+            rwSeparationStrategyTypeEnum = methodRWSeparationDBType.rwStrategyType();
+            dataSourceName = methodRWSeparationDBType.dsKey();
+            monotonicProperty = methodRWSeparationDBType.monotonicPropertyExp();
         }
         StrategyParam param = new StrategyParam();
         param.setTargetMethod(targetMethod);
         param.setTarget(classObj);
-//        param.setMethodArgs(targetMethod.getA);
+        // param.setMethodArgs(targetMethod.getA);
         log.info("data:{}", JSON.toJSONString(invocation.getArgs()[1]));
-        rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType, monotonicProperty);
+        rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType,
+                monotonicProperty);
 
         Object proceed;
         try {
@@ -107,7 +105,7 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         } catch (Throwable t) {
             throw t;
         } finally {
-//            DataSourceTypeManager.reset();
+            // DataSourceTypeManager.reset();
         }
         return proceed;
     }
@@ -125,6 +123,5 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
 
     @Override
     public void setProperties(Properties properties) {
-
     }
 }

@@ -23,7 +23,8 @@ public abstract class BaseInterceptor implements ApplicationRunner, ApplicationC
     @Override
     public void run(ApplicationArguments args) throws Exception {
         rwSeparationContext = (RWSeparationContext) applicationContext.getBean(Constants.SEPARATION_CONTEXT_BEAN_NAME);
-        Map<String, SqlSessionFactoryBean> sqlSessionFactoryBeanList = applicationContext.getBeansOfType(SqlSessionFactoryBean.class);
+        Map<String, SqlSessionFactoryBean> sqlSessionFactoryBeanList = applicationContext
+                .getBeansOfType(SqlSessionFactoryBean.class);
         Optional.ofNullable(sqlSessionFactoryBeanList).orElseGet(Collections::emptyMap)
                 .forEach((s, sqlSessionFactoryBean) -> sqlSessionFactoryBean.setPlugins(this));
     }

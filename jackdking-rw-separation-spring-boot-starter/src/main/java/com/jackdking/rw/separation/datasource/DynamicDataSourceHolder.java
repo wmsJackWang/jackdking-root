@@ -16,7 +16,6 @@ public class DynamicDataSourceHolder {
 
     private static final InheritableThreadLocal<String> dataSourceHolder = new InheritableThreadLocal<String>();
 
-
     public static final InheritableThreadLocal<String> monotonicReadArgsHolder = new InheritableThreadLocal<String>();
 
     @Getter
@@ -40,18 +39,18 @@ public class DynamicDataSourceHolder {
         return dsContext.keySet().contains(dataSourceKey);
     }
 
-    public static void setType(String dataSourceType){
-        if(dataSourceType == null){
+    public static void setType(String dataSourceType) {
+        if (dataSourceType == null) {
             throw new NullPointerException();
         }
         dataSourceHolder.set(dataSourceType);
     }
 
-    public static String getType(){
+    public static String getType() {
         return dataSourceHolder.get();
     }
 
-    public static void clearType(){
+    public static void clearType() {
         dataSourceHolder.remove();
     }
 

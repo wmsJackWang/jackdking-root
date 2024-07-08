@@ -23,28 +23,29 @@ import java.util.Map;
  **/
 public class ExpressionMethodArgsCalculateUtil {
 
-  /**
-   * 用于获取方法参数定义名字.
-   */
-  private static final ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
-  /**
-   * 用于SpEL表达式解析.
-   */
-  private static final SpelExpressionParser parser = new SpelExpressionParser();
+    /**
+     * 用于获取方法参数定义名字.
+     */
+    private static final ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
+    /**
+     * 用于SpEL表达式解析.
+     */
+    private static final SpelExpressionParser parser = new SpelExpressionParser();
 
-  /**
-   * @param context：el表达式
-   * @param expr：el表达式动态参数
-   * @return
-   */
-  private static String getExpValue(MethodBasedEvaluationContext context, String expr) {
-    Expression expression = parser.parseExpression(expr);
-    return (String) expression.getValue(context);
-  }
+    /**
+     * @param context：el表达式
+     * @param expr：el表达式动态参数
+     * @return
+     */
+    private static String getExpValue(MethodBasedEvaluationContext context, String expr) {
+        Expression expression = parser.parseExpression(expr);
+        return (String) expression.getValue(context);
+    }
 
-  public static String methodArgsExpressionCalculate(String expression, Method targetMethod, Object[] args) {
+    public static String methodArgsExpressionCalculate(String expression, Method targetMethod, Object[] args) {
 
-    MethodBasedEvaluationContext context = new MethodBasedEvaluationContext(TypedValue.NULL, targetMethod, args, parameterNameDiscoverer);
-    return getExpValue(context, expression);
-  }
+        MethodBasedEvaluationContext context = new MethodBasedEvaluationContext(TypedValue.NULL, targetMethod, args,
+                parameterNameDiscoverer);
+        return getExpValue(context, expression);
+    }
 }

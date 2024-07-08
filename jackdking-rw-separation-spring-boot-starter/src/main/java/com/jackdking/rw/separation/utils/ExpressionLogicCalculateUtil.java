@@ -17,23 +17,22 @@ import java.util.Map;
  **/
 public class ExpressionLogicCalculateUtil {
 
-  /**
-   * @param express：el表达式
-   * @param map：el表达式动态参数
-   * @return
-   */
-  public static <T> String parse(String express, Map<String, T> map) {
-    StringSubstitutor sub = new StringSubstitutor(map);
-    return sub.replace(express);
-  }
+    /**
+     * @param express：el表达式
+     * @param map：el表达式动态参数
+     * @return
+     */
+    public static <T> String parse(String express, Map<String, T> map) {
+        StringSubstitutor sub = new StringSubstitutor(map);
+        return sub.replace(express);
+    }
 
-  public static boolean logicCalculate(String expression, Map<String, Object> valMap) {
+    public static boolean logicCalculate(String expression, Map<String, Object> valMap) {
 
-    String finalExpress = parse(expression, valMap);
-    ExpressionParser parser = new SpelExpressionParser();
-    boolean logicResult = parser.parseExpression(finalExpress).getValue(Boolean.class);
-    return logicResult;
-  }
-
+        String finalExpress = parse(expression, valMap);
+        ExpressionParser parser = new SpelExpressionParser();
+        boolean logicResult = parser.parseExpression(finalExpress).getValue(Boolean.class);
+        return logicResult;
+    }
 
 }

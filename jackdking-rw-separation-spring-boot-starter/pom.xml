@@ -124,8 +124,6 @@
       </roles>
     </developer>
   </developers>
-
-
   <build>
     <pluginManagement>
       <plugins>
@@ -144,6 +142,71 @@
               <goals>
                 <goal>deploy</goal>
               </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- spotless插件 -->
+        <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <version>2.30.0</version>
+          <configuration>
+            <!-- 全量格式化:所有src 源代码生效 ratchetFrom=NONE; -->
+            <!-- 增量格式化，基于本地master基线ratchetFrom=master -->
+            <ratchetFrom>NONE</ratchetFrom>
+            <formats>
+              <format>
+                <includes>
+                  <include>*.md</include>
+                  <include>*.java</include>
+                  <include>.gitignore</include>
+                </includes>
+                <trimTrailingWhitespace></trimTrailingWhitespace>
+                <endWithNewline></endWithNewline>
+                <indent>
+                  <tabs>true</tabs>
+                  <spacesPerTab>4</spacesPerTab>
+                </indent>
+              </format>
+            </formats>
+            <java>
+              <!-- 使用 eclipse 的编码风格, 有通知更新请执行: bash ~/.m2/download_spotless_config.sh -->
+              <eclipse>
+                <version>4.19.0</version>
+                <file>${user.home}/.m2/eclipse-formatter.xml</file>
+              </eclipse>
+              <!-- 添加版权声明 -->
+              <licenseHeader>
+                <delimiter>(package )|(import )</delimiter>
+                <file>${user.home}/.m2/license-header</file>
+              </licenseHeader>
+            </java>
+            <pom>
+              <includes>
+                <include>pom.xml</include>
+              </includes>
+              <sortPom>
+                <!-- XML 格式化 -->
+                <encoding>UTF-8</encoding>
+                <expandEmptyElements>true</expandEmptyElements>
+                <spaceBeforeCloseEmptyElement>false</spaceBeforeCloseEmptyElement>
+                <keepBlankLines>true</keepBlankLines>
+                <nrOfIndentSpace>4</nrOfIndentSpace>
+                <indentBlankLines>false</indentBlankLines>
+                <indentSchemaLocation>false</indentSchemaLocation>
+                <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
+                <sortProperties>false</sortProperties>
+                <sortModules>false</sortModules>
+                <sortExecutions>false</sortExecutions>
+              </sortPom>
+            </pom>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+              <phase>compile</phase>
             </execution>
           </executions>
         </plugin>
@@ -189,67 +252,67 @@
   </profiles>
 
 
-    <!--     <profiles> -->
-    <!--         <profile> -->
-    <!--             <id>release</id> -->
-    <!--             <build> -->
-    <!--                 <plugins> -->
-    <!--                     <plugin> -->
-    <!--                         <groupId>org.apache.maven.plugins</groupId> -->
-    <!--                         <artifactId>maven-source-plugin</artifactId> -->
-    <!--                         <version>2.1.2</version> -->
-    <!--                         <executions> -->
-    <!--                             <execution> -->
-    <!--                                 <id>attach-sources</id> -->
-    <!--                                 <phase>package</phase> -->
-    <!--                                 <goals> -->
-    <!--                                     <goal>jar-no-fork</goal> -->
-    <!--                                 </goals> -->
-    <!--                             </execution> -->
-    <!--                         </executions> -->
-    <!--                     </plugin> -->
+  <!--     <profiles> -->
+  <!--         <profile> -->
+  <!--             <id>release</id> -->
+  <!--             <build> -->
+  <!--                 <plugins> -->
+  <!--                     <plugin> -->
+  <!--                         <groupId>org.apache.maven.plugins</groupId> -->
+  <!--                         <artifactId>maven-source-plugin</artifactId> -->
+  <!--                         <version>2.1.2</version> -->
+  <!--                         <executions> -->
+  <!--                             <execution> -->
+  <!--                                 <id>attach-sources</id> -->
+  <!--                                 <phase>package</phase> -->
+  <!--                                 <goals> -->
+  <!--                                     <goal>jar-no-fork</goal> -->
+  <!--                                 </goals> -->
+  <!--                             </execution> -->
+  <!--                         </executions> -->
+  <!--                     </plugin> -->
 
-    <!--                     Javadoc -->
-    <!--                     <plugin> -->
-    <!--                         <groupId>org.apache.maven.plugins</groupId> -->
-    <!--                         <artifactId>maven-javadoc-plugin</artifactId> -->
-    <!--                         <version>2.9.1</version> -->
-    <!--                         <configuration> -->
-    <!--                             <aggregate>true</aggregate> -->
-    <!--                             需要配置，不然会出现“错误: 未知标记:xxxx” -->
-    <!--                             <charset>UTF-8</charset> -->
-    <!--                             <encoding>UTF-8</encoding> -->
-    <!--                             <docencoding>UTF-8</docencoding> -->
-    <!--                             <additionalparam>-Xdoclint:none</additionalparam> -->
-    <!--                         </configuration> -->
-    <!--                         <executions> -->
-    <!--                             <execution> -->
-    <!--                                 <phase>package</phase> -->
-    <!--                                 <goals> -->
-    <!--                                     <goal>jar</goal> -->
-    <!--                                 </goals> -->
-    <!--                             </execution> -->
-    <!--                         </executions> -->
-    <!--                     </plugin> -->
-    <!--                     GPG -->
-    <!--                     <plugin> -->
-    <!--                         <groupId>org.apache.maven.plugins</groupId> -->
-    <!--                         <artifactId>maven-gpg-plugin</artifactId> -->
-    <!--                         <configuration> -->
-    <!--                         	<skip>true</skip> -->
-    <!--                     	</configuration> -->
-    <!--                         <executions> -->
-    <!--                             <execution> -->
-    <!--                                 <phase>verify</phase> -->
-    <!--                                 <goals> -->
-    <!--                                     <goal>sign</goal> -->
-    <!--                                 </goals> -->
-    <!--                             </execution> -->
-    <!--                         </executions> -->
-    <!--                     </plugin> -->
-    <!--                 </plugins> -->
-    <!--             </build> -->
-    <!--         </profile> -->
-    <!--     </profiles> -->
+  <!--                     Javadoc -->
+  <!--                     <plugin> -->
+  <!--                         <groupId>org.apache.maven.plugins</groupId> -->
+  <!--                         <artifactId>maven-javadoc-plugin</artifactId> -->
+  <!--                         <version>2.9.1</version> -->
+  <!--                         <configuration> -->
+  <!--                             <aggregate>true</aggregate> -->
+  <!--                             需要配置，不然会出现“错误: 未知标记:xxxx” -->
+  <!--                             <charset>UTF-8</charset> -->
+  <!--                             <encoding>UTF-8</encoding> -->
+  <!--                             <docencoding>UTF-8</docencoding> -->
+  <!--                             <additionalparam>-Xdoclint:none</additionalparam> -->
+  <!--                         </configuration> -->
+  <!--                         <executions> -->
+  <!--                             <execution> -->
+  <!--                                 <phase>package</phase> -->
+  <!--                                 <goals> -->
+  <!--                                     <goal>jar</goal> -->
+  <!--                                 </goals> -->
+  <!--                             </execution> -->
+  <!--                         </executions> -->
+  <!--                     </plugin> -->
+  <!--                     GPG -->
+  <!--                     <plugin> -->
+  <!--                         <groupId>org.apache.maven.plugins</groupId> -->
+  <!--                         <artifactId>maven-gpg-plugin</artifactId> -->
+  <!--                         <configuration> -->
+  <!--                         	<skip>true</skip> -->
+  <!--                     	</configuration> -->
+  <!--                         <executions> -->
+  <!--                             <execution> -->
+  <!--                                 <phase>verify</phase> -->
+  <!--                                 <goals> -->
+  <!--                                     <goal>sign</goal> -->
+  <!--                                 </goals> -->
+  <!--                             </execution> -->
+  <!--                         </executions> -->
+  <!--                     </plugin> -->
+  <!--                 </plugins> -->
+  <!--             </build> -->
+  <!--         </profile> -->
+  <!--     </profiles> -->
 
 </project>

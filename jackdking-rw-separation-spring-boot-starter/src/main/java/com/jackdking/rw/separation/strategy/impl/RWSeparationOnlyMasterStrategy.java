@@ -2,7 +2,6 @@ package com.jackdking.rw.separation.strategy.impl;
 
 import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
 import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
-import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
 import com.jackdking.rw.separation.properties.RWSeparationDsProperties;
@@ -34,12 +33,11 @@ public class RWSeparationOnlyMasterStrategy implements RWSeparationStrategy {
         }
 
         String masterDataSourceKey = DynamicDataSourceHolder.getMasterDsKey(masterDataSourceName);
-        if(!JDKingDynamicDataSource.isReady()) {
+        if (!JDKingDynamicDataSource.isReady()) {
             log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}", masterDataSourceKey, masterDataSourceKey);
-        }
-        else if(!JDKingDynamicDataSource.contains(masterDataSourceKey)){
+        } else if (!JDKingDynamicDataSource.contains(masterDataSourceKey)) {
             log.info("指定数据源[{}]不存在，使用默认数据源-> {}", masterDataSourceKey, masterDataSourceKey);
-        }else{
+        } else {
             log.info("use datasource {} -> {}", masterDataSourceKey, masterDataSourceKey);
             DynamicDataSourceHolder.setType(masterDataSourceKey);
         }

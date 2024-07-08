@@ -14,7 +14,6 @@ import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -44,20 +43,19 @@ public class RWSeparationWriteMasterReadMasterSlaveStrategy implements RWSeparat
         String masterDataSourceKey = DynamicDataSourceHolder.getMasterDsKey(masterDataSourceName);
         String finalDataSourceKey = null;
         if (operationType == MethodOperationType.WRITE) {
-            finalDataSourceKey =masterDataSourceKey;
-        }else {
-            MasterWithManySlaverWrapper wrapper =  DynamicDataSourceHolder.getDsContext().get(masterDataSourceKey);
+            finalDataSourceKey = masterDataSourceKey;
+        } else {
+            MasterWithManySlaverWrapper wrapper = DynamicDataSourceHolder.getDsContext().get(masterDataSourceKey);
             List<String> dsList = Lists.newArrayList();
             dsList.addAll(wrapper.getStringDataSourceMap().keySet());
             dsList.add(masterDataSourceKey);
             finalDataSourceKey = dsList.get(new Random().nextInt(dsList.size()));
         }
-        if(!JDKingDynamicDataSource.isReady()) {
+        if (!JDKingDynamicDataSource.isReady()) {
             log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}", finalDataSourceKey, finalDataSourceKey);
-        }
-        else if(!JDKingDynamicDataSource.contains(finalDataSourceKey)){
+        } else if (!JDKingDynamicDataSource.contains(finalDataSourceKey)) {
             log.info("指定数据源[{}]不存在，使用默认数据源-> {}", finalDataSourceKey, finalDataSourceKey);
-        }else{
+        } else {
 
             log.info("use datasource {} -> {}", finalDataSourceKey, finalDataSourceKey);
             DynamicDataSourceHolder.setType(finalDataSourceKey);
@@ -66,10 +64,7 @@ public class RWSeparationWriteMasterReadMasterSlaveStrategy implements RWSeparat
     }
 
     private DatabaseMSPrefixType randomGetPrefixEnum() {
-        return Arrays.stream(DatabaseMSPrefixType.values())
-                .collect(Collectors.toList())
-                .get(new Random()
-                        .nextInt(DatabaseMSPrefixType.values().length)
-                );
+        return Arrays.stream(DatabaseMSPrefixType.values()).collect(Collectors.toList())
+                .get(new Random().nextInt(DatabaseMSPrefixType.values().length));
     }
 }

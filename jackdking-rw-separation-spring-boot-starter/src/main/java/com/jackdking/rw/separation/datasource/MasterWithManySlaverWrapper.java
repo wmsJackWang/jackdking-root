@@ -17,10 +17,10 @@ import java.util.Map;
 @Data
 public class MasterWithManySlaverWrapper {
 
-  private String dataSourceName;
+    private String dataSourceName;
 
-  private DataSource masterDatasource;
+    private DataSource masterDatasource;
 
-  private Map<String, DataSource> stringDataSourceMap;
+    private Map<String, DataSource> stringDataSourceMap;
 
 }

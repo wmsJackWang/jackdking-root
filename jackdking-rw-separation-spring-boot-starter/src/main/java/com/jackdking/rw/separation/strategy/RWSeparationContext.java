@@ -1,9 +1,6 @@
 package com.jackdking.rw.separation.strategy;
 
 import com.jackdking.rw.separation.config.Constants;
-import com.jackdking.rw.separation.config.RWSeparationDSAutoConfiguration;
-import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
-import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
 import com.jackdking.rw.separation.enums.MethodOperationType;
 import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -21,10 +18,10 @@ public class RWSeparationContext {
     @Autowired
     private List<RWSeparationStrategy> strategyList;
 
-    public void decideWriteReadDs(String dataSourceName, RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum, MethodOperationType operationType, String monotonicProperty) throws Exception{
+    public void decideWriteReadDs(String dataSourceName, RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum,
+            MethodOperationType operationType, String monotonicProperty) throws Exception {
         Optional<RWSeparationStrategy> ops = Optional.ofNullable(strategyList).orElseGet(Collections::emptyList)
-                .stream()
-                .filter(rwSeparationStrategy -> rwSeparationStrategy.support(rwSeparationStrategyTypeEnum))
+                .stream().filter(rwSeparationStrategy -> rwSeparationStrategy.support(rwSeparationStrategyTypeEnum))
                 .findFirst();
 
         ops.ifPresent(rwSeparationStrategy -> {

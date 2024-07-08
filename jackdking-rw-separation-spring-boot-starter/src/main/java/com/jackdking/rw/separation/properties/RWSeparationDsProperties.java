@@ -9,27 +9,27 @@ import java.util.List;
 @ConfigurationProperties(prefix = "rw.separation.ds")
 public class RWSeparationDsProperties {
 
-	private List<DsConfig> masterDsConfigs;
+    private List<DsConfig> masterDsConfigs;
 
     private List<DsConfig> slaverDsConfigs;
 
-	private String defaultDs;
+    private String defaultDs;
 
     private Boolean enable = Boolean.FALSE;
 
-	@Data
-	public static class DsConfig {
+    @Data
+    public static class DsConfig {
 
-    private String dsName;
+        private String dsName;
 
-    private String masterDsName;
+        private String masterDsName;
 
-    private String driverClassName;
+        private String driverClassName;
 
-    private String jdbcUrl;
+        private String jdbcUrl;
 
-    private String username;
+        private String username;
 
-    private String password;
-  }
+        private String password;
+    }
 }

@@ -1,6 +1,5 @@
 package com.jackdking.rw.separation.strategy.impl;
 
-import com.google.common.hash.HashCode;
 import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
 import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
 import com.jackdking.rw.separation.datasource.MasterWithManySlaverWrapper;
@@ -35,7 +34,8 @@ public class RWSeparationWriteMasterReadMonotonicSlaveStrategy implements RWSepa
     }
 
     @Override
-    public void execute(String masterDataSourceName, MethodOperationType operationType, String monotonicProperty) throws Exception{
+    public void execute(String masterDataSourceName, MethodOperationType operationType, String monotonicProperty)
+            throws Exception {
 
         if (StringUtils.isBlank(masterDataSourceName)) {
             log.debug("没有指定数据源[{}]，使用默认数据源-> {}", masterDataSourceName, rwSeparationDsProperties.getDefaultDs());
@@ -46,22 +46,22 @@ public class RWSeparationWriteMasterReadMonotonicSlaveStrategy implements RWSepa
         String finalDataSourceKey = null;
         if (operationType == MethodOperationType.WRITE) {
             finalDataSourceKey = masterDataSourceKey;
-        }else {
-            MasterWithManySlaverWrapper wrapper =  DynamicDataSourceHolder.getDsContext().get(masterDataSourceKey);
+        } else {
+            MasterWithManySlaverWrapper wrapper = DynamicDataSourceHolder.getDsContext().get(masterDataSourceKey);
             String monotonicVal = DynamicDataSourceHolder.monotonicReadArgsHolder.get();
             if (!StringUtils.isBlank(monotonicProperty) && Objects.isNull(monotonicVal)) {
-                throw new IllegalAccessException(String.format("单调读指定了hash字段:%s, 但求得的单调读hash值：%s", monotonicProperty, monotonicVal));
+                throw new IllegalAccessException(
+                        String.format("单调读指定了hash字段:%s, 但求得的单调读hash值：%s", monotonicProperty, monotonicVal));
             }
             List<String> dsList = Lists.newArrayList();
             dsList.addAll(wrapper.getStringDataSourceMap().keySet());
             finalDataSourceKey = dsList.get(getMonotonicIndex(dsList.size(), monotonicVal));
         }
-        if(!JDKingDynamicDataSource.isReady()) {
+        if (!JDKingDynamicDataSource.isReady()) {
             log.info("多数据源组件没有配置数据源[{}]，使用默认数据源-> {}", finalDataSourceKey, finalDataSourceKey);
-        }
-        else if(!JDKingDynamicDataSource.contains(finalDataSourceKey)){
+        } else if (!JDKingDynamicDataSource.contains(finalDataSourceKey)) {
             log.info("指定数据源[{}]不存在，使用默认数据源-> {}", finalDataSourceKey, finalDataSourceKey);
-        }else{
+        } else {
 
             log.info("use datasource {} -> {}", finalDataSourceKey, finalDataSourceKey);
             DynamicDataSourceHolder.setType(finalDataSourceKey);
@@ -71,16 +71,13 @@ public class RWSeparationWriteMasterReadMonotonicSlaveStrategy implements RWSepa
 
     private int getMonotonicIndex(int size, String monotonicVal) {
         if (Objects.nonNull(monotonicVal)) {
-            return monotonicVal.hashCode()%size;
+            return monotonicVal.hashCode() % size;
         }
         return new Random().nextInt(size);
     }
 
     private DatabaseMSPrefixType randomGetPrefixEnum() {
-        return Arrays.stream(DatabaseMSPrefixType.values())
-                .collect(Collectors.toList())
-                .get(new Random()
-                        .nextInt(DatabaseMSPrefixType.values().length)
-                );
+        return Arrays.stream(DatabaseMSPrefixType.values()).collect(Collectors.toList())
+                .get(new Random().nextInt(DatabaseMSPrefixType.values().length));
     }
 }
