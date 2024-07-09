@@ -10,15 +10,15 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface TransInfoMapper {
 
-	public int save(TransInfo info);
+  public int save(TransInfo info);
 
-	public TransInfo get(@Param("id") Long id);
+  public TransInfo get(@Param("id") Long id);
 
-	@RWSeparationDBContext(dsKey = "ds3", monotonicPropertyExp = "#ids")
-	TransInfo queryDsV1(@Param("id") Long id);
+  @RWSeparationDBContext(dsKey = "ds3", monotonicPropertyExp = "#ids")
+  TransInfo queryDsV1(@Param("id") Long id);
 
-    TransInfo queryDsV2(@Param("id") Long id, @Param("ids") Long ids);
+  TransInfo queryDsV2(@Param("id") Long id, @Param("ids") Long ids);
 
-	TransInfo queryDsV3(@Param("info")TransInfo transInfo, @Param("id")Long id);
+  TransInfo queryDsV3(@Param("info") TransInfo transInfo, @Param("id") Long id);
 
 }

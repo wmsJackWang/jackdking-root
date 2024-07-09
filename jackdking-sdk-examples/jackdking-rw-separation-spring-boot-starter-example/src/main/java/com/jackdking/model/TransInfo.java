@@ -8,10 +8,10 @@ import java.sql.Timestamp;
 @Data
 public class TransInfo {
 
-	private Long id;
+  private Long id;
 
-	public String userid;
-	public Long orderid;
-	public Timestamp ordertime;
+  public String userid;
+  public Long orderid;
+  public Timestamp ordertime;
 
 }
