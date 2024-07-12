@@ -1,6 +1,7 @@
-package com.jackdking.rw.separation.plugins;
+package com.jackdking.sharding.plugins;
 
-import com.jackdking.rw.separation.annotation.InterceptAnnotation;
+
+import com.jackdking.sharding.annotation.InterceptAnnotation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;

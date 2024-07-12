@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.datasource;
+package com.jackdking.sharding.datasource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
@@ -25,11 +25,13 @@ public class JDKingDynamicDataSource extends AbstractRoutingDataSource {
     public void setTargetDataSources(Map<Object, Object> targetDataSources) {
         // TODO Auto-generated method stub
 
-        if (targetDataSources.size() <= 0)
-            throw new RuntimeException("多数据源不能配置为空");
+        if (targetDataSources.size() <= 0) {
+          throw new RuntimeException("多数据源不能配置为空");
+        }
 
-        for (Object key : targetDataSources.keySet())
-            mutilDs.add(String.valueOf(key));
+        for (Object key : targetDataSources.keySet()) {
+          mutilDs.add(String.valueOf(key));
+        }
 
         super.setTargetDataSources(targetDataSources);
     }

@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.utils;
+package com.jackdking.sharding.utils;
 
 import org.apache.commons.text.StringSubstitutor;
 import org.springframework.expression.ExpressionParser;

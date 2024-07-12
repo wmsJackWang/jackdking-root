@@ -1,7 +1,8 @@
 package com.jackdking.sharding.annotation;
 
+import com.jackdking.sharding.config.Constants;
 import com.jackdking.sharding.enums.DatabaseMSPrefixType;
-import com.jackdking.sharding.enums.RWSeparationStrategyTypeEnum;
+import com.jackdking.sharding.enums.RWSeparationStrategyType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.annotation.ElementType;
@@ -9,23 +10,41 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ ElementType.METHOD, ElementType.TYPE })
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RWSeparationDBContext {
+public @interface ShardingContext {
 
-    String dsKey() default "defaultDs";
+  /**
+   * 数据源分组key值
+   * @return
+   */
+  String dbGroupKey() default Constants.DEFAULT_DATASOURCE_GROUP;
 
-    /**
-     * 数据库是主库、从库类型
-     *
-     */
-    DatabaseMSPrefixType databaseMSType() default DatabaseMSPrefixType.MASTER;
+  /**
+   * 分库分表key处理策略
+   */
+  DatabaseMSPrefixType shardingKeyStrategy() default DatabaseMSPrefixType.MASTER;
 
-    RWSeparationStrategyTypeEnum rwStrategyType() default RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
+  /**
+   * 逻辑表名。
+   * <p>支持多个表join，业务要保证一个sql多个表需要在一个数据源中。
+   */
+  String[] logicTableName();
 
-    /**
-     * 单调读情况下，需要设置单调读hash字段取值el表达式
-     *
-     */
-    String monotonicPropertyExp() default StringUtils.EMPTY;
+  /**
+   * 读写分离的策略
+   *
+   * @return
+   */
+  RWSeparationStrategyType rwSeparationStrategy() default RWSeparationStrategyType.RW_SEPARATION_ONLY_MASTER;
+
+  /**
+   * 单调读情况下，需要设置单调读hash字段取值el表达式
+   */
+  String monotonicPropertyExp() default StringUtils.EMPTY;
+
+  /**
+   * 分隔符，用于表名拼接，user_0001
+   */
+  String delimiter() default "_";
 }

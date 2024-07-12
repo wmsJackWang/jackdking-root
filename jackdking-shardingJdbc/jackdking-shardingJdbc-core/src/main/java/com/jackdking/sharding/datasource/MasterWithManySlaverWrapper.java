@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.datasource;
+package com.jackdking.sharding.datasource;
 
 import lombok.Data;
 

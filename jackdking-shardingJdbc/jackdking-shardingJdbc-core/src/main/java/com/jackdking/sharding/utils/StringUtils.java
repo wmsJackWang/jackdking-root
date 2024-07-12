@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.utils;
+package com.jackdking.sharding.utils;
 
 public class StringUtils {
 

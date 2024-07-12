@@ -1,14 +1,14 @@
-package com.jackdking.rw.separation.strategy.impl;
+package com.jackdking.sharding.strategy.rwseparation.impl;
 
-import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
-import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
-import com.jackdking.rw.separation.datasource.MasterWithManySlaverWrapper;
-import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
-import com.jackdking.rw.separation.enums.MethodOperationType;
-import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
-import com.jackdking.rw.separation.properties.RWSeparationDsProperties;
-import com.jackdking.rw.separation.strategy.RWSeparationStrategy;
-import com.jackdking.rw.separation.utils.StringUtils;
+import com.jackdking.sharding.datasource.DynamicDataSourceHolder;
+import com.jackdking.sharding.datasource.JDKingDynamicDataSource;
+import com.jackdking.sharding.datasource.MasterWithManySlaverWrapper;
+import com.jackdking.sharding.enums.DatabaseMSPrefixType;
+import com.jackdking.sharding.enums.MethodOperationType;
+import com.jackdking.sharding.enums.RWSeparationStrategyType;
+import com.jackdking.sharding.properties.ShardingProperties;
+import com.jackdking.sharding.strategy.rwseparation.RWSeparationStrategy;
+import com.jackdking.sharding.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,11 @@ public class RWSeparationWriteMasterReadMasterSlaveStrategy implements RWSeparat
 
     // 注入属性类
     @Autowired
-    private RWSeparationDsProperties rwSeparationDsProperties;
+    private ShardingProperties rwSeparationDsProperties;
 
     @Override
-    public RWSeparationStrategyTypeEnum getStrategyType() {
-        return RWSeparationStrategyTypeEnum.RW_SEPARATION_WRITE_MASTER_READ_MASTER_SLAVE;
+    public RWSeparationStrategyType getStrategyType() {
+        return RWSeparationStrategyType.RW_SEPARATION_WRITE_MASTER_READ_MASTER_SLAVE;
     }
 
     @Override

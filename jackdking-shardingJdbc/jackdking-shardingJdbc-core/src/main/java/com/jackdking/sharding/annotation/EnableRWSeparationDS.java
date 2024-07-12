@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.annotation;
+package com.jackdking.sharding.annotation;
 
 public @interface EnableRWSeparationDS {
 

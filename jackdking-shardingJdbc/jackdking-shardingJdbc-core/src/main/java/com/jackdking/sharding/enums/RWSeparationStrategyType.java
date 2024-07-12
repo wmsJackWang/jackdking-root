@@ -1,11 +1,11 @@
-package com.jackdking.rw.separation.enums;
+package com.jackdking.sharding.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum RWSeparationStrategyTypeEnum {
+public enum RWSeparationStrategyType {
     /**
      * 只在主库上进行读写
      */

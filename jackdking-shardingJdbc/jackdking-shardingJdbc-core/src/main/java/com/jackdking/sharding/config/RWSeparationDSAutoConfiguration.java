@@ -1,13 +1,13 @@
-package com.jackdking.rw.separation.config;
+package com.jackdking.sharding.config;
 
-import com.google.common.collect.Maps;
-import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
-import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
-import com.jackdking.rw.separation.datasource.JDKingDynamicDataSource;
-import com.jackdking.rw.separation.datasource.MasterWithManySlaverWrapper;
-import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
-import com.jackdking.rw.separation.properties.RWSeparationDsProperties;
-import com.jackdking.rw.separation.utils.ExpressionMethodArgsCalculateUtil;
+import com.jackdking.sharding.annotation.ShardingContext;
+import com.jackdking.sharding.datasource.DynamicDataSourceHolder;
+import com.jackdking.sharding.datasource.JDKingDynamicDataSource;
+import com.jackdking.sharding.datasource.MasterWithManySlaverWrapper;
+import com.jackdking.sharding.enums.DatabaseMSPrefixType;
+import com.jackdking.sharding.properties.ShardingProperties;
+import com.jackdking.sharding.properties.ShardingTableProperties;
+import com.jackdking.sharding.utils.ExpressionMethodArgsCalculateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -20,14 +20,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
-import org.springframework.core.DefaultParameterNameDiscoverer;
-import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,20 +35,20 @@ import java.util.Objects;
 @EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
 @Configuration
 // 将 application.properties 的相关的属性字段与该类一一对应，并生成 Bean
-@EnableConfigurationProperties(RWSeparationDsProperties.class)
+@EnableConfigurationProperties({ShardingProperties.class, ShardingTableProperties.class})
 public class RWSeparationDSAutoConfiguration {
 
     // 注入属性类
     @Autowired
-    private RWSeparationDsProperties rwSeparationDsProperties;
+    private ShardingProperties rwSeparationDsProperties;
 
     @Bean
     // 当容器没有这个 Bean 的时候才创建这个 Bean
 //    @ConditionalOnMissingBean(PrintService.class)
     @Primary
     public DataSource dynamicDataSource() {
-        List<RWSeparationDsProperties.DsConfig> masterDsConfigs = rwSeparationDsProperties.getMasterDsConfigs();
-        List<RWSeparationDsProperties.DsConfig> slaverDsConfigs = rwSeparationDsProperties.getSlaverDsConfigs();
+        List<ShardingProperties.DsConfig> masterDsConfigs = rwSeparationDsProperties.getMasterDsConfigs();
+        List<ShardingProperties.DsConfig> slaverDsConfigs = rwSeparationDsProperties.getSlaverDsConfigs();
 
         if (null == masterDsConfigs || masterDsConfigs.size() <= 0
                 || isBlank(rwSeparationDsProperties.getDefaultDs())) {
@@ -61,7 +58,7 @@ public class RWSeparationDSAutoConfiguration {
         DataSource ds = null;
         Map<Object, Object> dataSourceMap = new HashMap<Object, Object>();
         JDKingDynamicDataSource dynamicDataSource = new JDKingDynamicDataSource();
-        for (RWSeparationDsProperties.DsConfig dsConfig : masterDsConfigs) {
+        for (ShardingProperties.DsConfig dsConfig : masterDsConfigs) {
             ds = DataSourceBuilder.create().driverClassName(dsConfig.getDriverClassName()).url(dsConfig.getJdbcUrl())
                     .username(dsConfig.getUsername()).password(dsConfig.getPassword()).build();
             String dataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(),
@@ -79,7 +76,7 @@ public class RWSeparationDSAutoConfiguration {
         }
 
         if (!CollectionUtils.isEmpty(slaverDsConfigs)) {
-            for (RWSeparationDsProperties.DsConfig dsConfig : slaverDsConfigs) {
+            for (ShardingProperties.DsConfig dsConfig : slaverDsConfigs) {
                 ds = DataSourceBuilder.create().driverClassName(dsConfig.getDriverClassName())
                         .url(dsConfig.getJdbcUrl()).username(dsConfig.getUsername()).password(dsConfig.getPassword())
                         .build();
@@ -110,16 +107,16 @@ public class RWSeparationDSAutoConfiguration {
     }
 
     @Around("@within(separationDBContext)")
-    public Object classIntercept(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext) throws Throwable {
+    public Object classIntercept(ProceedingJoinPoint joinPoint, ShardingContext separationDBContext) throws Throwable {
         return proceedMethod(joinPoint, separationDBContext);
     }
 
     @Around("@annotation(separationDBContext)")
-    public Object methodIntercept(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext) throws Throwable {
+    public Object methodIntercept(ProceedingJoinPoint joinPoint, ShardingContext separationDBContext) throws Throwable {
         return proceedMethod(joinPoint, separationDBContext);
     }
 
-    private Object proceedMethod(ProceedingJoinPoint joinPoint, RWSeparationDBContext separationDBContext) throws Throwable {
+    private Object proceedMethod(ProceedingJoinPoint joinPoint, ShardingContext separationDBContext) throws Throwable {
         //获取方法参数值数组
         Object[] args = joinPoint.getArgs();
         String expression = separationDBContext.monotonicPropertyExp();

@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.properties;
+package com.jackdking.sharding.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,8 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 @Data
-@ConfigurationProperties(prefix = "rw.separation.ds")
-public class RWSeparationDsProperties {
+@ConfigurationProperties(prefix = "sharding.ds")
+public class ShardingProperties {
 
     private List<DsConfig> masterDsConfigs;
 

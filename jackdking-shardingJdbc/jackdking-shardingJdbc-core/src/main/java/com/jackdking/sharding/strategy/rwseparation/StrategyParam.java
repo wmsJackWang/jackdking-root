@@ -1,6 +1,6 @@
-package com.jackdking.rw.separation.strategy;
+package com.jackdking.sharding.strategy.rwseparation;
 
-import com.jackdking.rw.separation.enums.MethodOperationType;
+import com.jackdking.sharding.enums.MethodOperationType;
 import lombok.Data;
 import org.aopalliance.intercept.Joinpoint;
 

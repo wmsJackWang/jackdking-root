@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jackdking-springsecurity-five" />
+        <module name="jackdking-shardingJdbc-spring-boot-starter" />
         <module name="jackdking-algorithm" />
         <module name="jackdking-grovvy-easyrules-aviator-rules-praser" />
         <module name="jackdking-starter-test" />
@@ -62,6 +63,7 @@
         <module name="jackdking-delay-domainv1-client-starter" />
         <module name="jackdking-redistemplate" />
         <module name="jackdking-muti-datasource" />
+        <module name="jackdking-shardingJdbc-core" />
         <module name="jackdking-spring-security" />
         <module name="jackdking-guava" />
       </profile>
@@ -83,6 +85,8 @@
       <module name="jackdking-multids-spring-boot-starter" options="-parameters" />
       <module name="jackdking-print-starter-test" options="-parameters" />
       <module name="jackdking-rw-separation-spring-boot-starter" options="-parameters" />
+      <module name="jackdking-shardingJdbc-core" options="-parameters" />
+      <module name="jackdking-shardingJdbc-spring-boot-starter" options="-parameters" />
       <module name="jackdking-springsecurity-five" options="-parameters" />
       <module name="jackdking-springsecurity-four" options="-parameters" />
       <module name="jackdking-springsecurity-one" options="-parameters" />

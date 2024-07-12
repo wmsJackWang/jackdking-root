@@ -1,4 +1,4 @@
-package com.jackdking.rw.separation.enums;
+package com.jackdking.sharding.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

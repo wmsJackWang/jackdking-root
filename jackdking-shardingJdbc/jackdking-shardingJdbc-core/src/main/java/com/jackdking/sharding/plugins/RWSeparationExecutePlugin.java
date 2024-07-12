@@ -1,11 +1,11 @@
-package com.jackdking.rw.separation.plugins;
+package com.jackdking.sharding.plugins;
 
 import com.alibaba.fastjson2.JSON;
-import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
-import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
-import com.jackdking.rw.separation.enums.MethodOperationType;
-import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
-import com.jackdking.rw.separation.strategy.StrategyParam;
+import com.jackdking.sharding.annotation.ShardingContext;
+import com.jackdking.sharding.datasource.DynamicDataSourceHolder;
+import com.jackdking.sharding.enums.MethodOperationType;
+import com.jackdking.sharding.enums.RWSeparationStrategyType;
+import com.jackdking.sharding.strategy.rwseparation.StrategyParam;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -56,7 +56,7 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         // 获取 sqlCommandType
         SqlCommandType sqlCommandType = ms.getSqlCommandType();
         String dataSourceName = null;
-        RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum = RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
+        RWSeparationStrategyType rwSeparationStrategyTypeEnum = RWSeparationStrategyType.RW_SEPARATION_ONLY_MASTER;
         MethodOperationType operationType = MethodOperationType.WRITE;
         String monotonicProperty = null;
         // 获取 SQL
@@ -72,14 +72,14 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         }
 
         // 判断方法上是否带有自定义@RWSeparationDBType注解
-        RWSeparationDBContext methodRWSeparationDBType = DynamicDataSourceHolder.separationDBContextHolder.get();
-        RWSeparationDBContext classRWSeparationDBType = DynamicDataSourceHolder.separationDBContextHolder.get();
-        RWSeparationDBContext finalRWSeparationDBContext = getFinalRWSeparationDBContext(methodRWSeparationDBType,
+        ShardingContext methodRWSeparationDBType = DynamicDataSourceHolder.separationDBContextHolder.get();
+        ShardingContext classRWSeparationDBType = DynamicDataSourceHolder.separationDBContextHolder.get();
+        ShardingContext finalRWSeparationDBContext = getFinalRWSeparationDBContext(methodRWSeparationDBType,
                 classRWSeparationDBType);
         // 方法注解
         if (finalRWSeparationDBContext != null) {
-            rwSeparationStrategyTypeEnum = finalRWSeparationDBContext.rwStrategyType();
-            dataSourceName = finalRWSeparationDBContext.dsKey();
+            rwSeparationStrategyTypeEnum = finalRWSeparationDBContext.rwSeparationStrategy();
+            dataSourceName = finalRWSeparationDBContext.dbGroupKey();
             monotonicProperty = finalRWSeparationDBContext.monotonicPropertyExp();
             StrategyParam param = new StrategyParam();
             param.setTargetMethod(targetMethod);
@@ -100,9 +100,9 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
         return proceed;
     }
 
-    private RWSeparationDBContext getFinalRWSeparationDBContext(RWSeparationDBContext... rwSeparationDBContexts) {
+    private ShardingContext getFinalRWSeparationDBContext(ShardingContext... rwSeparationDBContexts) {
         if (Objects.nonNull(rwSeparationDBContexts)) {
-            for (RWSeparationDBContext context : rwSeparationDBContexts) {
+            for (ShardingContext context : rwSeparationDBContexts) {
                 if (Objects.nonNull(context)) {
                     return context;
                 }

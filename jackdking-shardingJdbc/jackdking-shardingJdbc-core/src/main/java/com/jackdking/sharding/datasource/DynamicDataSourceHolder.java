@@ -1,7 +1,8 @@
-package com.jackdking.rw.separation.datasource;
+package com.jackdking.sharding.datasource;
 
-import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
-import com.jackdking.rw.separation.enums.DatabaseMSPrefixType;
+
+import com.jackdking.sharding.annotation.ShardingContext;
+import com.jackdking.sharding.enums.DatabaseMSPrefixType;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -19,7 +20,7 @@ public class DynamicDataSourceHolder {
 
     public static final InheritableThreadLocal<String> monotonicReadArgsHolder = new InheritableThreadLocal<String>();
 
-    public static final InheritableThreadLocal<RWSeparationDBContext> separationDBContextHolder = new InheritableThreadLocal<RWSeparationDBContext>();
+    public static final InheritableThreadLocal<ShardingContext> separationDBContextHolder = new InheritableThreadLocal<ShardingContext>();
 
     @Getter
     private static final Map<String, MasterWithManySlaverWrapper> dsContext = new HashMap<>();

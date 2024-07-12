@@ -1,9 +1,9 @@
-package com.jackdking.rw.separation.plugins;
+package com.jackdking.sharding.plugins;
 
-import com.jackdking.rw.separation.annotation.RWSeparationDBContext;
-import com.jackdking.rw.separation.datasource.DynamicDataSourceHolder;
-import com.jackdking.rw.separation.enums.MethodOperationType;
-import com.jackdking.rw.separation.enums.RWSeparationStrategyTypeEnum;
+import com.jackdking.sharding.annotation.ShardingContext;
+import com.jackdking.sharding.datasource.DynamicDataSourceHolder;
+import com.jackdking.sharding.enums.MethodOperationType;
+import com.jackdking.sharding.enums.RWSeparationStrategyType;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
@@ -99,7 +99,7 @@ public class RWSeparationStatementPlugin extends BaseInterceptor {
             paramString = boundSql.getParameterObject().toString();
         }
         String dataSourceName = null;
-        RWSeparationStrategyTypeEnum rwSeparationStrategyTypeEnum = RWSeparationStrategyTypeEnum.RW_SEPARATION_ONLY_MASTER;
+        RWSeparationStrategyType rwSeparationStrategyTypeEnum = RWSeparationStrategyType.RW_SEPARATION_ONLY_MASTER;
         MethodOperationType operationType = MethodOperationType.WRITE;
         DynamicDataSourceHolder.clearType();// 提前清理数据库类型
 
@@ -111,11 +111,11 @@ public class RWSeparationStatementPlugin extends BaseInterceptor {
                 }
 
                 // 判断方法上是否带有自定义@InterceptAnnotation注解
-                RWSeparationDBContext rwSeparationDBType = method.getAnnotation(RWSeparationDBContext.class);
+                ShardingContext rwSeparationDBType = method.getAnnotation(ShardingContext.class);
                 if (rwSeparationDBType != null) {
                     log.debug("intercept func:{}, type:{}, origin SQL：{}", mName, sqlCommandType, sql);
-                    rwSeparationStrategyTypeEnum = rwSeparationDBType.rwStrategyType();
-                    dataSourceName = rwSeparationDBType.dsKey();
+                    rwSeparationStrategyTypeEnum = rwSeparationDBType.rwSeparationStrategy();
+                    dataSourceName = rwSeparationDBType.dbGroupKey();
                     log.info("new SQL：{}", sql);
                 }
 //                rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType);
