@@ -4,7 +4,6 @@ import com.jackdking.sharding.strategy.sharding.ShardingKeyStrategy;
 import com.jackdking.sharding.strategy.sharding.ShardingResult;
 import com.jackdking.sharding.strategy.sharding.ShardingStrategy;
 
-import java.sql.ShardingKey;
 
 /**
  * Copyright (C) 阿里巴巴

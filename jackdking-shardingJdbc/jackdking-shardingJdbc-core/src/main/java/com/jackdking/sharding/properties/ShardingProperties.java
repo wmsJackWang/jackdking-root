@@ -3,33 +3,22 @@ package com.jackdking.sharding.properties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.List;
+import java.util.Map;
 
 @Data
-@ConfigurationProperties(prefix = "sharding.ds")
+@ConfigurationProperties(prefix = "jackdking.sharding")
 public class ShardingProperties {
 
-    private List<DsConfig> masterDsConfigs;
+    /**
+     * properties配置
+     */
+    private Map<String, String> dataSource;
 
-    private List<DsConfig> slaverDsConfigs;
+    /**
+     * 表分片策略、库、表大小配置
+     */
+    private Map<String, String> table;
 
     private String defaultDs;
 
-    private Boolean enable = Boolean.FALSE;
-
-    @Data
-    public static class DsConfig {
-
-        private String dsName;
-
-        private String masterDsName;
-
-        private String driverClassName;
-
-        private String jdbcUrl;
-
-        private String username;
-
-        private String password;
-    }
 }

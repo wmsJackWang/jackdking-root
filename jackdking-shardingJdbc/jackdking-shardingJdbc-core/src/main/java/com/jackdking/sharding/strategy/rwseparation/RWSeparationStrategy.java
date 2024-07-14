@@ -15,6 +15,6 @@ public interface RWSeparationStrategy {
     void execute(String dataSourceName, MethodOperationType operationType, String monotonicProperty) throws Exception;
 
     default String getDefaultDsKey(ShardingProperties rwSeparationDsProperties) {
-        return rwSeparationDsProperties.getDefaultDs();
+        return null;
     }
 }

@@ -16,6 +16,8 @@ sharding:
         username: root
         password: wanyang@wms
 
+        
+
 
 
 logging:

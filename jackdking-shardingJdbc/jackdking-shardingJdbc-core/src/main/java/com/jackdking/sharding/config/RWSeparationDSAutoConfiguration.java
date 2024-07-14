@@ -1,6 +1,7 @@
 package com.jackdking.sharding.config;
 
 import com.jackdking.sharding.annotation.ShardingContext;
+import com.jackdking.sharding.datasource.DsConfig;
 import com.jackdking.sharding.datasource.DynamicDataSourceHolder;
 import com.jackdking.sharding.datasource.JDKingDynamicDataSource;
 import com.jackdking.sharding.datasource.MasterWithManySlaverWrapper;
@@ -47,55 +48,55 @@ public class RWSeparationDSAutoConfiguration {
 //    @ConditionalOnMissingBean(PrintService.class)
     @Primary
     public DataSource dynamicDataSource() {
-        List<ShardingProperties.DsConfig> masterDsConfigs = rwSeparationDsProperties.getMasterDsConfigs();
-        List<ShardingProperties.DsConfig> slaverDsConfigs = rwSeparationDsProperties.getSlaverDsConfigs();
-
-        if (null == masterDsConfigs || masterDsConfigs.size() <= 0
-                || isBlank(rwSeparationDsProperties.getDefaultDs())) {
-            throw new RuntimeException("数据源写库或默认库未配置，请正确配置数据源");
-        }
-
-        DataSource ds = null;
-        Map<Object, Object> dataSourceMap = new HashMap<Object, Object>();
-        JDKingDynamicDataSource dynamicDataSource = new JDKingDynamicDataSource();
-        for (ShardingProperties.DsConfig dsConfig : masterDsConfigs) {
-            ds = DataSourceBuilder.create().driverClassName(dsConfig.getDriverClassName()).url(dsConfig.getJdbcUrl())
-                    .username(dsConfig.getUsername()).password(dsConfig.getPassword()).build();
-            String dataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(),
-                    dsConfig.getDsName());
-            dataSourceMap.put(dataSourceKey, ds);
-            // 配置默认库
-            if (dsConfig.getDsName().equals(rwSeparationDsProperties.getDefaultDs())) {
-                dynamicDataSource.setDefaultTargetDataSource(ds);
-            }
-
-            MasterWithManySlaverWrapper wrapper = new MasterWithManySlaverWrapper();
-            wrapper.setMasterDatasource(ds);
-            wrapper.setStringDataSourceMap(new HashMap<>());
-            DynamicDataSourceHolder.addMasterSlave(dataSourceKey, wrapper);
-        }
-
-        if (!CollectionUtils.isEmpty(slaverDsConfigs)) {
-            for (ShardingProperties.DsConfig dsConfig : slaverDsConfigs) {
-                ds = DataSourceBuilder.create().driverClassName(dsConfig.getDriverClassName())
-                        .url(dsConfig.getJdbcUrl()).username(dsConfig.getUsername()).password(dsConfig.getPassword())
-                        .build();
-                String slaveDataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.SLAVE.getPrefix(),
-                        dsConfig.getDsName());
-                String masterDataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(),
-                        dsConfig.getMasterDsName());
-                dataSourceMap.put(slaveDataSourceKey, ds);
-                MasterWithManySlaverWrapper masterWithManySlaverWrapper = DynamicDataSourceHolder.getDsContext()
-                        .get(masterDataSourceKey);
-                if (Objects.isNull(masterWithManySlaverWrapper)) {
-                    throw new RuntimeException(String.format("数据源写库%s未配置，请正确配置数据源", dsConfig.getMasterDsName()));
-                }
-                masterWithManySlaverWrapper.getStringDataSourceMap().put(slaveDataSourceKey, ds);
-            }
-        }
-
-        dynamicDataSource.setTargetDataSources(dataSourceMap);
-        return dynamicDataSource;
+//        List<DsConfig> masterDsConfigs = rwSeparationDsProperties.getMasterDsConfigs();
+//        List<DsConfig> slaverDsConfigs = rwSeparationDsProperties.getSlaverDsConfigs();
+//
+//        if (null == masterDsConfigs || masterDsConfigs.size() <= 0
+//                || isBlank(rwSeparationDsProperties.getDefaultDs())) {
+//            throw new RuntimeException("数据源写库或默认库未配置，请正确配置数据源");
+//        }
+//
+//        DataSource ds = null;
+//        Map<Object, Object> dataSourceMap = new HashMap<Object, Object>();
+//        JDKingDynamicDataSource dynamicDataSource = new JDKingDynamicDataSource();
+//        for (ShardingProperties.DsConfigV dsConfig : masterDsConfigs) {
+//            ds = DataSourceBuilder.create().driverClassName(dsConfig.getDriverClassName()).url(dsConfig.getJdbcUrl())
+//                    .username(dsConfig.getUsername()).password(dsConfig.getPassword()).build();
+//            String dataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(),
+//                    dsConfig.getDsName());
+//            dataSourceMap.put(dataSourceKey, ds);
+//            // 配置默认库
+//            if (dsConfig.getDsName().equals(rwSeparationDsProperties.getDefaultDs())) {
+//                dynamicDataSource.setDefaultTargetDataSource(ds);
+//            }
+//
+//            MasterWithManySlaverWrapper wrapper = new MasterWithManySlaverWrapper();
+//            wrapper.setMasterDatasource(ds);
+//            wrapper.setStringDataSourceMap(new HashMap<>());
+//            DynamicDataSourceHolder.addMasterSlave(dataSourceKey, wrapper);
+//        }
+//
+//        if (!CollectionUtils.isEmpty(slaverDsConfigs)) {
+//            for (ShardingProperties.DsConfigV dsConfig : slaverDsConfigs) {
+//                ds = DataSourceBuilder.create().driverClassName(dsConfig.getDriverClassName())
+//                        .url(dsConfig.getJdbcUrl()).username(dsConfig.getUsername()).password(dsConfig.getPassword())
+//                        .build();
+//                String slaveDataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.SLAVE.getPrefix(),
+//                        dsConfig.getDsName());
+//                String masterDataSourceKey = String.format("%s:%s", DatabaseMSPrefixType.MASTER.getPrefix(),
+//                        dsConfig.getMasterDsName());
+//                dataSourceMap.put(slaveDataSourceKey, ds);
+//                MasterWithManySlaverWrapper masterWithManySlaverWrapper = DynamicDataSourceHolder.getDsContext()
+//                        .get(masterDataSourceKey);
+//                if (Objects.isNull(masterWithManySlaverWrapper)) {
+//                    throw new RuntimeException(String.format("数据源写库%s未配置，请正确配置数据源", dsConfig.getMasterDsName()));
+//                }
+//                masterWithManySlaverWrapper.getStringDataSourceMap().put(slaveDataSourceKey, ds);
+//            }
+//        }
+//
+//        dynamicDataSource.setTargetDataSources(dataSourceMap);
+        return null;
     }
 
     public static boolean isBlank(String str) {
