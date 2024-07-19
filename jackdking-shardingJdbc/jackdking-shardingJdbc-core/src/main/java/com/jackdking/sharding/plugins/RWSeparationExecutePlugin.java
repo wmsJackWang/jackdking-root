@@ -5,7 +5,7 @@ import com.jackdking.sharding.annotation.ShardingContext;
 import com.jackdking.sharding.datasource.DynamicDataSourceHolder;
 import com.jackdking.sharding.enums.MethodOperationType;
 import com.jackdking.sharding.enums.RWSeparationStrategyType;
-import com.jackdking.sharding.strategy.rwseparation.StrategyParam;
+import com.jackdking.sharding.strategy.rwseparation.RwStrategyParam;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -21,16 +21,20 @@ import java.util.*;
 
 @Slf4j
 @Component
-@Intercepts({ @Signature(type = Executor.class, method = "update", args = { MappedStatement.class, Object.class }),
-        @Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class,
-                RowBounds.class, ResultHandler.class }) })
+@Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
+        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class,
+                RowBounds.class, ResultHandler.class})})
 public class RWSeparationExecutePlugin extends BaseInterceptor {
 
-    /** 可以识别为 添加、更新、删除类型的 SQL 语句 */
+    /**
+     * 可以识别为 添加、更新、删除类型的 SQL 语句
+     */
     public static final List<SqlCommandType> UPDATE_SQL_LIST = Arrays.asList(SqlCommandType.INSERT,
             SqlCommandType.UPDATE, SqlCommandType.DELETE);
 
-    /** SQL 语句中出现的悲观锁标识 */
+    /**
+     * SQL 语句中出现的悲观锁标识
+     */
     private static final String LOCK_KEYWORD = "for update";
 
     @Override
@@ -78,16 +82,12 @@ public class RWSeparationExecutePlugin extends BaseInterceptor {
                 classRWSeparationDBType);
         // 方法注解
         if (finalRWSeparationDBContext != null) {
-            rwSeparationStrategyTypeEnum = finalRWSeparationDBContext.rwSeparationStrategy();
-            dataSourceName = finalRWSeparationDBContext.dbGroupKey();
-            monotonicProperty = finalRWSeparationDBContext.monotonicPropertyExp();
-            StrategyParam param = new StrategyParam();
+            RwStrategyParam param = new RwStrategyParam();
             param.setTargetMethod(targetMethod);
             param.setTarget(classObj);
             // param.setMethodArgs(targetMethod.getA);
             log.info("data:{}", JSON.toJSONString(invocation.getArgs()[1]));
-            rwSeparationContext.decideWriteReadDs(dataSourceName, rwSeparationStrategyTypeEnum, operationType,
-                    monotonicProperty);
+            rwSeparationContext.decideWriteReadDs(operationType, finalRWSeparationDBContext);
         }
         Object proceed;
         try {

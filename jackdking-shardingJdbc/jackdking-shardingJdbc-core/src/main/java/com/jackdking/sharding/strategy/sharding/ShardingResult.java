@@ -19,6 +19,11 @@ import lombok.NoArgsConstructor;
 public class ShardingResult {
 
     /**
+     * 表逻辑名
+     */
+    private String  logicTableName;
+
+    /**
      * 表示数据库实例的key。
      */
     private String dbKey;

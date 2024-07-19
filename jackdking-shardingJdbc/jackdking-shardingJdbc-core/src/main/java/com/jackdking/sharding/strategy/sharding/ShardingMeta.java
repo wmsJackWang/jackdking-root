@@ -1,6 +1,7 @@
 package com.jackdking.sharding.strategy.sharding;
 
 import com.jackdking.sharding.enums.DbShardingStrategyType;
+import lombok.Data;
 
 /**
  * Copyright (C) 阿里巴巴
@@ -11,6 +12,7 @@ import com.jackdking.sharding.enums.DbShardingStrategyType;
  * @Date 2024/7/10 16:44
  * @Version 2.0
  **/
+@Data
 public class ShardingMeta {
 
     //逻辑表名

@@ -23,15 +23,16 @@ import java.util.function.Supplier;
 public class DbShardingStrategyFactory {
 
     static Map<String, Supplier<ShardingStrategy>> stringSupplierMap = new HashMap<>();
+
     static {
         stringSupplierMap.put(DbShardingStrategyType.HASH.code, DbShardingStrategyFactory::createHashShardingStrategy);
     }
 
     public static ShardingStrategy getStrategyInstance(String strategyCode) {
-       return stringSupplierMap.get(strategyCode).get();
+        return stringSupplierMap.get(strategyCode).get();
     }
 
     static ShardingStrategy createHashShardingStrategy() {
-       return new HashShardingStrategy();
+        return new HashShardingStrategy();
     }
 }

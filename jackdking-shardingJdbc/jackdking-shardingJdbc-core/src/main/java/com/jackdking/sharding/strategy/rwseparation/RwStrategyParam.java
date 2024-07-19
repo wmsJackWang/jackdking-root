@@ -7,7 +7,7 @@ import org.aopalliance.intercept.Joinpoint;
 import java.lang.reflect.Method;
 
 @Data
-public class StrategyParam {
+public class RwStrategyParam {
 
     /**
      * 主库数据源key

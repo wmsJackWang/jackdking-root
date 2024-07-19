@@ -3,9 +3,11 @@ package com.jackdking.sharding.datasource;
 
 import com.jackdking.sharding.annotation.ShardingContext;
 import com.jackdking.sharding.enums.DatabaseMSPrefixType;
+import com.jackdking.sharding.strategy.sharding.ShardingResult;
 import lombok.Getter;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,6 +23,8 @@ public class DynamicDataSourceHolder {
     public static final InheritableThreadLocal<String> monotonicReadArgsHolder = new InheritableThreadLocal<String>();
 
     public static final InheritableThreadLocal<ShardingContext> separationDBContextHolder = new InheritableThreadLocal<ShardingContext>();
+
+    public static final InheritableThreadLocal<List<ShardingResult>> shardingResultsHolder = new InheritableThreadLocal<>();
 
     @Getter
     private static final Map<String, MasterWithManySlaverWrapper> dsContext = new HashMap<>();

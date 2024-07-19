@@ -9,6 +9,7 @@
   <modules>
     <module>jackdking-sdk-multids-starter-example</module>
     <module>jackdking-rw-separation-spring-boot-starter-example</module>
+      <module>jackdking-shardingJdbc-spring-boot-starter-example</module>
   </modules>
   <version>1.0.0</version>
 

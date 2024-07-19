@@ -3,6 +3,7 @@ package com.jackdking.sharding.datasource;
 import lombok.Data;
 
 import javax.sql.DataSource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,10 +18,8 @@ import java.util.Map;
 @Data
 public class MasterWithManySlaverWrapper {
 
-    private String dataSourceName;
+    private String masterDataSourceName;
 
-    private DataSource masterDatasource;
-
-    private Map<String, DataSource> stringDataSourceMap;
+    private List<String> slaveDataSourceList;
 
 }

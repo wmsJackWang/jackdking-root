@@ -8,4 +8,8 @@ public interface Constants {
      * 默认数据源组
      */
     String DEFAULT_DATASOURCE_GROUP = "defaultMain";
+    /**
+     * 默认数据库驱动类
+     */
+    String DEFAULT_DRIVER_CLASS = "com.mysql.jdbc.Driver";
 }
