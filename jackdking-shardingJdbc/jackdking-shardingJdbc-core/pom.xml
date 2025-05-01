@@ -10,4 +10,10 @@
     <name>jackdking-shardingJdbc-core</name>
     <url>http://maven.apache.org</url>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
+    </dependencies>
 </project>

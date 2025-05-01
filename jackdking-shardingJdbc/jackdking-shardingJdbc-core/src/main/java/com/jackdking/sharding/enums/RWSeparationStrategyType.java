@@ -21,6 +21,11 @@ public enum RWSeparationStrategyType {
     /**
      * 主库上写， 只在同一个从库上读
      */
-    RW_SEPARATION_WRITE_MASTER_READ_MONOTONIC_SLAVE,;
+    RW_SEPARATION_WRITE_MASTER_READ_MONOTONIC_SLAVE,
+    /**
+     * 用户自定义策略：如异地多活，单元化，cdn等不同策略
+     */
+    RW_SEPARATION_WRITE_READ_SELF_DEFINE,
+    ;
 
 }

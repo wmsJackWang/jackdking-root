@@ -14,37 +14,46 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ShardingContext {
 
-  /**
-   * 数据源分组key值
-   * @return
-   */
-  String dbGroupKey() default Constants.DEFAULT_DATASOURCE_GROUP;
+    /**
+     * 数据源分组key值
+     *
+     * @return
+     */
+    String dbGroupKey() default Constants.DEFAULT_DATASOURCE_GROUP;
 
-  /**
-   * 分库分表key处理策略
-   */
-  DatabaseMSPrefixType shardingKeyStrategy() default DatabaseMSPrefixType.MASTER;
+    /**
+     * 分库分表key处理策略
+     */
+    DatabaseMSPrefixType shardingKeyStrategy() default DatabaseMSPrefixType.MASTER;
 
-  /**
-   * 逻辑表名。
-   * <p>支持多个表join，业务要保证一个sql多个表需要在一个数据源中。
-   */
-  String[] logicTableName();
+    /**
+     * 逻辑表名。
+     * <p>支持多个表join，业务要保证一个sql多个表需要在一个数据源中。
+     */
+    String[] logicTableName();
 
-  /**
-   * 读写分离的策略
-   *
-   * @return
-   */
-  RWSeparationStrategyType rwSeparationStrategy() default RWSeparationStrategyType.RW_SEPARATION_ONLY_MASTER;
+    /**
+     * 读写分离的策略
+     *
+     * @return
+     */
+    RWSeparationStrategyType rwSeparationStrategy() default RWSeparationStrategyType.RW_SEPARATION_ONLY_MASTER;
 
-  /**
-   * 单调读情况下，需要设置单调读hash字段取值el表达式
-   */
-  String monotonicPropertyExp() default StringUtils.EMPTY;
+    /**
+     * 自定义读写分离策略
+     * 一版用于异地多活、cdn以及其他场景等。
+     */
+    String selfDefineRwStrategyName() default StringUtils.EMPTY;
 
-  /**
-   * 分隔符，用于表名拼接，user_0001
-   */
-  String delimiter() default "_";
+    String shardingProperty();
+
+    /**
+     * 单调读情况下，需要设置单调读hash字段取值el表达式
+     */
+    String monotonicPropertyExp() default StringUtils.EMPTY;
+
+    /**
+     * 分隔符，用于表名拼接，user_0001
+     */
+    String delimiter() default "_";
 }

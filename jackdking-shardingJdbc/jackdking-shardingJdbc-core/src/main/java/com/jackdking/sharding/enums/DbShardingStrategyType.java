@@ -20,11 +20,13 @@ public enum DbShardingStrategyType {
     DAY("day"),
     MONTH("month"),
     YEAR("year"),
+    SELF("self"),
     ;
 
     public String code;
 
     private static Map<String, DbShardingStrategyType> code2ShardingType = new HashMap<>();
+
     static {
         for (DbShardingStrategyType type : DbShardingStrategyType.values()) {
             code2ShardingType.put(type.code, type);

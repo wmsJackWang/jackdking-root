@@ -26,11 +26,11 @@ public class JDKingDynamicDataSource extends AbstractRoutingDataSource {
         // TODO Auto-generated method stub
 
         if (targetDataSources.size() <= 0) {
-          throw new RuntimeException("多数据源不能配置为空");
+            throw new RuntimeException("多数据源不能配置为空");
         }
 
         for (Object key : targetDataSources.keySet()) {
-          mutilDs.add(String.valueOf(key));
+            mutilDs.add(String.valueOf(key));
         }
 
         super.setTargetDataSources(targetDataSources);

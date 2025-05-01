@@ -1,0 +1,29 @@
+jackdking:
+  sharding:
+    dataSourceMap:
+      ds0: myutilproject0|root|wanyang@wms|jdbc:mysql://exam.bittechblog.com:3306/myutilproject0?characterEncoding=GBK&useSSL=false
+      ds1: myutilproject1|root|wanyang@wms|jdbc:mysql://exam.bittechblog.com:3306/myutilproject1?characterEncoding=GBK&useSSL=false
+      ds2: myutilproject2|root|wanyang@wms|jdbc:mysql://exam.bittechblog.com:3306/myutilproject2?characterEncoding=GBK&useSSL=false
+      ds3: myutilproject3|root|wanyang@wms|jdbc:mysql://exam.bittechblog.com:3306/myutilproject3?characterEncoding=GBK&useSSL=false
+      ds4: myutilproject4|root|wanyang@wms|jdbc:mysql://exam.bittechblog.com:3306/myutilproject4?characterEncoding=GBK&useSSL=false
+      ds5: myutilproject5|root|wanyang@wms|jdbc:mysql://exam.bittechblog.com:3306/myutilproject5?characterEncoding=GBK&useSSL=false
+    shardingMetaMap:
+      trans_info: hash|2|2
+    defaultDataSourceGroup: m|ds0,s|ds1,s|ds2
+    dbGroupDataSourceMap:
+      gorup1:
+        0: m|ds0,s|ds1,s|ds2
+        1: m|ds3,s|ds4,s|ds5
+      gorup2:
+        0: m|ds3,s|ds4,s|ds5
+
+
+logging:
+  level:
+    root: debug
+
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.jackdking.model

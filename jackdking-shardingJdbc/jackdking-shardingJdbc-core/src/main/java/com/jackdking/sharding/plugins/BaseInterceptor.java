@@ -2,7 +2,7 @@ package com.jackdking.sharding.plugins;
 
 
 import com.jackdking.sharding.config.Constants;
-import com.jackdking.sharding.strategy.rwseparation.RWSeparationRouteService;
+import com.jackdking.sharding.strategy.rwseparation.RwSeparationRouteService;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.BeansException;
@@ -17,13 +17,13 @@ import java.util.Optional;
 
 public abstract class BaseInterceptor implements ApplicationRunner, ApplicationContextAware, Interceptor {
 
-    RWSeparationRouteService rwSeparationContext;
+    RwSeparationRouteService rwSeparationContext;
 
     ApplicationContext applicationContext;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        rwSeparationContext = (RWSeparationRouteService) applicationContext.getBean(Constants.SEPARATION_CONTEXT_BEAN_NAME);
+        rwSeparationContext = (RwSeparationRouteService) applicationContext.getBean(Constants.SEPARATION_CONTEXT_BEAN_NAME);
         Map<String, SqlSessionFactoryBean> sqlSessionFactoryBeanList = applicationContext
                 .getBeansOfType(SqlSessionFactoryBean.class);
         Optional.ofNullable(sqlSessionFactoryBeanList).orElseGet(Collections::emptyMap)

@@ -6,37 +6,37 @@ rw:
       masterDsConfigs:
         - dsName: ds0
           driverClassName: com.mysql.jdbc.Driver
-          jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject0?characterEncoding=GBK&useSSL=false
+          jdbcUrl: jdbc:mysql://bittechblog.com:3306/myutilproject0?characterEncoding=GBK&useSSL=false
           username: root
           password: wanyang@wms
         - dsName: ds3
           driverClassName: com.mysql.jdbc.Driver
-          jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject3?characterEncoding=GBK&useSSL=false
+          jdbcUrl: jdbc:mysql://bittechblog.com:3306/myutilproject3?characterEncoding=GBK&useSSL=false
           username: root
           password: wanyang@wms
       slaverDsConfigs:
         - dsName: ds1
           masterDsName: ds0
           driverClassName: com.mysql.jdbc.Driver
-          jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject1?characterEncoding=GBK&useSSL=false
+          jdbcUrl: jdbc:mysql://bittechblog.com:3306/myutilproject1?characterEncoding=GBK&useSSL=false
           username: root
           password: wanyang@wms
         - dsName: ds2
           masterDsName: ds0
           driverClassName: com.mysql.jdbc.Driver
-          jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject2?characterEncoding=GBK&useSSL=false
+          jdbcUrl: jdbc:mysql://bittechblog.com:3306/myutilproject2?characterEncoding=GBK&useSSL=false
           username: root
           password: wanyang@wms
         - dsName: ds4
           masterDsName: ds3
           driverClassName: com.mysql.jdbc.Driver
-          jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject4?characterEncoding=GBK&useSSL=false
+          jdbcUrl: jdbc:mysql://bittechblog.com:3306/myutilproject4?characterEncoding=GBK&useSSL=false
           username: root
           password: wanyang@wms
         - dsName: ds5
           masterDsName: ds3
           driverClassName: com.mysql.jdbc.Driver
-          jdbcUrl: jdbc:mysql://exam.bittechblog.com:3306/myutilproject5?characterEncoding=GBK&useSSL=false
+          jdbcUrl: jdbc:mysql://bittechblog.com:3306/myutilproject5?characterEncoding=GBK&useSSL=false
           username: root
           password: wanyang@wms
 
